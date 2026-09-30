@@ -3,12 +3,12 @@
 ## Evaluation Profile
 - **Role**: Forensic compliance investigator verifying real syndicate fund provenance
 - **Target URL**: http://localhost:8000/web/syndicate_terminal.html
-- **Timestamp**: 2026-09-30T11:29:25Z
+- **Timestamp**: 2026-09-30T14:17:55Z
 
 ## Observations & Findings
 1. **Real Deployer Search**: Querying real deployer prefix `69aiAKU3` (creator of `$ZLONG`) isolated 2 matching cards.
 2. **Capital Gating Precision**: Partitioned wallets correctly:
-   - Ready (≥$5.00): 15+ deployers
+   - Ready (≥$5.00): 18+ deployers
    - Anchors (≥20 SOL): 2 treasury anchors
    - Dust (<$5.00): 0 dust wallets
 3. **2D SVG Lineage DAG**: Rendered 7 connected nodes linking whale anchors to active deployers and token mints.

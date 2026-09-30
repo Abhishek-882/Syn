@@ -2,13 +2,13 @@
 
 ## Execution Summary
 - **Target URL**: http://localhost:8000/web/syndicate_terminal.html
-- **Interactive Elements Discovered**: 15
-- **Tested**: 15
-- **Passed**: 15
+- **Interactive Elements Discovered**: 18
+- **Tested**: 18
+- **Passed**: 18
 - **Failed**: 0
 - **Pointer Collision Rate**: 0.0%
 - **Console Errors**: 0
-- **Page Errors**: 1
+- **Page Errors**: 0
 
 ## Tested Interactive Selectors
 - `#notif-toggle-btn`: PASS
@@ -17,6 +17,9 @@
 - `#tab-ready`: PASS
 - `#tab-treasury`: PASS
 - `#tab-dust`: PASS
+- `#tab-center-history`: PASS
+- `button:has-text('Sync Live Metrics')`: PASS
+- `#tab-center-feed`: PASS
 - `button:has-text('All Activity')`: PASS
 - `button:has-text('Token Creates')`: PASS
 - `button:has-text('Transfers')`: PASS

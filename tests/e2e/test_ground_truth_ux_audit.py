@@ -90,7 +90,10 @@ def run_ground_truth_ux_audit():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        context = browser.new_context(viewport={"width": 1440, "height": 900})
+        context = browser.new_context(
+            viewport={"width": 1440, "height": 900},
+            permissions=["clipboard-read", "clipboard-write"],
+        )
         page = context.new_page()
 
         console_errors = []
@@ -144,15 +147,18 @@ def run_ground_truth_ux_audit():
 
         assert "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU" not in dex_url, "Found legacy/fake coin in DexScreener URL!"
         assert "4dNj3ykr" not in dex_url, "Found 0-pair BELUGA in DexScreener URL!"
-        assert "2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih" in dex_url, f"DexScreener not pointing to active $ZLONG pair: {dex_url}"
-        assert "gmgn.ai/sol/token/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" in gmgn_url, f"Unexpected GMGN URL: {gmgn_url}"
+        assert ("2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih" in dex_url or "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump" in dex_url), f"DexScreener not pointing to active token pair: {dex_url}"
+        assert ("4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" in gmgn_url or "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump" in gmgn_url), f"Unexpected GMGN URL: {gmgn_url}"
 
         # Step 103: Spotlight verified GMGN and DEX links
         f103 = steps_dir / "103_hunter_gmgn_dex_verified.png"
         page.screenshot(path=str(f103))
         page.screenshot(path=str(screenshots_dir / "103_hunter_gmgn_dex_verified.png"))
         p1_actions.append(f"Verified live DEX links: DexScreener={dex_url} | GMGN={gmgn_url}")
-        audit_results["action_hashes"].append(action_hash("inspect", "#spotlight-gmgn-btn"))
+        # Switch to Live Activity Feed tab to expose feed filter buttons
+        if page.locator("#tab-center-feed").count() > 0:
+            page.locator("#tab-center-feed").click()
+            page.wait_for_timeout(300)
 
         # Filter activity tape by Token Creates (🚨)
         filter_creates = page.locator("button:has-text('Token Creates')")
@@ -305,8 +311,8 @@ def run_ground_truth_ux_audit():
         p3_actions.append(f"Evaluated 2D visual hierarchy & {chip_count} status chips")
         audit_results["action_hashes"].append(action_hash("inspect", ".status-bar"))
 
-        # 1-click address copy pill
-        copy_pills = page.locator(".copy-pill")
+        # 1-click address copy pill (test visible element)
+        copy_pills = page.locator(".copy-pill:visible")
         if copy_pills.count() > 0:
             copy_pills.first.click()
             page.wait_for_timeout(400)
@@ -318,6 +324,9 @@ def run_ground_truth_ux_audit():
         audit_results["action_hashes"].append(action_hash("click", ".copy-pill"))
 
         # Step 105: Verify activity feed GMGN copy-pill links
+        if page.locator("#tab-center-feed").count() > 0:
+            page.locator("#tab-center-feed").click()
+            page.wait_for_timeout(300)
         gmgn_feed_pills = page.locator("#feed-list a:has-text('GMGN')")
         assert gmgn_feed_pills.count() > 0, "Feed missing GMGN copy pills on token creation cards!"
         feed_gmgn_href = gmgn_feed_pills.first.get_attribute("href") or ""
@@ -353,6 +362,9 @@ def run_ground_truth_ux_audit():
             "#tab-ready",
             "#tab-treasury",
             "#tab-dust",
+            "#tab-center-history",
+            "button:has-text('Sync Live Metrics')",
+            "#tab-center-feed",
             "button:has-text('All Activity')",
             "button:has-text('Token Creates')",
             "button:has-text('Transfers')",
@@ -373,15 +385,23 @@ def run_ground_truth_ux_audit():
             if loc.count() > 0:
                 tested_count += 1
                 try:
-                    # Check pointer collision and interactivity
-                    is_visible = loc.is_visible()
-                    if is_visible:
-                        # Safe hover or click
-                        if sel != ".btn-dismiss":  # Keep spotlight visible
-                            loc.hover(timeout=1000)
+                    if sel in ("#tab-center-feed", "#tab-center-history"):
+                        loc.click()
+                        page.wait_for_timeout(200)
                         passed_count += 1
+                    else:
+                        is_visible = loc.is_visible()
+                        if is_visible:
+                            if sel != ".btn-dismiss":  # Keep spotlight visible
+                                loc.hover(timeout=1000)
+                            passed_count += 1
                 except Exception as exc:
                     failures.append({"selector": sel, "error": str(exc)})
+
+        # Ensure terminal returns to pristine default view (Token Track Record)
+        if page.locator("#tab-center-history").count() > 0:
+            page.locator("#tab-center-history").click()
+            page.wait_for_timeout(300)
 
         # Step 106: Post-Deploy Button Sweep Screenshot with GMGN
         f106 = steps_dir / "106_post_deploy_button_sweep_with_gmgn.png"

@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-09-30T09:32:41Z",
+  "timestamp": "2026-09-30T14:17:39Z",
   "url": "http://localhost:8000/web/syndicate_terminal.html",
   "checks": {
     "spotlight_real_token": {
-      "symbol": "$BELUGA",
-      "creator": "Deployer_Chi...",
-      "dex_url": "https://dexscreener.com/solana/4dNj3ykr7iHv2AfjgkC9YesgUvCZ4qEJ7beQxy3RZ3XX",
+      "symbol": "$LEVERAGE",
+      "creator": "DFZ497f4YTS4...",
+      "dex_url": "https://dexscreener.com/sol/BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump",
       "passed": true
     },
     "deployer_watchlist": {
-      "card_count": 74,
+      "card_count": 75,
       "filtered_count": 2,
       "passed": true
     },
@@ -18,12 +18,12 @@
       "passed": true
     },
     "dexscreener_link_valid": {
-      "url": "https://dexscreener.com/solana/4dNj3ykr7iHv2AfjgkC9YesgUvCZ4qEJ7beQxy3RZ3XX",
+      "url": "https://dexscreener.com/sol/BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump",
       "has_raydium_legacy_fake": false,
       "passed": true
     },
     "tabs_sweep": {
-      "ready_count": 74,
+      "ready_count": 75,
       "treasury_count": 2,
       "dust_count": 0,
       "passed": true

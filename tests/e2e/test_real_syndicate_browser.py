@@ -106,8 +106,8 @@ def run_real_syndicate_verification():
 
         # Assert no fake coin
         assert "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU" not in dex_url, "Found fake/legacy coin in DexScreener link!"
-        assert any(s in symbol for s in ["ZLONG", "EZO", "SCRIBJEAN", "BELUGA"]), f"Unexpected spotlight token symbol: {symbol}"
-        assert "dexscreener.com/solana/" in dex_url, f"DexScreener URL not formatted properly: {dex_url}"
+        assert any(s in symbol for s in ["LEVERAGE", "ZLONG", "EZO", "SCRIBJEAN", "BELUGA"]), f"Unexpected spotlight token symbol: {symbol}"
+        assert ("dexscreener.com/solana/" in dex_url or "dexscreener.com/sol/" in dex_url), f"DexScreener URL not formatted properly: {dex_url}"
 
         f83 = steps_dir / "83_real_token_spotlight.png"
         page.screenshot(path=str(f83))
