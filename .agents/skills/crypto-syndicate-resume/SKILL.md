@@ -218,6 +218,16 @@ tests/
          - README.md: Added "Deploy to Render" 1-click badge, architecture flow, and API docs.
          - Git Remote: Linked to https://github.com/Abhishek-882/Syn.git (main branch).
 
+- [x] M20 — Autonomous Syndicate Keeper & Historical Token Track Record (ATH & Recency):
+         - Token Attribution: Ingested `BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump` ($LEVERAGE, creator `DFZ497...`, Binance genesis funding 1.495 SOL, $1.45M ATH, $13.9K current mcap, cluster `SYND-0095`).
+         - GMGN OpenAPI Auth & TimeSync: Compensated ~15.5s Windows host clock drift using remote HTTP header offset, preventing `AUTH_TIMESTAMP_EXPIRED` (401).
+         - Autonomous Syndicate Keeper (`src/crypto_syndicate/keeper.py`): Continuous monitoring loop, automatic wallet sync, on-demand REST trigger `/api/keeper/run`.
+         - Ground Truth Historical Track Record: Implemented `get_syndicate_token_history()` in `src/crypto_syndicate/ground_truth_loader.py` and exposed `/api/token-history`.
+         - Clean 2D Terminal (`web/syndicate_terminal.html`): View switcher between `[🏛️ Token Track Record (ATH & Recency)]` and `[📡 Live Activity Feed]`, showing Rank #1 $LEVERAGE at the top, ranked chronologically descending by release date (recent first), with gold ATH, current mcap, peak multipliers, copy pills, and verified links to DexScreener, GMGN, and Pump.fun.
+         - Codified Rule: `.agents/rules/syndicate-keeper-autonomous-sync.md` pursuant to `/learn`.
+         - Testing & Verification: 307/307 unit tests passed; Playwright browser E2E test passed (Steps 108, 109, 110 screenshots saved).
+         - Production Cloud Sync: Pushed to GitHub `https://github.com/Abhishek-882/Syn.git` triggering automatic Render redeploy.
+
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant
 - agent-skills (production-grade agent skill templates): https://github.com/addyosmani/agent-skills
