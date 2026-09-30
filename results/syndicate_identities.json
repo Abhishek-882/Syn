@@ -12586,5 +12586,40 @@
     "behavior_texts": [],
     "metadata": {},
     "notes": ""
+  },
+  "SYND-0096": {
+    "identity_id": "SYND-0096",
+    "syndicate_id": "SYND-0096",
+    "alias": "Syndicate SYND-0096 (BITDOG)",
+    "primary_wallets": [
+      "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx"
+    ],
+    "known_wallets": [
+      "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx"
+    ],
+    "historical_tokens": [
+      "B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_B3jjDNkB",
+      "token_address": "B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 8,
+      "estimated_profit_usd": 90208.34,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump"
+      ],
+      "deployer_wallet": "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx",
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 90208.34,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
   }
 }

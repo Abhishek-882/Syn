@@ -1,5 +1,31 @@
 [
   {
+    "token": "B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS",
+    "symbol": "BITDOG",
+    "name": "BITCOIN DOG",
+    "dex": "pumpswap",
+    "pair_address": "A6h4FGP3AAtGfXX5VZQhCcyZmctHZir2a1VooFtbcfD3",
+    "dex_url": "https://dexscreener.com/solana/A6h4FGP3AAtGfXX5VZQhCcyZmctHZir2a1VooFtbcfD3",
+    "pump_url": "https://pump.fun/B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS",
+    "gmgn_url": "https://gmgn.ai/sol/token/B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS",
+    "price_usd": "0.00024349",
+    "liquidity_usd": 45049.45,
+    "created_at_ms": 1789516080000,
+    "ath_market_cap_usd": 601388.95,
+    "current_market_cap_usd": 243421.05,
+    "deployers": [
+      "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx"
+    ],
+    "fund_from": "Binance",
+    "holder_count": 604,
+    "launchpad_platform": "stonkfun",
+    "syndicates": [
+      "SYND-0096"
+    ],
+    "wallets_count": 8
+  },
+  {
     "token": "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump",
     "symbol": "LEVERAGE",
     "name": "Leverage Pad ",

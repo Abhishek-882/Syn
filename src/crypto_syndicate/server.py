@@ -199,17 +199,24 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
                 except Exception as e:
                     logger.debug("Failed reading live_alerts.json: %s", e)
 
-        # Fallback to GroundTruthLoader if launches or deployers empty
-        if not data["launches"] or not data["deployers"]:
-            try:
-                from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
-                loader = get_ground_truth_loader()
-                if not data["launches"]:
-                    data["launches"] = [l.to_dict() for l in loader.get_verified_launches()]
-                if not data["deployers"]:
-                    data["deployers"] = loader.get_deployers()
-            except Exception as e:
-                logger.debug("GroundTruthLoader server fallback error: %s", e)
+        # Always merge live deployers and verified launches from GroundTruthLoader
+        try:
+            from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
+            loader = get_ground_truth_loader()
+            loader.reload()
+            
+            existing_deps = {d.get("address"): d for d in data.get("deployers", []) if d.get("address")}
+            for d in loader.get_deployers():
+                if d.get("address") not in existing_deps:
+                    data["deployers"].append(d)
+
+            existing_launches = {l.get("mint_address"): l for l in data.get("launches", []) if l.get("mint_address")}
+            for l in loader.get_verified_launches():
+                l_dict = l.to_dict()
+                if l_dict.get("mint_address") not in existing_launches:
+                    data["launches"].append(l_dict)
+        except Exception as e:
+            logger.debug("GroundTruthLoader live merge error: %s", e)
 
         # Filter out 0-pair tokens (BELUGA) so spotlight only showcases active trading pairs (LEVERAGE, ZLONG, EZO, etc.)
         data["launches"] = [
@@ -221,7 +228,9 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         # Include rich historical token track record ranked by recency
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
-            data["token_history"] = get_ground_truth_loader().get_syndicate_token_history()
+            loader = get_ground_truth_loader()
+            loader.reload()
+            data["token_history"] = loader.get_syndicate_token_history()
         except Exception as e:
             logger.debug("Failed adding token_history to syndicates snapshot: %s", e)
             data["token_history"] = []
@@ -239,6 +248,7 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
+            loader.reload()
             tokens = loader.get_syndicate_token_history()
         except Exception as e:
             logger.error("Error retrieving token history: %s", e)

@@ -235,9 +235,10 @@ class GroundTruthLoader:
         now = time.time()
         launches = []
 
-        # Order prioritizing high-liquidity active pairs: LEVERAGE, ZLONG, EZO, SCRIBJEAN, shibuh
+        # Order prioritizing high-liquidity active pairs: LEVERAGE, BITDOG, ZLONG, EZO, SCRIBJEAN, shibuh
         priority_tokens = [
             "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump",  # LEVERAGE ($1.45M ATH)
+            "B3jjDNkBw48utaFxRRSWxg4oUkN23YxodChdEf4bxhQS",  # BITDOG ($601.4K ATH)
             "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",  # ZLONG
             "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",  # Ezo
             "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",  # Scribble Jean Phil
@@ -247,6 +248,12 @@ class GroundTruthLoader:
             "C2yUFYGox1ggub6eVfWC8hgxCSyuVDisbizjZ5xtpump",  # Tommy
             "YobdHfQpVakdh5UhBUo5w9Qn43RBmyN64bTzeQVpump",  # FOMO
         ]
+
+        # Dynamically append any other live tokens
+        for t in self.live_tokens:
+            t_addr = t.get("token")
+            if t_addr and t_addr not in priority_tokens:
+                priority_tokens.append(t_addr)
 
         # Map live tokens by address
         live_map = {t["token"]: t for t in self.live_tokens}
