@@ -1,0 +1,612 @@
+{
+  "url": "http://localhost:8000/web/syndicate_3d_visualizer.html",
+  "total_steps": 60,
+  "passed": 60,
+  "failed": 0,
+  "console_errors_count": 0,
+  "page_errors_count": 0,
+  "console_errors": [],
+  "page_errors": [],
+  "steps": [
+    {
+      "step": 1,
+      "name": "Baseline Overview",
+      "action": "Load station and verify WebGL canvas, HUD and radar",
+      "screenshot": "results\\screenshots\\steps\\01_baseline_overview.png",
+      "status": "PASS",
+      "duration_ms": 418.5,
+      "verification_details": "Nodes: 16, Feed: 3 DETECTED",
+      "error": null
+    },
+    {
+      "step": 2,
+      "name": "GMGN Health Chip",
+      "action": "Click GMGN health chip to open Level 1 explain card",
+      "screenshot": "results\\screenshots\\steps\\02_chip_gmgn_explain.png",
+      "status": "PASS",
+      "duration_ms": 394.6,
+      "verification_details": "Explain Title: GMGN CLI Trend & Sniper Engine",
+      "error": null
+    },
+    {
+      "step": 3,
+      "name": "Solscan Health Chip",
+      "action": "Click Solscan chip to inspect circuit breaker canary explain card",
+      "screenshot": "results\\screenshots\\steps\\03_chip_solscan_explain.png",
+      "status": "PASS",
+      "duration_ms": 315.9,
+      "verification_details": "Explain Title: Solscan Pro REST API Failover",
+      "error": null
+    },
+    {
+      "step": 4,
+      "name": "RPC Health Chip",
+      "action": "Click RPC chip to inspect RPC failover explain card",
+      "screenshot": "results\\screenshots\\steps\\04_chip_rpc_explain.png",
+      "status": "PASS",
+      "duration_ms": 400.6,
+      "verification_details": "Explain Title: Solana Validator Direct RPC",
+      "error": null
+    },
+    {
+      "step": 5,
+      "name": "Cache Health Chip",
+      "action": "Click Cache chip to verify SQLite WAL hit rate & telemetry",
+      "screenshot": "results\\screenshots\\steps\\05_chip_cache_explain.png",
+      "status": "PASS",
+      "duration_ms": 305.3,
+      "verification_details": "Explain Title: Two-Tier Immutable Cache (LRU + SQLite WAL) | Telemetry: Hit Rate: 26.0% | Cache Hits: 840 | Total Queries: 3232 | Mode: Memory + SQLite WAL",
+      "error": null
+    },
+    {
+      "step": 6,
+      "name": "Dismiss Plaque",
+      "action": "Close explain card to clear viewport",
+      "screenshot": "results\\screenshots\\steps\\06_plaque_dismissed.png",
+      "status": "PASS",
+      "duration_ms": 344.1,
+      "verification_details": "Plaque hidden: True",
+      "error": null
+    },
+    {
+      "step": 7,
+      "name": "Pitch/Yaw Telemetry",
+      "action": "Click pitch/yaw telemetry row for explain card",
+      "screenshot": "results\\screenshots\\steps\\07_hud_angles_explain.png",
+      "status": "PASS",
+      "duration_ms": 336.1,
+      "verification_details": "Explain Title: Gimbal Pitch & Yaw Coordinates",
+      "error": null
+    },
+    {
+      "step": 8,
+      "name": "Distance Telemetry",
+      "action": "Click distance telemetry row for camera physics explain card",
+      "screenshot": "results\\screenshots\\steps\\08_hud_distance_explain.png",
+      "status": "PASS",
+      "duration_ms": 313.1,
+      "verification_details": "Explain Title: Camera Focal Distance",
+      "error": null
+    },
+    {
+      "step": 9,
+      "name": "Nodes Count Telemetry",
+      "action": "Click nodes count telemetry row for connectome explain card",
+      "screenshot": "results\\screenshots\\steps\\09_hud_nodes_explain.png",
+      "status": "PASS",
+      "duration_ms": 329.2,
+      "verification_details": "Explain Title: Active Network Entities (Nodes)",
+      "error": null
+    },
+    {
+      "step": 10,
+      "name": "Syndicates Count Telemetry",
+      "action": "Click syndicates count row for cluster explain card",
+      "screenshot": "results\\screenshots\\steps\\10_hud_syndicates_explain.png",
+      "status": "PASS",
+      "duration_ms": 290.1,
+      "verification_details": "Explain Title: Identified Syndicate Clusters",
+      "error": null
+    },
+    {
+      "step": 11,
+      "name": "Tag Filter FlashMode",
+      "action": "Filter 3D connectome and alerts to Flash Mode only",
+      "screenshot": "results\\screenshots\\steps\\11_tag_flash_filter.png",
+      "status": "PASS",
+      "duration_ms": 351.5,
+      "verification_details": "Flash filter active: True",
+      "error": null
+    },
+    {
+      "step": 12,
+      "name": "Tag Filter Bundlers",
+      "action": "Filter 3D connectome to Bundler rate > 40%",
+      "screenshot": "results\\screenshots\\steps\\12_tag_bundler_filter.png",
+      "status": "PASS",
+      "duration_ms": 367.6,
+      "verification_details": "Bundler filter active: True",
+      "error": null
+    },
+    {
+      "step": 13,
+      "name": "Tag Filter All",
+      "action": "Reset filter to display all 3D entities",
+      "screenshot": "results\\screenshots\\steps\\13_tag_all_reset.png",
+      "status": "PASS",
+      "duration_ms": 645.3,
+      "verification_details": "All filter active: True",
+      "error": null
+    },
+    {
+      "step": 14,
+      "name": "Radar KPI Syndicates",
+      "action": "Click Active Syndicates KPI card for scoring explanation",
+      "screenshot": "results\\screenshots\\steps\\14_kpi_syndicates_explain.png",
+      "status": "PASS",
+      "duration_ms": 325.5,
+      "verification_details": "Explain Title: Active Syndicate Clusters KPI",
+      "error": null
+    },
+    {
+      "step": 15,
+      "name": "Radar KPI Profit",
+      "action": "Click Est. Profit KPI card for profit calculation explanation",
+      "screenshot": "results\\screenshots\\steps\\15_kpi_profit_explain.png",
+      "status": "PASS",
+      "duration_ms": 355.9,
+      "verification_details": "Explain Title: Estimated Extracted Capital KPI",
+      "error": null
+    },
+    {
+      "step": 16,
+      "name": "Open Syndicate Dossier",
+      "action": "Click alert card to open dossier & trigger camera glide",
+      "screenshot": "results\\screenshots\\steps\\16_alert_card_dossier.png",
+      "status": "PASS",
+      "duration_ms": 1276.2,
+      "verification_details": "Title: Syndicate SYND-0001 (Flash), Mode: FLASH, Funder: Pending on-chain lineage",
+      "error": null
+    },
+    {
+      "step": 17,
+      "name": "Synaptic Backlink Glide",
+      "action": "Click entity backlink pill to glide camera & pulse neuron",
+      "screenshot": "results\\screenshots\\steps\\17_synaptic_backlink_glide.png",
+      "status": "PASS",
+      "duration_ms": 1244.7,
+      "verification_details": "Clicked backlink: Wallet: 4dNj3ykr... (total: 5)",
+      "error": null
+    },
+    {
+      "step": 18,
+      "name": "Copy Wallet Action",
+      "action": "Click COPY WALLET button and verify toast notification",
+      "screenshot": "results\\screenshots\\steps\\18_copy_wallet_toast.png",
+      "status": "PASS",
+      "duration_ms": 307.3,
+      "verification_details": "Toast message: COPIED 4dNj3ykr7iHv2Afj...",
+      "error": null
+    },
+    {
+      "step": 19,
+      "name": "Export Markdown Dossier",
+      "action": "Click EXPORT (.MD) to generate and copy intelligence markdown",
+      "screenshot": "results\\screenshots\\steps\\19_export_markdown.png",
+      "status": "PASS",
+      "duration_ms": 309.2,
+      "verification_details": "Export toast: COPIED 4dNj3ykr7iHv2Afj...",
+      "error": null
+    },
+    {
+      "step": 20,
+      "name": "Close Dossier Plaque",
+      "action": "Dismiss dossier plaque to reveal center connectome",
+      "screenshot": "results\\screenshots\\steps\\20_dossier_closed.png",
+      "status": "PASS",
+      "duration_ms": 394.0,
+      "verification_details": "Plaque dismissed: True",
+      "error": null
+    },
+    {
+      "step": 21,
+      "name": "Timeline Mint (T+0s)",
+      "action": "Jump 4D timeline to T+0s and inspect deployed token",
+      "screenshot": "results\\screenshots\\steps\\21_timeline_mint_t0.png",
+      "status": "PASS",
+      "duration_ms": 357.6,
+      "verification_details": "Time display: T + 00:00s, Slider: 0",
+      "error": null
+    },
+    {
+      "step": 22,
+      "name": "Timeline Snipers (T+13s)",
+      "action": "Jump timeline to T+13s and verify sniper cohort highlights",
+      "screenshot": "results\\screenshots\\steps\\22_timeline_snipers_t13.png",
+      "status": "PASS",
+      "duration_ms": 328.8,
+      "verification_details": "Time: T + 13:00s, Slider: 13, Explain: Stage 2: High-Frequency Sniper Ingress (T + 13s)",
+      "error": null
+    },
+    {
+      "step": 23,
+      "name": "Timeline Bundle (T+16s)",
+      "action": "Jump timeline to T+16s and verify Jito bundle explanation",
+      "screenshot": "results\\screenshots\\steps\\23_timeline_bundle_t16.png",
+      "status": "PASS",
+      "duration_ms": 383.6,
+      "verification_details": "Time: T + 16:00s, Slider: 16, Explain: Stage 3: Synchronized Volume Bundle (T + 16s)",
+      "error": null
+    },
+    {
+      "step": 24,
+      "name": "Timeline Dump (T+35s)",
+      "action": "Jump timeline to T+35s and verify exit dump dimming",
+      "screenshot": "results\\screenshots\\steps\\24_timeline_dump_t35.png",
+      "status": "PASS",
+      "duration_ms": 323.1,
+      "verification_details": "Time: T + 35:00s, Slider: 35, Explain: Stage 4: Coordinated Liquidation / Rug (T + 35s)",
+      "error": null
+    },
+    {
+      "step": 25,
+      "name": "Timeline Slider Scrub",
+      "action": "Directly scrub timeline slider to T+50s",
+      "screenshot": "results\\screenshots\\steps\\25_timeline_scrub_t50.png",
+      "status": "PASS",
+      "duration_ms": 261.4,
+      "verification_details": "Scrubbed time: T + 50:00s",
+      "error": null
+    },
+    {
+      "step": 26,
+      "name": "Timeline Play/Pause Transport",
+      "action": "Start timeline playback for 1.5s then pause",
+      "screenshot": "results\\screenshots\\steps\\26_timeline_playback_pause.png",
+      "status": "PASS",
+      "duration_ms": 1891.1,
+      "verification_details": "Playback time: T + 55:00s, Button text after pause: \u25b6 PLAY",
+      "error": null
+    },
+    {
+      "step": 27,
+      "name": "CL4R1T4S Mode Active",
+      "action": "Toggle high-contrast CRT phosphor scanline filter",
+      "screenshot": "results\\screenshots\\steps\\27_cl4r1t4s_mode_on.png",
+      "status": "PASS",
+      "duration_ms": 315.4,
+      "verification_details": "CRT Overlay Opacity: 0.45",
+      "error": null
+    },
+    {
+      "step": 28,
+      "name": "Reset View",
+      "action": "Click RESET VIEW to restore canonical camera angle",
+      "screenshot": "results\\screenshots\\steps\\28_reset_view_restored.png",
+      "status": "PASS",
+      "duration_ms": 728.6,
+      "verification_details": "Camera coordinates reset to default (0, 160, 380)",
+      "error": null
+    },
+    {
+      "step": 29,
+      "name": "Collapse Command Deck",
+      "action": "Collapse right dock to maximize 3D connectome canvas",
+      "screenshot": "results\\screenshots\\steps\\29_command_deck_collapsed.png",
+      "status": "PASS",
+      "duration_ms": 342.6,
+      "verification_details": "Command deck collapsed: True",
+      "error": null
+    },
+    {
+      "step": 30,
+      "name": "Re-Expand Command Deck",
+      "action": "Restore command deck and confirm full station harmony",
+      "screenshot": "results\\screenshots\\steps\\30_command_deck_restored.png",
+      "status": "PASS",
+      "duration_ms": 591.0,
+      "verification_details": "Command deck re-expanded (collapsed=False)",
+      "error": null
+    },
+    {
+      "step": 31,
+      "name": "Vector Memory HUD Telemetry",
+      "action": "Verify vector memory telemetry HUD row displays active index count",
+      "screenshot": "results\\screenshots\\steps\\31_hud_vector_memory.png",
+      "status": "PASS",
+      "duration_ms": 190.1,
+      "verification_details": "HUD Vector Memory count: 4 STORED",
+      "error": null
+    },
+    {
+      "step": 32,
+      "name": "Open Dossier Similar Wallets",
+      "action": "Click alert card to open dossier with Similar Wallets section",
+      "screenshot": "results\\screenshots\\steps\\32_dossier_similar_wallets.png",
+      "status": "PASS",
+      "duration_ms": 1262.6,
+      "verification_details": "Similar wallets section successfully displayed inside curatorial plaque",
+      "error": null
+    },
+    {
+      "step": 33,
+      "name": "Similar Wallet Cards Density",
+      "action": "Inspect rendered similar wallet cards in active dossier",
+      "screenshot": "results\\screenshots\\steps\\33_similar_wallet_cards.png",
+      "status": "PASS",
+      "duration_ms": 203.0,
+      "verification_details": "Rendered 4 similar wallet cards in dossier",
+      "error": null
+    },
+    {
+      "step": 34,
+      "name": "Top Similar Wallet Details",
+      "action": "Verify short address, similarity badge, syndicate tag, and Jito marker",
+      "screenshot": "results\\screenshots\\steps\\34_top_similar_wallet_details.png",
+      "status": "PASS",
+      "duration_ms": 228.5,
+      "verification_details": "Top match card text: 7xKXtg2C...osgAsU\n            94.2%\n          \n          \n            SYND-0002\n            SOL\n            \ud83c\udfaf JITO\n            #sniper#bundler | Similarity badge: 94.2%",
+      "error": null
+    },
+    {
+      "step": 35,
+      "name": "Cosine Similarity Score Gauge",
+      "action": "Verify deterministic cosine similarity percentage and color-coded badge",
+      "screenshot": "results\\screenshots\\steps\\35_similarity_score_gauge.png",
+      "status": "PASS",
+      "duration_ms": 244.6,
+      "verification_details": "Badge text: 94.2%, CSS class: similarity-badge badge-high",
+      "error": null
+    },
+    {
+      "step": 36,
+      "name": "Similarity Slider Scale Down",
+      "action": "Adjust similarity slider to 3 and verify card count updates dynamically",
+      "screenshot": "results\\screenshots\\steps\\36_similarity_slider_down.png",
+      "status": "PASS",
+      "duration_ms": 564.8,
+      "verification_details": "Slider set to 3: displayed count = 3, visible cards = 3",
+      "error": null
+    },
+    {
+      "step": 37,
+      "name": "Similarity Slider Scale Up",
+      "action": "Adjust similarity slider to 10 and verify card list expands",
+      "screenshot": "results\\screenshots\\steps\\37_similarity_slider_up.png",
+      "status": "PASS",
+      "duration_ms": 602.4,
+      "verification_details": "Slider set to 10: displayed count = 10, visible cards = 4",
+      "error": null
+    },
+    {
+      "step": 38,
+      "name": "3D Similarity Spline Arcs",
+      "action": "Verify 3D dashed bezier connectome arcs rendered between similar wallets",
+      "screenshot": "results\\screenshots\\steps\\38_similarity_spline_arcs.png",
+      "status": "PASS",
+      "duration_ms": 173.4,
+      "verification_details": "3D Luminous Cyan Dashed Similarity Arcs rendered: 4 splines",
+      "error": null
+    },
+    {
+      "step": 39,
+      "name": "Glide Focus Similar Wallet",
+      "action": "Click similar wallet card to trigger camera glide and entity inspection",
+      "screenshot": "results\\screenshots\\steps\\39_glide_similar_wallet.png",
+      "status": "PASS",
+      "duration_ms": 1229.5,
+      "verification_details": "Glided focus to similar wallet. Current dossier title: $PUMPFLASH",
+      "error": null
+    },
+    {
+      "step": 40,
+      "name": "Dismiss Curatorial Dossier",
+      "action": "Dismiss plaque and confirm visualizer returns to clean connectome canvas",
+      "screenshot": "results\\screenshots\\steps\\40_dismiss_dossier_final.png",
+      "status": "PASS",
+      "duration_ms": 739.1,
+      "verification_details": "Curatorial dossier dismissed (hidden=True)",
+      "error": null
+    },
+    {
+      "step": 41,
+      "name": "Campaign HUD Telemetry",
+      "action": "Verify campaign count telemetry row displays active campaigns",
+      "screenshot": "results\\screenshots\\steps\\41_hud_campaigns_telemetry.png",
+      "status": "PASS",
+      "duration_ms": 189.6,
+      "verification_details": "HUD Campaign count: 2 ACTIVE",
+      "error": null
+    },
+    {
+      "step": 42,
+      "name": "Campaign Forensic Explainer",
+      "action": "Click campaigns telemetry row to open Level 1 explain card",
+      "screenshot": "results\\screenshots\\steps\\42_campaign_explain_card.png",
+      "status": "PASS",
+      "duration_ms": 708.6,
+      "verification_details": "Campaign Explainer Card Title: Coordinated Multi-Token Campaigns",
+      "error": null
+    },
+    {
+      "step": 43,
+      "name": "Filter Tag Campaigns",
+      "action": "Filter 3D connectome and radar to cross-token campaign entities",
+      "screenshot": "results\\screenshots\\steps\\43_tag_campaigns_filter.png",
+      "status": "PASS",
+      "duration_ms": 694.9,
+      "verification_details": "Campaigns tag selected: True",
+      "error": null
+    },
+    {
+      "step": 44,
+      "name": "Filter Tag Beluga",
+      "action": "Filter connectome and alerts to $BELUGA token cluster",
+      "screenshot": "results\\screenshots\\steps\\44_tag_beluga_filter.png",
+      "status": "PASS",
+      "duration_ms": 278.4,
+      "verification_details": "Beluga tag selected: True, Visible feed count: 3 DETECTED",
+      "error": null
+    },
+    {
+      "step": 45,
+      "name": "Filter Tag Snipex",
+      "action": "Filter connectome and alerts to $SNIPEX token cluster",
+      "screenshot": "results\\screenshots\\steps\\45_tag_snipex_filter.png",
+      "status": "PASS",
+      "duration_ms": 387.8,
+      "verification_details": "Snipex tag selected: True, Visible feed count: 3 DETECTED",
+      "error": null
+    },
+    {
+      "step": 46,
+      "name": "Open Dossier Campaign Section",
+      "action": "Click alert card to open dossier with Cross-Token Campaign section",
+      "screenshot": "results\\screenshots\\steps\\46_dossier_campaign_section.png",
+      "status": "PASS",
+      "duration_ms": 1317.0,
+      "verification_details": "Cross-Token Campaign section visible inside active syndicate dossier",
+      "error": null
+    },
+    {
+      "step": 47,
+      "name": "Verify Campaign Details",
+      "action": "Verify campaign classification, linked token symbols, and reused wallet badge",
+      "screenshot": "results\\screenshots\\steps\\47_campaign_details_verified.png",
+      "status": "PASS",
+      "duration_ms": 277.2,
+      "verification_details": "Name: Serial Pump Ring: $BELUGA x $SNIPEX | Tag: SERIAL PUMP AND DUMP | Tokens: $BELUGA x $SNIPEX | Reused: 3 wallets",
+      "error": null
+    },
+    {
+      "step": 48,
+      "name": "3D Gold Campaign Hyper-Arcs",
+      "action": "Verify 3D gold dashed bezier connectome arcs rendered between correlated tokens",
+      "screenshot": "results\\screenshots\\steps\\48_3d_campaign_hyper_arcs.png",
+      "status": "PASS",
+      "duration_ms": 211.6,
+      "verification_details": "3D Luminous Gold Campaign Hyper-Arcs rendered: 2 splines",
+      "error": null
+    },
+    {
+      "step": 49,
+      "name": "Reset Filter All",
+      "action": "Reset entity filters to display entire global connectome",
+      "screenshot": "results\\screenshots\\steps\\49_tag_all_campaigns_reset.png",
+      "status": "PASS",
+      "duration_ms": 374.0,
+      "verification_details": "ALL filter tag selected: True",
+      "error": null
+    },
+    {
+      "step": 50,
+      "name": "Dismiss Dossier",
+      "action": "Dismiss curatorial plaque before simulation inspection",
+      "screenshot": "results\\screenshots\\steps\\50_dismiss_dossier.png",
+      "status": "PASS",
+      "duration_ms": 703.5,
+      "verification_details": "Curatorial dossier dismissed (hidden=True)",
+      "error": null
+    },
+    {
+      "step": 51,
+      "name": "Telemetry HUD Sim Alpha",
+      "action": "Verify HUD Sim Alpha telemetry row displays net expected ROI percentage",
+      "screenshot": "results\\screenshots\\steps\\51_hud_sim_alpha_telemetry.png",
+      "status": "PASS",
+      "duration_ms": 186.3,
+      "verification_details": "HUD Sim Alpha displayed: +31.4% NET",
+      "error": null
+    },
+    {
+      "step": 52,
+      "name": "Explain Sim Alpha Card",
+      "action": "Click telemetry row to inspect simulation alpha forensic card",
+      "screenshot": "results\\screenshots\\steps\\52_sim_alpha_explain_card.png",
+      "status": "PASS",
+      "duration_ms": 730.7,
+      "verification_details": "Forensic explain card opened: Shadow Counter-Trade Alpha (+31.4% Net Return)",
+      "error": null
+    },
+    {
+      "step": 53,
+      "name": "Verify Sim Controls Section",
+      "action": "Dismiss explain plaque and verify interactive Shadow Simulator controls in command deck",
+      "screenshot": "results\\screenshots\\steps\\53_sim_controls_section.png",
+      "status": "PASS",
+      "duration_ms": 636.3,
+      "verification_details": "Shadow Simulator section visible in command deck (Status: ALPHA ACTIVE)",
+      "error": null
+    },
+    {
+      "step": 54,
+      "name": "Adjust Latency Slider",
+      "action": "Adjust execution latency slider to 2.5s and verify dynamic UI recalculation",
+      "screenshot": "results\\screenshots\\steps\\54_sim_latency_slider.png",
+      "status": "PASS",
+      "duration_ms": 585.5,
+      "verification_details": "Execution latency adjusted to: 2.5s",
+      "error": null
+    },
+    {
+      "step": 55,
+      "name": "Adjust Exit Lead Slider",
+      "action": "Adjust exit lead slider to 6.0s and verify dynamic UI recalculation",
+      "screenshot": "results\\screenshots\\steps\\55_sim_lead_slider.png",
+      "status": "PASS",
+      "duration_ms": 564.8,
+      "verification_details": "Exit lead adjusted to: 6.0s",
+      "error": null
+    },
+    {
+      "step": 56,
+      "name": "SVG Equity Curve Rendered",
+      "action": "Verify dynamic SVG portfolio equity curve path updates with live trajectory",
+      "screenshot": "results\\screenshots\\steps\\56_svg_equity_curve.png",
+      "status": "PASS",
+      "duration_ms": 217.9,
+      "verification_details": "SVG portfolio equity curve rendered (d='M 0 28 L 66 19 L 133 16 ...', Final Equity: $2,094)",
+      "error": null
+    },
+    {
+      "step": 57,
+      "name": "Timeline Pill SIM IN",
+      "action": "Click SIM IN stage pill to inspect execution ingress timing anchor",
+      "screenshot": "results\\screenshots\\steps\\57_pill_sim_in.png",
+      "status": "PASS",
+      "duration_ms": 754.6,
+      "verification_details": "Timeline jumped to T + 14:00s (slider=14)",
+      "error": null
+    },
+    {
+      "step": 58,
+      "name": "Timeline Pill SIM OUT",
+      "action": "Click SIM OUT stage pill to inspect optimal front-run exit timing anchor",
+      "screenshot": "results\\screenshots\\steps\\58_pill_sim_out.png",
+      "status": "PASS",
+      "duration_ms": 807.7,
+      "verification_details": "Timeline jumped to T + 24:00s (slider=24)",
+      "error": null
+    },
+    {
+      "step": 59,
+      "name": "Dossier Simulator Section",
+      "action": "Open curatorial dossier and verify simulated shadow backtest outcome metrics",
+      "screenshot": "results\\screenshots\\steps\\59_dossier_sim_section.png",
+      "status": "PASS",
+      "duration_ms": 1159.4,
+      "verification_details": "Dossier Simulator Section: Strategy=COUNTER_FRONT_RUN, Badge=+54.1% ROI, Net Alpha=+$540.51",
+      "error": null
+    },
+    {
+      "step": 60,
+      "name": "Full Station Final Harmony",
+      "action": "Dismiss plaque and confirm 100% station canvas harmony across all 60 steps",
+      "screenshot": "results\\screenshots\\steps\\60_full_station_final_harmony.png",
+      "status": "PASS",
+      "duration_ms": 713.8,
+      "verification_details": "Curatorial dossier dismissed (hidden=True) - 60 Steps Completed Successfully",
+      "error": null
+    }
+  ]
+}

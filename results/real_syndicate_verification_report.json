@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-09-30T09:32:41Z",
+  "url": "http://localhost:8000/web/syndicate_terminal.html",
+  "checks": {
+    "spotlight_real_token": {
+      "symbol": "$BELUGA",
+      "creator": "Deployer_Chi...",
+      "dex_url": "https://dexscreener.com/solana/4dNj3ykr7iHv2AfjgkC9YesgUvCZ4qEJ7beQxy3RZ3XX",
+      "passed": true
+    },
+    "deployer_watchlist": {
+      "card_count": 74,
+      "filtered_count": 2,
+      "passed": true
+    },
+    "lineage_dag": {
+      "node_count": 7,
+      "passed": true
+    },
+    "dexscreener_link_valid": {
+      "url": "https://dexscreener.com/solana/4dNj3ykr7iHv2AfjgkC9YesgUvCZ4qEJ7beQxy3RZ3XX",
+      "has_raydium_legacy_fake": false,
+      "passed": true
+    },
+    "tabs_sweep": {
+      "ready_count": 74,
+      "treasury_count": 2,
+      "dust_count": 0,
+      "passed": true
+    }
+  },
+  "screenshots": [
+    "83_real_token_spotlight.png",
+    "84_real_deployers_list.png",
+    "85_lineage_real_connectome.png",
+    "86_real_dexscreener_link_inspect.png",
+    "87_real_wallets_csv_summary.png",
+    "88_real_terminal_full_verified.png"
+  ],
+  "passed": true
+}

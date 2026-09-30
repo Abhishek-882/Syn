@@ -1,0 +1,233 @@
+[
+  {
+    "token": "9BiaaorvWghMrunKgqskTCQDvDUPsKKuixoTNRxxpump",
+    "symbol": "shibuh",
+    "name": "shibuh",
+    "dex": "pumpswap",
+    "pair_address": "51g9rR5q1uQPESjDA9QyGTwhMyqD3nEjSQSUyyFX5QBj",
+    "dex_url": "https://dexscreener.com/solana/51g9rr5q1uqpesjda9qygtwhmyqd3nejsqsuyyfx5qbj",
+    "pump_url": "https://pump.fun/9BiaaorvWghMrunKgqskTCQDvDUPsKKuixoTNRxxpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/9BiaaorvWghMrunKgqskTCQDvDUPsKKuixoTNRxxpump",
+    "price_usd": "0.000002386",
+    "liquidity_usd": 2494.3,
+    "created_at_ms": 1789969238000,
+    "syndicates": [
+      "SYND-0044"
+    ],
+    "deployers": [
+      "AiwLKwapZhyWVFPVH6QfVKj6Uwkfx2DFW7Ax4BBYJ5ti"
+    ],
+    "wallets_count": 6
+  },
+  {
+    "token": "3rGD4t981YVt2rjQb8GcFwnK4UdZjP1q7oNEiKTkpump",
+    "symbol": "TWIN",
+    "name": "Twinpad",
+    "dex": "pumpswap",
+    "pair_address": "9SSKv7UHJCLqAaGKYngZ3nBT3PeJz6YXB6sPjrXGhg84",
+    "dex_url": "https://dexscreener.com/solana/9sskv7uhjclqaagkyngz3nbt3pejz6yxb6spjrxghg84",
+    "pump_url": "https://pump.fun/3rGD4t981YVt2rjQb8GcFwnK4UdZjP1q7oNEiKTkpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/3rGD4t981YVt2rjQb8GcFwnK4UdZjP1q7oNEiKTkpump",
+    "price_usd": "0.000002475",
+    "liquidity_usd": 2508.66,
+    "created_at_ms": 1789963902000,
+    "syndicates": [
+      "SYND-0045"
+    ],
+    "deployers": [
+      "DgfLZvWUkJ74ZCUy2VZR7wKj7cvhtrJVreSwecyaoo6K"
+    ],
+    "wallets_count": 6
+  },
+  {
+    "token": "7DtK5nPsQEMyENpdhADW4dxz9rkh3pKf46p8SMn6pump",
+    "symbol": "JEANGRINO",
+    "name": "Leopardus Jean Phil",
+    "dex": "pumpswap",
+    "pair_address": "2aL9pz69xof7hXfDyk65xCfKzpnbaie9YeqBdwivS4tH",
+    "dex_url": "https://dexscreener.com/solana/2al9pz69xof7hxfdyk65xcfkzpnbaie9yeqbdwivs4th",
+    "pump_url": "https://pump.fun/7DtK5nPsQEMyENpdhADW4dxz9rkh3pKf46p8SMn6pump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/7DtK5nPsQEMyENpdhADW4dxz9rkh3pKf46p8SMn6pump",
+    "price_usd": "0.000002435",
+    "liquidity_usd": 2675.66,
+    "created_at_ms": 1789972243000,
+    "syndicates": [
+      "SYND-0088",
+      "SYND-0092"
+    ],
+    "deployers": [
+      "mjDug21ypjsdBrtEVA5yZDG33domCvvjHsQXYG1pSdf"
+    ],
+    "wallets_count": 9
+  },
+  {
+    "token": "9TNvg1W6zQqFVC2ugZySzSmCQKtPbC1w9yoynx9Ppump",
+    "symbol": "HIDE",
+    "name": "Zano Confidential Assets",
+    "dex": "pumpswap",
+    "pair_address": "7jVQoQ3JJNNkUPb4DxDr8n7ToYkTQoCviYdwFMnonL1o",
+    "dex_url": "https://dexscreener.com/solana/7jvqoq3jjnnkupb4dxdr8n7toyktqocviydwfmnonl1o",
+    "pump_url": "https://pump.fun/9TNvg1W6zQqFVC2ugZySzSmCQKtPbC1w9yoynx9Ppump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/9TNvg1W6zQqFVC2ugZySzSmCQKtPbC1w9yoynx9Ppump",
+    "price_usd": "0.000005603",
+    "liquidity_usd": 5438.97,
+    "created_at_ms": 1789960538000,
+    "syndicates": [
+      "SYND-0038"
+    ],
+    "deployers": [
+      "71Vjzs1hqoCVpfsSgdY7u9DkAMWXibyEDPXc6yszcB5q"
+    ],
+    "wallets_count": 9
+  },
+  {
+    "token": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
+    "symbol": "EZO",
+    "name": "Ezo",
+    "dex": "pumpswap",
+    "pair_address": "7Gu4CPCbiGwaqYFyYGhCtkvAd67abRm2ouD3kfYYW627",
+    "dex_url": "https://dexscreener.com/solana/7gu4cpcbigwaqyfyyghctkvad67abrm2oud3kfyyw627",
+    "pump_url": "https://pump.fun/2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
+    "price_usd": "0.000003638",
+    "liquidity_usd": 3520.36,
+    "created_at_ms": 1789966725000,
+    "syndicates": [
+      "SYND-0047",
+      "SYND-0057",
+      "SYND-0070"
+    ],
+    "deployers": [
+      "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7"
+    ],
+    "wallets_count": 31
+  },
+  {
+    "token": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
+    "symbol": "ZLONG",
+    "name": "ZLONG",
+    "dex": "pumpswap",
+    "pair_address": "2u7HGTjgy2nZsgLu92PCqUNhxxRyfpM4DtQ9tVTkMpiH",
+    "dex_url": "https://dexscreener.com/solana/2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih",
+    "pump_url": "https://pump.fun/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
+    "price_usd": "0.000002950",
+    "liquidity_usd": 3068.9,
+    "created_at_ms": 1789954767000,
+    "syndicates": [
+      "SYND-0006",
+      "SYND-0012"
+    ],
+    "deployers": [
+      "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1"
+    ],
+    "wallets_count": 9
+  },
+  {
+    "token": "3e6to4qrHByU19Sij9DVKPB4AQD5RuyhH2Sj2ESLpump",
+    "symbol": "Printer",
+    "name": "Printer",
+    "dex": "pumpswap",
+    "pair_address": "CmTFxzZP6B9kvdhxauwikCnaBKFavTCbPJnBByyJbXvX",
+    "dex_url": "https://dexscreener.com/solana/cmtfxzzp6b9kvdhxauwikcnabkfavtcbpjnbbyyjbxvx",
+    "pump_url": "https://pump.fun/3e6to4qrHByU19Sij9DVKPB4AQD5RuyhH2Sj2ESLpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/3e6to4qrHByU19Sij9DVKPB4AQD5RuyhH2Sj2ESLpump",
+    "price_usd": "0.00004988",
+    "liquidity_usd": 19569.14,
+    "created_at_ms": 1789964830000,
+    "syndicates": [
+      "SYND-0047"
+    ],
+    "deployers": [
+      "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7"
+    ],
+    "wallets_count": 19
+  },
+  {
+    "token": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
+    "symbol": "SCRIBJEAN",
+    "name": "Scribble Jean Phil",
+    "dex": "pumpswap",
+    "pair_address": "8VNXtv5aND4CDsVD3FsmRxwxzkNifDcwqWwf7DUYKhAE",
+    "dex_url": "https://dexscreener.com/solana/8vnxtv5and4cdsvd3fsmrxwxzknifdcwqwwf7duykhae",
+    "pump_url": "https://pump.fun/GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
+    "price_usd": "0.000002478",
+    "liquidity_usd": 2786.44,
+    "created_at_ms": 1789967965000,
+    "syndicates": [
+      "SYND-0066",
+      "SYND-0067",
+      "SYND-0068",
+      "SYND-0071"
+    ],
+    "deployers": [
+      "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG"
+    ],
+    "wallets_count": 14
+  },
+  {
+    "token": "C2yUFYGox1ggub6eVfWC8hgxCSyuVDisbizjZ5xtpump",
+    "symbol": "Tommy",
+    "name": "Tommy",
+    "dex": "pumpswap",
+    "pair_address": "7DpqGNTDvWuoH5eUtRaqnGZWqYRsgjyMUdMdQ71ULDy3",
+    "dex_url": "https://dexscreener.com/solana/7dpqgntdvwuoh5eutraqngzwqyrsgjymudmdq71uldy3",
+    "pump_url": "https://pump.fun/C2yUFYGox1ggub6eVfWC8hgxCSyuVDisbizjZ5xtpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/C2yUFYGox1ggub6eVfWC8hgxCSyuVDisbizjZ5xtpump",
+    "price_usd": "0.000002884",
+    "liquidity_usd": 2855.91,
+    "created_at_ms": 1789967008000,
+    "syndicates": [
+      "SYND-0060",
+      "SYND-0065"
+    ],
+    "deployers": [
+      "YtVPdT9574E4GeLNG2B2kDyuD9gDbJ2v26a5BxfqvpS"
+    ],
+    "wallets_count": 22
+  },
+  {
+    "token": "YobdHfQpVakdh5UhBUo5w9Qn43RBmyN64bTzeQVpump",
+    "symbol": "FOMO",
+    "name": "fomo",
+    "dex": "pumpswap",
+    "pair_address": "33fCaYJ87HnMYt57E3rpeSbXytZRKTW6UJMeBMKct8iw",
+    "dex_url": "https://dexscreener.com/solana/33fcayj87hnmyt57e3rpesbxytzrktw6ujmebmkct8iw",
+    "pump_url": "https://pump.fun/YobdHfQpVakdh5UhBUo5w9Qn43RBmyN64bTzeQVpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/YobdHfQpVakdh5UhBUo5w9Qn43RBmyN64bTzeQVpump",
+    "price_usd": "0.000002139",
+    "liquidity_usd": 2151.63,
+    "created_at_ms": 1789970311000,
+    "syndicates": [
+      "SYND-0079",
+      "SYND-0081"
+    ],
+    "deployers": [
+      "9QBNbzBYLyEnv31doA3rg6pEo9DqPX1wFyhQ7rfUuYeX"
+    ],
+    "wallets_count": 9
+  },
+  {
+    "token": "E2T93D7fmjqYL399RZDsiFg183jufug14WHPvH7Hpump",
+    "symbol": "JANSEM",
+    "name": "Jean Phil Bull",
+    "dex": "pumpswap",
+    "pair_address": "7dGf5NzGDqCMnh5QSMNHjbteFPL8A9Pa1e17xkXL8M3N",
+    "dex_url": "https://dexscreener.com/solana/7dgf5nzgdqcmnh5qsmnhjbtefpl8a9pa1e17xkxl8m3n",
+    "pump_url": "https://pump.fun/E2T93D7fmjqYL399RZDsiFg183jufug14WHPvH7Hpump",
+    "photon_url": "https://photon-sol.tinyastro.io/en/lp/E2T93D7fmjqYL399RZDsiFg183jufug14WHPvH7Hpump",
+    "price_usd": "0.000002430",
+    "liquidity_usd": 2633.18,
+    "created_at_ms": 1789964424000,
+    "syndicates": [
+      "SYND-0043",
+      "SYND-0044"
+    ],
+    "deployers": [
+      "AiwLKwapZhyWVFPVH6QfVKj6Uwkfx2DFW7Ax4BBYJ5ti",
+      "C1QoJzTDtKaJ65LBsUBYzVhSBdjXYcUn9pdSLBVp8oK1"
+    ],
+    "wallets_count": 10
+  }
+]

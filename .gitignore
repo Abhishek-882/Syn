@@ -1,0 +1,32 @@
+# Secrets & Environment variables
+.env
+.env.*
+!.env.example
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local cache & vector database files
+.cache/
+*.db
+*.sqlite3
+onchain_cache.db
+qdrant_storage/
+results/qdrant_storage/
+
+# Logs & temp test outputs
+*.log
+scratch/
+results_*/
+crypto_syndicate/
+
+# OS artifacts
+.DS_Store
+Thumbs.db

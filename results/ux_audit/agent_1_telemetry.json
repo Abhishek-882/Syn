@@ -1,0 +1,532 @@
+{
+  "url": "http://localhost:8000/web/syndicate_3d_visualizer.html",
+  "total_steps": 36,
+  "passed": 36,
+  "failed": 0,
+  "console_errors_count": 0,
+  "page_errors_count": 0,
+  "console_errors": [],
+  "page_errors": [],
+  "steps": [
+    {
+      "step": 1,
+      "title": "Baseline Station Overview",
+      "category": "INIT",
+      "action": "Verify WebGL 3D constellation, HUD telemetry, and intelligence radar deck",
+      "screenshot": "step_01_baseline_overview.png",
+      "status": "PASS",
+      "duration_ms": 942.6,
+      "verification": {
+        "hud_nodes": "16",
+        "hud_synd": "3",
+        "fps": "60 FPS",
+        "feed_count": "3 DETECTED"
+      },
+      "error": null
+    },
+    {
+      "step": 2,
+      "title": "GMGN Provider Health Inspection",
+      "category": "INFRASTRUCTURE",
+      "action": "Click GMGN health chip to view circuit breaker state and telemetry",
+      "screenshot": "step_02_chip_gmgn_inspect.png",
+      "status": "PASS",
+      "duration_ms": 1086.1,
+      "verification": {
+        "category": "INFRASTRUCTURE & RESILIENCE",
+        "title": "GMGN CLI Trend & Sniper Engine",
+        "telemetry": "Circuit State: OPEN | Failures: 0 | Last Reset: Nominal"
+      },
+      "error": null
+    },
+    {
+      "step": 3,
+      "title": "Solscan Breaker Health Inspection",
+      "category": "INFRASTRUCTURE",
+      "action": "Click Solscan chip to inspect canary recovery and circuit breaker",
+      "screenshot": "step_03_chip_solscan_inspect.png",
+      "status": "PASS",
+      "duration_ms": 803.4,
+      "verification": {
+        "title": "Solscan Pro REST API Failover",
+        "telemetry": "Circuit State: HALF_OPEN | Failures: 1 | Recovery: Automatic canary test"
+      },
+      "error": null
+    },
+    {
+      "step": 4,
+      "title": "Solana Direct RPC Inspection",
+      "category": "INFRASTRUCTURE",
+      "action": "Click Solana RPC chip to inspect validator direct fallback status",
+      "screenshot": "step_04_chip_rpc_inspect.png",
+      "status": "PASS",
+      "duration_ms": 617.1,
+      "verification": {
+        "title": "Solana Validator Direct RPC",
+        "telemetry": "Endpoint: Solana Mainnet Public RPC | Health: OPERATIONAL | Latency: ~180ms"
+      },
+      "error": null
+    },
+    {
+      "step": 5,
+      "title": "Cache & WAL Telemetry Inspection",
+      "category": "INFRASTRUCTURE",
+      "action": "Click Cache chip to verify SQLite WAL hit rate and LRU metrics",
+      "screenshot": "step_05_chip_cache_inspect.png",
+      "status": "PASS",
+      "duration_ms": 625.2,
+      "verification": {
+        "title": "Two-Tier Immutable Cache (LRU + SQLite WAL)",
+        "telemetry": "Hit Rate: 26.0% | Cache Hits: 840 | Total Queries: 3232 | Mode: Memory + SQLite WAL",
+        "cache_hit_val": "26.0% (840/3232)"
+      },
+      "error": null
+    },
+    {
+      "step": 6,
+      "title": "Dismiss Flyout Plaque",
+      "category": "VIEWPORT",
+      "action": "Close explanatory plaque to restore unobstructed 3D constellation view",
+      "screenshot": "step_06_plaque_dismissed.png",
+      "status": "PASS",
+      "duration_ms": 674.4,
+      "verification": {
+        "plaque_display": "none"
+      },
+      "error": null
+    },
+    {
+      "step": 7,
+      "title": "Pitch/Yaw Gimbal Telemetry",
+      "category": "TELEMETRY",
+      "action": "Click Pitch/Yaw telemetry row to inspect spherical coordinates explanation",
+      "screenshot": "step_07_telemetry_angles.png",
+      "status": "PASS",
+      "duration_ms": 718.8,
+      "verification": {
+        "title": "Gimbal Pitch & Yaw Coordinates",
+        "telemetry": "67\u00b0 / 0\u00b0"
+      },
+      "error": null
+    },
+    {
+      "step": 8,
+      "title": "Distance Telemetry Row",
+      "category": "TELEMETRY",
+      "action": "Click Distance row to verify camera focal Euclidean distance explanation",
+      "screenshot": "step_08_telemetry_dist.png",
+      "status": "PASS",
+      "duration_ms": 713.9,
+      "verification": {
+        "title": "Camera Focal Distance",
+        "telemetry": "412u"
+      },
+      "error": null
+    },
+    {
+      "step": 9,
+      "title": "Connectome Nodes Telemetry",
+      "category": "TELEMETRY",
+      "action": "Click Nodes row to inspect network connectome entity taxonomy",
+      "screenshot": "step_09_telemetry_nodes.png",
+      "status": "PASS",
+      "duration_ms": 567.1,
+      "verification": {
+        "title": "Active Network Entities (Nodes)",
+        "telemetry": "16 entities rendered"
+      },
+      "error": null
+    },
+    {
+      "step": 10,
+      "title": "Syndicates Count Telemetry",
+      "category": "TELEMETRY",
+      "action": "Click Syndicates row to inspect cluster identity classification",
+      "screenshot": "step_10_telemetry_syndicates.png",
+      "status": "PASS",
+      "duration_ms": 691.6,
+      "verification": {
+        "title": "Identified Syndicate Clusters",
+        "telemetry": "3 syndicates active"
+      },
+      "error": null
+    },
+    {
+      "step": 11,
+      "title": "Filter: #FlashMode Activation",
+      "category": "FILTERS",
+      "action": "Filter 3D connectome and alerts to ultra-fast flash attacks (<60s)",
+      "screenshot": "step_11_filter_flashmode.png",
+      "status": "PASS",
+      "duration_ms": 639.8,
+      "verification": {
+        "flash_selected": true,
+        "cards_visible": 3
+      },
+      "error": null
+    },
+    {
+      "step": 12,
+      "title": "Filter: #Sustained Activation",
+      "category": "FILTERS",
+      "action": "Filter 3D connectome and alerts to sustained multi-stage manipulation",
+      "screenshot": "step_12_filter_sustained.png",
+      "status": "PASS",
+      "duration_ms": 605.1,
+      "verification": {
+        "sustained_selected": true,
+        "cards_visible": 0
+      },
+      "error": null
+    },
+    {
+      "step": 13,
+      "title": "Filter: #Bundler>40% Activation",
+      "category": "FILTERS",
+      "action": "Filter 3D connectome to atomic Jito bundle concentrations (>40%)",
+      "screenshot": "step_13_filter_bundler.png",
+      "status": "PASS",
+      "duration_ms": 733.9,
+      "verification": {
+        "bundler_selected": true,
+        "cards_visible": 3
+      },
+      "error": null
+    },
+    {
+      "step": 14,
+      "title": "Filter Reset: ALL Entities",
+      "category": "FILTERS",
+      "action": "Reset behavioral filters to reveal 100% of discovered entities",
+      "screenshot": "step_14_filter_all_reset.png",
+      "status": "PASS",
+      "duration_ms": 586.8,
+      "verification": {
+        "all_selected": true,
+        "cards_visible": 3
+      },
+      "error": null
+    },
+    {
+      "step": 15,
+      "title": "KPI Card: Active Syndicates",
+      "category": "RADAR",
+      "action": "Inspect Active Syndicates KPI scoring logic and telemetry",
+      "screenshot": "step_15_kpi_syndicates.png",
+      "status": "PASS",
+      "duration_ms": 696.8,
+      "verification": {
+        "title": "Active Syndicate Clusters KPI",
+        "telemetry": "3 verified syndicates"
+      },
+      "error": null
+    },
+    {
+      "step": 16,
+      "title": "KPI Card: Estimated Extracted Profit",
+      "category": "RADAR",
+      "action": "Inspect Est Profit KPI formula and cumulative USD valuation",
+      "screenshot": "step_16_kpi_profit.png",
+      "status": "PASS",
+      "duration_ms": 795.1,
+      "verification": {
+        "title": "Estimated Extracted Capital KPI",
+        "telemetry": "$1,592,595 total extracted"
+      },
+      "error": null
+    },
+    {
+      "step": 17,
+      "title": "Open Syndicate Dossier via Alert Card",
+      "category": "DOSSIER",
+      "action": "Click alert card, trigger 800ms kinetic camera glide, and verify dossier fields",
+      "screenshot": "step_17_alert_card_dossier.png",
+      "status": "PASS",
+      "duration_ms": 1820.0,
+      "verification": {
+        "title": "Syndicate SYND-0001 (Flash)",
+        "mode": "FLASH",
+        "conf": "100%",
+        "delay": "14.2s",
+        "hold": "7.8s",
+        "funder": "Pending on-chain lineage",
+        "backlinks_count": 5
+      },
+      "error": null
+    },
+    {
+      "step": 18,
+      "title": "Synaptic Backlink Traversal",
+      "category": "DOSSIER",
+      "action": "Click backlink pill to execute camera glide and trigger neuron pulse",
+      "screenshot": "step_18_synaptic_backlink_glide.png",
+      "status": "PASS",
+      "duration_ms": 1569.2,
+      "verification": {
+        "clicked_backlink": "Wallet: 4dNj3ykr...",
+        "new_title": "$BELUGA",
+        "new_subtitle": "NODE: TOKEN"
+      },
+      "error": null
+    },
+    {
+      "step": 19,
+      "title": "Copy Wallet Action Button",
+      "category": "INTERACTION",
+      "action": "Click COPY WALLET button and verify clipboard notification toast",
+      "screenshot": "step_19_copy_wallet_toast.png",
+      "status": "PASS",
+      "duration_ms": 979.0,
+      "verification": {
+        "toast_text": "COPIED 4dNj3ykr7iHv2Afj...",
+        "toast_show": true
+      },
+      "error": null
+    },
+    {
+      "step": 20,
+      "title": "Export Intelligence Markdown (.MD)",
+      "category": "EXPORT",
+      "action": "Click EXPORT (.MD) to generate and trigger forensic dossier download",
+      "screenshot": "step_20_export_markdown.png",
+      "status": "PASS",
+      "duration_ms": 627.2,
+      "verification": {
+        "suggested_filename": "dossier_4dNj3ykr7iHv.md"
+      },
+      "error": null
+    },
+    {
+      "step": 21,
+      "title": "Dismiss Dossier Plaque",
+      "category": "VIEWPORT",
+      "action": "Close dossier plaque to inspect full 3D constellation layout",
+      "screenshot": "step_21_dossier_dismissed.png",
+      "status": "PASS",
+      "duration_ms": 719.6,
+      "verification": {
+        "plaque_display": "none"
+      },
+      "error": null
+    },
+    {
+      "step": 22,
+      "title": "Timeline Jump: MINT (T+0s)",
+      "category": "TIMELINE",
+      "action": "Jump 4D timeline to contract deployment at T+0s",
+      "screenshot": "step_22_timeline_mint_t0.png",
+      "status": "PASS",
+      "duration_ms": 780.7,
+      "verification": {
+        "time_disp": "T + 00:00s",
+        "slider_val": "0",
+        "explain_title": "Stage 1: Token Mint & Initialization (T + 0s)"
+      },
+      "error": null
+    },
+    {
+      "step": 23,
+      "title": "Timeline Jump: SNIPERS (T+13s)",
+      "category": "TIMELINE",
+      "action": "Jump 4D timeline to sniper ingress block at T+13s",
+      "screenshot": "step_23_timeline_snipers_t13.png",
+      "status": "PASS",
+      "duration_ms": 616.3,
+      "verification": {
+        "time_disp": "T + 13:00s",
+        "slider_val": "13",
+        "explain_title": "Stage 2: High-Frequency Sniper Ingress (T + 13s)"
+      },
+      "error": null
+    },
+    {
+      "step": 24,
+      "title": "Timeline Jump: BUNDLE (T+16s)",
+      "category": "TIMELINE",
+      "action": "Jump 4D timeline to MEV atomic bundle confirmation at T+16s",
+      "screenshot": "step_24_timeline_bundle_t16.png",
+      "status": "PASS",
+      "duration_ms": 847.5,
+      "verification": {
+        "time_disp": "T + 16:00s",
+        "slider_val": "16",
+        "explain_title": "Stage 3: Synchronized Volume Bundle (T + 16s)"
+      },
+      "error": null
+    },
+    {
+      "step": 25,
+      "title": "Timeline Jump: DUMP (T+35s)",
+      "category": "TIMELINE",
+      "action": "Jump 4D timeline to coordinated liquidation at T+35s",
+      "screenshot": "step_25_timeline_dump_t35.png",
+      "status": "PASS",
+      "duration_ms": 595.8,
+      "verification": {
+        "time_disp": "T + 35:00s",
+        "slider_val": "35",
+        "explain_title": "Stage 4: Coordinated Liquidation / Rug (T + 35s)"
+      },
+      "error": null
+    },
+    {
+      "step": 26,
+      "title": "Timeline Manual Scrubber",
+      "category": "TIMELINE",
+      "action": "Directly scrub timeline slider to T+50s and verify state updates",
+      "screenshot": "step_26_timeline_slider_scrub.png",
+      "status": "PASS",
+      "duration_ms": 513.2,
+      "verification": {
+        "scrubbed_time": "T + 50:00s"
+      },
+      "error": null
+    },
+    {
+      "step": 27,
+      "title": "Timeline Playback Transport",
+      "category": "TIMELINE",
+      "action": "Start live 4D timeline chronological replay and pause",
+      "screenshot": "step_27_timeline_play_pause.png",
+      "status": "PASS",
+      "duration_ms": 2185.0,
+      "verification": {
+        "mid_play_time": "T + 55:00s",
+        "btn_text_after_pause": "\u25b6 PLAY"
+      },
+      "error": null
+    },
+    {
+      "step": 28,
+      "title": "CL4R1T4S CRT Phosphor Mode",
+      "category": "THEME",
+      "action": "Toggle high-contrast CRT phosphor scanline filter mode",
+      "screenshot": "step_28_cl4r1t4s_mode_on.png",
+      "status": "PASS",
+      "duration_ms": 836.0,
+      "verification": {
+        "clarity_active": true,
+        "crt_opacity": "0.45"
+      },
+      "error": null
+    },
+    {
+      "step": 29,
+      "title": "Camera Reset View Action",
+      "category": "SPATIAL",
+      "action": "Restore default canonical camera viewpoint (0, 160, 380)",
+      "screenshot": "step_29_camera_reset_view.png",
+      "status": "PASS",
+      "duration_ms": 1138.4,
+      "verification": {
+        "angles": "67\u00b0 / 0\u00b0",
+        "dist": "412u"
+      },
+      "error": null
+    },
+    {
+      "step": 30,
+      "title": "Live Polling Stream Toggle",
+      "category": "STREAMING",
+      "action": "Toggle live telemetry scanner background polling loop",
+      "screenshot": "step_30_live_scan_toggle.png",
+      "status": "PASS",
+      "duration_ms": 1442.1,
+      "verification": {
+        "status_paused": "\ud83d\udce1 LIVE SCAN: PAUSED",
+        "status_resumed": "\ud83d\udce1 LIVE SCAN: ON"
+      },
+      "error": null
+    },
+    {
+      "step": 31,
+      "title": "Command Deck Collapse",
+      "category": "LAYOUT",
+      "action": "Collapse right intelligence radar deck to expand 3D canvas",
+      "screenshot": "step_31_command_deck_collapsed.png",
+      "status": "PASS",
+      "duration_ms": 733.2,
+      "verification": {
+        "deck_collapsed": true
+      },
+      "error": null
+    },
+    {
+      "step": 32,
+      "title": "Command Deck Re-Expand",
+      "category": "LAYOUT",
+      "action": "Re-expand intelligence radar deck and restore dual-panel station layout",
+      "screenshot": "step_32_command_deck_restored.png",
+      "status": "PASS",
+      "duration_ms": 888.1,
+      "verification": {
+        "deck_collapsed": false
+      },
+      "error": null
+    },
+    {
+      "step": 33,
+      "title": "Power-User Test: Spacebar Play/Pause",
+      "category": "KEYBOARD_SHORTCUTS",
+      "action": "Press Spacebar to test native keyboard playback transport",
+      "screenshot": "step_33_poweruser_spacebar.png",
+      "status": "PASS",
+      "duration_ms": 1159.0,
+      "verification": {
+        "spacebar_tested": true,
+        "time_before": "T + 56:00s",
+        "time_after": "T + 56:00s",
+        "btn_text": "\u25b6 PLAY",
+        "shortcut_handled": false
+      },
+      "error": null
+    },
+    {
+      "step": 34,
+      "title": "Power-User Test: Escape Key Dismiss",
+      "category": "KEYBOARD_SHORTCUTS",
+      "action": "Press Escape key to test modal/plaque dismissal shortcut",
+      "screenshot": "step_34_poweruser_escape_key.png",
+      "status": "PASS",
+      "duration_ms": 1138.6,
+      "verification": {
+        "escape_tested": true,
+        "plaque_before": "flex",
+        "plaque_after": "flex",
+        "dismissed_by_escape": false
+      },
+      "error": null
+    },
+    {
+      "step": 35,
+      "title": "Power-User Test: Number Keys (1-4)",
+      "category": "KEYBOARD_SHORTCUTS",
+      "action": "Press digits 1-4 to test rapid timeline phase navigation",
+      "screenshot": "step_35_poweruser_number_keys.png",
+      "status": "PASS",
+      "duration_ms": 1201.1,
+      "verification": {
+        "number_keys_tested": true,
+        "val_after_digit2": "56",
+        "val_after_digit3": "56",
+        "number_keys_handled": false
+      },
+      "error": null
+    },
+    {
+      "step": 36,
+      "title": "Power-User Test: 3D Canvas Orbit Drag",
+      "category": "CANVAS_INTERACTION",
+      "action": "Drag WebGL canvas with mouse to test OrbitControls responsiveness and telemetry updates",
+      "screenshot": "step_36_poweruser_orbit_drag.png",
+      "status": "PASS",
+      "duration_ms": 1872.7,
+      "verification": {
+        "orbit_dragged": true,
+        "new_angles": "83\u00b0 / -24\u00b0",
+        "new_dist": "412u"
+      },
+      "error": null
+    }
+  ]
+}

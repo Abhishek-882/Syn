@@ -1,0 +1,392 @@
+{
+  "url": "http://localhost:8000/web/syndicate_3d_visualizer.html",
+  "total_steps": 38,
+  "passed": 38,
+  "failed": 0,
+  "console_errors_count": 0,
+  "page_errors_count": 0,
+  "console_errors": [],
+  "page_errors": [],
+  "steps": [
+    {
+      "step": 1,
+      "name": "Baseline Overview",
+      "action": "Load station and verify WebGL canvas, HUD and radar",
+      "screenshot": "results/ux_audit/agent_3_screenshots/01_baseline_overview.png",
+      "status": "PASS",
+      "duration_ms": 431.6,
+      "verification_details": "Nodes: 16, Feed: 3 DETECTED",
+      "error": null
+    },
+    {
+      "step": 2,
+      "name": "GMGN Health Chip",
+      "action": "Click GMGN health chip to open Level 1 explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/02_chip_gmgn_explain.png",
+      "status": "PASS",
+      "duration_ms": 439.8,
+      "verification_details": "Explain Title: GMGN CLI Trend & Sniper Engine",
+      "error": null
+    },
+    {
+      "step": 3,
+      "name": "Solscan Health Chip",
+      "action": "Click Solscan chip to inspect circuit breaker canary explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/03_chip_solscan_explain.png",
+      "status": "PASS",
+      "duration_ms": 425.3,
+      "verification_details": "Explain Title: Solscan Pro REST API Failover",
+      "error": null
+    },
+    {
+      "step": 4,
+      "name": "RPC Health Chip",
+      "action": "Click RPC chip to inspect RPC failover explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/04_chip_rpc_explain.png",
+      "status": "PASS",
+      "duration_ms": 391.4,
+      "verification_details": "Explain Title: Solana Validator Direct RPC",
+      "error": null
+    },
+    {
+      "step": 5,
+      "name": "Cache Health Chip",
+      "action": "Click Cache chip to verify SQLite WAL hit rate & telemetry",
+      "screenshot": "results/ux_audit/agent_3_screenshots/05_chip_cache_explain.png",
+      "status": "PASS",
+      "duration_ms": 418.3,
+      "verification_details": "Explain Title: Two-Tier Immutable Cache (LRU + SQLite WAL) | Telemetry: Hit Rate: 26.0% | Cache Hits: 840 | Total Queries: 3232 | Mode: Memory + SQLite WAL",
+      "error": null
+    },
+    {
+      "step": 6,
+      "name": "Dismiss Plaque",
+      "action": "Close explain card to clear viewport",
+      "screenshot": "results/ux_audit/agent_3_screenshots/06_plaque_dismissed.png",
+      "status": "PASS",
+      "duration_ms": 475.7,
+      "verification_details": "Plaque hidden: True",
+      "error": null
+    },
+    {
+      "step": 7,
+      "name": "Pitch/Yaw Telemetry",
+      "action": "Click pitch/yaw telemetry row for explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/07_hud_angles_explain.png",
+      "status": "PASS",
+      "duration_ms": 430.0,
+      "verification_details": "Explain Title: Gimbal Pitch & Yaw Coordinates",
+      "error": null
+    },
+    {
+      "step": 8,
+      "name": "Distance Telemetry",
+      "action": "Click distance telemetry row for camera physics explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/08_hud_distance_explain.png",
+      "status": "PASS",
+      "duration_ms": 384.2,
+      "verification_details": "Explain Title: Camera Focal Distance",
+      "error": null
+    },
+    {
+      "step": 9,
+      "name": "Nodes Count Telemetry",
+      "action": "Click nodes count telemetry row for connectome explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/09_hud_nodes_explain.png",
+      "status": "PASS",
+      "duration_ms": 386.6,
+      "verification_details": "Explain Title: Active Network Entities (Nodes)",
+      "error": null
+    },
+    {
+      "step": 10,
+      "name": "Syndicates Count Telemetry",
+      "action": "Click syndicates count row for cluster explain card",
+      "screenshot": "results/ux_audit/agent_3_screenshots/10_hud_syndicates_explain.png",
+      "status": "PASS",
+      "duration_ms": 441.8,
+      "verification_details": "Explain Title: Identified Syndicate Clusters",
+      "error": null
+    },
+    {
+      "step": 11,
+      "name": "Tag Filter FlashMode",
+      "action": "Filter 3D connectome and alerts to Flash Mode only",
+      "screenshot": "results/ux_audit/agent_3_screenshots/11_tag_flash_filter.png",
+      "status": "PASS",
+      "duration_ms": 431.6,
+      "verification_details": "Flash filter active: True",
+      "error": null
+    },
+    {
+      "step": 12,
+      "name": "Tag Filter Bundlers",
+      "action": "Filter 3D connectome to Bundler rate > 40%",
+      "screenshot": "results/ux_audit/agent_3_screenshots/12_tag_bundler_filter.png",
+      "status": "PASS",
+      "duration_ms": 349.2,
+      "verification_details": "Bundler filter active: True",
+      "error": null
+    },
+    {
+      "step": 13,
+      "name": "Tag Filter All",
+      "action": "Reset filter to display all 3D entities",
+      "screenshot": "results/ux_audit/agent_3_screenshots/13_tag_all_reset.png",
+      "status": "PASS",
+      "duration_ms": 376.1,
+      "verification_details": "All filter active: True",
+      "error": null
+    },
+    {
+      "step": 14,
+      "name": "Radar KPI Syndicates",
+      "action": "Click Active Syndicates KPI card for scoring explanation",
+      "screenshot": "results/ux_audit/agent_3_screenshots/14_kpi_syndicates_explain.png",
+      "status": "PASS",
+      "duration_ms": 400.2,
+      "verification_details": "Explain Title: Active Syndicate Clusters KPI",
+      "error": null
+    },
+    {
+      "step": 15,
+      "name": "Radar KPI Profit",
+      "action": "Click Est. Profit KPI card for profit calculation explanation",
+      "screenshot": "results/ux_audit/agent_3_screenshots/15_kpi_profit_explain.png",
+      "status": "PASS",
+      "duration_ms": 421.1,
+      "verification_details": "Explain Title: Estimated Extracted Capital KPI",
+      "error": null
+    },
+    {
+      "step": 16,
+      "name": "Open Syndicate Dossier",
+      "action": "Click alert card to open dossier & trigger camera glide",
+      "screenshot": "results/ux_audit/agent_3_screenshots/16_alert_card_dossier.png",
+      "status": "PASS",
+      "duration_ms": 1251.2,
+      "verification_details": "Title: Syndicate SYND-0001 (Flash), Mode: FLASH, Funder: Pending on-chain lineage",
+      "error": null
+    },
+    {
+      "step": 17,
+      "name": "Synaptic Backlink Glide",
+      "action": "Click entity backlink pill to glide camera & pulse neuron",
+      "screenshot": "results/ux_audit/agent_3_screenshots/17_synaptic_backlink_glide.png",
+      "status": "PASS",
+      "duration_ms": 1261.9,
+      "verification_details": "Clicked backlink: Wallet: 4dNj3ykr... (total: 5)",
+      "error": null
+    },
+    {
+      "step": 18,
+      "name": "Copy Wallet Action",
+      "action": "Click COPY WALLET button and verify toast notification",
+      "screenshot": "results/ux_audit/agent_3_screenshots/18_copy_wallet_toast.png",
+      "status": "PASS",
+      "duration_ms": 341.7,
+      "verification_details": "Toast message: COPIED 4dNj3ykr7iHv2Afj...",
+      "error": null
+    },
+    {
+      "step": 19,
+      "name": "Export Markdown Dossier",
+      "action": "Click EXPORT (.MD) to generate and copy intelligence markdown",
+      "screenshot": "results/ux_audit/agent_3_screenshots/19_export_markdown.png",
+      "status": "PASS",
+      "duration_ms": 386.6,
+      "verification_details": "Export toast: COPIED 4dNj3ykr7iHv2Afj...",
+      "error": null
+    },
+    {
+      "step": 20,
+      "name": "Close Dossier Plaque",
+      "action": "Dismiss dossier plaque to reveal center connectome",
+      "screenshot": "results/ux_audit/agent_3_screenshots/20_dossier_closed.png",
+      "status": "PASS",
+      "duration_ms": 391.9,
+      "verification_details": "Plaque dismissed: True",
+      "error": null
+    },
+    {
+      "step": 21,
+      "name": "Timeline Mint (T+0s)",
+      "action": "Jump 4D timeline to T+0s and inspect deployed token",
+      "screenshot": "results/ux_audit/agent_3_screenshots/21_timeline_mint_t0.png",
+      "status": "PASS",
+      "duration_ms": 366.2,
+      "verification_details": "Time display: T + 00:00s, Slider: 0",
+      "error": null
+    },
+    {
+      "step": 22,
+      "name": "Timeline Snipers (T+13s)",
+      "action": "Jump timeline to T+13s and verify sniper cohort highlights",
+      "screenshot": "results/ux_audit/agent_3_screenshots/22_timeline_snipers_t13.png",
+      "status": "PASS",
+      "duration_ms": 406.0,
+      "verification_details": "Time: T + 13:00s, Slider: 13, Explain: Stage 2: High-Frequency Sniper Ingress (T + 13s)",
+      "error": null
+    },
+    {
+      "step": 23,
+      "name": "Timeline Bundle (T+16s)",
+      "action": "Jump timeline to T+16s and verify Jito bundle explanation",
+      "screenshot": "results/ux_audit/agent_3_screenshots/23_timeline_bundle_t16.png",
+      "status": "PASS",
+      "duration_ms": 408.9,
+      "verification_details": "Time: T + 16:00s, Slider: 16, Explain: Stage 3: Synchronized Volume Bundle (T + 16s)",
+      "error": null
+    },
+    {
+      "step": 24,
+      "name": "Timeline Dump (T+35s)",
+      "action": "Jump timeline to T+35s and verify exit dump dimming",
+      "screenshot": "results/ux_audit/agent_3_screenshots/24_timeline_dump_t35.png",
+      "status": "PASS",
+      "duration_ms": 426.7,
+      "verification_details": "Time: T + 35:00s, Slider: 35, Explain: Stage 4: Coordinated Liquidation / Rug (T + 35s)",
+      "error": null
+    },
+    {
+      "step": 25,
+      "name": "Timeline Slider Scrub",
+      "action": "Directly scrub timeline slider to T+50s",
+      "screenshot": "results/ux_audit/agent_3_screenshots/25_timeline_scrub_t50.png",
+      "status": "PASS",
+      "duration_ms": 304.4,
+      "verification_details": "Scrubbed time: T + 50:00s",
+      "error": null
+    },
+    {
+      "step": 26,
+      "name": "Timeline Play/Pause Transport",
+      "action": "Start timeline playback for 1.5s then pause",
+      "screenshot": "results/ux_audit/agent_3_screenshots/26_timeline_playback_pause.png",
+      "status": "PASS",
+      "duration_ms": 2085.8,
+      "verification_details": "Playback time: T + 56:00s, Button text after pause: \u25b6 PLAY",
+      "error": null
+    },
+    {
+      "step": 27,
+      "name": "CL4R1T4S Mode Active",
+      "action": "Toggle high-contrast CRT phosphor scanline filter",
+      "screenshot": "results/ux_audit/agent_3_screenshots/27_cl4r1t4s_mode_on.png",
+      "status": "PASS",
+      "duration_ms": 371.5,
+      "verification_details": "CRT Overlay Opacity: 0.45",
+      "error": null
+    },
+    {
+      "step": 28,
+      "name": "Reset View",
+      "action": "Click RESET VIEW to restore canonical camera angle",
+      "screenshot": "results/ux_audit/agent_3_screenshots/28_reset_view_restored.png",
+      "status": "PASS",
+      "duration_ms": 803.0,
+      "verification_details": "Camera coordinates reset to default (0, 160, 380)",
+      "error": null
+    },
+    {
+      "step": 29,
+      "name": "Collapse Command Deck",
+      "action": "Collapse right dock to maximize 3D connectome canvas",
+      "screenshot": "results/ux_audit/agent_3_screenshots/29_command_deck_collapsed.png",
+      "status": "PASS",
+      "duration_ms": 368.5,
+      "verification_details": "Command deck collapsed: True",
+      "error": null
+    },
+    {
+      "step": 30,
+      "name": "Re-Expand Command Deck",
+      "action": "Restore command deck and confirm full station harmony",
+      "screenshot": "results/ux_audit/agent_3_screenshots/30_command_deck_restored.png",
+      "status": "PASS",
+      "duration_ms": 603.2,
+      "verification_details": "Command deck re-expanded (collapsed=False)",
+      "error": null
+    },
+    {
+      "step": 31,
+      "name": "Tag Filter Sustained",
+      "action": "Filter 3D connectome to Sustained Manipulation Mode",
+      "screenshot": "results/ux_audit/agent_3_screenshots/31_tag_sustained_filter.png",
+      "status": "PASS",
+      "duration_ms": 388.9,
+      "verification_details": "Sustained filter active: True",
+      "error": null
+    },
+    {
+      "step": 32,
+      "name": "Probe Shortcut Space",
+      "action": "Power-User Probe: Test Space key for timeline play/pause",
+      "screenshot": "results/ux_audit/agent_3_screenshots/32_probe_shortcut_space.png",
+      "status": "PASS",
+      "duration_ms": 803.6,
+      "verification_details": "Slider before: 56, after: 56, Btn: \u25b6 PLAY (Space shortcut not bound)",
+      "error": null
+    },
+    {
+      "step": 33,
+      "name": "Probe Shortcut Escape",
+      "action": "Power-User Probe: Test Escape key to dismiss plaque",
+      "screenshot": "results/ux_audit/agent_3_screenshots/33_probe_shortcut_escape.png",
+      "status": "PASS",
+      "duration_ms": 802.3,
+      "verification_details": "Plaque visible before: True, after Escape: True (Escape not bound)",
+      "error": null
+    },
+    {
+      "step": 34,
+      "name": "Probe Shortcut Number Keys",
+      "action": "Power-User Probe: Test number keys 1-4 for quick filter switching",
+      "screenshot": "results/ux_audit/agent_3_screenshots/34_probe_shortcut_numbers.png",
+      "status": "PASS",
+      "duration_ms": 638.8,
+      "verification_details": "Pressed '2': Flash filter active = False (Number shortcuts not bound)",
+      "error": null
+    },
+    {
+      "step": 35,
+      "name": "Radar Card SYND-0002",
+      "action": "Reset to ALL & click SYND-0002 alert card to inspect second cluster and glide",
+      "screenshot": "results/ux_audit/agent_3_screenshots/35_radar_card_synd0002.png",
+      "status": "PASS",
+      "duration_ms": 1471.0,
+      "verification_details": "Reset filter to ALL and loaded SYND-0002: Title=Syndicate SYND-0002 (Flash), Funder=Pending on-chain lineage",
+      "error": null
+    },
+    {
+      "step": 36,
+      "name": "Radar Card SYND-0003",
+      "action": "Click SYND-0003 alert card to inspect third syndicate cluster and glide",
+      "screenshot": "results/ux_audit/agent_3_screenshots/36_radar_card_synd0003.png",
+      "status": "PASS",
+      "duration_ms": 1302.7,
+      "verification_details": "Loaded SYND-0003: Title=Syndicate SYND-0003 (Flash), Funder=Pending on-chain lineage",
+      "error": null
+    },
+    {
+      "step": 37,
+      "name": "Camera Orbit Drag Rotate",
+      "action": "Drag mouse on WebGL canvas to test perspective gimbal physics",
+      "screenshot": "results/ux_audit/agent_3_screenshots/37_camera_orbit_drag.png",
+      "status": "PASS",
+      "duration_ms": 1066.2,
+      "verification_details": "Gimbal before: 63\u00b0 / 0\u00b0, Gimbal after drag: 50\u00b0 / -22\u00b0",
+      "error": null
+    },
+    {
+      "step": 38,
+      "name": "Live Polling Toggle",
+      "action": "Toggle Live Scan daemon polling pause and resume",
+      "screenshot": "results/ux_audit/agent_3_screenshots/38_live_polling_toggle.png",
+      "status": "PASS",
+      "duration_ms": 834.6,
+      "verification_details": "Poll Paused: '\ud83d\udce1 LIVE SCAN: PAUSED', Resumed: '\ud83d\udce1 LIVE SCAN: ON'",
+      "error": null
+    }
+  ]
+}

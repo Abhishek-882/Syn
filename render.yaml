@@ -1,0 +1,22 @@
+# Render Blueprint Specification (Infrastructure as Code)
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: crypto-syndicate-sentinel
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/crypto_syndicate/server.py
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PORT
+        value: 10000
+      - key: GMGN_API_KEY
+        sync: false
+      - key: SOLSCAN_API_KEY
+        sync: false

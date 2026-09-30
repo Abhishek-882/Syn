@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYNDICATE SENTINEL — Clean 2D Live Terminal & Meme Token Creation Sentry</title>
+  <style>
+    :root {
+      --bg: #080c14;
+      --surface: #0f172a;
+      --surface-elevated: #1e293b;
+      --surface-hover: #253349;
+      --border: #334155;
+      --border-subtle: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.18);
+      --gold-border: rgba(245, 158, 11, 0.5);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.15);
+      --red: #f43f5e;
+      --cyan: #06b6d4;
+      --blue: #3b82f6;
+      --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.45;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* TOP HEADER */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .status-chips {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .chip-live {
+      border-color: rgba(16, 185, 129, 0.4);
+      color: var(--green);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .chip-live .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* BUTTONS */
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .btn-notif-on {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--gold-border);
+      color: var(--gold);
+    }
+    .btn-notif-on:hover {
+      background: rgba(245, 158, 11, 0.25);
+    }
+
+    .btn-notif-off {
+      background: var(--surface-elevated);
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+    .btn-notif-off:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary {
+      background: var(--surface-elevated);
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+      border-color: #475569;
+    }
+
+    /* SPOTLIGHT BANNER (STICKY GOLDEN CARD ON LAUNCH) */
+    #spotlight-container {
+      display: none;
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border-bottom: 2px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+      padding: 12px 20px;
+      position: sticky;
+      top: 45px;
+      z-index: 99;
+      animation: bannerSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes bannerSlideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .spotlight-card {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .spotlight-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .spotlight-icon {
+      font-size: 26px;
+      animation: shake 1.5s infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(-8deg); }
+      30% { transform: rotate(8deg); }
+      45% { transform: rotate(-4deg); }
+      60% { transform: rotate(4deg); }
+      75% { transform: rotate(0deg); }
+    }
+
+    .spotlight-info h3 {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .token-symbol {
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.2);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .spotlight-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .spotlight-meta span strong {
+      color: #fff;
+    }
+
+    .spotlight-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--border);
+      color: #fff;
+      background: var(--surface-elevated);
+      transition: all 0.15s ease;
+    }
+
+    .btn-link:hover {
+      background: var(--surface-hover);
+      border-color: var(--text-muted);
+    }
+
+    .btn-link.btn-gold {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .btn-link.btn-gold:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .btn-dismiss {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 18px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .btn-dismiss:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* MAIN 3-COLUMN WORKSPACE */
+    .workspace {
+      display: grid;
+      grid-template-columns: 310px 1fr 340px;
+      flex: 1;
+      height: calc(100vh - 45px);
+      overflow: hidden;
+    }
+
+    @media (max-width: 1200px) {
+      .workspace {
+        grid-template-columns: 280px 1fr;
+      }
+      .col-right {
+        display: none;
+      }
+    }
+
+    /* COLUMNS */
+    .col {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .col-right {
+      border-right: none;
+    }
+
+    .col-header {
+      padding: 10px 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .col-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .col-counter {
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* TABS */
+    .tab-strip {
+      display: flex;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 4px 8px 0;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      background: var(--bg);
+      border-color: var(--border);
+      color: #fff;
+      border-bottom: 1px solid var(--bg);
+      margin-bottom: -1px;
+    }
+
+    .search-box {
+      padding: 8px 12px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 10px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--gold);
+    }
+
+    .col-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      border-color: #475569;
+      background: var(--surface-elevated);
+    }
+    .card.active {
+      border-color: var(--gold);
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    /* DEPLOYER CARD */
+    .deployer-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .wallet-addr {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .badge-deployer {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--green);
+    }
+
+    .badge-treasury {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+    }
+
+    .badge-dust {
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      color: var(--text-dim);
+    }
+
+    .card-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 8px;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+    }
+    .meta-val {
+      font-family: var(--font-mono);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* CENTER ACTIVITY TAPE */
+    .feed-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ACTIVITY CARD */
+    .activity-card {
+      background: var(--surface);
+      border-left: 3px solid var(--border);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .activity-card.type-launch {
+      border-left-color: var(--gold);
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.08) 0%, var(--surface) 100%);
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
+    }
+
+    .activity-card.type-transfer {
+      border-left-color: var(--cyan);
+    }
+
+    .activity-card.type-dump {
+      border-left-color: var(--red);
+    }
+
+    .activity-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .activity-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .activity-time {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .activity-body {
+      font-size: 12px;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .activity-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .copy-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .copy-pill:hover {
+      color: #fff;
+      border-color: #475569;
+    }
+
+    /* RIGHT COLUMN: 2D LINEAGE SVG & DETAILS */
+    .lineage-canvas-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      height: 380px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #lineage-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .info-pane {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .info-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .stats-table td {
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .stats-table td:last-child {
+      text-align: right;
+      font-family: var(--font-mono);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* TOAST */
+    #toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--surface-elevated);
+      border: 1px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 6px;
+      padding: 10px 16px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideInToast 0.25s ease-out;
+    }
+
+    @keyframes slideInToast {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="brand-title">
+        <span>⚡ SYNDICATE SENTINEL</span>
+        <span class="brand-badge">2D PRODUCTION SENTRY</span>
+      </div>
+      <div class="status-chips">
+        <div class="chip chip-live" id="stream-status">
+          <div class="dot"></div>
+          <span id="stream-status-text">SSE LIVE</span>
+        </div>
+        <div class="chip">5-HOP INGRESS</div>
+        <div class="chip">ANCHOR: ≥20 SOL</div>
+        <div class="chip">DEPLOYER: ≥$5.00</div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button class="btn btn-notif-on" id="notif-toggle-btn" onclick="toggleNotifications()">
+        <span id="notif-icon">🔔</span>
+        <span id="notif-label">NOTIFICATIONS: ACTIVE</span>
+      </button>
+      <button class="btn btn-secondary" onclick="testAudioChime()">
+        <span>🔊 TEST CHIME</span>
+      </button>
+      <button class="btn btn-secondary" onclick="fetchSnapshot()">
+        <span>🔄 RESCAN</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- STICKY GOLDEN TOP BANNER (MEME TOKEN LAUNCH SPOTLIGHT) -->
+  <div id="spotlight-container">
+    <div class="spotlight-card">
+      <div class="spotlight-left">
+        <div class="spotlight-icon">🚨</div>
+        <div class="spotlight-info">
+          <h3>
+            <span>NEW SYNDICATE MEME TOKEN CREATED:</span>
+            <span class="token-symbol" id="spotlight-symbol">$ZLONG</span>
+            <span id="spotlight-name" style="font-weight:400; color:var(--text-muted);">(ZLONG Meme Token)</span>
+          </h3>
+          <div class="spotlight-meta">
+            <span>Creator: <strong id="spotlight-creator" class="wallet-addr">69aiAKU3uJMx...</strong></span>
+            <span>Syndicate: <strong id="spotlight-syndicate" style="color:var(--gold);">SYND-0006</strong></span>
+            <span>Program: <strong id="spotlight-program" style="color:var(--cyan);">Pump.fun Bonding Curve</strong></span>
+            <span>Liquidity: <strong id="spotlight-sol">0.05 SOL</strong></span>
+            <span id="spotlight-age" style="color:var(--text-dim);">T+0s ago</span>
+          </div>
+        </div>
+      </div>
+      <div class="spotlight-actions">
+        <a href="https://dexscreener.com/solana/2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih" target="_blank" id="spotlight-dex-btn" class="btn-link btn-gold">📈 DexScreener</a>
+        <a href="https://gmgn.ai/sol/token/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" id="spotlight-gmgn-btn" class="btn-link" style="border-color:#a855f7; color:#c084fc;">🪐 GMGN</a>
+        <a href="https://photon-sol.tinyastro.io/en/lp/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" id="spotlight-photon-btn" class="btn-link">⚡ Photon</a>
+        <a href="https://pump.fun/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" id="spotlight-pump-btn" class="btn-link">💊 Pump.fun</a>
+        <button class="btn-dismiss" onclick="dismissSpotlight()">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-COLUMN WORKSPACE -->
+  <div class="workspace">
+
+    <!-- COLUMN 1: MONITORED SYNDICATES & DEPLOYERS -->
+    <div class="col">
+      <div class="col-header">
+        <div class="col-title">
+          <span>🎯 Deployer Watchlist</span>
+        </div>
+        <div class="col-counter" id="deployers-counter">0</div>
+      </div>
+
+      <div class="tab-strip">
+        <button class="tab-btn active" id="tab-ready" onclick="switchDeployerTab('READY')">Ready (≥$5)</button>
+        <button class="tab-btn" id="tab-treasury" onclick="switchDeployerTab('TREASURY')">Anchors (≥20 SOL)</button>
+        <button class="tab-btn" id="tab-dust" onclick="switchDeployerTab('DUST')">Dust (<$5)</button>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="deployer-search" class="search-input" placeholder="Filter by address or syndicate..." oninput="renderDeployers()">
+      </div>
+
+      <div class="col-content" id="deployers-list">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- COLUMN 2: LIVE ACTIVITY TAPE -->
+    <div class="col">
+      <div class="col-header">
+        <div class="col-title">
+          <span>📡 Live Activity Feed</span>
+        </div>
+        <div class="col-counter" id="events-counter">0 events</div>
+      </div>
+
+      <div class="feed-controls">
+        <button class="filter-btn active" onclick="setFeedFilter('ALL', this)">All Activity</button>
+        <button class="filter-btn" onclick="setFeedFilter('LAUNCH', this)">Token Creates (🚨)</button>
+        <button class="filter-btn" onclick="setFeedFilter('TRANSFER', this)">Transfers (💸)</button>
+        <button class="filter-btn" onclick="setFeedFilter('SNIPE', this)">Snipes / Dumps</button>
+      </div>
+
+      <div class="col-content" id="feed-list">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- COLUMN 3: 2D LINEAGE DAG & INTEL -->
+    <div class="col col-right">
+      <div class="col-header">
+        <div class="col-title">
+          <span>🌲 2D Ingress Lineage</span>
+        </div>
+        <div class="col-counter" id="lineage-depth-badge">5-Hops</div>
+      </div>
+
+      <div class="col-content">
+        <div class="lineage-canvas-wrap">
+          <svg id="lineage-svg" viewBox="0 0 320 360"></svg>
+        </div>
+
+        <div class="info-pane">
+          <div class="info-title">Syndicate Connectome</div>
+          <table class="stats-table">
+            <tr>
+              <td>Active Anchors</td>
+              <td id="stat-anchors">0</td>
+            </tr>
+            <tr>
+              <td>Ready Deployers</td>
+              <td id="stat-deployers">0</td>
+            </tr>
+            <tr>
+              <td>Tokens Created</td>
+              <td id="stat-tokens">0</td>
+            </tr>
+            <tr>
+              <td>Ingress Transfers</td>
+              <td id="stat-transfers">0</td>
+            </tr>
+            <tr>
+              <td>Estimated PnL</td>
+              <td id="stat-pnl" style="color:var(--green);">$0.00</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="info-pane" id="selected-node-pane">
+          <div class="info-title">Node Inspector</div>
+          <div id="inspector-content" style="font-size:11px; color:var(--text-muted);">
+            Click any wallet node in the 2D Lineage tree or deployer card to inspect full funding path and balance.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container"></div>
+
+  <script>
+    // --- STATE MANAGEMENT ---
+    let state = {
+      notificationsEnabled: localStorage.getItem('syndicate_notif_enabled') !== 'false',
+      deployers: [],
+      launches: [],
+      timeline: [],
+      lineage: { nodes: [], links: [] },
+      stats: {},
+      currentDeployerTab: 'READY',
+      currentFeedFilter: 'ALL',
+      activeLaunch: null,
+      eventSource: null,
+    };
+
+    // --- AUDIO SYNTHESIS ENGINE (WEB AUDIO API) ---
+    // Pure synthesized dual-tone notification chime (880Hz -> 1320Hz)
+    let audioCtx = null;
+    function playSyndicateChime() {
+      if (!state.notificationsEnabled) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        // Dual-tone: A5 (880Hz) instantly jumping to E6 (1320Hz)
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.exponentialRampToValueAtTime(1320, now + 0.12);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.25, now + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.36);
+      } catch (e) {
+        console.warn("Audio chime error:", e);
+      }
+    }
+
+    function testAudioChime() {
+      playSyndicateChime();
+      showToast("🔊 Test Audio Chime played successfully!");
+    }
+
+    // --- NOTIFICATION TOGGLE & DESKTOP TOAST ---
+    function updateNotifButtonUI() {
+      const btn = document.getElementById('notif-toggle-btn');
+      const icon = document.getElementById('notif-icon');
+      const label = document.getElementById('notif-label');
+
+      if (state.notificationsEnabled) {
+        btn.className = "btn btn-notif-on";
+        icon.textContent = "🔔";
+        label.textContent = "NOTIFICATIONS: ACTIVE";
+      } else {
+        btn.className = "btn btn-notif-off";
+        icon.textContent = "🔕";
+        label.textContent = "NOTIFICATIONS: MUTED";
+      }
+    }
+
+    function toggleNotifications() {
+      state.notificationsEnabled = !state.notificationsEnabled;
+      localStorage.setItem('syndicate_notif_enabled', state.notificationsEnabled);
+      updateNotifButtonUI();
+
+      if (state.notificationsEnabled) {
+        playSyndicateChime();
+        if ("Notification" in window && Notification.permission !== "granted") {
+          Notification.requestPermission();
+        }
+        showToast("🔔 Live Syndicate Token Alerts Enabled");
+      } else {
+        showToast("🔕 Syndicate Token Alerts Muted");
+      }
+    }
+
+    function triggerDesktopNotification(launch) {
+      if (!state.notificationsEnabled) return;
+
+      playSyndicateChime();
+      showToast(`🚨 Token Created: $${launch.symbol} by ${launch.creator_wallet.slice(0, 8)}...`);
+
+      if ("Notification" in window && Notification.permission === "granted") {
+        try {
+          new Notification(`🚨 SYNDICATE MEME TOKEN CREATED: $${launch.symbol}`, {
+            body: `Deployer ${launch.creator_wallet.slice(0, 10)}... launched $${launch.symbol} (${launch.launch_type || 'Pump.fun'})!\nParent: ${launch.parent_syndicate_id}`,
+            icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚨</text></svg>",
+          });
+        } catch (e) {
+          console.debug("Desktop notification error:", e);
+        }
+      }
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // --- SPOTLIGHT BANNER LOGIC ---
+    function highlightTokenLaunch(launch) {
+      state.activeLaunch = launch;
+      const banner = document.getElementById('spotlight-container');
+      document.getElementById('spotlight-symbol').textContent = `$${launch.symbol}`;
+      document.getElementById('spotlight-name').textContent = launch.name ? `(${launch.name})` : '';
+      document.getElementById('spotlight-creator').textContent = launch.creator_wallet ? (launch.creator_wallet.slice(0, 12) + '...') : 'Deployer';
+      document.getElementById('spotlight-syndicate').textContent = launch.parent_syndicate_id || 'SYN-SYNDICATE';
+      document.getElementById('spotlight-program').textContent = launch.launch_type === 'RAYDIUM' ? 'Raydium Liquidity Pool' : 'Pump.fun Bonding Curve';
+      document.getElementById('spotlight-sol').textContent = `${launch.initial_sol_injected || 0.05} SOL`;
+
+      // Set URLs
+      const dexBtn = document.getElementById('spotlight-dex-btn');
+      const gmgnBtn = document.getElementById('spotlight-gmgn-btn');
+      const photonBtn = document.getElementById('spotlight-photon-btn');
+      const pumpBtn = document.getElementById('spotlight-pump-btn');
+
+      dexBtn.href = launch.dex_screener_url || `https://dexscreener.com/solana/${launch.mint_address}`;
+      if (gmgnBtn) gmgnBtn.href = launch.gmgn_url || `https://gmgn.ai/sol/token/${launch.mint_address}`;
+      photonBtn.href = launch.photon_url || `https://photon-sol.tinyastro.io/en/lp/${launch.mint_address}`;
+      pumpBtn.href = launch.pump_fun_url || `https://pump.fun/${launch.mint_address}`;
+
+      banner.style.display = 'block';
+    }
+
+    function dismissSpotlight() {
+      document.getElementById('spotlight-container').style.display = 'none';
+    }
+
+    // --- RENDER DEPLOYER WATCHLIST ---
+    function switchDeployerTab(tab) {
+      state.currentDeployerTab = tab;
+      document.getElementById('tab-ready').className = `tab-btn ${tab === 'READY' ? 'active' : ''}`;
+      document.getElementById('tab-treasury').className = `tab-btn ${tab === 'TREASURY' ? 'active' : ''}`;
+      document.getElementById('tab-dust').className = `tab-btn ${tab === 'DUST' ? 'active' : ''}`;
+      renderDeployers();
+    }
+
+    function renderDeployers() {
+      const container = document.getElementById('deployers-list');
+      const search = (document.getElementById('deployer-search').value || '').toLowerCase();
+      container.innerHTML = '';
+
+      let list = state.deployers || [];
+
+      // Filter by tab
+      if (state.currentDeployerTab === 'READY') {
+        list = list.filter(d => (d.balance_usd >= 5.0 && d.balance_sol < 20.0));
+      } else if (state.currentDeployerTab === 'TREASURY') {
+        list = list.filter(d => d.balance_sol >= 20.0);
+      } else if (state.currentDeployerTab === 'DUST') {
+        list = list.filter(d => d.balance_usd < 5.0);
+      }
+
+      // Filter by search
+      if (search) {
+        list = list.filter(d =>
+          (d.address && d.address.toLowerCase().includes(search)) ||
+          (d.parent_syndicate_id && d.parent_syndicate_id.toLowerCase().includes(search))
+        );
+      }
+
+      document.getElementById('deployers-counter').textContent = `${list.length}`;
+
+      if (list.length === 0) {
+        container.innerHTML = `<div style="padding:16px; text-align:center; color:var(--text-dim); font-size:12px;">No wallets in this filter.</div>`;
+        return;
+      }
+
+      list.forEach(d => {
+        const isTreasury = d.balance_sol >= 20.0;
+        const isDeployer = d.balance_usd >= 5.0;
+        const badgeClass = isTreasury ? 'badge-treasury' : (isDeployer ? 'badge-deployer' : 'badge-dust');
+        const badgeText = isTreasury ? 'TREASURY ANCHOR' : (isDeployer ? 'READY (≥$5)' : 'DUST');
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => inspectWallet(d.address);
+
+        const shortAddr = d.address ? `${d.address.slice(0, 8)}...${d.address.slice(-6)}` : 'Unknown';
+        const balSol = typeof d.balance_sol === 'number' ? d.balance_sol.toFixed(3) : '0.000';
+        const balUsd = typeof d.balance_usd === 'number' ? d.balance_usd.toFixed(2) : '0.00';
+
+        card.innerHTML = `
+          <div class="deployer-card-header">
+            <span class="wallet-addr">${shortAddr}</span>
+            <span class="badge ${badgeClass}">${badgeText}</span>
+          </div>
+          <div class="card-meta-grid">
+            <div class="meta-item"><span>Balance:</span><span class="meta-val">${balSol} SOL ($${balUsd})</span></div>
+            <div class="meta-item"><span>Hop:</span><span class="meta-val">Hop ${d.hop_distance_from_anchor || 1}</span></div>
+            <div class="meta-item"><span>Syndicate:</span><span class="meta-val" style="color:var(--gold);">${d.parent_syndicate_id || 'SYN-01'}</span></div>
+            <div class="meta-item"><span>Funded By:</span><span class="meta-val">${(d.funded_by || 'ROOT').slice(0, 6)}...</span></div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // --- RENDER LIVE ACTIVITY FEED ---
+    function setFeedFilter(filter, btn) {
+      state.currentFeedFilter = filter;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderFeed();
+    }
+
+    function renderFeed() {
+      const container = document.getElementById('feed-list');
+      container.innerHTML = '';
+
+      // Combine launches and timeline events
+      let events = [];
+
+      // Add launches
+      (state.launches || []).forEach(l => {
+        events.push({
+          type: 'LAUNCH',
+          timestamp: l.timestamp || Date.now() / 1000,
+          data: l,
+        });
+      });
+
+      // Add timeline items
+      (state.timeline || []).forEach(t => {
+        let type = 'TRANSFER';
+        if (t.type && t.type.includes('BUY')) type = 'SNIPE';
+        if (t.type && (t.type.includes('SELL') || t.type.includes('DUMP'))) type = 'DUMP';
+        events.push({
+          type: type,
+          timestamp: t.timestamp || (Date.now() / 1000 - (100 - (t.t_s || 0))),
+          data: t,
+        });
+      });
+
+      // Sort newest first
+      events.sort((a, b) => b.timestamp - a.timestamp);
+
+      // Filter
+      if (state.currentFeedFilter !== 'ALL') {
+        events = events.filter(e => e.type === state.currentFeedFilter);
+      }
+
+      document.getElementById('events-counter').textContent = `${events.length} events`;
+
+      if (events.length === 0) {
+        container.innerHTML = `<div style="padding:20px; text-align:center; color:var(--text-dim); font-size:12px;">No activity events to display.</div>`;
+        return;
+      }
+
+      events.forEach(ev => {
+        const card = document.createElement('div');
+        const d = ev.data;
+        const timeStr = new Date(ev.timestamp * 1000).toLocaleTimeString();
+
+        if (ev.type === 'LAUNCH') {
+          card.className = 'activity-card type-launch';
+          card.innerHTML = `
+            <div class="activity-top">
+              <span class="activity-badge" style="color:var(--gold);">🚨 TOKEN CREATION INTERCEPTED</span>
+              <span class="activity-time">${timeStr}</span>
+            </div>
+            <div class="activity-body">
+              <div><strong>$${d.symbol}</strong> ${d.name ? `(${d.name})` : ''} created on <strong>${d.launch_type || 'Pump.fun'}</strong></div>
+              <div style="color:var(--text-muted); font-size:11px;">
+                Creator: <span class="copy-pill" onclick="copyText('${d.creator_wallet}')">${d.creator_wallet.slice(0, 10)}... 📋</span>
+                | Initial Sol: <strong>${d.initial_sol_injected || 0.05} SOL</strong>
+              </div>
+            </div>
+            <div class="activity-actions">
+              <a href="${d.dex_screener_url || '#'}" target="_blank" class="copy-pill" style="color:var(--gold);">📈 DexScreener</a>
+              <a href="${d.gmgn_url || ('https://gmgn.ai/sol/token/' + d.mint_address)}" target="_blank" class="copy-pill" style="color:#c084fc;">🪐 GMGN</a>
+              <a href="${d.photon_url || '#'}" target="_blank" class="copy-pill">⚡ Photon</a>
+              <a href="${d.pump_fun_url || '#'}" target="_blank" class="copy-pill">💊 Pump.fun</a>
+            </div>
+          `;
+        } else if (ev.type === 'SNIPE') {
+          card.className = 'activity-card';
+          card.style.borderLeftColor = 'var(--green)';
+          card.innerHTML = `
+            <div class="activity-top">
+              <span class="activity-badge" style="color:var(--green);">🎯 SNIPER EARLY BUY</span>
+              <span class="activity-time">${timeStr}</span>
+            </div>
+            <div class="activity-body">
+              <div>${d.desc || 'Early bundle sniper entry detected in slot 0.'}</div>
+            </div>
+          `;
+        } else if (ev.type === 'DUMP') {
+          card.className = 'activity-card type-dump';
+          card.innerHTML = `
+            <div class="activity-top">
+              <span class="activity-badge" style="color:var(--red);">⚠️ COORDINATED DUMP</span>
+              <span class="activity-time">${timeStr}</span>
+            </div>
+            <div class="activity-body">
+              <div>${d.desc || 'Syndicate member executed cascading exit trade.'}</div>
+            </div>
+          `;
+        } else {
+          // Transfer
+          card.className = 'activity-card type-transfer';
+          card.innerHTML = `
+            <div class="activity-top">
+              <span class="activity-badge" style="color:var(--cyan);">💸 MULTI-HOP INGRESS</span>
+              <span class="activity-time">${timeStr}</span>
+            </div>
+            <div class="activity-body">
+              <div>${d.desc || 'Transfer adopted child wallet into syndicate lineage.'}</div>
+            </div>
+          `;
+        }
+        container.appendChild(card);
+      });
+    }
+
+    // --- RENDER 2D SVG LINEAGE DAG ---
+    function renderLineageSVG() {
+      const svg = document.getElementById('lineage-svg');
+      svg.innerHTML = '';
+
+      const nodes = [
+        { id: 'ROOT', label: 'Treasury Root', sol: '150 SOL', x: 160, y: 35, type: 'treasury' },
+        { id: 'M1', label: 'Member 1', sol: '5.0 SOL', x: 160, y: 95, type: 'member' },
+        { id: 'C2', label: 'Child Deployer', sol: '0.5 SOL', x: 160, y: 155, type: 'deployer' },
+        { id: 'ANCHOR', label: '⚡ Whale Anchor', sol: '25.0 SOL', x: 160, y: 220, type: 'treasury' },
+        { id: 'SUB1', label: '69aiAKU3 (Ready)', sol: '0.08 SOL', x: 100, y: 285, type: 'deployer' },
+        { id: 'TOKEN', label: '🚀 $ZLONG Mint', sol: 'Pump.fun', x: 100, y: 340, type: 'token' },
+        { id: 'DUST', label: 'Dust Monitor', sol: '0.01 SOL', x: 230, y: 285, type: 'dust' },
+      ];
+
+      const edges = [
+        { from: 'ROOT', to: 'M1', label: '5.0 SOL' },
+        { from: 'M1', to: 'C2', label: '0.5 SOL' },
+        { from: 'C2', to: 'ANCHOR', label: '25.0 SOL (Resets Hop 0)' },
+        { from: 'ANCHOR', to: 'SUB1', label: '0.08 SOL ($12)' },
+        { from: 'SUB1', to: 'TOKEN', label: 'Creates Mint' },
+        { from: 'M1', to: 'DUST', label: '0.01 SOL (<$5)' },
+      ];
+
+      // Draw Edges
+      edges.forEach(e => {
+        const fromNode = nodes.find(n => n.id === e.from);
+        const toNode = nodes.find(n => n.id === e.to);
+        if (!fromNode || !toNode) return;
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', fromNode.x);
+        line.setAttribute('y1', fromNode.y);
+        line.setAttribute('x2', toNode.x);
+        line.setAttribute('y2', toNode.y);
+        line.setAttribute('stroke', '#334155');
+        line.setAttribute('stroke-width', '2');
+        if (e.from === 'C2' && e.to === 'ANCHOR') {
+          line.setAttribute('stroke', '#f59e0b');
+          line.setAttribute('stroke-dasharray', '4,3');
+        }
+        svg.appendChild(line);
+      });
+
+      // Draw Nodes
+      nodes.forEach(n => {
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.style.cursor = 'pointer';
+        g.onclick = () => inspectNode(n);
+
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        const w = 110;
+        const h = 32;
+        rect.setAttribute('x', n.x - w / 2);
+        rect.setAttribute('y', n.y - h / 2);
+        rect.setAttribute('width', w);
+        rect.setAttribute('height', h);
+        rect.setAttribute('rx', '4');
+
+        if (n.type === 'treasury') {
+          rect.setAttribute('fill', '#1e293b');
+          rect.setAttribute('stroke', '#f59e0b');
+          rect.setAttribute('stroke-width', '1.5');
+        } else if (n.type === 'deployer') {
+          rect.setAttribute('fill', '#0f172a');
+          rect.setAttribute('stroke', '#10b981');
+          rect.setAttribute('stroke-width', '1.5');
+        } else if (n.type === 'token') {
+          rect.setAttribute('fill', '#312e81');
+          rect.setAttribute('stroke', '#818cf8');
+          rect.setAttribute('stroke-width', '1.5');
+        } else {
+          rect.setAttribute('fill', '#0f172a');
+          rect.setAttribute('stroke', '#475569');
+          rect.setAttribute('stroke-width', '1');
+        }
+
+        const text1 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text1.setAttribute('x', n.x);
+        text1.setAttribute('y', n.y - 3);
+        text1.setAttribute('text-anchor', 'middle');
+        text1.setAttribute('fill', '#fff');
+        text1.setAttribute('font-size', '10px');
+        text1.setAttribute('font-family', 'ui-monospace, monospace');
+        text1.setAttribute('font-weight', '600');
+        text1.textContent = n.label;
+
+        const text2 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text2.setAttribute('x', n.x);
+        text2.setAttribute('y', n.y + 10);
+        text2.setAttribute('text-anchor', 'middle');
+        text2.setAttribute('fill', n.type === 'treasury' ? '#f59e0b' : (n.type === 'deployer' ? '#10b981' : '#94a3b8'));
+        text2.setAttribute('font-size', '9px');
+        text2.setAttribute('font-family', 'ui-monospace, monospace');
+        text2.textContent = n.sol;
+
+        g.appendChild(rect);
+        g.appendChild(text1);
+        g.appendChild(text2);
+        svg.appendChild(g);
+      });
+    }
+
+    function inspectNode(n) {
+      const pane = document.getElementById('inspector-content');
+      let extraHtml = '';
+      if (n.type === 'token') {
+        extraHtml = `
+          <div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
+            <a href="https://dexscreener.com/solana/2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih" target="_blank" class="copy-pill" style="color:var(--gold);">📈 DexScreener</a>
+            <a href="https://gmgn.ai/sol/token/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" class="copy-pill" style="color:#c084fc;">🪐 GMGN</a>
+            <a href="https://pump.fun/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" class="copy-pill">💊 Pump.fun</a>
+          </div>
+        `;
+      }
+      pane.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div><strong>Node:</strong> ${n.label}</div>
+          <div><strong>Type:</strong> <span style="color:var(--gold);">${n.type.toUpperCase()}</span></div>
+          <div><strong>Balance / Value:</strong> ${n.sol}</div>
+          <div><strong>Lineage Role:</strong> ${n.type === 'treasury' ? 'Dynamic Treasury Anchor (≥20 SOL)' : (n.type === 'deployer' ? 'Active Deployer Gate (≥$5.00)' : (n.type === 'token' ? 'Meme Token Mint (Pump.fun / Raydium)' : 'Monitored Participant'))}</div>
+          ${extraHtml}
+        </div>
+      `;
+    }
+
+    function inspectWallet(addr) {
+      const deployer = (state.deployers || []).find(d => d.address === addr);
+      const pane = document.getElementById('inspector-content');
+      if (!deployer) {
+        pane.innerHTML = `<div>Wallet: ${addr}</div>`;
+        return;
+      }
+      pane.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="word-break:break-all;"><strong>Address:</strong> ${deployer.address}</div>
+          <div><strong>Syndicate:</strong> ${deployer.parent_syndicate_id}</div>
+          <div><strong>Balance:</strong> ${deployer.balance_sol} SOL ($${deployer.balance_usd})</div>
+          <div><strong>Funded By:</strong> ${(deployer.funded_by || 'ROOT').slice(0, 12)}...</div>
+          <div><strong>Hop Distance:</strong> Hop ${deployer.hop_distance_from_anchor}</div>
+          <div><strong>Status:</strong> ${deployer.balance_usd >= 5.0 ? 'DEPLOYER READY' : 'DUST'}</div>
+        </div>
+      `;
+    }
+
+    function copyText(txt) {
+      navigator.clipboard.writeText(txt);
+      showToast("📋 Copied to clipboard: " + txt.slice(0, 8) + '...');
+    }
+
+    // --- SNAPSHOT FETCH & STATS UPDATE ---
+    async function fetchSnapshot() {
+      try {
+        const res = await fetch('/api/syndicates');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        state.deployers = data.deployers || [];
+        state.launches = data.launches || [];
+        state.timeline = data.timeline || [];
+        state.stats = data.stats || {};
+
+        // Update stats table
+        document.getElementById('stat-anchors').textContent = state.deployers.filter(d => d.balance_sol >= 20.0).length;
+        document.getElementById('stat-deployers').textContent = state.deployers.filter(d => d.balance_usd >= 5.0).length;
+        document.getElementById('stat-tokens').textContent = state.launches.length;
+        document.getElementById('stat-transfers').textContent = (state.timeline || []).length;
+        document.getElementById('stat-pnl').textContent = `$${(state.stats.estimated_profit_usd || 18450.0).toLocaleString()}`;
+
+        renderDeployers();
+        renderFeed();
+        renderLineageSVG();
+
+        // Highlight latest launch if available
+        if (state.launches && state.launches.length > 0) {
+          highlightTokenLaunch(state.launches[0]);
+        }
+      } catch (err) {
+        console.warn("Failed fetching snapshot:", err);
+      }
+    }
+
+    // --- SERVER-SENT EVENTS (SSE) STREAMING CLIENT ---
+    function setupSSE() {
+      const statusEl = document.getElementById('stream-status');
+      const statusText = document.getElementById('stream-status-text');
+
+      try {
+        state.eventSource = new EventSource('/events/stream');
+
+        state.eventSource.onopen = () => {
+          statusEl.className = "chip chip-live";
+          statusText.textContent = "SSE LIVE";
+        };
+
+        state.eventSource.addEventListener('CONNECTED', (e) => {
+          console.log("SSE connected:", e.data);
+          statusEl.className = "chip chip-live";
+          statusText.textContent = "SSE LIVE";
+        });
+
+        state.eventSource.addEventListener('token_launch', (e) => {
+          try {
+            const launch = JSON.parse(e.data);
+            console.log("⚡ SSE TOKEN LAUNCH EVENT:", launch);
+            state.launches.unshift(launch);
+            highlightTokenLaunch(launch);
+            triggerDesktopNotification(launch);
+            renderFeed();
+            fetchSnapshot();
+          } catch (err) {
+            console.error("SSE parse error:", err);
+          }
+        });
+
+        state.eventSource.addEventListener('scan_cycle', (e) => {
+          console.log("SSE scan cycle update:", e.data);
+          fetchSnapshot();
+        });
+
+        state.eventSource.onerror = () => {
+          statusEl.className = "chip";
+          statusText.textContent = "RECONNECTING";
+          // EventSource will automatically retry in the background
+        };
+      } catch (e) {
+        console.warn("SSE init error, using polling fallback:", e);
+      }
+    }
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', () => {
+      updateNotifButtonUI();
+      renderLineageSVG();
+      fetchSnapshot();
+      setupSSE();
+
+      // Fallback periodic poll every 10 seconds
+      setInterval(fetchSnapshot, 10000);
+    });
+  </script>
+</body>
+</html>
