@@ -3,7 +3,7 @@
 ## Evaluation Profile
 - **Role**: Forensic compliance investigator verifying real syndicate fund provenance
 - **Target URL**: http://localhost:8000/web/syndicate_terminal.html
-- **Timestamp**: 2026-09-30T14:17:55Z
+- **Timestamp**: 2026-09-30T14:28:57Z
 
 ## Observations & Findings
 1. **Real Deployer Search**: Querying real deployer prefix `69aiAKU3` (creator of `$ZLONG`) isolated 2 matching cards.

@@ -315,6 +315,58 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
+    /* MOBILE NAVIGATION BAR */
+    .mobile-nav-bar {
+      display: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 10px;
+      gap: 6px;
+      position: sticky;
+      top: 0;
+      z-index: 80;
+    }
+
+    .mobile-nav-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 6px;
+      min-height: 42px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    .mobile-nav-btn.active {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .mobile-nav-btn .badge {
+      font-size: 10px;
+      padding: 1px 5px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.25);
+      color: inherit;
+    }
+
+    .mobile-nav-btn.active .badge {
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+
     /* MAIN 3-COLUMN WORKSPACE */
     .workspace {
       display: grid;
@@ -324,12 +376,187 @@
       overflow: hidden;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1200px) and (min-width: 769px) {
       .workspace {
         grid-template-columns: 280px 1fr;
       }
       .col-right {
         display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      /* Sticky Mobile Column Switcher */
+      .mobile-nav-bar {
+        display: flex;
+      }
+
+      header {
+        padding: 8px 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+        position: relative;
+      }
+
+      .header-left {
+        gap: 8px;
+      }
+
+      .brand-title {
+        font-size: 13px;
+      }
+
+      .status-chips {
+        gap: 4px;
+      }
+
+      .chip {
+        font-size: 10px;
+        padding: 2px 6px;
+      }
+
+      .header-right {
+        gap: 6px;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .btn {
+        padding: 6px 10px;
+        min-height: 38px;
+        font-size: 11px;
+      }
+
+      /* Spotlight Banner Responsive */
+      .spotlight-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .spotlight-left {
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .spotlight-info h3 {
+        font-size: 13px;
+        flex-wrap: wrap;
+      }
+
+      .spotlight-meta {
+        flex-wrap: wrap;
+        gap: 4px 8px;
+        font-size: 11px;
+      }
+
+      .spotlight-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        width: 100%;
+      }
+
+      .btn-link {
+        justify-content: center;
+        min-height: 38px;
+        font-size: 11px;
+      }
+
+      /* Workspace Single-Column Switcher */
+      .workspace {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 110px);
+        overflow: visible;
+      }
+
+      .col {
+        display: none !important;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        height: auto;
+        min-height: 520px;
+      }
+
+      .col.col-right {
+        display: none !important;
+      }
+
+      /* Active Mobile Column is displayed */
+      .col.mobile-active {
+        display: flex !important;
+      }
+
+      /* Table responsive touch scroll */
+      .history-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .history-table {
+        min-width: 680px;
+      }
+
+      .history-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .history-controls .search-input {
+        max-width: 100% !important;
+        min-height: 40px;
+        font-size: 12px;
+      }
+
+      .center-view-tabs .tab-btn {
+        flex: 1;
+        text-align: center;
+        min-height: 38px;
+        padding: 6px 8px;
+        font-size: 11px;
+      }
+
+      .search-input {
+        min-height: 40px;
+        font-size: 12px;
+      }
+
+      .tab-strip .tab-btn {
+        flex: 1;
+        text-align: center;
+        min-height: 38px;
+        padding: 6px 8px;
+      }
+
+      .lineage-canvas-wrap {
+        min-height: 260px;
+      }
+
+      #lineage-svg {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-title span:last-child {
+        display: none;
+      }
+      .chip span:last-child {
+        display: none;
+      }
+      .spotlight-actions {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -869,11 +1096,24 @@
     </div>
   </div>
 
+  <!-- MOBILE COLUMN SWITCHER BAR (Visible only on screens <= 768px) -->
+  <div class="mobile-nav-bar" id="mobile-nav-bar">
+    <button class="mobile-nav-btn active" id="mob-tab-tokens" onclick="switchMobileColumn('TOKENS')">
+      🏛️ Tokens <span class="badge" id="mob-tokens-count">12</span>
+    </button>
+    <button class="mobile-nav-btn" id="mob-tab-watchlist" onclick="switchMobileColumn('WATCHLIST')">
+      👥 Watchlist <span class="badge" id="mob-deployers-count">75</span>
+    </button>
+    <button class="mobile-nav-btn" id="mob-tab-lineage" onclick="switchMobileColumn('LINEAGE')">
+      🌲 Lineage
+    </button>
+  </div>
+
   <!-- 3-COLUMN WORKSPACE -->
   <div class="workspace">
 
     <!-- COLUMN 1: MONITORED SYNDICATES & DEPLOYERS -->
-    <div class="col">
+    <div class="col" id="col-watchlist">
       <div class="col-header">
         <div class="col-title">
           <span>🎯 Deployer Watchlist</span>
@@ -897,7 +1137,7 @@
     </div>
 
     <!-- COLUMN 2: SYNDICATE TOKEN TRACK RECORD & LIVE ACTIVITY TAPE -->
-    <div class="col" style="flex: 1.4;">
+    <div class="col mobile-active" id="col-tokens" style="flex: 1.4;">
       <div class="col-header" style="justify-content: space-between;">
         <div class="center-view-tabs">
           <button class="tab-btn active" id="tab-center-history" onclick="switchCenterView('HISTORY')">
@@ -969,7 +1209,7 @@
     </div>
 
     <!-- COLUMN 3: 2D LINEAGE DAG & INTEL -->
-    <div class="col col-right">
+    <div class="col col-right" id="col-lineage">
       <div class="col-header">
         <div class="col-title">
           <span>🌲 2D Ingress Lineage</span>
@@ -1034,10 +1274,34 @@
       currentDeployerTab: 'READY',
       currentCenterView: 'HISTORY',
       currentFeedFilter: 'ALL',
+      currentMobileColumn: 'TOKENS',
       tokenHistory: [],
       activeLaunch: null,
       eventSource: null,
     };
+
+    // --- MOBILE COLUMN NAVIGATION (<= 768px) ---
+    function switchMobileColumn(col) {
+      state.currentMobileColumn = col;
+
+      const tabTokens = document.getElementById('mob-tab-tokens');
+      const tabWatchlist = document.getElementById('mob-tab-watchlist');
+      const tabLineage = document.getElementById('mob-tab-lineage');
+
+      const colTokens = document.getElementById('col-tokens');
+      const colWatchlist = document.getElementById('col-watchlist');
+      const colLineage = document.getElementById('col-lineage');
+
+      if (tabTokens) tabTokens.className = col === 'TOKENS' ? 'mobile-nav-btn active' : 'mobile-nav-btn';
+      if (tabWatchlist) tabWatchlist.className = col === 'WATCHLIST' ? 'mobile-nav-btn active' : 'mobile-nav-btn';
+      if (tabLineage) tabLineage.className = col === 'LINEAGE' ? 'mobile-nav-btn active' : 'mobile-nav-btn';
+
+      if (colTokens) colTokens.classList.toggle('mobile-active', col === 'TOKENS');
+      if (colWatchlist) colWatchlist.classList.toggle('mobile-active', col === 'WATCHLIST');
+      if (colLineage) colLineage.classList.toggle('mobile-active', col === 'LINEAGE');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     // --- AUDIO SYNTHESIS ENGINE (WEB AUDIO API) ---
     // Pure synthesized dual-tone notification chime (880Hz -> 1320Hz)
@@ -1658,6 +1922,12 @@
         document.getElementById('stat-tokens').textContent = state.tokenHistory.length || state.launches.length;
         document.getElementById('stat-transfers').textContent = (state.timeline || []).length;
         document.getElementById('stat-pnl').textContent = `$${(state.stats.estimated_profit_usd || 18450.0).toLocaleString()}`;
+
+        // Update mobile nav badges
+        const mobTokCount = document.getElementById('mob-tokens-count');
+        if (mobTokCount) mobTokCount.textContent = state.tokenHistory.length || state.launches.length || 12;
+        const mobDepCount = document.getElementById('mob-deployers-count');
+        if (mobDepCount) mobDepCount.textContent = state.deployers.length || 75;
 
         renderDeployers();
         renderTokenHistory();
