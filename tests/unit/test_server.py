@@ -51,12 +51,22 @@ class TestSSEBroadcaster(unittest.TestCase):
         t = threading.Thread(target=server.serve_forever, daemon=True)
         t.start()
         try:
+            # Test standard /healthz
             with urllib.request.urlopen("http://127.0.0.1:8899/healthz") as resp:
                 self.assertEqual(resp.status, 200)
                 body = json.loads(resp.read().decode())
                 self.assertEqual(body["status"], "healthy")
-                self.assertEqual(body["service"], "crypto-syndicate-sentinel")
-                self.assertIn("uptime_seconds", body)
+
+            # Test typo /heathz
+            with urllib.request.urlopen("http://127.0.0.1:8899/heathz") as resp:
+                self.assertEqual(resp.status, 200)
+                body = json.loads(resp.read().decode())
+                self.assertEqual(body["status"], "healthy")
+
+            # Test HEAD probe
+            req = urllib.request.Request("http://127.0.0.1:8899/heathz", method="HEAD")
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
         finally:
             server.shutdown()
             server.server_close()

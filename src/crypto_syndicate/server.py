@@ -67,6 +67,12 @@ def broadcast_event(event_type: str, data: Dict[str, Any]) -> None:
     GLOBAL_BROADCASTER.broadcast(event_type, data)
 
 
+HEALTH_PATHS = {
+    "/healthz", "/heathz", "/health", "/heath", "/api/health", "/api/healthz",
+    "/ping", "/status", "/live", "/ready", "/health-check"
+}
+
+
 class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
     """HTTP request handler supporting static files, REST snapshot, and SSE streaming."""
 
@@ -75,10 +81,23 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         self.repo_root = Path(__file__).resolve().parent.parent.parent
         super().__init__(*args, directory=str(self.repo_root), **kwargs)
 
+    def do_HEAD(self):
+        parsed = urlparse(self.path)
+        if parsed.path in HEALTH_PATHS:
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+        elif parsed.path in ("/", "/terminal"):
+            self.path = "/web/syndicate_terminal.html"
+            super().do_HEAD()
+        else:
+            super().do_HEAD()
+
     def do_GET(self):
         parsed = urlparse(self.path)
 
-        if parsed.path in ("/healthz", "/health", "/api/health"):
+        if parsed.path in HEALTH_PATHS:
             self.handle_health_check()
         elif parsed.path == "/events/stream":
             self.handle_sse_stream()
