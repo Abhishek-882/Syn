@@ -3480,9 +3480,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789956844.9807315,
-    "last_seen": 1790769136.6844542,
-    "operation_count": 12,
-    "total_profit_usd": 25921.440000000002,
+    "last_seen": 1790776728.7536106,
+    "operation_count": 20,
+    "total_profit_usd": 36969.479999999996,
     "known_funders": [],
     "chains": [
       "sol"
@@ -3492,6 +3492,14 @@
     ],
     "behavior_texts": [
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.10 bots:0.48 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -8973,9 +8981,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789967757.119369,
-    "last_seen": 1790769137.1786842,
-    "operation_count": 16,
-    "total_profit_usd": 45666.38699999997,
+    "last_seen": 1790776728.7452726,
+    "operation_count": 24,
+    "total_profit_usd": 58339.682999999946,
     "known_funders": [],
     "chains": [
       "sol"
@@ -8989,6 +8997,14 @@
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.09 bots:0.53 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.02 bots:0.47 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.02 bots:0.47 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -9814,12 +9830,12 @@
         ]
       }
     },
-    "confidence_score": 0.9000000000000002,
-    "confidence": 0.9000000000000002,
+    "confidence_score": 1.0,
+    "confidence": 1.0,
     "first_seen": 1789968593.9492497,
-    "last_seen": 1790769136.6780672,
-    "operation_count": 7,
-    "total_profit_usd": 25059.645,
+    "last_seen": 1790776729.246873,
+    "operation_count": 15,
+    "total_profit_usd": 35283.645000000004,
     "known_funders": [],
     "chains": [
       "sol"
@@ -9829,6 +9845,14 @@
     ],
     "behavior_texts": [
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.10 bots:0.09 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -12466,9 +12490,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789998350.2992013,
-    "last_seen": 1790767883.9083893,
-    "operation_count": 14,
-    "total_profit_usd": 94500.0,
+    "last_seen": 1790776716.312251,
+    "operation_count": 16,
+    "total_profit_usd": 108000.0,
     "known_funders": [],
     "chains": [
       "sol"
@@ -12490,8 +12514,76 @@
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry"
     ],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0095": {
+    "identity_id": "SYND-0095",
+    "syndicate_id": "SYND-0095",
+    "alias": "Syndicate SYND-0095 (LEVERAGE)",
+    "primary_wallets": [
+      "DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc"
+    ],
+    "known_wallets": [
+      "DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc"
+    ],
+    "historical_tokens": [
+      "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_BM2k8mJU",
+      "token_address": "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 8,
+      "estimated_profit_usd": 218170.08,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790776219.6916323,
+    "last_seen": 1790776219.6916323,
+    "operation_count": 1,
+    "total_profit_usd": 218170.08,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
     "metadata": {},
     "notes": ""
   }

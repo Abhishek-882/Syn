@@ -16,6 +16,8 @@ htmlcov/
 # Local cache & vector database files
 .cache/
 *.db
+*.db-shm
+*.db-wal
 *.sqlite3
 onchain_cache.db
 qdrant_storage/

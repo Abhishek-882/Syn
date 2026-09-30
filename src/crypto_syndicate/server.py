@@ -21,6 +21,11 @@ import time
 from typing import Any, Dict, List, Optional
 from urllib.parse import urlparse
 
+# Ensure src directory is in sys.path so crypto_syndicate package can be imported
+SRC_DIR = Path(__file__).resolve().parent.parent
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
 logger = logging.getLogger(__name__)
 
 
@@ -103,6 +108,10 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             self.handle_sse_stream()
         elif parsed.path == "/api/syndicates":
             self.handle_api_syndicates()
+        elif parsed.path == "/api/token-history":
+            self.handle_api_token_history()
+        elif parsed.path in ("/api/keeper/run", "/api/keeper/sync"):
+            self.handle_api_keeper_run()
         elif parsed.path == "/" or parsed.path == "/terminal":
             self.path = "/web/syndicate_terminal.html"
             super().do_GET()
@@ -202,12 +211,20 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             except Exception as e:
                 logger.debug("GroundTruthLoader server fallback error: %s", e)
 
-        # Filter out 0-pair tokens (BELUGA) so spotlight only showcases active trading pairs (ZLONG, EZO, etc.)
+        # Filter out 0-pair tokens (BELUGA) so spotlight only showcases active trading pairs (LEVERAGE, ZLONG, EZO, etc.)
         data["launches"] = [
             l for l in data.get("launches", [])
             if l.get("mint_address") != "4dNj3ykr7iHv2AfjgkC9YesgUvCZ4qEJ7beQxy3RZ3XX"
             and l.get("symbol") != "BELUGA"
         ]
+
+        # Include rich historical token track record ranked by recency
+        try:
+            from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
+            data["token_history"] = get_ground_truth_loader().get_syndicate_token_history()
+        except Exception as e:
+            logger.debug("Failed adding token_history to syndicates snapshot: %s", e)
+            data["token_history"] = []
 
         resp_bytes = json.dumps(data, indent=2).encode("utf-8")
         self.send_response(200)
@@ -216,6 +233,47 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(resp_bytes)
+
+    def handle_api_token_history(self):
+        """Return historical tokens ranked chronologically by release date (most recent first)."""
+        try:
+            from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
+            loader = get_ground_truth_loader()
+            tokens = loader.get_syndicate_token_history()
+        except Exception as e:
+            logger.error("Error retrieving token history: %s", e)
+            tokens = []
+
+        data = {
+            "status": "ok",
+            "total_tokens": len(tokens),
+            "timestamp": time.time(),
+            "token_history": tokens,
+        }
+        resp = json.dumps(data, indent=2).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(resp)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(resp)
+
+    def handle_api_keeper_run(self):
+        """Trigger an on-demand Keeper sync cycle."""
+        try:
+            from crypto_syndicate.keeper import get_syndicate_keeper
+            keeper = get_syndicate_keeper()
+            res = keeper.run_keeper_cycle()
+        except Exception as e:
+            res = {"status": "error", "error": str(e)}
+
+        resp = json.dumps(res, indent=2).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(resp)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(resp)
 
 
 class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):

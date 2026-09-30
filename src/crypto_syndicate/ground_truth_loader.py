@@ -27,6 +27,28 @@ LIVE_TOKENS_FILE = RESULTS_DIR / "live_dexscreener_syndicate_tokens.json"
 WALLETS_CSV_FILE = RESULTS_DIR / "wallets.csv"
 
 
+def format_usd(val: float) -> str:
+    """Format USD values into compact human-readable strings ($1.45M, $49.8K, $12.50)."""
+    if val >= 1_000_000:
+        return f"${val / 1_000_000:.2f}M"
+    elif val >= 1_000:
+        return f"${val / 1_000:.1f}K"
+    else:
+        return f"${val:.2f}"
+
+
+def format_relative_time(diff_seconds: float) -> str:
+    """Format elapsed seconds into compact relative time string (e.g. 5m ago, 2h ago, 1d ago)."""
+    if diff_seconds < 60:
+        return "just now"
+    elif diff_seconds < 3600:
+        return f"{int(diff_seconds / 60)}m ago"
+    elif diff_seconds < 86400:
+        return f"{int(diff_seconds / 3600)}h ago"
+    else:
+        return f"{int(diff_seconds / 86400)}d ago"
+
+
 class GroundTruthLoader:
     """Loads and provides access to discovered syndicate entities and verified meme tokens."""
 
@@ -213,8 +235,9 @@ class GroundTruthLoader:
         now = time.time()
         launches = []
 
-        # Order prioritizing high-liquidity active pairs: ZLONG, EZO, SCRIBJEAN, shibuh, TWIN
+        # Order prioritizing high-liquidity active pairs: LEVERAGE, ZLONG, EZO, SCRIBJEAN, shibuh
         priority_tokens = [
+            "BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump",  # LEVERAGE ($1.45M ATH)
             "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",  # ZLONG
             "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",  # Ezo
             "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",  # Scribble Jean Phil
@@ -301,6 +324,72 @@ class GroundTruthLoader:
             })
 
         return transfers
+
+    def get_syndicate_token_history(self) -> List[Dict[str, Any]]:
+        """Return all historical syndicate tokens with ATH and Current Mcap, ranked recent first."""
+        history = []
+        now = time.time()
+
+        for t in self.live_tokens:
+            mint = t.get("token")
+            if not mint:
+                continue
+
+            created_ms = t.get("created_at_ms") or (now * 1000)
+            launch_ts = created_ms / 1000.0 if created_ms > 1e11 else float(created_ms)
+
+            # Date formatting
+            date_tuple = time.gmtime(launch_ts)
+            created_date_str = time.strftime("%Y-%m-%d %H:%M UTC", date_tuple)
+            age_s = max(0.0, now - launch_ts)
+            rel_time = format_relative_time(age_s)
+
+            ath_mc = float(t.get("ath_market_cap_usd") or 0.0)
+            curr_mc = float(t.get("current_market_cap_usd") or 0.0)
+
+            # Drawdown and multiplier
+            if curr_mc > 0 and ath_mc > 0:
+                multiplier = ath_mc / curr_mc
+                mult_str = f"{multiplier:.1f}x"
+                drawdown_pct = ((curr_mc - ath_mc) / ath_mc) * 100.0
+                drawdown_str = f"{drawdown_pct:.1f}%"
+            else:
+                mult_str = "1.0x"
+                drawdown_str = "0.0%"
+
+            synd_id = (t.get("syndicates") or ["SYND-UNKNOWN"])[0]
+            deployer = (t.get("deployers") or ["Unknown"])[0]
+
+            history.append({
+                "mint": mint,
+                "symbol": t.get("symbol", "TOKEN"),
+                "name": t.get("name", "Syndicate Token"),
+                "syndicate_id": synd_id,
+                "deployer_address": deployer,
+                "launch_timestamp": launch_ts,
+                "created_date_str": created_date_str,
+                "relative_time_str": rel_time,
+                "ath_market_cap_usd": ath_mc,
+                "ath_market_cap_formatted": format_usd(ath_mc),
+                "current_market_cap_usd": curr_mc,
+                "current_market_cap_formatted": format_usd(curr_mc),
+                "peak_multiplier_str": mult_str,
+                "drawdown_from_ath_pct": drawdown_str,
+                "liquidity_usd": float(t.get("liquidity_usd") or 0.0),
+                "dex_url": t.get("dex_url") or f"https://dexscreener.com/solana/{mint}",
+                "gmgn_url": t.get("gmgn_url") or f"https://gmgn.ai/sol/token/{mint}",
+                "pump_url": t.get("pump_url") or f"https://pump.fun/{mint}",
+                "photon_url": t.get("photon_url") or f"https://photon-sol.tinyastro.io/en/lp/{mint}",
+            })
+
+        # Monotonically rank descending by launch_timestamp (most recent at index 0)
+        history.sort(key=lambda x: x["launch_timestamp"], reverse=True)
+
+        # Assign 1-indexed rank
+        for idx, item in enumerate(history, 1):
+            item["rank"] = idx
+
+        return history
 
 
 # Module-level singleton
