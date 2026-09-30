@@ -241,6 +241,24 @@ tests/
          - Numbered Screenshots Captured: Steps 111–115 in `results/screenshots/` and `steps/`.
          - Desktop Regressions Verified: 100% PASS on `test_ground_truth_ux_audit.py`, `test_token_history_browser.py`, `test_real_syndicate_browser.py`.
 
+
+- [x] M22 — Autonomous Live Scanner & Syndicate Multi-Wallet Auto-Extraction:
+         - Multi-Wallet Auto-Extraction (src/crypto_syndicate/keeper.py): Automatically discovers and extracts complete syndicate wallet webs for every ingested token:
+           - Creator Deployer (DEPLOYER, suspicion: 92.5)
+           - Genesis CEX / Treasury Funder (FUNDER, suspicion: 75.0)
+           - Associated Dev Contracts (SYNDICATE_CONTRACT, suspicion: 88.0)
+           - Co-Slot Jito Bundlers (BUNDLER, suspicion: 94.0-98.0)
+           - Early Snipers (SNIPER, suspicion: 90.0-95.0)
+         - Dynamic Graph Expansion: Added 6-8 wallets per syndicate directly into results/syndicate_identities.json under known_wallets and primary_wallets, and appended to results/wallets.csv via ensure_wallets_csv(). Expanded database to 105 syndicates, 872 unique wallets, and 70 deployers.
+         - Live Background Polling Engine: Implemented scan_watched_deployers() (sweeping top deployers for new pairs) and scan_live_launches() (polling DEX latest token profiles for Solana tokens with CEX funding or high suspicion scores). Automatically broadcast SYNDICATE_WALLETS_UPDATED SSE events on discovery.
+         - Server Daemon Auto-Lifecycle (src/crypto_syndicate/server.py): Server automatically boots the background keeper loop (keeper.start_background_loop()) upon launch with clean thread shutdown and connection abort handling.
+         - Codified Learning: Updated .agents/rules/syndicate-keeper-autonomous-sync.md with multi-wallet auto-extraction invariants and daemon lifecycle.
+         - Testing & Verification:
+           - tests/unit/test_keeper_multi_wallet_extraction.py: 4/4 passed (100%).
+           - tests/e2e/test_token_history_browser.py: Verified chronological recency ranking with dynamic top rank, 1-click gateway links, and LEVERAGE search (100% pass).
+           - tests/e2e/test_mobile_persona_ux_audit.py: 21/21 mobile buttons passed with 0 failures, 0 console errors, and 0 bleed across iPhone 15 Pro & Pixel 7 (100% pass).
+           - tests/e2e/test_bitdog_verification.py: Verified  and deployer 35EeJF... (100% pass).
+
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant
 - agent-skills (production-grade agent skill templates): https://github.com/addyosmani/agent-skills

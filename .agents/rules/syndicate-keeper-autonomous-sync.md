@@ -16,3 +16,17 @@
   2. Display both peak All-Time High (ATH) Market Cap and Current Market Cap in USD.
   3. Include verified 1-click execution links to DexScreener (`https://dexscreener.com/solana/{address}`) and GMGN (`https://gmgn.ai/sol/token/{address}`).
   4. Display peak multiplier gain ($X$) and drawdown percentage from ATH.
+
+## 4. Multi-Wallet Syndicate Auto-Extraction Invariant
+- Whenever a syndicate token is discovered or ingested:
+  1. The system MUST NOT restrict attribution to a single creator/deployer wallet.
+  2. The system MUST automatically trace and extract all associated syndicate wallets:
+     - **Genesis Funder & Intermediaries**: The CEX hot wallet or funding anchor and any intermediate funding hops.
+     - **Co-Slot Jito Bundlers**: Wallets executing bundled swaps in the launch slot (co-slot timing $\le 400\text{ms}$).
+     - **Coordinated Early Snipers**: Wallets purchasing within the initial sniper window ($t \le 30\text{s}$).
+  3. All extracted wallets MUST be automatically registered in `results/syndicate_identities.json` (under `known_wallets` and `primary_wallets`) and appended to `results/wallets.csv` with their respective suspicion scores and pattern tags (`cex_funding`, `early_sniper`, `jito_bundler`).
+
+## 5. Autonomous Server Daemon Lifecycle
+- When `src/crypto_syndicate/server.py` boots, it MUST automatically spawn the `SyndicateKeeper` background daemon loop.
+- The keeper loop must continuously scan watched deployers and live DEX/pump feeds without requiring manual API triggers or user prompts.
+- When new tokens or wallets are discovered, the server MUST immediately broadcast an SSE event to update all active mobile and desktop terminals in real time.

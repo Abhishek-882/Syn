@@ -19,7 +19,7 @@
    - `scrollWidth == clientWidth` verified across iPhone 15 Pro (`390px`) and Pixel 7 (`412px`).
    - Clean horizontal momentum scrolling for the 9-column Historical Token Track Record table.
 3. **Touch Targets Ergonomics**:
-   - All mobile buttons, tabs, and copy-pills meet or exceed Apple HIG and WCAG 2.2 standards ($\ge 38-42\text{px}$).
+   - All mobile buttons, tabs, and copy-pills meet or exceed Apple HIG and WCAG 2.2 standards (>= 38-42px).
 4. **Spotlight Banner Responsive Stacking**:
    - High-density vertical stack on narrow displays with 2x2 grid for DEX/GMGN/Photon/Pump gateway buttons.
 5. **Interactive Touch Sweep**:

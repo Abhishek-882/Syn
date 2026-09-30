@@ -166,8 +166,7 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
                     # Send periodic keep-alive heartbeat comment
                     heartbeat = f": heartbeat {time.time()}\n\n"
                     self.wfile.write(heartbeat.encode("utf-8"))
-                    self.wfile.flush()
-        except (BrokenPipeError, ConnectionResetError):
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError, OSError):
             logger.info("SSE client disconnected: %s", self.client_address)
         finally:
             GLOBAL_BROADCASTER.unsubscribe(client_queue)
@@ -296,12 +295,22 @@ class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
 SERVER_START_TIME = time.time()
 
 
-def start_terminal_server(port: Optional[int] = None, host: str = "0.0.0.0") -> ThreadedHTTPServer:
-    """Start threaded HTTP server serving terminal and SSE stream."""
+def start_terminal_server(port: Optional[int] = None, host: str = "0.0.0.0", auto_start_keeper: bool = True) -> ThreadedHTTPServer:
+    """Start threaded HTTP server serving terminal and SSE stream with autonomous background keeper."""
     if port is None:
         port = int(os.environ.get("PORT", 8000))
     server = ThreadedHTTPServer((host, port), SyndicateTerminalHandler)
     logger.info("Syndicate Terminal & SSE Server started on http://%s:%d", host, port)
+
+    if auto_start_keeper:
+        try:
+            from crypto_syndicate.keeper import get_syndicate_keeper
+            keeper = get_syndicate_keeper()
+            keeper.start_background_loop(interval_seconds=60)
+            logger.info("Autonomous Syndicate Keeper background scanner daemon active (interval=60s)")
+        except Exception as e:
+            logger.warning("Could not auto-start keeper background loop: %s", e)
+
     return server
 
 
@@ -310,6 +319,7 @@ def main():
     parser = argparse.ArgumentParser(description="Crypto Syndicate Live Terminal Server")
     parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", 8000)), help="Port to bind (default: $PORT or 8000)")
     parser.add_argument("--host", type=str, default="0.0.0.0", help="Host interface (default: 0.0.0.0)")
+    parser.add_argument("--no-keeper", action="store_true", help="Disable autonomous keeper daemon loop")
     args = parser.parse_args()
 
     try:
@@ -318,14 +328,20 @@ def main():
         pass
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
-    server = start_terminal_server(port=args.port, host=args.host)
+    server = start_terminal_server(port=args.port, host=args.host, auto_start_keeper=not args.no_keeper)
     print(f"[READY] Syndicate Sentinel Server running on http://{args.host}:{args.port}")
     print(f"[STREAM] Real-time SSE Stream: http://{args.host}:{args.port}/events/stream")
     print(f"[HEALTH] Health Check Probe: http://{args.host}:{args.port}/healthz")
+    print(f"[KEEPER] Autonomous Background Scanner: {'ENABLED (60s loop)' if not args.no_keeper else 'DISABLED'}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         print("\nStopping server...")
+        try:
+            from crypto_syndicate.keeper import get_syndicate_keeper
+            get_syndicate_keeper().stop_background_loop()
+        except Exception:
+            pass
         server.server_close()
 
 

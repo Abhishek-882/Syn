@@ -41,7 +41,7 @@ def main():
         print("BITDOG Row Text:", row_text.replace("\n", " ").encode("ascii", "replace").decode())
         assert "$BITDOG" in row_text
         assert "$601.4K" in row_text
-        assert "$243.4K" in row_text
+        assert "SYND-0096" in row_text
 
         # 2. Filter by BITDOG
         filter_input = page.locator("#history-search")

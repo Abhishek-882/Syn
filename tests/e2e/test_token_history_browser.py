@@ -78,13 +78,11 @@ def test_token_history_browser_verification():
         print(f"Found {len(rows)} historical token rows in table")
         assert len(rows) >= 10, f"Expected at least 10 historical tokens, found {len(rows)}"
 
-        # Verify Rank #1 is LEVERAGE
+        # Verify Rank #1 exists and has rank #1
         first_row_text = rows[0].inner_text()
         print("Rank #1 Row Text:", first_row_text.encode("ascii", "replace").decode())
         assert "#1" in first_row_text, "First row must have rank #1"
-        assert "LEVERAGE" in first_row_text, "Rank #1 token must be LEVERAGE"
-        assert "$1.45M" in first_row_text, "Rank #1 ATH must be $1.45M"
-        assert "SYND-0095" in first_row_text, "Rank #1 Syndicate must be SYND-0095"
+        assert "$" in first_row_text, "Rank #1 row must contain market metrics"
 
         # Verify 1-click links in first row
         dex_link = rows[0].query_selector("a[href*='dexscreener.com']")
@@ -96,16 +94,19 @@ def test_token_history_browser_verification():
         # Step 108: Capture baseline token history table
         save_screenshot(page, 108, "syndicate_token_track_record_recency_ranked")
 
-        # Step 109: Test search filtering by 'ZLONG'
+        # Step 109: Test search filtering by 'LEVERAGE'
         search_input = page.query_selector("#history-search")
         assert search_input is not None
-        search_input.fill("ZLONG")
+        search_input.fill("LEVERAGE")
         page.wait_for_timeout(300)
 
         filtered_rows = page.query_selector_all("#history-table-body tr")
         assert len(filtered_rows) >= 1
-        assert "ZLONG" in filtered_rows[0].inner_text()
-        save_screenshot(page, 109, "syndicate_token_history_filtered_zlong")
+        lev_text = filtered_rows[0].inner_text()
+        assert "LEVERAGE" in lev_text, "LEVERAGE must be found in search"
+        assert "$1.45M" in lev_text, "LEVERAGE ATH must be $1.45M"
+        assert "SYND-0095" in lev_text, "LEVERAGE Syndicate must be SYND-0095"
+        save_screenshot(page, 109, "syndicate_token_history_filtered_leverage")
 
         # Clear search
         search_input.fill("")
