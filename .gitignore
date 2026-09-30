@@ -25,7 +25,7 @@ results/qdrant_storage/
 *.log
 scratch/
 results_*/
-crypto_syndicate/
+/crypto_syndicate/
 
 # OS artifacts
 .DS_Store
