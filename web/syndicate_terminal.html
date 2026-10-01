@@ -515,6 +515,24 @@
       }
     }
 
+    /* Live Price Pulse Flash Animations */
+    @keyframes flashGreen {
+      0% { background: rgba(16, 185, 129, 0.45); color: #10b981; }
+      100% { background: transparent; color: inherit; }
+    }
+    @keyframes flashRed {
+      0% { background: rgba(239, 68, 68, 0.45); color: #ef4444; }
+      100% { background: transparent; color: inherit; }
+    }
+    .pulse-green {
+      animation: flashGreen 2.5s ease-out;
+      border-radius: 4px;
+    }
+    .pulse-red {
+      animation: flashRed 2.5s ease-out;
+      border-radius: 4px;
+    }
+
     /* COLUMNS */
     .col {
       display: flex;
@@ -1679,6 +1697,45 @@
     }
 
     // --- TOKEN HISTORY & TRACK RECORD (ATH & RECENCY) ---
+    function formatTimeAgo(tsSeconds) {
+      if (!tsSeconds || tsSeconds <= 0) return 'Just now';
+      const now = Date.now() / 1000;
+      const diff = Math.max(0, Math.floor(now - tsSeconds));
+      if (diff < 10) return 'just now';
+      if (diff < 60) return `${diff}s ago`;
+      const mins = Math.floor(diff / 60);
+      if (mins < 60) return `${mins}m ago`;
+      const hours = Math.floor(mins / 60);
+      const remMins = mins % 60;
+      if (hours < 24) {
+        return remMins > 0 ? `${hours}h ${remMins}m ago` : `${hours}h ago`;
+      }
+      const days = Math.floor(hours / 24);
+      const remHours = hours % 24;
+      if (days < 7) {
+        return remHours > 0 ? `${days}d ${remHours}h ago` : `${days}d ago`;
+      }
+      return `${days}d ago`;
+    }
+
+    function formatUSD(val) {
+      const num = Number(val || 0);
+      if (num >= 1e9) return `$${(num / 1e9).toFixed(2)}B`;
+      if (num >= 1e6) return `$${(num / 1e6).toFixed(2)}M`;
+      if (num >= 1e3) return `$${(num / 1e3).toFixed(1)}K`;
+      return `$${num.toFixed(2)}`;
+    }
+
+    function updateLiveTokenAges() {
+      const ageEls = document.querySelectorAll('.token-age-live');
+      ageEls.forEach(el => {
+        const launchTs = parseFloat(el.getAttribute('data-launch-ts'));
+        if (launchTs) {
+          el.textContent = formatTimeAgo(launchTs);
+        }
+      });
+    }
+
     function switchCenterView(view) {
       state.currentCenterView = view;
       const tabHistory = document.getElementById('tab-center-history');
@@ -1777,21 +1834,21 @@
             </div>
           </td>
           <td>
-            <div style="display:flex; flex-direction:column; gap:1px;">
+            <div style="display:flex; flex-direction:column; gap:1px;" title="Created: ${t.created_date_str}">
               <span style="font-family:var(--font-mono); font-size:10px; color:var(--text);">${t.created_date_str}</span>
-              <span style="font-size:9px; color:var(--text-dim);">${t.relative_time_str}</span>
+              <span class="token-age-live" data-launch-ts="${t.launch_timestamp}" style="font-size:9px; color:var(--text-dim); font-weight:600;">${formatTimeAgo(t.launch_timestamp)}</span>
             </div>
           </td>
           <td>
-            <span class="ath-cell">${t.ath_market_cap_formatted}</span>
+            <span class="ath-cell" id="ath-cell-${t.mint}">${t.ath_market_cap_formatted}</span>
           </td>
           <td>
-            <span class="curr-cell">${t.current_market_cap_formatted}</span>
+            <span class="curr-cell" id="curr-cell-${t.mint}">${t.current_market_cap_formatted}</span>
           </td>
           <td>
             <div style="display:flex; flex-direction:column; gap:1px;">
-              <span class="mult-cell">${t.peak_multiplier_str}</span>
-              <span class="drawdown-cell">${t.drawdown_from_ath_pct}</span>
+              <span class="mult-cell" id="mult-cell-${t.mint}">${t.peak_multiplier_str}</span>
+              <span class="drawdown-cell" id="dd-cell-${t.mint}">${t.drawdown_from_ath_pct}</span>
             </div>
           </td>
           <td style="text-align:right;">
@@ -2421,6 +2478,78 @@
           }
         });
 
+        state.eventSource.addEventListener('TOKEN_METRICS_UPDATED', (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            const tokens = data.tokens || [];
+            if (!tokens.length) return;
+
+            let updatedAny = false;
+            tokens.forEach(up => {
+              const currEl = document.getElementById(`curr-cell-${up.token}`);
+              const athEl = document.getElementById(`ath-cell-${up.token}`);
+              const multEl = document.getElementById(`mult-cell-${up.token}`);
+              const ddEl = document.getElementById(`dd-cell-${up.token}`);
+
+              const match = (state.tokenHistory || []).find(t => t.mint === up.token);
+              if (match) {
+                const oldCurr = match.current_market_cap_usd || 0;
+                const newCurr = up.current_market_cap_usd || 0;
+                match.current_market_cap_usd = newCurr;
+                match.current_market_cap_formatted = formatUSD(newCurr);
+
+                if (up.ath_market_cap_usd) {
+                  match.ath_market_cap_usd = up.ath_market_cap_usd;
+                  match.ath_market_cap_formatted = formatUSD(up.ath_market_cap_usd);
+                }
+                if (up.price_usd) {
+                  match.price_usd = up.price_usd;
+                }
+
+                if (match.current_market_cap_usd > 0 && match.ath_market_cap_usd > 0) {
+                  const mult = match.ath_market_cap_usd / match.current_market_cap_usd;
+                  match.peak_multiplier_str = `${mult.toFixed(1)}x`;
+                  const dd = ((match.current_market_cap_usd - match.ath_market_cap_usd) / match.ath_market_cap_usd) * 100;
+                  match.drawdown_from_ath_pct = `${dd.toFixed(1)}%`;
+                }
+
+                if (currEl) {
+                  currEl.textContent = match.current_market_cap_formatted;
+                  const isUp = newCurr >= oldCurr;
+                  currEl.classList.remove('pulse-green', 'pulse-red');
+                  void currEl.offsetWidth;
+                  currEl.classList.add(isUp ? 'pulse-green' : 'pulse-red');
+                  setTimeout(() => currEl.classList.remove('pulse-green', 'pulse-red'), 2500);
+                }
+
+                if (athEl) {
+                  athEl.textContent = match.ath_market_cap_formatted;
+                }
+                if (multEl) {
+                  multEl.textContent = match.peak_multiplier_str;
+                }
+                if (ddEl) {
+                  ddEl.textContent = match.drawdown_from_ath_pct;
+                }
+
+                updatedAny = true;
+              }
+            });
+
+            if (updatedAny) {
+              const counter = document.getElementById('center-counter');
+              if (counter && state.currentCenterView === 'HISTORY') {
+                const list = state.filterBinanceOnly
+                  ? (state.tokenHistory || []).filter(t => t.is_binance_funded || (t.fund_from && t.fund_from.toLowerCase().includes('binance')))
+                  : (state.tokenHistory || []);
+                counter.textContent = state.filterBinanceOnly ? `${list.length} tokens (Binance Devs)` : `${list.length} tokens`;
+              }
+            }
+          } catch (err) {
+            console.error("SSE TOKEN_METRICS_UPDATED parse error:", err);
+          }
+        });
+
         state.eventSource.onerror = () => {
           statusEl.className = "chip";
           statusText.textContent = "RECONNECTING";
@@ -2455,6 +2584,9 @@
       fetchSnapshot();
       setupSSE();
       updateKeeperStatus();
+
+      // Live dynamic age ticking every 5 seconds
+      setInterval(updateLiveTokenAges, 5000);
 
       // Fallback periodic poll every 10 seconds
       setInterval(fetchSnapshot, 10000);

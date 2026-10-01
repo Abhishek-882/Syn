@@ -3,13 +3,13 @@
 ## Evaluation Profile
 - **Role**: Junior quant analyst evaluating cognitive load and clarity
 - **Target URL**: http://localhost:8000/web/syndicate_terminal.html
-- **Timestamp**: 2026-09-30T14:28:57Z
+- **Timestamp**: 2026-10-01T11:58:01Z
 
 ## Observations & Findings
 1. **Zero 3D Bloat**: Platform loads instantly with zero WebGL overhead, zero canvas drift, and zero Three.js runtime.
 2. **Status Bar Chips**: 0 status chips immediately communicate system health (`SSE LIVE`, `5-HOP INGRESS`, `ANCHOR: ≥20 SOL`, `DEPLOYER: ≥$5.00`).
 3. **Copy Pill & Toast**: Clicking 1-click address copy pill gives immediate visual toast confirmation.
-4. **Feed GMGN Pills**: Found 9 direct GMGN pill links inside live activity cards.
+4. **Feed GMGN Pills**: Found 71 direct GMGN pill links inside live activity cards.
 5. **Ergonomics**: Sticky spotlight banner keeps high-priority meme token launches at the very top.
 
 ## Power-User Scorecard

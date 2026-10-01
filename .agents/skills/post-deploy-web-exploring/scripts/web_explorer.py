@@ -35,6 +35,11 @@ BASE_SELECTORS = [
     "#reset-cam-btn",
     "#poll-toggle-btn",
     "#play-pause-btn",
+    ".tab-btn",
+    ".chip",
+    ".copy-pill",
+    ".filter-toggle-btn",
+    ".mobile-nav-btn",
 ]
 
 MODAL_SELECTORS = [
@@ -142,8 +147,8 @@ async def explore_website(url: str, output_path: str, timeout_ms: int = 3000, sc
         page.on("requestfailed", handle_request_failed)
 
         logger.info("Navigating to target URL: %s", url)
-        await page.goto(url, wait_until="networkidle", timeout=15000)
-        await page.wait_for_timeout(1500)
+        await page.goto(url, wait_until="domcontentloaded", timeout=15000)
+        await page.wait_for_timeout(2000)
 
         if screenshot_path:
             await page.screenshot(path=str(screenshot_path / "initial_state.png"))

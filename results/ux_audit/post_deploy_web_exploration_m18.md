@@ -2,9 +2,9 @@
 
 ## Execution Summary
 - **Target URL**: http://localhost:8000/web/syndicate_terminal.html
-- **Interactive Elements Discovered**: 18
-- **Tested**: 18
-- **Passed**: 18
+- **Interactive Elements Discovered**: 15
+- **Tested**: 15
+- **Passed**: 14
 - **Failed**: 0
 - **Pointer Collision Rate**: 0.0%
 - **Console Errors**: 0
@@ -14,21 +14,18 @@
 - `#notif-toggle-btn`: PASS
 - `button:has-text('TEST CHIME')`: PASS
 - `button:has-text('RESCAN')`: PASS
+- `#filter-binance-btn`: PASS
+- `#filter-binance-dep-btn`: PASS
 - `#tab-ready`: PASS
 - `#tab-treasury`: PASS
 - `#tab-dust`: PASS
 - `#tab-center-history`: PASS
-- `button:has-text('Sync Live Metrics')`: PASS
 - `#tab-center-feed`: PASS
 - `button:has-text('All Activity')`: PASS
 - `button:has-text('Token Creates')`: PASS
 - `button:has-text('Transfers')`: PASS
 - `button:has-text('Snipes / Dumps')`: PASS
-- `#spotlight-dex-btn`: PASS
-- `#spotlight-gmgn-btn`: PASS
-- `#spotlight-photon-btn`: PASS
-- `#spotlight-pump-btn`: PASS
-- `.btn-dismiss`: PASS
+- `#expand-lineage-btn`: PASS
 
 ## Step Screenshots Generated
 - `103_hunter_gmgn_dex_verified.png`: Spotlight banner with working DexScreener pair and GMGN link

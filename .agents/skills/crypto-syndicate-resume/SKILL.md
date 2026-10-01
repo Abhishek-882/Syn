@@ -328,7 +328,17 @@ tests/
             - tests/e2e/test_binance_filter_e2e.py: 100% PASS.
             - tests/e2e/test_mobile_persona_ux_audit.py: 100% PASS (20/20 button sweep, zero bleed).
             - tests/e2e/test_token_history_browser.py & test_token_lineage_flowchart.py: 100% PASS.
-            - 323/323 unit tests PASSING (100% PASS, zero regressions).
+- [x] M27 — Authentic ATH Recalibration, Dynamic Client-Side Live Age Ticking & Real-Time Price Update Streaming:
+          - Database-Wide ATH Recalibration: Resolved the root cause where `max(prev_ath, new_ath)` in `keeper.py` locked in historical developer coin ATHs (such as $OpenSI at $1.07 Quadrillion, $AI at $767K, $SC at $1.44M). Created `scripts/recalibrate_tokens_database.py` recalibrating all 74 tokens against authentic GMGN data (`ath_price * total_supply`). $OpenSI corrected to $31.8K/$43.6K, $AI to $32.0K, $SC to $7.8K.
+          - Creation Timestamp & Token Launch Accuracy: Fixed `_parse_gmgn_token_data()` to strictly reject developer historical coin timestamps (`ath_token_info.get("creation_timestamp")` only if `is_same_token is True`), preventing newly minted tokens from being stamped as months old.
+          - Continuous Existing Token Refresh Engine (`refresh_existing_tokens()`): Implemented high-performance multi-token batch price and liquidity fetching via DexScreener batch endpoint (`https://api.dexscreener.com/latest/dex/tokens/{mints}`) for 15 tokens per cycle, coupled with deep GMGN OpenAPI calibration. Automatically elevates ATH if a token hits a new peak during live trading.
+          - Real-Time Price & Market Cap SSE Streaming (`TOKEN_METRICS_UPDATED`): Broadcasts live token metric updates via SSE `GLOBAL_BROADCASTER`. Terminal client updates table cells in-place with instant green/red pulse animations (`.pulse-green` / `.pulse-red`) without re-rendering or disrupting user focus.
+          - Dynamic Client-Side Live Age Ticking (`formatTimeAgo`): Implemented responsive client-side relative time formatting engine ticking every 5 seconds (`.token-age-live` elements with `data-launch-ts`), providing continuous real-time updates ("45s ago", "12m ago", "1h 15m ago") without requiring full page reload.
+          - Ground Truth Loader Synchronization: Added `self.reload_if_needed()` to `get_syndicate_token_history()` ensuring disk updates immediately reflect in all snapshot and REST endpoints.
+          - Automated Verification:
+            - tests/unit/test_keeper.py, test_binance_filter.py, test_keeper_turbo_scanner.py: 14/14 unit tests PASSING.
+            - tests/e2e/test_token_history_browser.py & test_binance_filter_e2e.py: 2/2 Playwright E2E browser tests PASSING.
+            - Numbered Screenshots: Step 116 (116_live_ath_and_age_ticking_binance.png) and Step 117 (117_live_ath_and_age_all_tokens_verified.png).
 
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant

@@ -356,6 +356,7 @@ class GroundTruthLoader:
 
     def get_syndicate_token_history(self) -> List[Dict[str, Any]]:
         """Return all historical syndicate tokens with ATH and Current Mcap, ranked recent first."""
+        self.reload_if_needed()
         history = []
         now = time.time()
 

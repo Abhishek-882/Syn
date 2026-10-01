@@ -130,6 +130,7 @@ class SyndicateKeeper:
         self._batch_count = batch_count
         self._batch_index = 0  # Rotates 0→1→2→3→4→0...
         self._cycle_count = 0  # Counts cycles for expansion trigger
+        self._refresh_token_index = 0  # Rotates through existing tokens for price/ATH refresh
         self._min_profit_usd = min_profit_usd
         self._session_discovered_tokens: int = 0
         self._session_discovered_wallets: int = 0
@@ -238,7 +239,7 @@ class SyndicateKeeper:
         creator = dev.get("creator_address") or ""
         created_ts = (
             data.get("creation_timestamp")
-            or ath_token_info.get("creation_timestamp")
+            or (ath_token_info.get("creation_timestamp") if is_same_token else None)
             or data.get("open_timestamp")
             or time.time()
         )
@@ -342,10 +343,16 @@ class SyndicateKeeper:
             token_info["is_binance_funded"] = "binance" in fund_from.lower()
 
             if existing_idx is not None:
-                # Merge fields preserving historical peak ATH
                 prev_ath = float(live_tokens[existing_idx].get("ath_market_cap_usd") or 0.0)
                 new_ath = float(token_info.get("ath_market_cap_usd") or 0.0)
-                token_info["ath_market_cap_usd"] = max(prev_ath, new_ath)
+                curr_mc = float(token_info.get("current_market_cap_usd") or 0.0)
+                if prev_ath > 50_000_000 and curr_mc < 5_000_000:
+                    token_info["ath_market_cap_usd"] = new_ath if new_ath > 0 else curr_mc
+                elif new_ath > 0:
+                    token_info["ath_market_cap_usd"] = max(prev_ath, new_ath)
+                else:
+                    token_info["ath_market_cap_usd"] = max(prev_ath, curr_mc)
+                token_info["ath_market_cap_usd"] = max(token_info["ath_market_cap_usd"], curr_mc)
                 live_tokens[existing_idx].update(token_info)
             else:
                 live_tokens.insert(0, token_info)
@@ -759,6 +766,122 @@ class SyndicateKeeper:
 
         return newly_ingested
 
+    def refresh_existing_tokens(self, batch_size: int = 15) -> List[Dict[str, Any]]:
+        """Continuously refresh live prices, current market caps, and ATHs of existing tokens.
+        
+        Rotates through existing tokens in live_dexscreener_syndicate_tokens.json,
+        querying DexScreener batch API (up to 30 mints per call) and GMGN OpenAPI
+        to keep prices, liquidity, and ATH records live and authoritative.
+        """
+        with self._lock:
+            if not self.live_tokens_file.exists():
+                return []
+            try:
+                with open(self.live_tokens_file, "r", encoding="utf-8") as f:
+                    live_tokens = json.load(f)
+            except Exception as e:
+                logger.warning("Error reading live tokens for refresh: %s", e)
+                return []
+
+            if not live_tokens:
+                return []
+
+            total_tokens = len(live_tokens)
+            start_idx = self._refresh_token_index % total_tokens
+            end_idx = min(start_idx + batch_size, total_tokens)
+            batch = live_tokens[start_idx:end_idx]
+            self._refresh_token_index = end_idx % total_tokens
+
+            if not batch:
+                return []
+
+            mints = [t.get("token") for t in batch if t.get("token")]
+            if not mints:
+                return []
+
+            # 1. Multi-token batch query via DexScreener
+            mints_csv = ",".join(mints[:30])
+            dex_url = f"https://api.dexscreener.com/latest/dex/tokens/{mints_csv}"
+            pairs_by_mint: Dict[str, Any] = {}
+            try:
+                req = urllib.request.Request(dex_url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    pairs = data.get("pairs") or []
+                    for p in pairs:
+                        base = p.get("baseToken", {})
+                        m = base.get("address")
+                        if m and (m not in pairs_by_mint or float(p.get("liquidity", {}).get("usd") or 0) > float(pairs_by_mint[m].get("liquidity", {}).get("usd") or 0)):
+                            pairs_by_mint[m] = p
+            except Exception as e:
+                logger.debug("DexScreener batch refresh error: %s", e)
+
+            updated_tokens = []
+            file_changed = False
+
+            # 2. Update token metrics
+            for t in batch:
+                mint = t.get("token")
+                if not mint:
+                    continue
+
+                pair = pairs_by_mint.get(mint)
+                if pair:
+                    try:
+                        p_usd = pair.get("priceUsd")
+                        if p_usd:
+                            t["price_usd"] = f"{float(p_usd):.8f}"
+                        if pair.get("marketCap"):
+                            t["current_market_cap_usd"] = round(float(pair["marketCap"]), 2)
+                        if pair.get("liquidity", {}).get("usd"):
+                            t["liquidity_usd"] = round(float(pair["liquidity"]["usd"]), 2)
+
+                        # Maintain invariant: ATH must be at least current market cap
+                        curr_mc = float(t.get("current_market_cap_usd") or 0.0)
+                        prev_ath = float(t.get("ath_market_cap_usd") or 0.0)
+                        if curr_mc > prev_ath:
+                            t["ath_market_cap_usd"] = curr_mc
+
+                        updated_tokens.append({
+                            "token": mint,
+                            "symbol": t.get("symbol"),
+                            "price_usd": t.get("price_usd"),
+                            "current_market_cap_usd": t.get("current_market_cap_usd"),
+                            "ath_market_cap_usd": t.get("ath_market_cap_usd"),
+                            "liquidity_usd": t.get("liquidity_usd"),
+                        })
+                        file_changed = True
+                    except Exception as e:
+                        logger.debug("Error updating metrics for %s: %s", mint, e)
+
+            # 3. Deep GMGN refresh for first 2 tokens in batch if api_key available
+            if self.api_key and not self.mock_mode:
+                for t in batch[:2]:
+                    mint = t.get("token")
+                    if mint:
+                        try:
+                            fresh_info = self.fetch_gmgn_token_info(mint)
+                            if fresh_info:
+                                t["holder_count"] = fresh_info.get("holder_count", t.get("holder_count", 0))
+                                fresh_ath = float(fresh_info.get("ath_market_cap_usd") or 0.0)
+                                if fresh_ath > 0:
+                                    t["ath_market_cap_usd"] = max(fresh_ath, float(t.get("current_market_cap_usd") or 0.0))
+                                file_changed = True
+                        except Exception:
+                            pass
+
+            if file_changed:
+                try:
+                    with open(self.live_tokens_file, "w", encoding="utf-8") as f:
+                        json.dump(live_tokens, f, indent=2)
+
+                    from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
+                    get_ground_truth_loader().reload()
+                except Exception as e:
+                    logger.error("Error saving refreshed live tokens: %s", e)
+
+            return updated_tokens
+
     def expand_syndicate_network(self) -> Dict[str, Any]:
         """Forward-tracing wallet expansion from known deployers.
         
@@ -927,38 +1050,53 @@ class SyndicateKeeper:
         # 2. Scan Solscan for new Pump.fun tokens
         solscan_deltas = self.scan_solscan_new_tokens()
 
+        # 3. Live refresh existing tokens (prices, current MC, and ATHs)
+        refreshed_deltas = self.refresh_existing_tokens(batch_size=15)
+
         total_deltas = len(deployer_deltas) + len(solscan_deltas)
 
-        # 3. Forward-trace wallet expansion every 8th cycle (~2 min at 15s intervals)
+        # 4. Forward-trace wallet expansion every 8th cycle (~2 min at 15s intervals)
         expansion_result = {"new_deployers": 0, "new_wallets": 0}
         if self._cycle_count % 8 == 0:
             expansion_result = self.expand_syndicate_network()
 
-        # 4. Broadcast SSE update if any discoveries
-        if total_deltas > 0 or expansion_result.get("new_deployers", 0) > 0:
-            logger.info(
-                "Turbo cycle #%d: %d new tokens, %d new deployers, %d new wallets",
-                self._cycle_count, total_deltas,
-                expansion_result.get("new_deployers", 0),
-                expansion_result.get("new_wallets", 0),
-            )
-            try:
-                from crypto_syndicate.server import GLOBAL_BROADCASTER
+        # 5. Broadcast SSE updates
+        try:
+            from crypto_syndicate.server import GLOBAL_BROADCASTER
 
-                event_type = "NEW_TOKEN_DISCOVERED" if total_deltas > 0 else "SYNDICATE_WALLETS_UPDATED"
+            if total_deltas > 0:
                 GLOBAL_BROADCASTER.broadcast(
-                    event_type,
+                    "NEW_TOKEN_DISCOVERED",
                     {
                         "deltas_count": total_deltas,
-                        "new_deployers": expansion_result.get("new_deployers", 0),
-                        "new_wallets": expansion_result.get("new_wallets", 0),
                         "cycle": self._cycle_count,
                         "batch_index": self._batch_index,
                         "timestamp": time.time(),
                     },
                 )
-            except Exception as e:
-                logger.debug("SSE broadcast error: %s", e)
+            elif expansion_result.get("new_deployers", 0) > 0:
+                GLOBAL_BROADCASTER.broadcast(
+                    "SYNDICATE_WALLETS_UPDATED",
+                    {
+                        "new_deployers": expansion_result.get("new_deployers", 0),
+                        "new_wallets": expansion_result.get("new_wallets", 0),
+                        "cycle": self._cycle_count,
+                        "timestamp": time.time(),
+                    },
+                )
+
+            if refreshed_deltas:
+                GLOBAL_BROADCASTER.broadcast(
+                    "TOKEN_METRICS_UPDATED",
+                    {
+                        "refreshed_count": len(refreshed_deltas),
+                        "tokens": refreshed_deltas,
+                        "cycle": self._cycle_count,
+                        "timestamp": time.time(),
+                    },
+                )
+        except Exception as e:
+            logger.debug("SSE broadcast error: %s", e)
 
         return {
             "status": "success",
@@ -966,7 +1104,7 @@ class SyndicateKeeper:
             "batch_index": self._batch_index,
             "time_drift_seconds": self.time_sync.drift_seconds,
             "new_tokens_count": total_deltas,
-            "refreshed_tokens_count": total_deltas,
+            "refreshed_tokens_count": len(refreshed_deltas),
             "deployer_deltas": len(deployer_deltas),
             "solscan_deltas": len(solscan_deltas),
             "expansion": expansion_result,

@@ -1,10 +1,501 @@
 {
-  "total_elements_discovered": 18,
-  "total_tested": 18,
-  "passed": 18,
-  "failed": 0,
-  "failures": [],
+  "url": "http://localhost:8000/web/syndicate_3d_visualizer.html",
+  "total_elements_discovered": 36,
+  "total_tested": 36,
+  "passed": 34,
+  "failed": 2,
+  "console_errors_count": 0,
+  "page_errors_count": 0,
+  "network_errors_count": 0,
+  "failures": [
+    {
+      "selector": ".alert-card",
+      "text": "SYND-0057$EZOFLASH\ud83c\udfaf JITOProfit: $91,607\ud83d\udc65",
+      "error_type": "TIMEOUT",
+      "message": "Locator.wait_for: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\".alert-card\").first to be visible\n    9 \u00d7 locator resolved to hidden <div data-mode=\"flash\" class=\"alert-card\" data-bundler=\"true\" data-cluster-id=\"SYND-0057\">\u2026</div>\n",
+      "bounding_box": {
+        "x": 1115,
+        "y": 459,
+        "width": 311,
+        "height": 53
+      },
+      "dom_snapshot": "<div class=\"alert-card\" data-cluster-id=\"SYND-0057\" data-mode=\"flash\" data-bundler=\"true\" style=\"display: none;\"><div style=\"display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-weight:600\"><span>SYND-0057</span><div style=\"display:flex;gap:4px;align-items:center;\"><span style=\"background:rgba(0,240,255,0.12);color:var(--cyan-glow);padding:1px 4px;border-radius:3px;font-size:9px;\">$EZO</span><span style=\"color:var(--cyan-glow);font-size:10px;\">FLASH</span><span class=\"badge-jito\" style=\"background:rgba(16,185,129,0.2);border:1px solid #10b981;color:#10b981;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;\">\ud83c\udfaf JITO</span></div></div><div style=\"font-size:10px;color:var(--text-muted);margin-top:4px;display:flex;justify-content:space-between;\"><span>Profit: $91,607</span><span>\ud83d\udc65 5 | \u26a1 54%</span></div></div>",
+      "console_errors": [],
+      "timestamp": "2026-10-01T12:01:08.797430+00:00",
+      "collision_point": {
+        "x": 1270.5,
+        "y": 485.5
+      },
+      "occluding_element": "<div#alert-feed.alert-feed>",
+      "occluding_rect": {
+        "x": 1101,
+        "y": 449,
+        "width": 339,
+        "height": 451
+      }
+    },
+    {
+      "selector": ".alert-card",
+      "text": "SYND-0066$SCRIBJEANFLASH\ud83c\udfaf JITOProfit: $6",
+      "error_type": "TIMEOUT",
+      "message": "Locator.wait_for: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\".alert-card\").nth(1) to be visible\n    9 \u00d7 locator resolved to hidden <div data-mode=\"flash\" class=\"alert-card\" data-bundler=\"true\" data-cluster-id=\"SYND-0066\">\u2026</div>\n",
+      "bounding_box": {
+        "x": 1115,
+        "y": 520,
+        "width": 311,
+        "height": 53
+      },
+      "dom_snapshot": "<div class=\"alert-card\" data-cluster-id=\"SYND-0066\" data-mode=\"flash\" data-bundler=\"true\" style=\"display: none;\"><div style=\"display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-weight:600\"><span>SYND-0066</span><div style=\"display:flex;gap:4px;align-items:center;\"><span style=\"background:rgba(0,240,255,0.12);color:var(--cyan-glow);padding:1px 4px;border-radius:3px;font-size:9px;\">$SCRIBJEAN</span><span style=\"color:var(--cyan-glow);font-size:10px;\">FLASH</span><span class=\"badge-jito\" style=\"background:rgba(16,185,129,0.2);border:1px solid #10b981;color:#10b981;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;\">\ud83c\udfaf JITO</span></div></div><div style=\"font-size:10px;color:var(--text-muted);margin-top:4px;display:flex;justify-content:space-between;\"><span>Profit: $62,122</span><span>\ud83d\udc65 5 | \u26a1 61%</span></div></div>",
+      "console_errors": [],
+      "timestamp": "2026-10-01T12:01:11.357251+00:00",
+      "collision_point": {
+        "x": 1270.5,
+        "y": 546.5
+      },
+      "occluding_element": "<div#alert-feed.alert-feed>",
+      "occluding_rect": {
+        "x": 1101,
+        "y": 449,
+        "width": 339,
+        "height": 451
+      }
+    }
+  ],
   "console_errors": [],
   "page_errors": [],
-  "timestamp": "2026-09-30T14:29:10Z"
+  "network_errors": [],
+  "tested_elements": [
+    {
+      "selector": "button",
+      "text": "\u26a1 CL4R1T4S MODE",
+      "bounding_box": {
+        "x": 1015.25,
+        "y": 11,
+        "width": 133.515625,
+        "height": 29
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": "button",
+      "text": "\ud83c\udfaf RESET VIEW",
+      "bounding_box": {
+        "x": 1158.765625,
+        "y": 11,
+        "width": 113.71875,
+        "height": 29
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": "button",
+      "text": "\ud83d\udce1 LIVE SCAN: ON",
+      "bounding_box": {
+        "x": 1282.484375,
+        "y": 11,
+        "width": 133.515625,
+        "height": 29
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": "button",
+      "text": "\u2b07 JSON",
+      "bounding_box": {
+        "x": 1339.546875,
+        "y": 167,
+        "width": 43.921875,
+        "height": 17
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": "button",
+      "text": "\u2b07 CSV",
+      "bounding_box": {
+        "x": 1387.46875,
+        "y": 167,
+        "width": 38.53125,
+        "height": 17
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": "button",
+      "text": "\u25b6 PLAY",
+      "bounding_box": {
+        "x": 207,
+        "y": 834,
+        "width": 56.484375,
+        "height": 21
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".hud-btn",
+      "text": "\u26a1 CL4R1T4S MODE",
+      "bounding_box": {
+        "x": 988.84375,
+        "y": 11,
+        "width": 133.515625,
+        "height": 29
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".hud-btn",
+      "text": "\ud83c\udfaf RESET VIEW",
+      "bounding_box": {
+        "x": 1132.359375,
+        "y": 11,
+        "width": 113.71875,
+        "height": 29
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".hud-btn",
+      "text": "\ud83d\udce1 LIVE SCAN: ON",
+      "bounding_box": {
+        "x": 1256.078125,
+        "y": 11,
+        "width": 159.921875,
+        "height": 29
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".hud-btn",
+      "text": "\u2b07 JSON",
+      "bounding_box": {
+        "x": 1339.546875,
+        "y": 167,
+        "width": 43.921875,
+        "height": 17
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".hud-btn",
+      "text": "\u2b07 CSV",
+      "bounding_box": {
+        "x": 1387.46875,
+        "y": 167,
+        "width": 38.53125,
+        "height": 17
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".hud-btn",
+      "text": "\u25b6 PLAY",
+      "bounding_box": {
+        "x": 207,
+        "y": 834,
+        "width": 64.609375,
+        "height": 21
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".health-chip",
+      "text": "GMGN: OPEN (429)",
+      "bounding_box": {
+        "x": 422.9375,
+        "y": 15,
+        "width": 133,
+        "height": 21
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".health-chip",
+      "text": "SOLSCAN: LIVE",
+      "bounding_box": {
+        "x": 563.9375,
+        "y": 15,
+        "width": 113.5,
+        "height": 21
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".health-chip",
+      "text": "RPC: READY",
+      "bounding_box": {
+        "x": 685.4375,
+        "y": 15,
+        "width": 94,
+        "height": 21
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".health-chip",
+      "text": "CACHE: 0.0% (0/12)",
+      "bounding_box": {
+        "x": 787.4375,
+        "y": 15,
+        "width": 144.5,
+        "height": 21
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "ALL (1)",
+      "bounding_box": {
+        "x": 290,
+        "y": 64,
+        "width": 68.203125,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "#FlashMode (2)",
+      "bounding_box": {
+        "x": 366.203125,
+        "y": 64,
+        "width": 114.40625,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "#Sustained (3)",
+      "bounding_box": {
+        "x": 488.609375,
+        "y": 64,
+        "width": 114.40625,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "#Bundler>40% (4)",
+      "bounding_box": {
+        "x": 611.015625,
+        "y": 64,
+        "width": 127.609375,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "#Campaigns (5)",
+      "bounding_box": {
+        "x": 746.625,
+        "y": 64,
+        "width": 114.40625,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "$BELUGA",
+      "bounding_box": {
+        "x": 869.03125,
+        "y": 64,
+        "width": 68.203125,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".tag-chip",
+      "text": "$SNIPEX",
+      "bounding_box": {
+        "x": 945.234375,
+        "y": 64,
+        "width": 68.203125,
+        "height": 24
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".stage-pill",
+      "text": "MINT (T+0s)",
+      "bounding_box": {
+        "x": 353.5625,
+        "y": 836.5,
+        "width": 71.40625,
+        "height": 16
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".stage-pill",
+      "text": "SNIPERS (T+13s)",
+      "bounding_box": {
+        "x": 430.96875,
+        "y": 836.5,
+        "width": 93,
+        "height": 16
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".stage-pill",
+      "text": "SIM IN (T+14s)",
+      "bounding_box": {
+        "x": 529.96875,
+        "y": 836.5,
+        "width": 87.609375,
+        "height": 16
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".stage-pill",
+      "text": "BUNDLE (T+16s)",
+      "bounding_box": {
+        "x": 623.578125,
+        "y": 836.5,
+        "width": 87.609375,
+        "height": 16
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".stage-pill",
+      "text": "SIM OUT (T+24s)",
+      "bounding_box": {
+        "x": 717.1875,
+        "y": 836.5,
+        "width": 93,
+        "height": 16
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".stage-pill",
+      "text": "DUMP (T+35s)",
+      "bounding_box": {
+        "x": 816.1875,
+        "y": 836.5,
+        "width": 76.8125,
+        "height": 16
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".kpi-card",
+      "text": "3Syndicates",
+      "bounding_box": {
+        "x": 1115,
+        "y": 87,
+        "width": 151.5,
+        "height": 57
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".kpi-card",
+      "text": "$219,699Est. Profit",
+      "bounding_box": {
+        "x": 1274.5,
+        "y": 87,
+        "width": 151.5,
+        "height": 57
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".kpi-card",
+      "text": "+$1,621Net Return",
+      "bounding_box": {
+        "x": 1115,
+        "y": 321,
+        "width": 98.328125,
+        "height": 51
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".kpi-card",
+      "text": "100%Win Rate",
+      "bounding_box": {
+        "x": 1221.328125,
+        "y": 321,
+        "width": 98.328125,
+        "height": 51
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".kpi-card",
+      "text": "T-4.0sBest Lead",
+      "bounding_box": {
+        "x": 1327.65625,
+        "y": 321,
+        "width": 98.34375,
+        "height": 51
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "selector": ".alert-card",
+      "text": "SYND-0057$EZOFLASH\ud83c\udfaf JITOProfit: $91,607\ud83d\udc65",
+      "bounding_box": {
+        "x": 1115,
+        "y": 459,
+        "width": 311,
+        "height": 53
+      },
+      "status": "FAIL",
+      "error": "Locator.wait_for: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\".alert-card\").first to be visible\n    9 \u00d7 locator resolved to hidden <div data-mode=\"flash\" class=\"alert-card\" data-bundler=\"true\" data-cluster-id=\"SYND-0057\">\u2026</div>\n"
+    },
+    {
+      "selector": ".alert-card",
+      "text": "SYND-0066$SCRIBJEANFLASH\ud83c\udfaf JITOProfit: $6",
+      "bounding_box": {
+        "x": 1115,
+        "y": 520,
+        "width": 311,
+        "height": 53
+      },
+      "status": "FAIL",
+      "error": "Locator.wait_for: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator(\".alert-card\").nth(1) to be visible\n    9 \u00d7 locator resolved to hidden <div data-mode=\"flash\" class=\"alert-card\" data-bundler=\"true\" data-cluster-id=\"SYND-0066\">\u2026</div>\n"
+    }
+  ]
 }
