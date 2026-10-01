@@ -1,26 +1,36 @@
-# Dispatch Task: Explorer Survey 1
+# DISPATCH — Explorer Survey 1 (Prototype & Indicator Architect)
 
-## Role
-teamwork_preview_explorer (Web DOM & Interactive Element Analyst)
+## Context & Objectives
+You are Explorer Survey 1 for the Gold Oracle EA v2 project.
+Your mission is to thoroughly inspect and reverse-engineer the reference prototype:
+`c:\Users\Asus\Documents\antigravity\hopeful-curie\GoldOracle_v1.mq5`
+and analyze how its architecture maps to the new requirements in:
+`c:\Users\Asus\Documents\antigravity\hopeful-curie\ORIGINAL_REQUEST.md` (and `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\orchestrator_gold_1\DISPATCH.md`).
 
-## Objective
-Read ORIGINAL_REQUEST.md and thoroughly inspect `web/syndicate_3d_visualizer.html` and any related scripts/stylesheets in the repository.
-Enumerate all interactive elements (native buttons, ARIA interactive elements, navigation chips, stage pills, sliders, filter tags, KPI cards, modals), count them, analyze their DOM hierarchy, CSS styling (pointer-events, z-index, position, bounding boxes), and identify any structural causes of pointer collisions or click interception.
+## Specific Tasks
+1. Inspect `GoldOracle_v1.mq5` completely:
+   - Identify existing brain implementations, indicator handles, data structures, and trade logic.
+   - Note any architectural weaknesses, bugs, or missing requirements compared to v2 specs.
+2. Design the Global Shared Indicator Architecture for v2:
+   - Enumerate all standard and custom indicator handles needed across M15, H1, H4, D1 timeframes.
+   - Prove that the total handle count remains strictly < 60 handles (<12% of MT5 512-handle limit).
+   - Design the global handle registry (`OnInit` creation, validation, `OnDeinit` release).
+   - Detail buffer copying patterns ensuring strict bar[1] (historical, non-repainting) access.
+3. Write a comprehensive survey report to `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\survey_report.md` and summarize in your `handoff.md`.
 
-## Inputs
-- `c:\Users\Asus\Documents\antigravity\hopeful-curie\ORIGINAL_REQUEST.md`
-- `c:\Users\Asus\Documents\antigravity\hopeful-curie\web\syndicate_3d_visualizer.html`
-- `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\skills\post-deploy-web-exploring\SKILL.md`
+## 2026-10-01T13:02:59Z
+You are Explorer Survey 1 (Prototype & Indicator Architect) for Gold Oracle EA v2.
+Working directory: c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1
+Original request path: c:\Users\Asus\Documents\antigravity\hopeful-curie\ORIGINAL_REQUEST.md
+Your dispatch instructions: c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\DISPATCH.md
+Reference prototype: c:\Users\Asus\Documents\antigravity\hopeful-curie\GoldOracle_v1.mq5
 
-## Output Requirements
-- Write your findings to `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\analysis.md`
-- Write your handoff to `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\handoff.md`
-- Send completion message to parent orchestrator via send_message.
+Relevant skills:
+- production-mql-engineering: C:\Users\Asus\.gemini\config\skills\production-mql-engineering\SKILL.md
+- gold-xauusd-specialist: C:\Users\Asus\.gemini\config\skills\gold-xauusd-specialist\SKILL.md
+- indicator-algorithms: C:\Users\Asus\.gemini\config\skills\indicator-algorithms\SKILL.md
+- large-ea-architecture: C:\Users\Asus\.gemini\config\skills\large-ea-architecture\SKILL.md
 
-## 2026-09-21T02:46:32Z
-You are Explorer Survey 1. Your working directory is `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1`.
-Please read your dispatch instructions in `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\DISPATCH.md` and read `c:\Users\Asus\Documents\antigravity\hopeful-curie\ORIGINAL_REQUEST.md`.
-Thoroughly inspect `web/syndicate_3d_visualizer.html` and related files.
-Enumerate all interactive elements, count them, analyze DOM structure, CSS (z-index, pointer-events, bounding boxes, fixed positioning), and detect potential pointer collisions or interception issues.
-Write your detailed analysis to `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\analysis.md` and your handoff report to `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\handoff.md`.
-When finished, send a message to your parent orchestrator (`36ab40e6-0e20-4a26-9b0f-c61a24c1ed6a`).
+Inspect GoldOracle_v1.mq5 and project references thoroughly. Map out the global shared indicator architecture (<60 handles across M15/H1/H4/D1) and buffer access patterns (strictly bar[1] confirmed, zero repainting).
+Write your findings to c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\survey_report.md and write a complete handoff.md in your working directory. Send a message to parent when done.
+

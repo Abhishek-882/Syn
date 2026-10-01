@@ -717,3 +717,70 @@ After all code changes:
 - [ ] `python -m pytest tests/ -q` → 100% pass (≥346 tests)
 - [ ] `exhaustive_step_explorer.py` → 30/30 pass, 0 console errors
 - [ ] Final browser agent confirms live Jito display with real scanner data
+
+
+## 2026-10-01T12:56:52Z
+
+Use a very large team of agents. Build and rigorously verify the **Gold Oracle EA v2** — a multi-strategy daily directional Spot Gold (XAUUSD) Expert Advisor for MetaTrader 5 powered by a consensus ensemble of 144 independent analytical brain functions with self-learning adaptive weights.
+
+Working directory: `c:\Users\Asus\Documents\antigravity\hopeful-curie`  
+Integrity mode: development  
+
+## Context & Specifications
+
+Spot Gold (XAUUSD) demonstrates pronounced institutional expansion following the London morning session. The system performs comprehensive market analysis during the London session (07:00–10:00 UTC), gathers directional calls (+1 BUY, -1 SELL, 0 NEUTRAL) from 144 isolated strategy brains across 13 analytical disciplines, calculates a weighted consensus score, places a single daily trade at ~10:00 UTC, and enforces a mandatory session close at 20:00 UTC.
+
+High-impact macro news events (NFP, CPI, FOMC, PPI, Powell speeches) trigger an immediate, unconditional position closure with no re-entry for the remainder of the session.
+
+---
+
+## Requirements
+
+### R1. Complete 144 Strategy Brain Ensemble
+The system must implement 144 independent, pure, non-repainting predictive brain functions (`Brain001` through `Brain144`) returning strictly `+1`, `-1`, or `0`, evaluated on confirmed historical bars (`bar[1]` or earlier).
+- **Categories covered:** SMC/ICT (12), Trend Following (15), Momentum & Oscillators (16), Volatility (11), Volume & Flow (10), Fibonacci & Harmonics (10), Statistical & Quant (15), Inter-Market Macro (16), Temporal & Calendar (15), Support/Resistance & Pivots (10), Candlesticks (12), Psychological & Sentiment (8), Frontier & Experimental (10).
+- **Shared Indicator Architecture:** All standard indicator handles must be initialized once globally during `OnInit()` and released in `OnDeinit()`. Total handle count must remain under 60 handles (<12% of MT5 512-handle limit).
+
+### R2. Adaptive Dynamic Weighting Engine
+Each strategy brain possesses an adaptive weight $W_i \in [0.1, 1.0]$ initialized at 1.0 (cold start). Following each trading day at 20:00 UTC:
+- The actual daily market vector is evaluated: $\text{Sign}(\text{Close}_{20:00} - \text{Open}_{10:00})$.
+- For every brain that cast a non-zero vote:
+  $$\text{EMA\_Acc}_i \leftarrow 0.95 \times \text{EMA\_Acc}_i + 0.05 \times (\text{Vote}_i == \text{ActualDirection} ? 1.0 : 0.0)$$
+  $$W_i \leftarrow \max(0.1, \text{EMA\_Acc}_i)$$
+- Weights dynamically self-tune over a 30-day half-life, amplifying high-accuracy brains while suppressing deteriorating strategies without hard-deleting them.
+
+### R3. Gold Microstructure & Execution Infrastructure
+- **Pip Normalization:** Account for XAUUSD digit conventions (`_Digits == 2`, `_Point = 0.01`, `pipFactor = 1.0`). Never hardcode 0.0001 forex multipliers.
+- **Dynamic ATR Stop-Loss:** Calculated as $\text{ATR}(14, H1) \times 2.0$, clamped to broker `SYMBOL_TRADE_STOPS_LEVEL`.
+- **Take-Profit:** None. Full directional capture terminating at 20:00 UTC.
+- **Position Sizing:** Risk-based percentage of account equity (input parameter `InpRiskPercent`, default 2.0%) normalized to `SYMBOL_VOLUME_MIN`, `SYMBOL_VOLUME_MAX`, and `SYMBOL_VOLUME_STEP`.
+- **Spread & Volatility Gating:** Blocks entries if spread exceeds threshold (50 points) or if market is frozen (H1 ATR < minimum threshold).
+
+### R4. Institutional News Blackout & Safety System
+- Hardcoded institutional calendar tracking NFP (first Friday 12:30 UTC), CPI (12:30 UTC), FOMC (Wednesday 18:00 UTC), PPI, and Fed Chair speeches.
+- Enforces an automated pre-news closure window (15–30 min prior) and blackout window (30–90 min post).
+- Immediate liquidation of open positions upon entering a blackout window with strict zero re-entry enforcement for the day.
+
+### R5. Monolithic Architecture & Zero-Defect Compilation
+- Delivered as a single, fully integrated, production-grade MetaTrader 5 Expert Advisor (`GoldOracle_v2.mq5`).
+- Strictly zero errors, zero warnings on MetaEditor compilation.
+
+---
+
+## Acceptance Criteria
+
+### Compilation & Architecture
+- [ ] `GoldOracle_v2.mq5` compiles with 0 errors and 0 warnings on MetaTrader 5 compiler.
+- [ ] Exactly 144 brain functions are fully implemented with real quantitative formulas (zero stub/dummy returns).
+- [ ] Global indicator handle registry consumes fewer than 60 total handles and validates each handle upon `OnInit()`.
+
+### Strategy & Logic Verification
+- [ ] Every brain function returns strictly `+1`, `-1`, or `0`.
+- [ ] No brain function reads `bar[0]` for signals; all indicators and OHLC rates read confirmed historical data.
+- [ ] The consensus engine calculates $\text{Score} = \sum_{i=1}^{144} (V_i \times W_i)$ and correctly derives trade direction.
+- [ ] Adaptive weighting formula updates correctly upon session close and respects the 0.1 floor.
+
+### Operational Lifecycle Verification
+- [ ] Trade entries execute strictly within the designated 10:00 UTC window when spread and volatility conditions pass.
+- [ ] Positions close deterministically at 20:00 UTC or immediately upon entering a news blackout window.
+- [ ] Risk sizing correctly calculates lots based on dynamic ATR stop distance and account equity.

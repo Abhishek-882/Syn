@@ -1,0 +1,76 @@
+{
+  "target": "C:\\Users\\Asus\\Documents\\antigravity\\hopeful-curie\\GoldOracle_v2.mq5",
+  "overall_verdict": "APPROVE",
+  "passed_all": true,
+  "audits": {
+    "audit_1_brain_inventory": {
+      "passed": true,
+      "total_declared": 144,
+      "unique_ids_count": 144,
+      "min_id": 1,
+      "max_id": 144,
+      "missing_ids": [],
+      "duplicate_ids": [],
+      "consensus_votes_wired": 144,
+      "missing_consensus_indices": [],
+      "g_Brains_array_size": 144
+    },
+    "audit_2_return_space": {
+      "passed": true,
+      "total_return_statements": 584,
+      "constant_returns_count": 572,
+      "bounded_ternary_returns_count": 12,
+      "violations_count": 0,
+      "violations": []
+    },
+    "audit_3_zero_lookahead": {
+      "passed": true,
+      "violations_count": 0,
+      "violations": [],
+      "helpers_guarded": true,
+      "rates_calls_count": 121,
+      "ind_val_calls_count": 109,
+      "ind_ser_calls_count": 3
+    },
+    "audit_4_indicator_handles": {
+      "passed": true,
+      "declared_handles_count": 56,
+      "unique_initialized_handles": 56,
+      "api_creation_calls_in_init": 56,
+      "outside_init_indicator_calls": 0,
+      "released_handles_count": 56,
+      "unreleased_handles": [],
+      "budget_limit": 60,
+      "budget_used_percentage": "93.3%"
+    },
+    "audit_5_pip_normalization": {
+      "passed": true,
+      "formula_matched": true,
+      "pipsize_formula_matched": true,
+      "digits_2_factor": 1.0,
+      "digits_2_point": 0.01,
+      "digits_2_pipsize": 0.01,
+      "digits_3_factor": 10.0
+    },
+    "audit_6_constant_stubs": {
+      "passed": true,
+      "stub_violations_count": 0,
+      "stub_violations": [],
+      "min_loc": 6,
+      "max_loc": 28,
+      "avg_loc": 11.97,
+      "total_brains_verified": 144
+    },
+    "audit_7_compiler": {
+      "passed": true,
+      "returncode": 0,
+      "ex5_generated": true,
+      "stdout": [
+        "Compilation Target: C:\\Users\\Asus\\Documents\\antigravity\\hopeful-curie\\GoldOracle_v2.mq5",
+        "Status: PASS",
+        "Result: Result: 0 errors, 0 warnings, 3573 ms elapsed, cpu='X64 Regular'",
+        "EX5 Generated: True"
+      ]
+    }
+  }
+}

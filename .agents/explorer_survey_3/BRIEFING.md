@@ -1,51 +1,52 @@
-# BRIEFING — 2026-09-21T02:51:30Z
+# BRIEFING — 2026-10-01T13:05:00Z
 
 ## Mission
-Analyze multi-perspective verification requirements (R1-R4), acceptance criteria (36/36 interactive elements with 0 failures/console errors), inspect results/ artifacts, and define verification strategy for Interactive Crawler, Visual Regression Judge, and Network & State Auditor.
+Specify the Gold microstructure execution logic, adaptive dynamic weighting engine, institutional news blackout calendar system, and verify the MetaEditor64 compilation harness and log reader for Gold Oracle EA v2.
 
 ## 🔒 My Identity
 - Archetype: teamwork_preview_explorer
-- Roles: Multi-Agent Verification & Acceptance Strategy Analyst, Investigator, Synthesizer
+- Roles: Execution & Infrastructure Explorer, Quantitative Architecture Analyst
 - Working directory: c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_3
-- Original parent: 36ab40e6-0e20-4a26-9b0f-c61a24c1ed6a
-- Milestone: Verification & Acceptance Strategy (Survey 3)
+- Original parent: 6ebd36b2-2485-49cc-8580-0202231d0c99
+- Milestone: Phase 0 - Survey 3 (Execution & Infrastructure Architecture)
 
 ## 🔒 Key Constraints
-- Read-only investigation — do NOT implement
-- Multi-perspective verification requirements (R1-R4) analysis
-- Exact 36/36 element verification definition & acceptance criteria
-- Verify existing artifacts in `results/`
-- Outline concrete verification methodology for Crawler, Visual Judge, and State Auditor
+- Read-only investigation — do NOT implement `GoldOracle_v2.mq5` directly; specify the blueprint
+- Precise XAUUSD pip normalization formula (`_Digits == 2`, `_Point = 0.01`, `pipFactor = 1.0`)
+- Dynamic ATR stop-loss calculation: $\text{ATR}(14, H1) \times 2.0$, clamped to broker `SYMBOL_TRADE_STOPS_LEVEL`
+- Position sizing: Risk % of account equity adjusted to volume min/max/step
+- Adaptive weighting: 144 brains, $W_i \in [0.1, 1.0]$, initialized to 1.0, 20:00 UTC trigger, 0.95/0.05 EMA update, 0.1 floor
+- News blackout: NFP, CPI, FOMC, PPI, Powell speeches with liquidation and zero re-entry
+- MetaEditor64 compilation harness verified with UTF-16 log parser
 
 ## Current Parent
-- Conversation ID: 36ab40e6-0e20-4a26-9b0f-c61a24c1ed6a
-- Updated: 2026-09-21T02:51:30Z
+- Conversation ID: 6ebd36b2-2485-49cc-8580-0202231d0c99
+- Updated: 2026-10-01T13:02:59Z
 
 ## Investigation State
 - **Explored paths**:
-  - `ORIGINAL_REQUEST.md` (lines 471-504, requirements R1-R4 and acceptance criteria)
-  - `web/syndicate_3d_visualizer.html` (DOM hierarchy, styles, event listeners, z-index, pointer-events)
-  - `.agents/skills/post-deploy-web-exploring/SKILL.md` and `scripts/web_explorer.py`
-  - `results/web_verification_failures.json` (36 elements pass, 0 failures, 0 console errors)
-  - `results/screenshots/` (`initial_state.png`, `post_sweep_state.png`)
-  - `results/syndicate_3d_state.json` (41 nodes, 70 links, 5 clusters, provider stats)
-  - `results/live_alerts.json` (340 NDJSON alerts)
+  - `ORIGINAL_REQUEST.md` (Gold Oracle EA v2 requirements R1-R5)
+  - `GoldOracle_v1.mq5` (prototype architecture, execution flaws, news array, weighting logic)
+  - `C:\Users\Asus\.gemini\config\skills\gold-xauusd-specialist\SKILL.md` (pip math, spread, ATR gate, lot normalization, news blackout)
+  - `C:\Users\Asus\.gemini\config\skills\production-mql-engineering\SKILL.md` (Error 130, stops level, risk math, handle limits)
+  - `C:\Users\Asus\.gemini\config\skills\trailing-stop-systems\SKILL.md` (stop level clamping, PositionModify, broker buffer)
+  - `C:\Program Files\MetaTrader 5\MetaEditor64.exe` (compilation harness, UTF-16 log output, command line flags)
 - **Key findings**:
-  - Exact 36/36 interactive elements categorized into 8 functional types + range slider scrub.
-  - Live execution of `web_explorer.py` verified: all 36/36 passed with 0 failures and 0 console errors in ~1m34s.
-  - Verification methodology defined for Interactive Crawler, Visual Regression Judge, and Network & State Auditor.
-  - Comprehensive `analysis.md` written in working directory.
+  - MetaEditor64 path verified at `C:\Program Files\MetaTrader 5\MetaEditor64.exe` (115MB). Successfully compiled `GoldOracle_v1.mq5` to `GoldOracle_v1.ex5` (0 errors, 0 warnings). Log output requires UTF-16 LE decoding.
+  - XAUUSD has `_Digits == 2`, `_Point == 0.01`. In forex `pipFactor = (_Digits == 5 || _Digits == 3) ? 10.0 : 1.0`, for Gold `_Digits == 2` correctly evaluates to `1.0`. 1 pip is $0.01 (1 point) or $0.10 depending on convention, but in MT5 point units: `pipFactor = 1.0`, `pipSize = 0.01`.
+  - Dynamic ATR SL distance must be checked against `SYMBOL_TRADE_STOPS_LEVEL` and `SYMBOL_SPREAD`. Clamping logic must strictly prevent Error 130 (`TRADE_RETCODE_INVALID_STOPS`).
+  - Equity risk sizing formula: $\text{risk\_money} = \text{Equity} \times \frac{\text{RiskPct}}{100.0}$. Risk per lot = $\frac{\text{SL\_distance\_points} \times \text{Point}}{\text{TickSize}} \times \text{TickValue}$. Clamped to `SYMBOL_VOLUME_MIN`, `SYMBOL_VOLUME_MAX`, and step-quantized.
+  - Adaptive weighting: 144 brains, cold start 1.0. At 20:00 UTC, compute actual market direction $\text{Sign}(\text{Close}_{20:00} - \text{Open}_{10:00})$. For brains that voted non-zero: $\text{EMA\_Acc}_i \leftarrow 0.95 \times \text{EMA\_Acc}_i + 0.05 \times (\text{Vote}_i == \text{ActualDirection} ? 1.0 : 0.0)$, $W_i \leftarrow \max(0.1, \text{EMA\_Acc}_i)$.
+  - News blackout calendar: NFP (first Friday 12:30 UTC), CPI (12:30 UTC), FOMC (Wednesday 18:00 UTC), PPI (12:30 UTC), Fed speeches. Requires time server alignment, day-of-month calculation for NFP (day <= 7), pre-event liquidation window (15-30 min) and post-event blackout window (30-90 min), plus daily lockout flag preventing re-entry.
 - **Unexplored areas**:
-  - Complete 100% of Explorer Survey 3 scope; all requirements R1-R4 and acceptance criteria analyzed.
+  - Exact time server vs UTC timezone handling across brokers (MetaTrader servers typically UTC+2 / UTC+3 vs GMT/UTC).
+  - Persistence of adaptive weights across terminal restarts (GlobalVariables, file storage, or in-memory session lifetime).
 
 ## Key Decisions Made
-- Confirmed live HTTP server on port 8000 and Playwright Chromium automation environment.
-- Documented complete selector, bounding box, text, and function mapping for all 36 elements.
-- Formulated dedicated verification workflows and inspection checklists for Crawler, Visual Judge, and State Auditor roles.
+- Python compilation runner script developed to execute MetaEditor64, parse UTF-16 LE logs, and report structured JSON error summaries.
+- Comprehensive mathematical and MQL5 code specifications developed for all 4 focus areas in `infrastructure_spec.md`.
 
 ## Artifact Index
-- `DISPATCH.md` — Task instructions
-- `BRIEFING.md` — Situational awareness working memory
-- `progress.md` — Liveness heartbeat file
-- `analysis.md` — In-depth multi-perspective verification analysis
-- `handoff.md` — Self-contained 5-component handoff report (next)
+- `infrastructure_spec.md` — Complete engineering specification for Execution & Infrastructure
+- `compile_verifier.py` — MetaEditor64 compilation automation script and log parser
+- `handoff.md` — 5-component handoff report for Orchestrator and Implementation Worker

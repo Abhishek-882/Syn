@@ -1,150 +1,124 @@
-# Handoff Report: Explorer Survey 1
+# Handoff Report — Explorer Survey 1 (Prototype & Indicator Architect)
 
-**Task**: Thorough Inspection & Interactive Element Survey of `web/syndicate_3d_visualizer.html`  
 **Working Directory**: `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1`  
 **Handoff Type**: Hard (Task Complete)  
-**Recipient**: Parent Orchestrator (`36ab40e6-0e20-4a26-9b0f-c61a24c1ed6a`)  
-**Date**: 2026-09-21T02:52:00Z  
+**Recipient**: Parent Orchestrator (`6ebd36b2-2485-49cc-8580-0202231d0c99`, `orchestrator_gold_1`)  
+**Mission**: Prototype Reverse-Engineering & Global Shared Indicator Architecture for Gold Oracle EA v2  
+**Date**: 2026-10-01  
 
 ---
 
 ## 1. Observation
 
-Direct observations extracted from the codebase and telemetry:
+### 1.1 Source Files & Verbatim Findings
+- **Target Specification**: `c:\Users\Asus\Documents\antigravity\hopeful-curie\ORIGINAL_REQUEST.md` (lines 722–787)
+  - Mandates a monolithic Expert Advisor (`GoldOracle_v2.mq5`) with 144 independent analytical brain functions across 13 disciplines returning `+1`, `-1`, or `0`.
+  - Mandates a global shared indicator architecture consuming strictly `< 60 handles` (<12% of MT5 512-handle limit).
+  - Mandates evaluation strictly on confirmed historical bars (`bar[1]` or older) with zero repainting.
+  - Mandates adaptive dynamic weights: $\text{EMA\_Acc}_i \leftarrow 0.95 \times \text{EMA\_Acc}_i + 0.05 \times (\text{Vote}_i == \text{ActualDirection} ? 1.0 : 0.0)$, clamped to $[0.1, 1.0]$.
+  - Mandates Spot Gold microstructure execution: pip normalization (`_Digits == 2`, `_Point = 0.01`), dynamic ATR stop loss ($\text{ATR}(14, H1) \times 2.0$), equity-based position sizing (`InpRiskPercent`), spread gating (50 points), volatility gating, and institutional news blackout.
 
-### 1.1 Source Files & Exact Lines Inspected
-- **`web/syndicate_3d_visualizer.html`**:
-  - Line 30: `#webgl-canvas` positioned at `top: 0; left: 0; width: 100%; height: 100%; z-index: 1;`.
-  - Lines 31–35: `#crt-overlay` positioned at `z-index: 2; pointer-events: none;`.
-  - Lines 37–41: `header.hud-header` positioned at `top: 0; left: 0; width: 100%; height: 52px; z-index: 10;`.
-  - Lines 72–75: `.telemetry-hud` positioned at `top: 64px; left: 24px; width: 250px; z-index: 10;`.
-  - Line 79: `.filter-strip` positioned at `top: 64px; left: 290px; z-index: 10;`.
-  - Lines 85–89: `aside.command-deck` positioned at `top: 52px; right: 0; width: 340px; height: calc(100% - 52px); z-index: 10;`.
-  - Lines 108–112: `.timeline-bar` positioned at `bottom: 16px; left: 50%; transform: translateX(-50%); width: min(800px, calc(100% - 380px)); z-index: 10;`.
-  - Lines 128–133: `.curatorial-plaque` styled with:
-    ```css
-    .curatorial-plaque {
-      position: absolute; top: 64px; left: 24px; width: 380px; max-height: calc(100% - 190px);
-      background: rgba(8, 12, 20, 0.96); backdrop-filter: blur(24px); border: 1px solid var(--border-focus);
-      border-radius: 8px; padding: 16px; z-index: 25; display: none; flex-direction: column; gap: 10px;
-      font-size: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); overflow-y: auto;
-    }
+- **Reference Prototype**: `c:\Users\Asus\Documents\antigravity\hopeful-curie\GoldOracle_v1.mq5` (469 lines)
+  - **Lines 88–120**: Implements only 25 brains (`g_Brains[25]`).
+  - **Lines 243–314**: 13 of the 25 brains are hardcoded dummy returns:
+    - Line 243: `int Brain04_LiquiditySweep() { return 0; }`
+    - Line 244: `int Brain05_PremiumDiscount() { return 1; }`
+    - Lines 289–296: `Brain12` returns `1`, `Brain13` returns `-1`, `Brain14` returns `0`, `Brain15` returns `1`, `Brain16` returns `-1`, `Brain17` returns `1`, `Brain18` returns `-1`, `Brain19` returns `1`.
+    - Lines 304–306: `Brain21` returns `1`, `Brain22` returns `-1`, `Brain23` returns `1`.
+    - Line 314: `int Brain25_MultiTF_Alignment() { return 1; }`
+  - **Lines 320–330 & Lines 441–443**: `UpdateBrainWeights()` is orphaned dead code:
+    ```mql5
+    // Line 442 in OnTick():
+    // TODO: determine actual direction of the day here and call UpdateBrainWeights
     ```
-  - Lines 148–149: `#copy-toast` positioned at `top: 64px; left: 50%; z-index: 100; pointer-events: none;`.
-  - Lines 717–719: Close button handler:
-    ```javascript
-    document.querySelectorAll('.plaque-close-btn').forEach(btn => {
-      btn.onclick = () => document.getElementById('curatorial-plaque').style.display = 'none';
-    });
+    The function is never called; weights remain static at `1.0` forever.
+  - **Lines 308–313**: Repainting / Lookahead vulnerability in `Brain24_OpenClose_Momentum`:
+    ```mql5
+    CopyOpen(_Symbol,PERIOD_D1,0,2,o); CopyClose(_Symbol,PERIOD_D1,0,2,c);
+    if(o[0] > c[1]) return 1;
     ```
-  - Lines 774–776: Tooltip styled with `pointer-events: none; z-index: 100;`.
-  - Lines 934–939: File protocol warning banner styled with `z-index: 999;`.
-
-### 1.2 Verification Sweeper Telemetry & Target Selectors
-- In `.agents/skills/post-deploy-web-exploring/scripts/web_explorer.py` (lines 22–41):
-  - `TARGET_SELECTORS` defines 18 selector rules:
-    ```python
-    TARGET_SELECTORS = [
-        "button", "[role='button']", ".hud-btn", ".health-chip", ".tag-chip",
-        ".stage-pill", ".kpi-card", ".alert-card", ".backlink-pill", ".telemetry-row",
-        ".deck-toggle-btn", ".plaque-close-btn", "#clarity-btn", "#reset-cam-btn",
-        "#poll-toggle-btn", "#play-pause-btn", "#copy-address-btn", "#export-md-btn",
-    ]
+    Reads `o[0]`, violating the confirmed `bar[1]` standard.
+  - **Lines 121–134**: Indicator handles created without validation:
+    ```mql5
+    h_ema50_h1 = iMA(_Symbol, PERIOD_H1, 50, 0, MODE_EMA, PRICE_CLOSE);
     ```
-- In `results/web_verification_failures.json`:
-  - `total_elements_discovered`: 36
-  - `total_tested`: 36
-  - `passed`: 36
-  - `failed`: 0
-  - `console_errors_count`: 0
-  - `page_errors_count`: 0
-
-### 1.3 Element Inventory Count
-Running programmatic AST tag extraction confirmed:
-- Total native `<button>` tags: 8 (4 visible on load: `#clarity-btn`, `#reset-cam-btn`, `#poll-toggle-btn`, `#play-pause-btn`; 4 inside plaque: 2 `.plaque-close-btn`, `#copy-address-btn`, `#export-md-btn`).
-- Total native `<input>` tags: 1 (`#timeline-slider`, type="range").
-- Total `.health-chip` spans: 4.
-- Total `.tag-chip` divs: 4.
-- Total `.stage-pill` spans: 4.
-- Total `.kpi-card` divs: 2.
-- Total `.telemetry-row` divs: 4.
-- Total `.deck-toggle-btn` divs: 1.
-- Total static interactive elements in DOM: 28.
-- Total dynamic alert cards in feed: 5 (from `results/syndicate_3d_state.json`).
-- Total interactive controls swept on load by Playwright: 36 (accounting for selector aliasing on buttons).
+    No check for `INVALID_HANDLE`.
+  - **Line 84 vs Line 131**: Redundant duplicate handle:
+    `h_atr_sl = iATR(_Symbol, PERIOD_H1, InpATR_Period);` (where `InpATR_Period = 14`) and `h_atr_h1 = iATR(_Symbol, PERIOD_H1, 14);`.
+  - **Lines 395–417 & 422–468**: Missing spread gating (`IsSpreadOK`) and volatility gating (`IsVolatilityOK`).
+  - **Lines 201–216**: Broker server time vs UTC mismatch in news filter:
+    `TimeToStruct(TimeTradeServer(), now);` directly compared to `g_NewsBlackouts[i].hourGMT`, introducing a 2- to 3-hour timing offset.
+  - **Line 397 & Line 461**: Forces BUY trade on neutral score:
+    `if(direction == 0) direction = 1; // force trade on neutral`
+  - **Lines 407–413**: Position sizing uses `ACCOUNT_BALANCE` instead of `ACCOUNT_EQUITY`, and lacks division-by-zero checks.
 
 ---
 
 ## 2. Logic Chain
 
-1. **Premise 1 (Stacking Order)**:  
-   `#curatorial-plaque` has `z-index: 25`, whereas `.telemetry-hud` and `.filter-strip` have `z-index: 10`.  
-   *Evidence*: Lines 75, 79, and 130 of `web/syndicate_3d_visualizer.html`.
+1. **Step 1 (Prototype Inadequacy)**:
+   - Direct observation shows `GoldOracle_v1.mq5` has 52% stubbed brains (13/25), does not call `UpdateBrainWeights()`, accesses `bar[0]` in `Brain24`, lacks spread/volatility gating, and desynchronizes UTC news by comparing with broker server time.
+   - Therefore, `GoldOracle_v1.mq5` cannot serve as production code and must be re-architected from the ground up for v2.
 
-2. **Premise 2 (Coordinate Co-location)**:  
-   `#curatorial-plaque` is positioned at `top: 64px, left: 24px, width: 380px`. Its horizontal bounding box is `x = 24px` to `x = 404px`.  
-   `.telemetry-hud` is positioned at `top: 64px, left: 24px, width: 250px` (`x = 24px..274px`).  
-   `.filter-strip` is positioned at `top: 64px, left: 290px` (`x = 290px..633px`).  
-   *Evidence*: Lines 72, 79, 129 of `web/syndicate_3d_visualizer.html`.
+2. **Step 2 (Handle Capacity & Scalability)**:
+   - v2 requires 144 brains. If each brain created its own indicator handles independently, the EA would spawn >200 handles, rapidly approaching or exceeding MT5's hard limit of 512 handles per terminal, causing CPU thrashing and terminal crashes.
+   - Centralizing all indicator handles into a global shared registry across M15, H1, H4, and D1 allows multiple brains to read from the same memory buffers.
+   - The proposed architecture allocates:
+     - M15: 7 handles
+     - H1: 24 handles
+     - H4: 7 handles
+     - D1: 5 handles
+     - Secondary Macro Proxies: 3 handles (optional, with fallback)
+   - Total handles: **46 handles**, representing **8.98%** of the MT5 limit, well below the mandatory ceiling of `< 60 handles` (<12%).
 
-3. **Inference 1 (Geometric Occlusion)**:  
-   Because `[24..404]` fully encloses `[24..274]`, `#curatorial-plaque` **completely covers `.telemetry-hud`**.  
-   Because `[24..404]` overlaps `[290..633]` by 114px, `#curatorial-plaque` **covers `.tag-chip[data-filter="all"]` (`290..331.8px`) and 73% of `.tag-chip[data-filter="flash"]` (`339.8..404.0px`)**.
+3. **Step 3 (Zero Repainting Guarantee)**:
+   - `bar[0]` is dynamic and changes on every tick, causing false signals and backtest curve-fitting.
+   - Enforcing `shift = 1` in `CopyBuffer` and `CopyRates` (with `ArraySetAsSeries(..., true)`) ensures that `array[0]` represents the permanently closed and confirmed `bar[1]`.
+   - Therefore, evaluating all 144 brains strictly on `bar[1]` guarantees zero repainting and backtest realism.
 
-4. **Inference 2 (Pointer Event Absorption)**:  
-   `#curatorial-plaque` has default `pointer-events: auto`. When it is displayed (`display: flex`), any pointer event directed toward `.telemetry-row` or the first two `.tag-chip` elements is intercepted by `#curatorial-plaque`, generating a Playwright `POINTER_INTERCEPTION` exception.  
-   *Corroborating Evidence*: `web_explorer.py` lines 122–125 specifically had to inject a forced close action (`await close_btn.first.click(timeout=1000)`) after every click to prevent this exact interception from blocking subsequent tests.
-
-5. **Premise 3 (Timeline Bar Centering Calculation)**:  
-   `.timeline-bar` is positioned at `left: 50%; transform: translateX(-50%); width: min(800px, calc(100% - 380px))`.  
-   `aside.command-deck` has `width: 340px; right: 0`.  
-   *Evidence*: Lines 86, 109 of `web/syndicate_3d_visualizer.html`.
-
-6. **Inference 3 (Command Deck Overlap)**:  
-   At viewport width 1440px, the timeline bar center is `720px` and width is `800px`, spanning `x = 320px..1120px`. The command deck begins at `1440 - 340 = 1100px`.  
-   Therefore, the right edge of `.timeline-bar` overlaps the command deck by **20px** (`x = 1100..1120px`).  
-   At viewport width 1200px, the timeline bar center is `600px` and width is `800px` (`min(800, 820)`), spanning `x = 200px..1000px`. The command deck begins at `1200 - 340 = 860px`, resulting in a **140px severe overlap** that covers timeline stage pills (`#pill-dump`, `#pill-bundle`).
+4. **Step 4 (Microstructure & Robust Execution)**:
+   - XAUUSD digits convention requires `_Point = 0.01` and `pipFactor = 1.0` (never `0.0001`).
+   - ATR(14, H1) dynamic stop loss must check broker `SYMBOL_TRADE_STOPS_LEVEL` to prevent OrderSend Error 130.
+   - Position sizing must be computed against `AccountInfoDouble(ACCOUNT_EQUITY)` and clamped to broker `SYMBOL_VOLUME_MIN`, `SYMBOL_VOLUME_MAX`, and `SYMBOL_VOLUME_STEP`.
+   - Pre-trade gating must reject execution if spread > 50 points or if H1 ATR < minimum volatility threshold.
 
 ---
 
 ## 3. Caveats
 
-1. **Viewport Resolution Sensitivity**:  
-   Observations regarding bounding box overlaps were calculated at desktop resolutions (1440×900 and 1200×800). Under ultra-wide viewports (e.g. 2560×1440), the timeline bar does not overlap the command deck because `50%` provides sufficient clearance.
-2. **Dynamic Feed Variation**:  
-   The number of `.alert-card` elements depends on the state file loaded. `syndicate_3d_state.json` provides 5 clusters (SYND-0014, SYND-0021, SYND-0024, SYND-0023, SYND-0018); the hardcoded `FALLBACK_STATE` provides 3 clusters (SYND-0001, SYND-0002, SYND-0003).
-3. **No Code Modification Performed**:  
-   In strict adherence to the read-only Explorer role, no edits were applied to `syndicate_3d_visualizer.html` or `web_explorer.py`.
+1. **Broker Symbol Naming for Macro Proxies**: Inter-market macro proxies (`EURUSD`, `USDJPY`, `XAGUSD`) may use broker-specific suffixes (e.g. `EURUSD.r`, `EURUSDm`, `SILVER`). The architecture accounts for this by making secondary macro handles optional with graceful fallback to intrinsic Gold dynamics if the symbol is unavailable.
+2. **Backtesting Single-Symbol Mode**: In MT5 Strategy Tester, multi-symbol handles require historical data for the secondary symbols to be pre-downloaded. Intrinsic Gold proxies guarantee 100% deterministic backtests even if secondary symbols are omitted.
+3. **No caveats** regarding core technical indicators or M15/H1/H4/D1 XAUUSD shared handles.
 
 ---
 
 ## 4. Conclusion
 
-The application exhibits a robust 3D WebGL and DOM interface with **36 discoverable locator targets** and **44+ total interactive controls**, currently achieving 36/36 passing clicks under `web_explorer.py` at 1440×900.
-
-However, two architectural layout defects pose critical pointer interception risks:
-1. `#curatorial-plaque` (`z-index: 25`) completely covers `.telemetry-hud` and the `ALL` filter chip when opened, creating an unavoidable pointer collision if interacted with out of sequence.
-2. `.timeline-bar` mathematically collides with `aside.command-deck` by 20px at 1440px and by 140px at 1200px because horizontal centering is anchored to `window.innerWidth / 2` instead of the available space to the left of the command deck.
+1. **Architecture Blueprint**: The Global Shared Indicator Architecture has been mapped out and specified in full detail in:  
+   `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\survey_report.md`.
+2. **Handle Budget**: Exactly **46 shared handles** satisfy all 144 brain functions across 13 disciplines, strictly staying under 60 handles (<12% of MT5 512-handle limit).
+3. **Buffer Access Protocol**: All indicator queries and price scans strictly access confirmed historical bars (`bar[1]` or older) through standardized helper functions (`GetIndicatorVal`, `GetIndicatorSeries`, `GetRatesSeries`), providing a complete zero-repainting guarantee.
+4. **Readiness**: The architecture and indicator registry design are finalized, fully documented, and ready for immediate scaffolding and implementation by the construction workers in Phase 1.
 
 ---
 
 ## 5. Verification Method
 
-To independently verify all claims, line numbers, and metrics:
+To independently verify the findings and specifications in this report:
 
-1. **Verify Element Counts & Tag Breakdown**:
+1. **Inspect Survey Report**:
    ```powershell
-   python -c "from html.parser import HTMLParser; p = HTMLParser(); [print(c, len([1 for t in open('web/syndicate_3d_visualizer.html', 'r', encoding='utf-8').read().split() if c in t])) for c in ['hud-btn', 'health-chip', 'tag-chip', 'stage-pill', 'kpi-card', 'telemetry-row', 'plaque-close-btn']]"
+   Get-Content "c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\survey_report.md" -TotalCount 250
    ```
-2. **Inspect Existing Verification Sweep Results**:
-   Inspect `results/web_verification_failures.json` to confirm `total_elements_discovered == 36` and `passed == 36`.
-3. **Run the Autonomous Sweeper (with local server running on port 8000)**:
-   ```powershell
-   python .agents/skills/post-deploy-web-exploring/scripts/web_explorer.py --url "http://localhost:8000/web/syndicate_3d_visualizer.html" --output "results/web_verification_failures.json"
-   ```
-4. **Invalidation Conditions**:
-   - The analysis would be invalidated if `.curatorial-plaque` had `z-index < 10` or `pointer-events: none`. (Verified: line 130 specifies `z-index: 25`, no pointer-events suppression).
-   - The analysis would be invalidated if `.timeline-bar` had `right: 360px` or non-overlapping flex layout. (Verified: line 109 specifies `left: 50%; transform: translateX(-50%)`).
+   Confirm the 46-handle table, lifecycle functions, and buffer access helper functions.
 
----
-*Report finalized by Explorer Survey 1. Detailed findings available in `c:\Users\Asus\Documents\antigravity\hopeful-curie\.agents\explorer_survey_1\analysis.md`.*
+2. **Verify Prototype Defects in `GoldOracle_v1.mq5`**:
+   - Check orphaned weight call: search line 442 for `// TODO: determine actual direction of the day here and call UpdateBrainWeights`.
+   - Check hardcoded stubs: search lines 289–296 for constant returns.
+   - Check duplicate ATR handle: inspect line 84 (`h_atr_sl`) vs line 131 (`h_atr_h1`).
+   - Check repainting lookahead: inspect line 309 for `o[0]`.
+
+3. **Handle Budget Validation**:
+   - Count handles defined in Section 4.2 of `survey_report.md`:
+     M15 (7) + H1 (24) + H4 (7) + D1 (5) + Macro (3) = 46.
+   - Verify: $46 < 60$ ($46 / 512 = 8.98\% < 12\%$).
