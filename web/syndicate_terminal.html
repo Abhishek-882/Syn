@@ -1210,6 +1210,9 @@
         <div class="chip" id="keeper-turbo-chip" style="border-color: rgba(245, 158, 11, 0.4); color: var(--gold); background: rgba(245, 158, 11, 0.08);">
           <span id="keeper-turbo-text">⚡ SCANNER: BATCH 1/5</span>
         </div>
+        <div class="chip" id="header-binance-chip" onclick="toggleBinanceFilter()" style="cursor:pointer; border-color: rgba(245, 158, 11, 0.5); color: var(--gold); background: rgba(245, 158, 11, 0.08); font-weight:600;" title="Click to toggle Binance Dev Filter ON/OFF">
+          <span id="header-binance-text">🟡 BINANCE FILTER: OFF</span>
+        </div>
         <div class="chip">5-HOP INGRESS</div>
         <div class="chip">ANCHOR: ≥20 SOL</div>
         <div class="chip">DEPLOYER: ≥$5.00</div>
@@ -1502,8 +1505,9 @@
       updateBinanceFilterUI();
       renderTokenHistory();
       renderDeployers();
+      const binanceCount = (state.tokenHistory || []).filter(t => t.is_binance_funded || (t.fund_from && t.fund_from.toLowerCase().includes('binance'))).length;
       if (state.filterBinanceOnly) {
-        showToast("🟡 Binance Dev Filter: ON (7 tokens)");
+        showToast(`🟡 Binance Dev Filter: ON (${binanceCount} tokens)`);
       } else {
         showToast("⚪ Binance Dev Filter: OFF (All tokens)");
       }
@@ -1514,6 +1518,9 @@
       const dot = document.getElementById('binance-toggle-dot');
       const depBtn = document.getElementById('filter-binance-dep-btn');
       const depDot = document.getElementById('binance-dep-toggle-dot');
+      const headerChip = document.getElementById('header-binance-chip');
+      const headerText = document.getElementById('header-binance-text');
+      const binanceCount = (state.tokenHistory || []).filter(t => t.is_binance_funded || (t.fund_from && t.fund_from.toLowerCase().includes('binance'))).length;
 
       if (btn) {
         btn.classList.toggle('active', state.filterBinanceOnly);
@@ -1522,6 +1529,14 @@
       if (depBtn) {
         depBtn.classList.toggle('active', state.filterBinanceOnly);
         if (depDot) depDot.textContent = state.filterBinanceOnly ? '●' : '○';
+      }
+      if (headerText) {
+        headerText.textContent = state.filterBinanceOnly ? `🟡 BINANCE FILTER: ON (${binanceCount})` : '🟡 BINANCE FILTER: OFF';
+      }
+      if (headerChip) {
+        headerChip.style.background = state.filterBinanceOnly ? 'rgba(245, 158, 11, 0.25)' : 'rgba(245, 158, 11, 0.08)';
+        headerChip.style.borderColor = state.filterBinanceOnly ? 'var(--gold)' : 'rgba(245, 158, 11, 0.5)';
+        headerChip.style.boxShadow = state.filterBinanceOnly ? '0 0 10px rgba(245, 158, 11, 0.3)' : 'none';
       }
     }
 
