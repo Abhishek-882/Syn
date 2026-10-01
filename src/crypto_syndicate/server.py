@@ -238,6 +238,13 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
             data["token_history"] = loader.get_syndicate_token_history()
+            stats = data.setdefault("stats", {})
+            b_tokens = [t for t in data["token_history"] if t.get("is_binance_funded")]
+            stats["binance_tokens_count"] = len(b_tokens)
+            stats["non_binance_tokens_count"] = len(data["token_history"]) - len(b_tokens)
+            b_deps = [d for d in data.get("deployers", []) if d.get("is_binance_funded") or "binance" in (d.get("fund_from") or "").lower() or "binance" in (d.get("funded_by") or "").lower()]
+            stats["binance_deployers_count"] = len(b_deps)
+            stats["non_binance_deployers_count"] = len(data.get("deployers", [])) - len(b_deps)
         except Exception as e:
             logger.debug("Failed adding token_history to syndicates snapshot: %s", e)
             data["token_history"] = []
@@ -257,6 +264,15 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             loader = get_ground_truth_loader()
             loader.reload_if_needed()
             tokens = loader.get_syndicate_token_history()
+
+            import urllib.parse
+            query = urllib.parse.urlparse(self.path).query
+            params = urllib.parse.parse_qs(query)
+            page_filter = params.get("page", ["all"])[0].lower()
+            if page_filter in ("binance", "page1", "1"):
+                tokens = [t for t in tokens if t.get("is_binance_funded") or "binance" in str(t.get("fund_from", "")).lower()]
+            elif page_filter in ("non-binance", "non_binance", "page2", "2"):
+                tokens = [t for t in tokens if not (t.get("is_binance_funded") or "binance" in str(t.get("fund_from", "")).lower())]
         except Exception as e:
             logger.error("Error retrieving token history: %s", e)
             tokens = []
