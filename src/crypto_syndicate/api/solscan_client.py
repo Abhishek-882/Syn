@@ -237,4 +237,38 @@ class SolscanClient(BaseAPIClient):
             return res.get("data", {}).get("items", []) or res.get("items", [])
         if isinstance(res, list):
             return res
+    def get_wallet_created_tokens(
+        self,
+        address: str,
+        page: int = 1,
+        page_size: int = 20,
+    ) -> List[Dict[str, Any]]:
+        """Fetch tokens created or deployed by a specific wallet address."""
+        if self.mock_mode:
+            return [
+                {
+                    "address": f"TokenMint_{address[:6]}_{i}",
+                    "name": f"Syndicate Token {i}",
+                    "symbol": f"SYN{i}",
+                    "created_time": 1727700000 + i * 3600,
+                }
+                for i in range(2)
+            ]
+
+        url = f"{self.BASE_URL}/token/list"
+        params = {"creator": address, "page": page, "page_size": page_size}
+        res = self._execute_request("GET", url, params=params, ttl=TTL_DYNAMIC)
+        if isinstance(res, dict):
+            return res.get("data", []) or res.get("items", [])
+        if isinstance(res, list):
+            return res
         return []
+
+    def get_recent_token_launches(
+        self,
+        platform_id: str = "pumpfun",
+        limit: int = 40,
+    ) -> List[TokenLaunchEvent]:
+        """Convenience method wrapping get_token_latest with a limit parameter."""
+        return self.get_token_latest(platform_id=platform_id, page=1, page_size=min(limit, 100))
+

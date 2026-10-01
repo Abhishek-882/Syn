@@ -30,3 +30,20 @@
 - When `src/crypto_syndicate/server.py` boots, it MUST automatically spawn the `SyndicateKeeper` background daemon loop.
 - The keeper loop must continuously scan watched deployers and live DEX/pump feeds without requiring manual API triggers or user prompts.
 - When new tokens or wallets are discovered, the server MUST immediately broadcast an SSE event to update all active mobile and desktop terminals in real time.
+
+## 6. Turbo Multi-Source Scanning & Profit Qualification Filter
+- The Keeper scanner MUST operate at an accelerated cadence (default: 15s interval) to capture fleeting Solana meme tokens before rug events occur.
+- **Deployer Profit Qualification**: To avoid wastefully scanning dormant wallets, deployers must possess $\ge \$5.00$ USD in historical profit to qualify for the active scan queue.
+- **Round-Robin Batched Scanning**: Eligible deployers are partitioned into rotating batches (default: 5 batches), cycling through one batch per cycle. Full deployer coverage is achieved every $\sim 75\text{s}$.
+- **Multi-Source Discovery Engine**:
+  - **Solscan Pro API v2** (`/token/latest?platform_id=pumpfun` with JWT authentication): Provides instant detection of fresh Pump.fun tokens at creation time.
+  - **GMGN OpenAPI**: Enriches discovered tokens with verified ATH market cap, dev funding source, and holder distribution.
+  - **DexScreener API**: Provides liquidity pair verification and search fallback.
+
+## 7. Forward-Tracing Syndicate Network Expansion
+- Every 2 minutes (every 8th keeper cycle), the system MUST execute forward-tracing network expansion:
+  - From known syndicate deployers, trace outgoing transfers ($\ge 0.1\text{ SOL}$) via Solscan.
+  - Check whether recipient wallets have deployed token pairs.
+  - Any confirmed token creator is automatically added to the active deployer watchlist and its tokens are ingested.
+  - Newly discovered wallets and deployers are immediately written to `results/syndicate_identities.json` and `results/wallets.csv`, feeding directly into the next scan cycle.
+

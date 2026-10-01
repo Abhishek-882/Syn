@@ -1046,6 +1046,9 @@
           <div class="dot"></div>
           <span id="stream-status-text">SSE LIVE</span>
         </div>
+        <div class="chip" id="keeper-turbo-chip" style="border-color: rgba(245, 158, 11, 0.4); color: var(--gold); background: rgba(245, 158, 11, 0.08);">
+          <span id="keeper-turbo-text">⚡ SCANNER: BATCH 1/5</span>
+        </div>
         <div class="chip">5-HOP INGRESS</div>
         <div class="chip">ANCHOR: ≥20 SOL</div>
         <div class="chip">DEPLOYER: ≥$5.00</div>
@@ -1979,6 +1982,31 @@
         state.eventSource.addEventListener('scan_cycle', (e) => {
           console.log("SSE scan cycle update:", e.data);
           fetchSnapshot();
+          updateKeeperStatus();
+        });
+
+        state.eventSource.addEventListener('NEW_TOKEN_DISCOVERED', (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            showToast(`🔥 ${data.deltas_count || 1} New Syndicate Token(s) Discovered!`);
+            fetchSnapshot();
+            updateKeeperStatus();
+          } catch (err) {
+            console.error("SSE parse error:", err);
+          }
+        });
+
+        state.eventSource.addEventListener('SYNDICATE_WALLETS_UPDATED', (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            if (data.new_deployers > 0 || data.new_wallets > 0) {
+              showToast(`🎯 Forward Trace: +${data.new_deployers || 0} Deployers, +${data.new_wallets || 0} Wallets Added`);
+            }
+            fetchSnapshot();
+            updateKeeperStatus();
+          } catch (err) {
+            console.error("SSE parse error:", err);
+          }
         });
 
         state.eventSource.onerror = () => {
@@ -1991,15 +2019,33 @@
       }
     }
 
+    async function updateKeeperStatus() {
+      try {
+        const res = await fetch('/api/keeper/status');
+        if (!res.ok) return;
+        const data = await res.json();
+        const chipText = document.getElementById('keeper-turbo-text');
+        if (chipText && data.status === 'running') {
+          const batchStr = `BATCH ${(data.batch_index || 0) + 1}/${data.batch_count || 5}`;
+          const tokensStr = data.session_discovered_tokens ? ` | +${data.session_discovered_tokens} TOKENS` : '';
+          chipText.textContent = `⚡ SCANNER: ${batchStr}${tokensStr}`;
+        }
+      } catch (e) {
+        // Silently ignore if offline
+      }
+    }
+
     // --- INITIALIZATION ---
     window.addEventListener('DOMContentLoaded', () => {
       updateNotifButtonUI();
       renderLineageSVG();
       fetchSnapshot();
       setupSSE();
+      updateKeeperStatus();
 
       // Fallback periodic poll every 10 seconds
       setInterval(fetchSnapshot, 10000);
+      setInterval(updateKeeperStatus, 5000);
     });
   </script>
 </body>

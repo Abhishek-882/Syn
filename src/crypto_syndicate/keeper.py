@@ -94,17 +94,28 @@ class TimeSync:
 
 
 class SyndicateKeeper:
-    """Autonomous keeper monitoring syndicate deployers and indexing newly released tokens."""
+    """Turbo Multi-Source Autonomous Keeper with Forward-Tracing Wallet Expansion.
+    
+    Scanning Architecture (Round-Robin Batched):
+    - Splits eligible deployers (>=$5 profit) into 5 rotating batches
+    - Each 15s cycle: scan 1 deployer batch + poll Solscan for new tokens
+    - Every 8th cycle (~2 min): run forward-tracing wallet expansion
+    - Sources: Solscan (discovery) → GMGN (enrichment) → DexScreener (pair validation)
+    """
 
     def __init__(
         self,
         api_key: Optional[str] = None,
+        solscan_jwt: Optional[str] = None,
         identities_file: Optional[Path] = None,
         live_tokens_file: Optional[Path] = None,
         wallets_csv_file: Optional[Path] = None,
         mock_mode: bool = False,
+        batch_count: int = 5,
+        min_profit_usd: float = 5.0,
     ):
         self.api_key = api_key or os.getenv("GMGN_API_KEY", "")
+        self.solscan_jwt = solscan_jwt or os.getenv("SOLSCAN_JWT_TOKEN", "") or os.getenv("SOLSCAN_API_KEY", "")
         self.identities_file = identities_file or IDENTITIES_FILE
         self.live_tokens_file = live_tokens_file or LIVE_TOKENS_FILE
         self.wallets_csv_file = wallets_csv_file or WALLETS_CSV_FILE
@@ -114,6 +125,16 @@ class SyndicateKeeper:
         self._lock = threading.Lock()
         self._stop_event = threading.Event()
         self._background_thread: Optional[threading.Thread] = None
+
+        # Turbo scanner state
+        self._batch_count = batch_count
+        self._batch_index = 0  # Rotates 0→1→2→3→4→0...
+        self._cycle_count = 0  # Counts cycles for expansion trigger
+        self._min_profit_usd = min_profit_usd
+        self._session_discovered_tokens: int = 0
+        self._session_discovered_wallets: int = 0
+        self._last_scan_time: float = 0.0
+        self._last_expansion_time: float = 0.0
 
     def fetch_gmgn_token_info(self, address: str, chain: str = "sol") -> Optional[Dict[str, Any]]:
         """Fetch rich token metadata, ATH market cap, and creator address from GMGN OpenAPI."""
@@ -270,7 +291,8 @@ class SyndicateKeeper:
                     logger.warning("Error reading live tokens file: %s", e)
 
             # Update existing or prepend new
-            mint = token_info["token"]
+            mint = token_info.get("token") or token_info.get("address", "")
+            token_info["token"] = mint
             existing_idx = next((i for i, t in enumerate(live_tokens) if t.get("token") == mint), None)
 
             # Assign syndicate ID
@@ -512,26 +534,72 @@ class SyndicateKeeper:
         with open(self.identities_file, "w", encoding="utf-8") as f:
             json.dump(identities, f, indent=2)
 
-    def scan_watched_deployers(self) -> List[Dict[str, Any]]:
-        """Scan watched syndicate deployers for newly launched tokens."""
+    def _get_eligible_deployers(self) -> List[Dict[str, Any]]:
+        """Get deployers with >= min_profit_usd, sorted by most recent activity."""
         from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
         loader = get_ground_truth_loader()
         loader.reload()
         deployers = loader.get_deployers()
 
-        known_mints: Set[str] = set()
+        eligible = []
+        for dep in deployers:
+            dep_addr = dep.get("address", "")
+            if not dep_addr or dep_addr.startswith("Whale") or len(dep_addr) < 32:
+                continue
+            profit = float(dep.get("profit_usd", 0.0))
+            if profit >= self._min_profit_usd:
+                eligible.append(dep)
+
+        # Sort by most recent token launch (descending)
+        eligible.sort(key=lambda d: d.get("last_active_ts", 0), reverse=True)
+        return eligible
+
+    def _get_known_mints(self) -> Set[str]:
+        """Load set of all known token mints."""
+        known: Set[str] = set()
         if self.live_tokens_file.exists():
             try:
                 with open(self.live_tokens_file, "r", encoding="utf-8") as f:
                     lt = json.load(f)
-                    known_mints = {t.get("token") for t in lt if t.get("token")}
+                    known = {t.get("token") for t in lt if t.get("token")}
             except Exception:
                 pass
+        return known
 
+    def scan_deployer_batch(self) -> List[Dict[str, Any]]:
+        """Scan one batch of deployers in Round-Robin rotation.
+        
+        Splits eligible deployers into self._batch_count batches.
+        Each call advances to the next batch. Full coverage every
+        batch_count * interval (~75s with 5 batches at 15s).
+        """
+        eligible = self._get_eligible_deployers()
+        if not eligible:
+            return []
+
+        # Calculate batch boundaries
+        batch_size = max(1, len(eligible) // self._batch_count + 1)
+        start = self._batch_index * batch_size
+        end = min(start + batch_size, len(eligible))
+        batch = eligible[start:end]
+
+        # Advance batch index (wraps around)
+        self._batch_index = (self._batch_index + 1) % self._batch_count
+
+        if not batch:
+            return []
+
+        known_mints = self._get_known_mints()
         newly_ingested: List[Dict[str, Any]] = []
-        for dep in deployers[:10]:
+
+        logger.info(
+            "Scanning deployer batch %d/%d (%d deployers, eligible total: %d)",
+            self._batch_index, self._batch_count, len(batch), len(eligible),
+        )
+
+        for dep in batch:
             dep_addr = dep.get("address")
-            if not dep_addr or dep_addr.startswith("Whale") or len(dep_addr) < 32:
+            if not dep_addr:
                 continue
             try:
                 url = f"https://api.dexscreener.com/latest/dex/search?q={dep_addr}"
@@ -543,29 +611,86 @@ class SyndicateKeeper:
                         base = p.get("baseToken", {})
                         mint = base.get("address")
                         if mint and mint not in known_mints:
-                            logger.info("Watched deployer %s launched new token %s!", dep_addr, mint)
+                            logger.info("Deployer %s launched new token %s!", dep_addr[:12], mint[:12])
                             info = self.fetch_gmgn_token_info(mint)
                             if info:
                                 ing = self.ingest_token(info, syndicate_id=dep.get("syndicate_id"))
                                 newly_ingested.append(ing)
                                 known_mints.add(mint)
+                                self._session_discovered_tokens += 1
             except Exception as e:
-                logger.debug("Error checking deployer %s: %s", dep_addr, e)
+                logger.debug("Error checking deployer %s: %s", dep_addr[:12], e)
 
         return newly_ingested
 
-    def scan_live_launches(self) -> List[Dict[str, Any]]:
-        """Scan DexScreener live Solana token stream for fresh launches with syndicate signatures."""
-        known_mints: Set[str] = set()
-        if self.live_tokens_file.exists():
-            try:
-                with open(self.live_tokens_file, "r", encoding="utf-8") as f:
-                    lt = json.load(f)
-                    known_mints = {t.get("token") for t in lt if t.get("token")}
-            except Exception:
-                pass
+    def scan_solscan_new_tokens(self) -> List[Dict[str, Any]]:
+        """Poll Solscan /token/latest for fresh Pump.fun launches.
+        
+        Uses the Solscan Pro API v2 JWT to discover tokens at creation time,
+        before they appear on DexScreener profiles.
+        """
+        if not self.solscan_jwt:
+            return self._scan_dexscreener_fallback()
 
+        known_mints = self._get_known_mints()
         newly_ingested: List[Dict[str, Any]] = []
+
+        try:
+            url = "https://pro-api.solscan.io/v2.0/token/latest?platform_id=pumpfun&page=1&page_size=20"
+            req = urllib.request.Request(
+                url,
+                headers={
+                    "token": self.solscan_jwt,
+                    "Accept": "application/json",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=6) as resp:
+                payload = json.loads(resp.read().decode("utf-8"))
+
+            items = []
+            if isinstance(payload, dict):
+                items = payload.get("data", []) if isinstance(payload.get("data"), list) else []
+            elif isinstance(payload, list):
+                items = payload
+
+            for item in items[:15]:
+                mint = item.get("address") or item.get("token_address", "")
+                if not mint or mint in known_mints:
+                    continue
+
+                # Quick GMGN enrichment for syndicate scoring
+                info = self.fetch_gmgn_token_info(mint)
+                if not info:
+                    continue
+
+                is_syndicate = (
+                    info.get("fund_from") in ("Binance", "OKX", "Bybit")
+                    or info.get("holder_count", 0) > 50
+                    or float(info.get("ath_market_cap_usd") or 0.0) >= 10000.0
+                )
+                if is_syndicate:
+                    logger.info(
+                        "Solscan discovered syndicate token %s ($%s, ATH: $%.0f)!",
+                        mint[:12], info.get("symbol"), float(info.get("ath_market_cap_usd") or 0),
+                    )
+                    ing = self.ingest_token(info)
+                    newly_ingested.append(ing)
+                    known_mints.add(mint)
+                    self._session_discovered_tokens += 1
+
+        except Exception as e:
+            logger.debug("Solscan token scan error: %s", e)
+            # Fallback to DexScreener if Solscan fails
+            return self._scan_dexscreener_fallback()
+
+        return newly_ingested
+
+    def _scan_dexscreener_fallback(self) -> List[Dict[str, Any]]:
+        """Fallback: scan DexScreener latest profiles if Solscan is unavailable."""
+        known_mints = self._get_known_mints()
+        newly_ingested: List[Dict[str, Any]] = []
+
         try:
             url = "https://api.dexscreener.com/token-profiles/latest/v1"
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -583,42 +708,211 @@ class SyndicateKeeper:
                             or float(info.get("ath_market_cap_usd") or 0.0) >= 10000.0
                         )
                         if is_syndicate:
-                            logger.info(
-                                "Live scanner detected syndicate match on new token %s ($%s)!",
-                                mint,
-                                info.get("symbol"),
-                            )
+                            logger.info("DexScreener fallback: token %s ($%s)!", mint[:12], info.get("symbol"))
                             ing = self.ingest_token(info)
                             newly_ingested.append(ing)
                             known_mints.add(mint)
+                            self._session_discovered_tokens += 1
         except Exception as e:
-            logger.debug("Error in scan_live_launches: %s", e)
+            logger.debug("DexScreener fallback error: %s", e)
 
         return newly_ingested
 
+    def expand_syndicate_network(self) -> Dict[str, Any]:
+        """Forward-tracing wallet expansion from known deployers.
+        
+        For each known deployer, query Solscan for outgoing fund transfers.
+        If a recipient wallet has created tokens, add it as a new deployer.
+        Runs every ~2 minutes (every 8th keeper cycle).
+        """
+        if not self.solscan_jwt:
+            logger.debug("Skipping network expansion: no Solscan JWT")
+            return {"new_deployers": 0, "new_wallets": 0}
+
+        eligible = self._get_eligible_deployers()
+        new_deployers_found = 0
+        new_wallets_found = 0
+
+        # Only check a subset each expansion to stay within rate limits
+        deployers_to_check = eligible[:6]
+
+        for dep in deployers_to_check:
+            dep_addr = dep.get("address", "")
+            if not dep_addr or len(dep_addr) < 32:
+                continue
+
+            try:
+                # Query Solscan for outgoing transfers from this deployer
+                url = (
+                    f"https://pro-api.solscan.io/v2.0/account/transfer"
+                    f"?address={dep_addr}&flow=out&page=1&page_size=10"
+                )
+                req = urllib.request.Request(
+                    url,
+                    headers={
+                        "token": self.solscan_jwt,
+                        "Accept": "application/json",
+                        "User-Agent": "Mozilla/5.0",
+                    },
+                )
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    payload = json.loads(resp.read().decode("utf-8"))
+
+                transfers = []
+                if isinstance(payload, dict):
+                    transfers = payload.get("data", []) if isinstance(payload.get("data"), list) else []
+
+                for tx in transfers:
+                    to_addr = tx.get("to_address") or tx.get("dst", "")
+                    amount_sol = float(tx.get("amount", 0)) / 1e9 if tx.get("amount") else 0
+                    if not to_addr or len(to_addr) < 32 or to_addr == dep_addr:
+                        continue
+                    if amount_sol < 0.1:
+                        continue
+
+                    # Check if this wallet is already known
+                    if self._is_known_wallet(to_addr):
+                        continue
+
+                    new_wallets_found += 1
+                    self._session_discovered_wallets += 1
+
+                    # Check if this new wallet has created any tokens via DexScreener
+                    try:
+                        dex_url = f"https://api.dexscreener.com/latest/dex/search?q={to_addr}"
+                        dex_req = urllib.request.Request(dex_url, headers={"User-Agent": "Mozilla/5.0"})
+                        with urllib.request.urlopen(dex_req, timeout=4) as dex_resp:
+                            dex_data = json.loads(dex_resp.read().decode("utf-8"))
+                            pairs = dex_data.get("pairs") or []
+                            if pairs:
+                                logger.info(
+                                    "Forward-trace: deployer %s funded wallet %s which has %d pairs!",
+                                    dep_addr[:12], to_addr[:12], len(pairs),
+                                )
+                                new_deployers_found += 1
+                                # Add the new wallet as deployer and ingest its tokens
+                                self._add_discovered_deployer(
+                                    to_addr, dep_addr, dep.get("syndicate_id"), pairs
+                                )
+                    except Exception:
+                        pass
+
+                time.sleep(0.15)  # Rate limit: ~7 RPS for Solscan
+
+            except Exception as e:
+                logger.debug("Expansion trace error for %s: %s", dep_addr[:12], e)
+
+        self._last_expansion_time = time.time()
+
+        if new_deployers_found > 0 or new_wallets_found > 0:
+            logger.info(
+                "Forward-trace expansion: %d new deployers, %d new wallets discovered",
+                new_deployers_found, new_wallets_found,
+            )
+
+        return {"new_deployers": new_deployers_found, "new_wallets": new_wallets_found}
+
+    def _is_known_wallet(self, address: str) -> bool:
+        """Check if a wallet address is already in our syndicate identities."""
+        if not self.identities_file.exists():
+            return False
+        try:
+            with open(self.identities_file, "r", encoding="utf-8") as f:
+                identities = json.load(f)
+            for synd_data in identities.values():
+                if isinstance(synd_data, dict):
+                    known = synd_data.get("known_wallets", [])
+                    primary = synd_data.get("primary_wallets", [])
+                    if address in known or address in primary:
+                        return True
+        except Exception:
+            pass
+        return False
+
+    def _add_discovered_deployer(
+        self,
+        new_addr: str,
+        source_deployer: str,
+        syndicate_id: Optional[str],
+        pairs: List[Dict],
+    ) -> None:
+        """Add a forward-traced wallet as a new deployer and ingest its tokens."""
+        known_mints = self._get_known_mints()
+
+        for p in pairs[:3]:  # Limit to 3 tokens per newly discovered deployer
+            base = p.get("baseToken", {})
+            mint = base.get("address")
+            if not mint or mint in known_mints:
+                continue
+
+            info = self.fetch_gmgn_token_info(mint)
+            if info:
+                # Override deployer with the forward-traced wallet
+                info["deployers"] = [new_addr]
+                info["fund_from_deployer"] = source_deployer
+                self.ingest_token(info, syndicate_id=syndicate_id)
+                self._session_discovered_tokens += 1
+                known_mints.add(mint)
+
+    def get_keeper_status(self) -> Dict[str, Any]:
+        """Return current keeper status for the /api/keeper/status endpoint."""
+        return {
+            "status": "running" if self._background_thread and self._background_thread.is_alive() else "stopped",
+            "batch_index": self._batch_index,
+            "batch_count": self._batch_count,
+            "cycle_count": self._cycle_count,
+            "last_scan_time": self._last_scan_time,
+            "last_expansion_time": self._last_expansion_time,
+            "session_discovered_tokens": self._session_discovered_tokens,
+            "session_discovered_wallets": self._session_discovered_wallets,
+            "min_profit_filter_usd": self._min_profit_usd,
+            "solscan_jwt_configured": bool(self.solscan_jwt),
+            "gmgn_key_configured": bool(self.api_key),
+        }
+
     def run_keeper_cycle(self) -> Dict[str, Any]:
-        """Execute one complete keeper cycle: verify time-sync, deployer sweep, live DEX sweep, auto-extraction."""
-        logger.info("Executing Autonomous Keeper cycle...")
+        """Execute one turbo keeper cycle: batch deployer scan + Solscan discovery + periodic expansion."""
+        self._cycle_count += 1
+        self._last_scan_time = time.time()
+        logger.info(
+            "Turbo Keeper cycle #%d (batch %d/%d)...",
+            self._cycle_count, self._batch_index + 1, self._batch_count,
+        )
         self.time_sync.calibrate()
 
-        # 1. Sweep watched deployers for newly deployed tokens
-        deployer_deltas = self.scan_watched_deployers()
+        # 1. Scan one deployer batch (Round-Robin)
+        deployer_deltas = self.scan_deployer_batch()
 
-        # 2. Sweep live DEX / Pump.fun feeds
-        live_deltas = self.scan_live_launches()
+        # 2. Scan Solscan for new Pump.fun tokens
+        solscan_deltas = self.scan_solscan_new_tokens()
 
-        total_deltas = len(deployer_deltas) + len(live_deltas)
+        total_deltas = len(deployer_deltas) + len(solscan_deltas)
 
-        # 3. If any deltas found, broadcast SSE update to connected terminals
-        if total_deltas > 0:
-            logger.info("Keeper cycle ingested %d new tokens/syndicates!", total_deltas)
+        # 3. Forward-trace wallet expansion every 8th cycle (~2 min at 15s intervals)
+        expansion_result = {"new_deployers": 0, "new_wallets": 0}
+        if self._cycle_count % 8 == 0:
+            expansion_result = self.expand_syndicate_network()
+
+        # 4. Broadcast SSE update if any discoveries
+        if total_deltas > 0 or expansion_result.get("new_deployers", 0) > 0:
+            logger.info(
+                "Turbo cycle #%d: %d new tokens, %d new deployers, %d new wallets",
+                self._cycle_count, total_deltas,
+                expansion_result.get("new_deployers", 0),
+                expansion_result.get("new_wallets", 0),
+            )
             try:
                 from crypto_syndicate.server import GLOBAL_BROADCASTER
 
+                event_type = "NEW_TOKEN_DISCOVERED" if total_deltas > 0 else "SYNDICATE_WALLETS_UPDATED"
                 GLOBAL_BROADCASTER.broadcast(
-                    "SYNDICATE_WALLETS_UPDATED",
+                    event_type,
                     {
                         "deltas_count": total_deltas,
+                        "new_deployers": expansion_result.get("new_deployers", 0),
+                        "new_wallets": expansion_result.get("new_wallets", 0),
+                        "cycle": self._cycle_count,
+                        "batch_index": self._batch_index,
                         "timestamp": time.time(),
                     },
                 )
@@ -627,15 +921,20 @@ class SyndicateKeeper:
 
         return {
             "status": "success",
+            "cycle": self._cycle_count,
+            "batch_index": self._batch_index,
             "time_drift_seconds": self.time_sync.drift_seconds,
             "new_tokens_count": total_deltas,
             "deployer_deltas": len(deployer_deltas),
-            "live_deltas": len(live_deltas),
+            "solscan_deltas": len(solscan_deltas),
+            "expansion": expansion_result,
+            "session_tokens": self._session_discovered_tokens,
+            "session_wallets": self._session_discovered_wallets,
             "timestamp": time.time(),
         }
 
-    def start_background_loop(self, interval_seconds: int = 120) -> None:
-        """Start non-blocking daemon thread running keeper cycles periodically."""
+    def start_background_loop(self, interval_seconds: int = 15) -> None:
+        """Start turbo daemon thread (default 15s interval for fast scanning)."""
         if self._background_thread and self._background_thread.is_alive():
             logger.info("Keeper background loop already running.")
             return
@@ -643,7 +942,10 @@ class SyndicateKeeper:
         self._stop_event.clear()
 
         def _loop():
-            logger.info("Keeper daemon thread started (interval=%ds)", interval_seconds)
+            logger.info(
+                "Turbo Keeper daemon started (interval=%ds, batches=%d, min_profit=$%.0f)",
+                interval_seconds, self._batch_count, self._min_profit_usd,
+            )
             while not self._stop_event.is_set():
                 try:
                     self.run_keeper_cycle()
@@ -654,9 +956,9 @@ class SyndicateKeeper:
                     if self._stop_event.is_set():
                         break
                     time.sleep(1.0)
-            logger.info("Keeper daemon thread stopped.")
+            logger.info("Turbo Keeper daemon stopped.")
 
-        self._background_thread = threading.Thread(target=_loop, name="SyndicateKeeperThread", daemon=True)
+        self._background_thread = threading.Thread(target=_loop, name="TurboKeeperThread", daemon=True)
         self._background_thread.start()
 
     def stop_background_loop(self) -> None:
@@ -681,15 +983,17 @@ def get_syndicate_keeper() -> SyndicateKeeper:
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Autonomous Syndicate Keeper")
+    parser = argparse.ArgumentParser(description="Turbo Multi-Source Syndicate Keeper")
     parser.add_argument("--once", action="store_true", help="Run a single keeper cycle and exit")
     parser.add_argument("--token", type=str, help="Specific token mint to fetch and ingest")
-    parser.add_argument("--interval", type=int, default=120, help="Loop interval in seconds")
+    parser.add_argument("--interval", type=int, default=15, help="Loop interval in seconds (default: 15)")
+    parser.add_argument("--batches", type=int, default=5, help="Number of deployer batches (default: 5)")
+    parser.add_argument("--min-profit", type=float, default=5.0, help="Minimum deployer profit in USD (default: 5.0)")
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
-    keeper = get_syndicate_keeper()
+    keeper = SyndicateKeeper(batch_count=args.batches, min_profit_usd=args.min_profit)
     if args.token:
         print(f"Fetching token info for {args.token}...")
         info = keeper.fetch_gmgn_token_info(args.token)
@@ -701,10 +1005,10 @@ if __name__ == "__main__":
             print("Failed fetching token info.")
     elif args.once:
         res = keeper.run_keeper_cycle()
-        print("Keeper cycle completed:")
+        print("Turbo Keeper cycle completed:")
         print(json.dumps(res, indent=2))
     else:
-        print(f"Starting Syndicate Keeper daemon (interval={args.interval}s)... Press Ctrl+C to stop.")
+        print(f"Starting Turbo Keeper daemon (interval={args.interval}s, batches={args.batches})... Ctrl+C to stop.")
         keeper.start_background_loop(interval_seconds=args.interval)
         try:
             while True:

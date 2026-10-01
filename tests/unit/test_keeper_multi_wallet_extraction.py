@@ -95,13 +95,22 @@ def test_time_sync_calibration():
     assert now_ts > 1700000000
 
 
-def test_scan_watched_deployers(temp_keeper_env):
+def test_scan_deployer_batch(temp_keeper_env):
     keeper, _, _, _ = temp_keeper_env
-    deltas = keeper.scan_watched_deployers()
+    deltas = keeper.scan_deployer_batch()
     assert isinstance(deltas, list)
 
 
-def test_scan_live_launches(temp_keeper_env):
+def test_scan_solscan_new_tokens(temp_keeper_env):
     keeper, _, _, _ = temp_keeper_env
-    deltas = keeper.scan_live_launches()
+    deltas = keeper.scan_solscan_new_tokens()
     assert isinstance(deltas, list)
+
+
+def test_get_keeper_status(temp_keeper_env):
+    keeper, _, _, _ = temp_keeper_env
+    status = keeper.get_keeper_status()
+    assert status["status"] == "stopped"
+    assert status["batch_count"] == 5
+    assert status["cycle_count"] == 0
+    assert isinstance(status["session_discovered_tokens"], int)

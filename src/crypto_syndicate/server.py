@@ -112,6 +112,8 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             self.handle_api_token_history()
         elif parsed.path in ("/api/keeper/run", "/api/keeper/sync"):
             self.handle_api_keeper_run()
+        elif parsed.path == "/api/keeper/status":
+            self.handle_api_keeper_status()
         elif parsed.path == "/" or parsed.path == "/terminal":
             self.path = "/web/syndicate_terminal.html"
             super().do_GET()
@@ -284,6 +286,23 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(resp)
 
+    def handle_api_keeper_status(self):
+        """Return Turbo Keeper scanner status: batch index, cycle count, discoveries."""
+        try:
+            from crypto_syndicate.keeper import get_syndicate_keeper
+            keeper = get_syndicate_keeper()
+            res = keeper.get_keeper_status()
+        except Exception as e:
+            res = {"status": "error", "error": str(e)}
+
+        resp = json.dumps(res, indent=2).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(resp)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(resp)
+
 
 class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
     """Threaded HTTP server to handle concurrent SSE client connections without blocking."""
@@ -305,9 +324,15 @@ def start_terminal_server(port: Optional[int] = None, host: str = "0.0.0.0", aut
     if auto_start_keeper:
         try:
             from crypto_syndicate.keeper import get_syndicate_keeper
+            from crypto_syndicate.config import KEEPER_SCAN_INTERVAL, SOLSCAN_JWT_TOKEN
             keeper = get_syndicate_keeper()
-            keeper.start_background_loop(interval_seconds=60)
-            logger.info("Autonomous Syndicate Keeper background scanner daemon active (interval=60s)")
+            if SOLSCAN_JWT_TOKEN and not keeper.solscan_jwt:
+                keeper.solscan_jwt = SOLSCAN_JWT_TOKEN
+            keeper.start_background_loop(interval_seconds=KEEPER_SCAN_INTERVAL)
+            logger.info(
+                "Turbo Keeper daemon active (interval=%ds, solscan=%s)",
+                KEEPER_SCAN_INTERVAL, "YES" if keeper.solscan_jwt else "NO",
+            )
         except Exception as e:
             logger.warning("Could not auto-start keeper background loop: %s", e)
 
@@ -332,7 +357,7 @@ def main():
     print(f"[READY] Syndicate Sentinel Server running on http://{args.host}:{args.port}")
     print(f"[STREAM] Real-time SSE Stream: http://{args.host}:{args.port}/events/stream")
     print(f"[HEALTH] Health Check Probe: http://{args.host}:{args.port}/healthz")
-    print(f"[KEEPER] Autonomous Background Scanner: {'ENABLED (60s loop)' if not args.no_keeper else 'DISABLED'}")
+    print(f"[KEEPER] Turbo Scanner: {'ENABLED (15s turbo loop)' if not args.no_keeper else 'DISABLED'}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

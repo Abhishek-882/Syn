@@ -46,6 +46,17 @@ CACHE_TTL_SECONDS: int = int(os.getenv("CACHE_TTL_SECONDS", "300"))
 POLL_INTERVAL_SECONDS: int = int(os.getenv("POLL_INTERVAL_SECONDS", "300"))
 HEARTBEAT_INTERVAL_SECONDS: int = int(os.getenv("HEARTBEAT_INTERVAL_SECONDS", "60"))
 
+# Turbo Scanner Configuration
+KEEPER_SCAN_INTERVAL: int = int(os.getenv("KEEPER_SCAN_INTERVAL", "15"))
+KEEPER_EXPANSION_INTERVAL: int = int(os.getenv("KEEPER_EXPANSION_INTERVAL", "120"))
+DEPLOYER_MIN_PROFIT_USD: float = float(os.getenv("DEPLOYER_MIN_PROFIT_USD", "5.0"))
+DEPLOYER_BATCH_COUNT: int = int(os.getenv("DEPLOYER_BATCH_COUNT", "5"))
+SOLSCAN_JWT_TOKEN: Optional[str] = (
+    os.getenv("SOLSCAN_JWT_TOKEN", "").strip()
+    or os.getenv("SOLSCAN_API_KEY", "").strip()
+    or None
+)
+
 # File Logging Paths
 LOG_DIR: str = os.getenv("LOG_DIR", "logs")
 ALERTS_LOG_PATH: str = os.getenv("ALERTS_LOG_PATH", os.path.join(LOG_DIR, "alerts.log"))

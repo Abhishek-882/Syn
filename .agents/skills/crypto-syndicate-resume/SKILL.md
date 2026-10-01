@@ -259,6 +259,30 @@ tests/
            - tests/e2e/test_mobile_persona_ux_audit.py: 21/21 mobile buttons passed with 0 failures, 0 console errors, and 0 bleed across iPhone 15 Pro & Pixel 7 (100% pass).
            - tests/e2e/test_bitdog_verification.py: Verified  and deployer 35EeJF... (100% pass).
 
+- [x] M23 — Turbo Multi-Source Live Scanner & Forward-Tracing Wallet Expansion:
+         - Addressed 6 core root causes of missed overnight tokens: 120s scan delay, DexScreener-only discovery, top-10 deployer choke, unused Solscan client, missing GMGN deployer sweeps, and zero feedback loop.
+         - Round-Robin Batched Deployer Scanning (src/crypto_syndicate/keeper.py):
+           - Deployers filtered by >= .00 USD profit qualification to eliminate dead/dormant wallets.
+           - Eligible deployers partitioned across 5 rotating batches, achieving full deployer coverage every ~75s at a 15s scan cadence.
+         - Multi-Source Token Discovery Engine:
+           - Integrated Solscan Pro API v2 (/token/latest?platform_id=pumpfun) with user JWT token for instant creation-time detection of fresh meme tokens.
+           - GMGN OpenAPI enrichment: fetches ATH market cap, creator deployer, Binance/CEX funding, and holder counts.
+           - DexScreener fallback & liquidity verification.
+         - Forward-Tracing Syndicate Network Expansion:
+           - Runs every 2 minutes (every 8th keeper cycle).
+           - Traces outgoing fund transfers (>= 0.1 SOL) from known syndicate deployers via Solscan.
+           - Verifies whether funded recipient wallets have created tokens via DexScreener pairs.
+           - Automatically adds confirmed token deployers to the active watchlist and ingests their tokens, feeding directly into subsequent scan cycles.
+         - Terminal & Server Integration:
+           - /api/keeper/status: Exposes live scanner telemetry (batch index, batch count, cycle count, session tokens, session wallets, profit filter).
+           - Terminal UI: Added #keeper-turbo-chip in the header (⚡ SCANNER: BATCH 1/5 | +N TOKENS).
+           - Real-Time SSE: Listeners for NEW_TOKEN_DISCOVERED and SYNDICATE_WALLETS_UPDATED auto-refresh track record tables and trigger toast alerts without page reloads.
+         - Automated Testing & Verification:
+           - tests/unit/test_keeper_turbo_scanner.py: 5/5 unit tests passed.
+           - tests/unit/test_keeper_multi_wallet_extraction.py: 5/5 unit tests passed (10/10 keeper unit tests total).
+           - tests/e2e/test_turbo_scanner_e2e.py: Verified /api/keeper/status, /api/keeper/run, and #keeper-turbo-chip via Playwright (Step 118 screenshot).
+           - Full E2E suite: 100% PASS on test_token_history_browser.py, test_mobile_persona_ux_audit.py (21/21 controls), and test_bitdog_verification.py.
+
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant
 - agent-skills (production-grade agent skill templates): https://github.com/addyosmani/agent-skills
