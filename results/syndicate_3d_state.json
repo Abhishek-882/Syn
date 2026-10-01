@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-01T06:52:40Z",
+  "generated_at": "2026-10-01T11:32:34Z",
   "stats": {
     "nodes_count": 16,
     "links_count": 24,
     "clusters_count": 3,
     "campaigns_count": 0,
-    "deployers_count": 102,
+    "deployers_count": 128,
     "launches_count": 20,
     "timeline_events_count": 24,
     "sim_alpha_pct": 54.05,
@@ -21,7 +21,7 @@
       },
       "SOLSCAN_REST": {
         "state": "CLOSED",
-        "latency_ms": 0.9,
+        "latency_ms": 1.9,
         "is_available": true,
         "failures": 1,
         "trips": 0
@@ -74,8 +74,8 @@
       }
     },
     {
-      "id": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
-      "label": "Sniper: Snip2_...",
+      "id": "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
+      "label": "Sniper: Snip3_...",
       "role": "sniper",
       "x": 225.0,
       "y": -12.0,
@@ -89,8 +89,8 @@
       }
     },
     {
-      "id": "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
-      "label": "Sniper: Snip3_...",
+      "id": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+      "label": "Sniper: Snip1_...",
       "role": "sniper",
       "x": 180.0,
       "y": 0.0,
@@ -104,33 +104,33 @@
       }
     },
     {
-      "id": "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
-      "label": "Deployer: GT5au3...",
-      "role": "deployer",
+      "id": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+      "label": "Bundler: Snip2_...",
+      "role": "bundler",
       "x": 135.0,
       "y": 12.0,
       "z": 0.0,
-      "color": "#ef4444",
-      "size": 10.0,
-      "metadata": {
-        "syndicate": "SYND-0057",
-        "token": "EZO",
-        "role": "deployer"
-      }
-    },
-    {
-      "id": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
-      "label": "Bundler: Snip1_...",
-      "role": "bundler",
-      "x": 180.0,
-      "y": -12.0,
-      "z": -60.0,
       "color": "#eab308",
       "size": 10.0,
       "metadata": {
         "syndicate": "SYND-0057",
         "token": "EZO",
         "role": "bundler"
+      }
+    },
+    {
+      "id": "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
+      "label": "Deployer: GT5au3...",
+      "role": "deployer",
+      "x": 180.0,
+      "y": -12.0,
+      "z": -60.0,
+      "color": "#ef4444",
+      "size": 10.0,
+      "metadata": {
+        "syndicate": "SYND-0057",
+        "token": "EZO",
+        "role": "deployer"
       }
     },
     {
@@ -150,8 +150,8 @@
       }
     },
     {
-      "id": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-      "label": "Sniper: Snip2_...",
+      "id": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
+      "label": "Sniper: Snip3_...",
       "role": "sniper",
       "x": -45.0,
       "y": -12.0,
@@ -165,12 +165,27 @@
       }
     },
     {
-      "id": "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
-      "label": "Deployer: 2foWU7...",
-      "role": "deployer",
+      "id": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+      "label": "Sniper: Snip1_...",
+      "role": "sniper",
       "x": -90.0,
       "y": 0.0,
       "z": 215.88,
+      "color": "#a855f7",
+      "size": 10.0,
+      "metadata": {
+        "syndicate": "SYND-0066",
+        "token": "SCRIBJEAN",
+        "role": "sniper"
+      }
+    },
+    {
+      "id": "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+      "label": "Deployer: 2foWU7...",
+      "role": "deployer",
+      "x": -135.0,
+      "y": 12.0,
+      "z": 155.88,
       "color": "#ef4444",
       "size": 10.0,
       "metadata": {
@@ -180,23 +195,8 @@
       }
     },
     {
-      "id": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-      "label": "Bundler: Snip1_...",
-      "role": "bundler",
-      "x": -135.0,
-      "y": 12.0,
-      "z": 155.88,
-      "color": "#eab308",
-      "size": 10.0,
-      "metadata": {
-        "syndicate": "SYND-0066",
-        "token": "SCRIBJEAN",
-        "role": "bundler"
-      }
-    },
-    {
-      "id": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
-      "label": "Bundler: Snip3_...",
+      "id": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+      "label": "Bundler: Snip2_...",
       "role": "bundler",
       "x": -90.0,
       "y": -12.0,
@@ -226,23 +226,23 @@
       }
     },
     {
-      "id": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
-      "label": "Deployer: 69aiAK...",
-      "role": "deployer",
+      "id": "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
+      "label": "Sniper: Snip1_...",
+      "role": "sniper",
       "x": -45.0,
       "y": -12.0,
       "z": -155.88,
-      "color": "#ef4444",
+      "color": "#a855f7",
       "size": 10.0,
       "metadata": {
         "syndicate": "SYND-0012",
         "token": "ZLONG",
-        "role": "deployer"
+        "role": "sniper"
       }
     },
     {
-      "id": "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
-      "label": "Sniper: Snip1_...",
+      "id": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
+      "label": "Sniper: Snip2_...",
       "role": "sniper",
       "x": -90.0,
       "y": 0.0,
@@ -271,38 +271,22 @@
       }
     },
     {
-      "id": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
-      "label": "Bundler: Snip2_...",
-      "role": "bundler",
+      "id": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
+      "label": "Deployer: 69aiAK...",
+      "role": "deployer",
       "x": -90.0,
       "y": -12.0,
       "z": -215.88,
-      "color": "#eab308",
+      "color": "#ef4444",
       "size": 10.0,
       "metadata": {
         "syndicate": "SYND-0012",
         "token": "ZLONG",
-        "role": "bundler"
+        "role": "deployer"
       }
     }
   ],
   "links": [
-    {
-      "source": "Root_cluste",
-      "target": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
-      "type": "funding",
-      "amount_sol": 1.5,
-      "color": "#ff3366",
-      "speed": 1.2
-    },
-    {
-      "source": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
-      "target": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
-      "type": "trade",
-      "amount_sol": 2.0,
-      "color": "#a855f7",
-      "speed": 2.0
-    },
     {
       "source": "Root_cluste",
       "target": "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
@@ -317,6 +301,38 @@
       "type": "trade",
       "amount_sol": 2.0,
       "color": "#a855f7",
+      "speed": 2.0
+    },
+    {
+      "source": "Root_cluste",
+      "target": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+      "type": "funding",
+      "amount_sol": 1.5,
+      "color": "#ff3366",
+      "speed": 1.2
+    },
+    {
+      "source": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+      "target": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
+      "type": "trade",
+      "amount_sol": 2.0,
+      "color": "#a855f7",
+      "speed": 2.0
+    },
+    {
+      "source": "Root_cluste",
+      "target": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+      "type": "funding",
+      "amount_sol": 1.5,
+      "color": "#ff3366",
+      "speed": 1.2
+    },
+    {
+      "source": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+      "target": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
+      "type": "trade",
+      "amount_sol": 2.0,
+      "color": "#eab308",
       "speed": 2.0
     },
     {
@@ -337,30 +353,30 @@
     },
     {
       "source": "Root_cluste",
-      "target": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+      "target": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
       "type": "funding",
       "amount_sol": 1.5,
       "color": "#ff3366",
       "speed": 1.2
     },
     {
-      "source": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
-      "target": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
+      "source": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
+      "target": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
       "type": "trade",
       "amount_sol": 2.0,
-      "color": "#eab308",
+      "color": "#a855f7",
       "speed": 2.0
     },
     {
       "source": "Root_cluste",
-      "target": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+      "target": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
       "type": "funding",
       "amount_sol": 1.5,
       "color": "#ff3366",
       "speed": 1.2
     },
     {
-      "source": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+      "source": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
       "target": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
       "type": "trade",
       "amount_sol": 2.0,
@@ -385,50 +401,18 @@
     },
     {
       "source": "Root_cluste",
-      "target": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+      "target": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
       "type": "funding",
       "amount_sol": 1.5,
       "color": "#ff3366",
       "speed": 1.2
     },
     {
-      "source": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+      "source": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
       "target": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
       "type": "trade",
       "amount_sol": 2.0,
       "color": "#eab308",
-      "speed": 2.0
-    },
-    {
-      "source": "Root_cluste",
-      "target": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
-      "type": "funding",
-      "amount_sol": 1.5,
-      "color": "#ff3366",
-      "speed": 1.2
-    },
-    {
-      "source": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
-      "target": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
-      "type": "trade",
-      "amount_sol": 2.0,
-      "color": "#eab308",
-      "speed": 2.0
-    },
-    {
-      "source": "Root_cluste",
-      "target": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
-      "type": "funding",
-      "amount_sol": 1.5,
-      "color": "#ff3366",
-      "speed": 1.2
-    },
-    {
-      "source": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
-      "target": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
-      "type": "trade",
-      "amount_sol": 2.0,
-      "color": "#ef4444",
       "speed": 2.0
     },
     {
@@ -441,6 +425,22 @@
     },
     {
       "source": "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
+      "target": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
+      "type": "trade",
+      "amount_sol": 2.0,
+      "color": "#a855f7",
+      "speed": 2.0
+    },
+    {
+      "source": "Root_cluste",
+      "target": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
+      "type": "funding",
+      "amount_sol": 1.5,
+      "color": "#ff3366",
+      "speed": 1.2
+    },
+    {
+      "source": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
       "target": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
       "type": "trade",
       "amount_sol": 2.0,
@@ -465,18 +465,18 @@
     },
     {
       "source": "Root_cluste",
-      "target": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
+      "target": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
       "type": "funding",
       "amount_sol": 1.5,
       "color": "#ff3366",
       "speed": 1.2
     },
     {
-      "source": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
+      "source": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
       "target": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
       "type": "trade",
       "amount_sol": 2.0,
-      "color": "#eab308",
+      "color": "#ef4444",
       "speed": 2.0
     }
   ],
@@ -492,15 +492,15 @@
       "radius": 75.0,
       "member_ids": [
         "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
-        "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
         "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
-        "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
-        "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6"
+        "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+        "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+        "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7"
       ],
       "confidence": 1.0,
       "suspicion_score": 88.5,
       "mode": "flash",
-      "profit_usd": 71012.97899999992,
+      "profit_usd": 91607.08499999988,
       "color": "#a855f7",
       "is_jito_bundle": true,
       "jito_confidence": 0.85,
@@ -510,10 +510,10 @@
       "bundler_rate": 0.542,
       "target_token": "EZO",
       "wallets": [
-        "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
         "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
-        "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
-        "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6"
+        "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+        "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+        "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7"
       ],
       "similar_wallets": []
     },
@@ -528,15 +528,15 @@
       "radius": 75.0,
       "member_ids": [
         "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
-        "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-        "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+        "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
         "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-        "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3"
+        "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+        "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5"
       ],
       "confidence": 1.0,
       "suspicion_score": 88.5,
       "mode": "flash",
-      "profit_usd": 45507.645000000004,
+      "profit_usd": 62121.645000000004,
       "color": "#a855f7",
       "is_jito_bundle": true,
       "jito_confidence": 0.85,
@@ -546,10 +546,10 @@
       "bundler_rate": 0.612,
       "target_token": "SCRIBJEAN",
       "wallets": [
-        "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-        "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+        "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
         "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-        "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3"
+        "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+        "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5"
       ],
       "similar_wallets": []
     },
@@ -564,15 +564,15 @@
       "radius": 75.0,
       "member_ids": [
         "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
-        "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
         "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
+        "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
         "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-        "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5"
+        "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1"
       ],
       "confidence": 1.0,
       "suspicion_score": 88.5,
       "mode": "flash",
-      "profit_usd": 48017.519999999975,
+      "profit_usd": 65970.58499999995,
       "color": "#a855f7",
       "is_jito_bundle": true,
       "jito_confidence": 0.85,
@@ -582,10 +582,10 @@
       "bundler_rate": 0.682,
       "target_token": "ZLONG",
       "wallets": [
-        "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
         "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
+        "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
         "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-        "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5"
+        "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1"
       ],
       "similar_wallets": []
     }
@@ -603,7 +603,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": true,
         "tree_anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-        "created_at": 1790837560.4657984,
+        "created_at": 1790854354.07164,
         "status": "TREASURY_ANCHOR",
         "tokens_created": []
       },
@@ -617,7 +617,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
-        "created_at": 1790837556.4510334,
+        "created_at": 1790854350.547905,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -631,7 +631,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "B9Zbs2W9VK22AHnCWiK4PqBueDFzN17RNAFu5uFozLMJ",
-        "created_at": 1790837556.4510376,
+        "created_at": 1790854350.5479107,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -645,7 +645,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
-        "created_at": 1790837560.4657695,
+        "created_at": 1790854354.071602,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -659,7 +659,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HPjJ1AwVbvGy3hZxQrovkZLz7cryk6C3XHBZZv1DpNkN",
-        "created_at": 1790837556.4510477,
+        "created_at": 1790854350.5479205,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -673,7 +673,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "B2sBZdwhHEon7Wgm4Aj3NG593tJGJohpM6adforRjmnA",
-        "created_at": 1790837556.4510517,
+        "created_at": 1790854350.5479248,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -687,7 +687,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "CGMRykiaYyjTGNjfJrsfg2CKa5AvHjYVC4AgKXEWcWeA",
-        "created_at": 1790837556.451057,
+        "created_at": 1790854350.5479298,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -701,7 +701,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HfHQMpegCZDgLDtr2Cwr4ugcCPXRrxkMtFArLWbSz2tB",
-        "created_at": 1790837556.451061,
+        "created_at": 1790854350.5479345,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -715,7 +715,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8uka6jqjvaJNgnfDzrnQfiKPmrkes4DDhwWuJVujdfWG",
-        "created_at": 1790837556.451065,
+        "created_at": 1790854350.547939,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -729,7 +729,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "4xZSsDzrE5t3S5fPa7XjkCWadTKcoqTPdgMknxx1iErG",
-        "created_at": 1790837556.45107,
+        "created_at": 1790854350.547943,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -743,7 +743,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "FeeTf3TZKXPv5dAhawxf1VS3r52Auh3ATsGWp4i2fLv5",
-        "created_at": 1790837556.451074,
+        "created_at": 1790854350.547948,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -757,7 +757,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "PF6oZwTgRho6dEGyn7VoRTWJDAMqvuuBua1jzTpSgcR",
-        "created_at": 1790837556.4510784,
+        "created_at": 1790854350.5479538,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -771,7 +771,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "6HBDAwM5Tcz524BFkWXkZdd3Nc8e6vCrD6Apd4Cr3bf7",
-        "created_at": 1790837556.4510825,
+        "created_at": 1790854350.5479584,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -785,7 +785,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "5GT9JUGD9bYEVChBLmiaoyBLeEMAzFVnCoVfXsh7NeaZ",
-        "created_at": 1790837556.4510865,
+        "created_at": 1790854350.547963,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -799,7 +799,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "G83hkQkuS4dx4te1LvjFcmLWNBHB2Bq43xELRGT2Rb7N",
-        "created_at": 1790837556.4510906,
+        "created_at": 1790854350.547967,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -813,7 +813,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "TKpS9EPqU2vWjAHArtrdWgoQYkCFiXodHLs5jT7eiX6",
-        "created_at": 1790837556.4510949,
+        "created_at": 1790854350.5479715,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -827,7 +827,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "85SLnzJAqNYGtcY3dqJQ1Y2LxXEfcNb3E6aTVcL2xGpg",
-        "created_at": 1790837556.4510984,
+        "created_at": 1790854350.5479777,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -841,7 +841,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "EUjbNTfqouts2MPeSScG8MoMK2Bqwmm7WJbUHNjMJ2dV",
-        "created_at": 1790837556.4511023,
+        "created_at": 1790854350.5479817,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -855,7 +855,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HTKJZdX2wjH41q2MSq5VYNCtwER33nGM2xtcSUfP8FW3",
-        "created_at": 1790837556.4511058,
+        "created_at": 1790854350.5479865,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -869,7 +869,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "JqmwD8skeqVgBFLdEZiPyJpmrrW73Q9hUrNxPa2JdzK",
-        "created_at": 1790837556.4511094,
+        "created_at": 1790854350.5479906,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -883,7 +883,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "6vj4mbsEVy3Ac72QpJcDDPTo7tybDbKziGSSZqJZtM48",
-        "created_at": 1790837556.4511132,
+        "created_at": 1790854350.5479946,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -897,7 +897,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "gVDXhoGbePACvSqN7CZBtQXFW9eyJwsgudPEwSydAkx",
-        "created_at": 1790837556.4511173,
+        "created_at": 1790854350.547999,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -911,7 +911,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "JDQKDrc1TQgBRvdFh56tkta5sYcDj1SoP52Eiu64rSrT",
-        "created_at": 1790837556.4511232,
+        "created_at": 1790854350.5480058,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -925,7 +925,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "3CQnNpEiGBMhb8Y7zogR5Rf1HK3V5zpLZRZg4BNA4ZXw",
-        "created_at": 1790837556.4511275,
+        "created_at": 1790854350.5480106,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -939,7 +939,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "CKb6wvQ5PAaUeFjPjAgQZ2BMRrCsSSfBNanM5xjDXnDX",
-        "created_at": 1790837556.4511313,
+        "created_at": 1790854350.5480146,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -953,7 +953,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "71Vjzs1hqoCVpfsSgdY7u9DkAMWXibyEDPXc6yszcB5q",
-        "created_at": 1790837556.451136,
+        "created_at": 1790854350.5480187,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -967,7 +967,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
-        "created_at": 1790837556.4511392,
+        "created_at": 1790854350.5480237,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -981,7 +981,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "zQwVPCTDyUbu1r1XrD8HztxJbK6gCwpq44f5sp9b8n2",
-        "created_at": 1790837556.4511447,
+        "created_at": 1790854350.548028,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -995,7 +995,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "7GgcGDb1khNy3hNEsmWf15RbdXjAQLpdYMz1VhK9nZf1",
-        "created_at": 1790837556.4511487,
+        "created_at": 1790854350.5480323,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1009,7 +1009,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HHWLj9axqYGExieDGWtgmsPv9EhwsdLNcWDy6xnWv9BL",
-        "created_at": 1790837556.4511523,
+        "created_at": 1790854350.5480368,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1023,7 +1023,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "C1QoJzTDtKaJ65LBsUBYzVhSBdjXYcUn9pdSLBVp8oK1",
-        "created_at": 1790837556.4511564,
+        "created_at": 1790854350.5480416,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1037,7 +1037,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "AiwLKwapZhyWVFPVH6QfVKj6Uwkfx2DFW7Ax4BBYJ5ti",
-        "created_at": 1790837556.45116,
+        "created_at": 1790854350.5480466,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1051,7 +1051,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "DgfLZvWUkJ74ZCUy2VZR7wKj7cvhtrJVreSwecyaoo6K",
-        "created_at": 1790837556.451164,
+        "created_at": 1790854350.5480509,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1065,7 +1065,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
-        "created_at": 1790837560.46574,
+        "created_at": 1790854354.0715382,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1079,7 +1079,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "6VEau4smEhKsy4YCNUJhnJHaukZk1UnW1nsBzjcgAtWS",
-        "created_at": 1790837556.4511716,
+        "created_at": 1790854350.54806,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1093,7 +1093,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "ERRHtffCak8966GUgyYJvUpnqhAZKLRrtvxd7iTJqjMZ",
-        "created_at": 1790837556.4511752,
+        "created_at": 1790854350.548064,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1107,7 +1107,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "AEUwSu8LLLpvmsiAwynZcRrCDjk6GozJo5HvdnRvqjrj",
-        "created_at": 1790837556.4511783,
+        "created_at": 1790854350.5480685,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1121,7 +1121,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8NJ7Ujpji8uMF2675mqaTSEm2DCbfJA7fiRKtiaqkaLN",
-        "created_at": 1790837556.4511821,
+        "created_at": 1790854350.548073,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1135,7 +1135,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "5gZMsr9CBXnyRpgk59qLWj7V5rwD1SZuZVJnSAPPdzah",
-        "created_at": 1790837556.4511855,
+        "created_at": 1790854350.5480783,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1149,7 +1149,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "AW4a82ZK5Yjnto5tArtBdRzNHbXxeHsX7S1RrSC5gxsD",
-        "created_at": 1790837556.4511893,
+        "created_at": 1790854350.5480826,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1163,7 +1163,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "D5VKfECMfLAmUBm6AJat8qBkQbNwKxEpgzkr3p3N1cfY",
-        "created_at": 1790837556.4511929,
+        "created_at": 1790854350.5480878,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1177,7 +1177,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "56zaCTx9uz9wg3sHeGeHp5qQREhgVuXGuFBsAgc9Gd7K",
-        "created_at": 1790837556.4511964,
+        "created_at": 1790854350.548094,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1191,7 +1191,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "YtVPdT9574E4GeLNG2B2kDyuD9gDbJ2v26a5BxfqvpS",
-        "created_at": 1790837556.4512,
+        "created_at": 1790854350.5480986,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1205,7 +1205,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "iXLnxRKEA8vxaPSQWDw6nei7QCwaWoVvUKG7dezKjNi",
-        "created_at": 1790837556.4512064,
+        "created_at": 1790854350.548107,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1219,7 +1219,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8XDqmm9WRd8UaWjdPwqPXZ5bHEqvbVJ2CKnZEMKHHgKm",
-        "created_at": 1790837556.4512098,
+        "created_at": 1790854350.5481117,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1233,7 +1233,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
-        "created_at": 1790837560.4657595,
+        "created_at": 1790854354.0715654,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1247,7 +1247,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "2MGWzHUmPLHuvPmf8j36Y4g3RPRFZMHCg6XnugtriJX7",
-        "created_at": 1790837556.4512167,
+        "created_at": 1790854350.5481205,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1261,7 +1261,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "2t5xPVJpCM8ZJfRRJLfoa1EoEudnqdisrJuxuZDvDPHw",
-        "created_at": 1790837556.4512203,
+        "created_at": 1790854350.548126,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1275,7 +1275,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "EDKEYD29y1fHtbw1b2rk6mGNWR38Eh9Cr9k51KxGGryy",
-        "created_at": 1790837556.4512236,
+        "created_at": 1790854350.5481303,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1289,7 +1289,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "6mwHX42LqHkJpGwWm9DqE5GVHjqKBG88ZqMqt31sxjB8",
-        "created_at": 1790837556.4512284,
+        "created_at": 1790854350.5481343,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1303,7 +1303,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "9QBNbzBYLyEnv31doA3rg6pEo9DqPX1wFyhQ7rfUuYeX",
-        "created_at": 1790837556.4512322,
+        "created_at": 1790854350.5481389,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1317,7 +1317,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Dqv8whmAjdC4EtQ22AEgaYymfaD4mCPvyz5Uy3ghE67c",
-        "created_at": 1790837556.4512362,
+        "created_at": 1790854350.5481434,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1331,7 +1331,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Dfv8M6RUAeDVefkRDEi6nY4pTpBTXTW22yUX9QQeAUJG",
-        "created_at": 1790837556.4512396,
+        "created_at": 1790854350.5481484,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1345,7 +1345,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "9rd8v5B9QH927tFhm7U54BabD6NbDdWb3aeUCyVtAJw7",
-        "created_at": 1790837556.4512439,
+        "created_at": 1790854350.5481527,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1359,7 +1359,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "DC99qH3jXiq5pPWQd6PjjJcCxTV593s58CLPxWGpEywt",
-        "created_at": 1790837556.4512472,
+        "created_at": 1790854350.5481586,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1373,7 +1373,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "mjDug21ypjsdBrtEVA5yZDG33domCvvjHsQXYG1pSdf",
-        "created_at": 1790837556.4512508,
+        "created_at": 1790854350.5481627,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1387,7 +1387,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "D9gQ6RhKEpnobPBUdWY5bPQt2p3zGk3iVz6ChpUi2ArA",
-        "created_at": 1790837556.4512541,
+        "created_at": 1790854350.5481675,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1401,7 +1401,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc",
-        "created_at": 1790837556.4512572,
+        "created_at": 1790854350.5481715,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1415,7 +1415,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx",
-        "created_at": 1790837556.4512603,
+        "created_at": 1790854350.5481756,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1429,7 +1429,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "5ZuV8eqkvzYFVEKbLvGBdexL2tFv7E5BCd2HZpjqbdg",
-        "created_at": 1790837556.451264,
+        "created_at": 1790854350.5481799,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1443,7 +1443,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "7hmGyLvVgjiZf2uMRAMWwvATKfgswtxF1SUYWhaT3sE2",
-        "created_at": 1790837556.4512675,
+        "created_at": 1790854350.548184,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1457,7 +1457,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "AMRsSeU5JpqwQWJGNLMpZzRCZSFEwYQYbMnms3dD4311",
-        "created_at": 1790837556.4512715,
+        "created_at": 1790854350.548188,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1471,7 +1471,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "AUnN2Z1i2cPRFNa2V159aEWxrCsNyzsbPfkpXoYTNfse",
-        "created_at": 1790837556.451275,
+        "created_at": 1790854350.548192,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1485,7 +1485,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "KRELRFedM22Tzr6GA5Nmvkn5aEk29E2RPXg9mcyMUJk",
-        "created_at": 1790837556.4512784,
+        "created_at": 1790854350.5481963,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1499,7 +1499,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "DMT3DnnW4apdgYBZN9mfPhRL7nzFwHfC3bnmZMDK1JxQ",
-        "created_at": 1790837556.4512815,
+        "created_at": 1790854350.5482004,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1513,7 +1513,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "2xtfisrsUgZsgneoF1hWQVeDLvtHEGnGh7LirABxE1H6",
-        "created_at": 1790837556.451285,
+        "created_at": 1790854350.5482047,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1527,7 +1527,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "whamNNP9tHoxLg92yHvJPdYhghEoCg1qYTsh5a2oLbx",
-        "created_at": 1790837556.451288,
+        "created_at": 1790854350.54821,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1541,7 +1541,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HXAYJj7g4Dn8bmcGDJmcH1rwS9tEbNjLWizJo2EeFx2y",
-        "created_at": 1790837556.4512913,
+        "created_at": 1790854350.548214,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1555,7 +1555,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "BAhpxejd9dMud9FfKzwghgXSYiFhYCHJBuuGyjhZb74R",
-        "created_at": 1790837556.4512944,
+        "created_at": 1790854350.548218,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1569,7 +1569,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8YcbyX92UHTU23HZv3ccP9o13qibErQkKaUjoxqxd7SJ",
-        "created_at": 1790837556.4512982,
+        "created_at": 1790854350.5482223,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1583,7 +1583,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "E4FPggw9yDp9PNJDuRoLYDr6a5HKCsAterw3fygLpZEA",
-        "created_at": 1790837556.4513016,
+        "created_at": 1790854350.5482268,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1597,7 +1597,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8bjwutbs6w2tNyThtyNLeFnHYEQtFBAeChjBFXiPJ7cc",
-        "created_at": 1790837556.4513052,
+        "created_at": 1790854350.548231,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1611,7 +1611,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "EhAbm3M5XHJ41MC5PdGJC34pKfePUnfJytnLx5zeAQcy",
-        "created_at": 1790837556.4513083,
+        "created_at": 1790854350.5482352,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1625,7 +1625,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "4ZbeUKGNZbLatj1nEmRaYjkQYCnNxj2a7yk9xreWWaDM",
-        "created_at": 1790837556.4513133,
+        "created_at": 1790854350.5482395,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1639,7 +1639,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "CCyVrhv9446H4UqGz6LmMb4WP7Vsgjji5wSUonVRrRsa",
-        "created_at": 1790837556.451316,
+        "created_at": 1790854350.5482433,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1653,7 +1653,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "A6J9KzqvpjjE99Zy93uy3pccJZwHAit6DPJpmRPNNxGa",
-        "created_at": 1790837556.4513192,
+        "created_at": 1790854350.5482473,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1667,7 +1667,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "9uVjb3SrDL3Yw3SKFNv3ijrBMUpnu5WXiEuq9NsPRbUw",
-        "created_at": 1790837556.4513226,
+        "created_at": 1790854350.5482514,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1681,7 +1681,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "AQtxXcBPadEP2ejpgzk1fEZb18i5s9AYn32Xuda2mgyf",
-        "created_at": 1790837556.4513257,
+        "created_at": 1790854350.5482574,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1695,7 +1695,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "5KuVvdNviuznfM3Dyu72f9j9oKHu6Zps6qhJWBscZ5SQ",
-        "created_at": 1790837556.451329,
+        "created_at": 1790854350.5482614,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1709,7 +1709,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "RDjsvApuXbXhp5wgiSUcnFGodyx3nXDFTPG4mgQRFnn",
-        "created_at": 1790837556.4513323,
+        "created_at": 1790854350.5482657,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1723,7 +1723,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "FK9zUhR7M189viomvPHq9NwwVbGrWn8Qres778U9AnwH",
-        "created_at": 1790837556.4513357,
+        "created_at": 1790854350.5482697,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1737,7 +1737,371 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "DwvNjghdCz8WqaxoVtTMJR3iDRmxsuy51aLU7EDC44WN",
-        "created_at": 1790837556.4513392,
+        "created_at": 1790854350.5482743,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+        "parent_syndicate_id": "SYND-0120",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+        "created_at": 1790854350.548279,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+        "parent_syndicate_id": "SYND-0121",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+        "created_at": 1790854350.548285,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+        "parent_syndicate_id": "SYND-0123",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+        "created_at": 1790854350.5482903,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+        "parent_syndicate_id": "SYND-0124",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+        "created_at": 1790854350.5482945,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+        "parent_syndicate_id": "SYND-0125",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+        "created_at": 1790854350.5483055,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+        "parent_syndicate_id": "SYND-0126",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+        "created_at": 1790854350.5483105,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+        "parent_syndicate_id": "SYND-0127",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+        "created_at": 1790854350.5483153,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "45NTDBhT8Ky7u9CbtCV9daBppJNFGjFhACJWiXB4udZo",
+        "parent_syndicate_id": "SYND-0128",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "45NTDBhT8Ky7u9CbtCV9daBppJNFGjFhACJWiXB4udZo",
+        "created_at": 1790854350.5483196,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "27nKnCT3DD5NLJw3xbq3KDL3thx6KTe6DmrRCbi2uszE",
+        "parent_syndicate_id": "SYND-0129",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "27nKnCT3DD5NLJw3xbq3KDL3thx6KTe6DmrRCbi2uszE",
+        "created_at": 1790854350.5483236,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "4HXb7ivgvjbHC3TBesmmD9LovH8tmTv9DZsq12GMvEpU",
+        "parent_syndicate_id": "SYND-0130",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "4HXb7ivgvjbHC3TBesmmD9LovH8tmTv9DZsq12GMvEpU",
+        "created_at": 1790854350.5483282,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "HAuD8e6A24dJdjDKuRR2CX6iDtGk9HXKxEeHM8CJ7GVY",
+        "parent_syndicate_id": "SYND-0131",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "HAuD8e6A24dJdjDKuRR2CX6iDtGk9HXKxEeHM8CJ7GVY",
+        "created_at": 1790854350.548334,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "5FqUo9aBjsp7QeeyN6Vi2ZmF2fjS4H5EU7wnAQwPy17z",
+        "parent_syndicate_id": "SYND-0132",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "5FqUo9aBjsp7QeeyN6Vi2ZmF2fjS4H5EU7wnAQwPy17z",
+        "created_at": 1790854350.5483382,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "4TC62iMh6fKF31tXgPimvJxz3u9qHKytifwaJw5hzJA4",
+        "parent_syndicate_id": "SYND-0133",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "4TC62iMh6fKF31tXgPimvJxz3u9qHKytifwaJw5hzJA4",
+        "created_at": 1790854350.5483422,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "CsbE3DhBfNHzyWa7tNHGT1o9naE2Zv2rVcV4efXaamDx",
+        "parent_syndicate_id": "SYND-0134",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "CsbE3DhBfNHzyWa7tNHGT1o9naE2Zv2rVcV4efXaamDx",
+        "created_at": 1790854350.548347,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "95ZCf3jKMHeFYvPXVZW3Ek6AEPDyjebosqnc7eNioVMo",
+        "parent_syndicate_id": "SYND-0135",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "95ZCf3jKMHeFYvPXVZW3Ek6AEPDyjebosqnc7eNioVMo",
+        "created_at": 1790854350.548351,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "7m556r8Fycdfzu12AYozjFVSan6CHbdYxbTUugeHw8W5",
+        "parent_syndicate_id": "SYND-0136",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "7m556r8Fycdfzu12AYozjFVSan6CHbdYxbTUugeHw8W5",
+        "created_at": 1790854350.5483549,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+        "parent_syndicate_id": "SYND-0137",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+        "created_at": 1790854350.5483584,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "8Za43Mm299xKE4JyQPXqNjx4QVVdpUSSm5EzMWNe2zE7",
+        "parent_syndicate_id": "SYND-0138",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "8Za43Mm299xKE4JyQPXqNjx4QVVdpUSSm5EzMWNe2zE7",
+        "created_at": 1790854350.548364,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
+        "parent_syndicate_id": "SYND-0139",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
+        "created_at": 1790854350.5483685,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+        "parent_syndicate_id": "SYND-0140",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+        "created_at": 1790854350.5483725,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+        "parent_syndicate_id": "SYND-0141",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+        "created_at": 1790854350.5483766,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+        "parent_syndicate_id": "SYND-0143",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+        "created_at": 1790854350.5483804,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+        "parent_syndicate_id": "SYND-0144",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+        "created_at": 1790854350.5483854,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+        "parent_syndicate_id": "SYND-0145",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+        "created_at": 1790854350.5483894,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+        "parent_syndicate_id": "SYND-0146",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+        "created_at": 1790854350.548394,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+        "parent_syndicate_id": "SYND-0148",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 8.5,
+        "balance_usd": 1275.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+        "created_at": 1790854350.5483983,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1751,21 +2115,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HfDbuTGJQpq7PXQe5Xvgxwi97DdFekQWE3CCKcjAatuK",
-        "created_at": 1790837556.4513426,
-        "status": "DEPLOYER_READY",
-        "tokens_created": []
-      },
-      {
-        "address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
-        "parent_syndicate_id": "cluster_2Ecj4UJj",
-        "funded_by": "MEMBER",
-        "hop_level": 0,
-        "balance_sol": 1.5,
-        "balance_usd": 225.0,
-        "is_deployer_ready": true,
-        "is_treasury_anchor": false,
-        "tree_anchor_address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
-        "created_at": 1790837560.4657128,
+        "created_at": 1790854350.5484028,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1779,7 +2129,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
-        "created_at": 1790837560.4657357,
+        "created_at": 1790854354.0714836,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1793,35 +2143,21 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
-        "created_at": 1790837560.465746,
+        "created_at": 1790854354.0715218,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
       {
-        "address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-        "parent_syndicate_id": "cluster_GpUkmLHW",
+        "address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+        "parent_syndicate_id": "cluster_2Ecj4UJj",
         "funded_by": "MEMBER",
         "hop_level": 0,
         "balance_sol": 1.5,
         "balance_usd": 225.0,
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
-        "tree_anchor_address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-        "created_at": 1790837560.4657562,
-        "status": "DEPLOYER_READY",
-        "tokens_created": []
-      },
-      {
-        "address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-        "parent_syndicate_id": "cluster_GpUkmLHW",
-        "funded_by": "MEMBER",
-        "hop_level": 0,
-        "balance_sol": 1.5,
-        "balance_usd": 225.0,
-        "is_deployer_ready": true,
-        "is_treasury_anchor": false,
-        "tree_anchor_address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-        "created_at": 1790837560.4657636,
+        "tree_anchor_address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+        "created_at": 1790854354.071531,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1835,7 +2171,35 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
-        "created_at": 1790837560.4657664,
+        "created_at": 1790854354.0715518,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+        "parent_syndicate_id": "cluster_GpUkmLHW",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 1.5,
+        "balance_usd": 225.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+        "created_at": 1790854354.071559,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+        "parent_syndicate_id": "cluster_GpUkmLHW",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 1.5,
+        "balance_usd": 225.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+        "created_at": 1790854354.0715747,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1849,21 +2213,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
-        "created_at": 1790837560.4657736,
-        "status": "DEPLOYER_READY",
-        "tokens_created": []
-      },
-      {
-        "address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-        "parent_syndicate_id": "cluster_4xjvmiKa",
-        "funded_by": "MEMBER",
-        "hop_level": 0,
-        "balance_sol": 1.5,
-        "balance_usd": 225.0,
-        "is_deployer_ready": true,
-        "is_treasury_anchor": false,
-        "tree_anchor_address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-        "created_at": 1790837560.4657764,
+        "created_at": 1790854354.071583,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1877,7 +2227,21 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
-        "created_at": 1790837560.4657793,
+        "created_at": 1790854354.0715897,
+        "status": "DEPLOYER_READY",
+        "tokens_created": []
+      },
+      {
+        "address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
+        "parent_syndicate_id": "cluster_4xjvmiKa",
+        "funded_by": "MEMBER",
+        "hop_level": 0,
+        "balance_sol": 1.5,
+        "balance_usd": 225.0,
+        "is_deployer_ready": true,
+        "is_treasury_anchor": false,
+        "tree_anchor_address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
+        "created_at": 1790854354.0715957,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1891,7 +2255,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-        "created_at": 1790833960.4657884,
+        "created_at": 1790850754.0716214,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1905,7 +2269,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-        "created_at": 1790835760.4657884,
+        "created_at": 1790852554.0716214,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1919,7 +2283,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": true,
         "tree_anchor_address": "Whale_Treasury_25SOL_Anchor",
-        "created_at": 1790836660.4657884,
+        "created_at": 1790853454.0716214,
         "status": "TREASURY_ANCHOR",
         "tokens_created": []
       },
@@ -1933,7 +2297,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "Whale_Treasury_25SOL_Anchor",
-        "created_at": 1790837260.4657884,
+        "created_at": 1790854054.0716214,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1947,7 +2311,7 @@
         "is_deployer_ready": false,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-        "created_at": 1790837460.4657884,
+        "created_at": 1790854254.0716214,
         "status": "DUST_MONITOR",
         "tokens_created": []
       },
@@ -1961,7 +2325,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-        "created_at": 1790835760.4658556,
+        "created_at": 1790852554.071755,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1975,7 +2339,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
-        "created_at": 1790836120.4658556,
+        "created_at": 1790852914.071755,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -1989,7 +2353,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "B9Zbs2W9VK22AHnCWiK4PqBueDFzN17RNAFu5uFozLMJ",
-        "created_at": 1790836240.4658556,
+        "created_at": 1790853034.071755,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -2003,7 +2367,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
-        "created_at": 1790836360.4658556,
+        "created_at": 1790853154.071755,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -2017,7 +2381,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "HPjJ1AwVbvGy3hZxQrovkZLz7cryk6C3XHBZZv1DpNkN",
-        "created_at": 1790836480.4658556,
+        "created_at": 1790853274.071755,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       },
@@ -2031,7 +2395,7 @@
         "is_deployer_ready": true,
         "is_treasury_anchor": false,
         "tree_anchor_address": "B2sBZdwhHEon7Wgm4Aj3NG593tJGJohpM6adforRjmnA",
-        "created_at": 1790836600.4658556,
+        "created_at": 1790853394.071755,
         "status": "DEPLOYER_READY",
         "tokens_created": []
       }
@@ -2043,7 +2407,7 @@
         "to_address": "Snip1_4dNj3yuR8vX7yT9wQ2pM3kL4n5",
         "amount_sol": 5.0,
         "amount_usd": 750.0,
-        "timestamp": 1790833960.4657884,
+        "timestamp": 1790850754.0716214,
         "hop_level": 1,
         "parent_syndicate_id": "SYN-MOCK-TREASURY",
         "is_treasury_anchor": false
@@ -2054,7 +2418,7 @@
         "to_address": "Child_Hop2_Deployer_4dNj3y",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790835760.4657884,
+        "timestamp": 1790852554.0716214,
         "hop_level": 2,
         "parent_syndicate_id": "SYN-MOCK-TREASURY",
         "is_treasury_anchor": false
@@ -2065,7 +2429,7 @@
         "to_address": "Whale_Treasury_25SOL_Anchor",
         "amount_sol": 25.0,
         "amount_usd": 3750.0,
-        "timestamp": 1790836660.4657884,
+        "timestamp": 1790853454.0716214,
         "hop_level": 0,
         "parent_syndicate_id": "SYN-MOCK-TREASURY",
         "is_treasury_anchor": true
@@ -2076,7 +2440,7 @@
         "to_address": "Deployer_Child_Under_Whale_1",
         "amount_sol": 0.08,
         "amount_usd": 12.0,
-        "timestamp": 1790837260.4657884,
+        "timestamp": 1790854054.0716214,
         "hop_level": 1,
         "parent_syndicate_id": "SYN-MOCK-TREASURY",
         "is_treasury_anchor": false
@@ -2087,7 +2451,7 @@
         "to_address": "Dust_Wallet_Under_Threshold",
         "amount_sol": 0.01,
         "amount_usd": 1.5,
-        "timestamp": 1790837460.4657884,
+        "timestamp": 1790854254.0716214,
         "hop_level": 2,
         "parent_syndicate_id": "SYN-MOCK-TREASURY",
         "is_treasury_anchor": false
@@ -2098,7 +2462,7 @@
         "to_address": "Child_Deployer_8p7Z2M9tq4_0",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790835760.4658556,
+        "timestamp": 1790852554.071755,
         "hop_level": 1,
         "parent_syndicate_id": "SYN-MOCK-TREASURY",
         "is_treasury_anchor": false
@@ -2109,7 +2473,7 @@
         "to_address": "Child_Deployer_bwamJzztZs_3",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790836120.4658556,
+        "timestamp": 1790852914.071755,
         "hop_level": 1,
         "parent_syndicate_id": "SYND-0004",
         "is_treasury_anchor": false
@@ -2120,7 +2484,7 @@
         "to_address": "Child_Deployer_B9Zbs2W9VK_4",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790836240.4658556,
+        "timestamp": 1790853034.071755,
         "hop_level": 1,
         "parent_syndicate_id": "SYND-0005",
         "is_treasury_anchor": false
@@ -2131,7 +2495,7 @@
         "to_address": "Child_Deployer_69aiAKU3uJ_5",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790836360.4658556,
+        "timestamp": 1790853154.071755,
         "hop_level": 1,
         "parent_syndicate_id": "cluster_4xjvmiKa",
         "is_treasury_anchor": false
@@ -2142,7 +2506,7 @@
         "to_address": "Child_Deployer_HPjJ1AwVbv_6",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790836480.4658556,
+        "timestamp": 1790853274.071755,
         "hop_level": 1,
         "parent_syndicate_id": "SYND-0007",
         "is_treasury_anchor": false
@@ -2153,15 +2517,15 @@
         "to_address": "Child_Deployer_B2sBZdwhHE_7",
         "amount_sol": 0.5,
         "amount_usd": 75.0,
-        "timestamp": 1790836600.4658556,
+        "timestamp": 1790853394.071755,
         "hop_level": 1,
         "parent_syndicate_id": "SYND-0008",
         "is_treasury_anchor": false
       }
     ],
-    "total_nodes": 103,
+    "total_nodes": 129,
     "total_transfers": 11,
-    "deployers_count": 102,
+    "deployers_count": 128,
     "treasury_anchors_count": 2
   },
   "deployers_watchlist": [
@@ -2171,7 +2535,7 @@
       "balance_sol": 150.0,
       "balance_usd": 22500.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657984,
+      "first_funded_at": 1790854354.07164,
       "hop_distance_from_anchor": 0,
       "anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
       "tokens_created": []
@@ -2182,7 +2546,7 @@
       "balance_sol": 25.0,
       "balance_usd": 3750.0,
       "funded_by": "Child_Hop2_Deployer_4dNj3y",
-      "first_funded_at": 1790836660.4657884,
+      "first_funded_at": 1790853454.0716214,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Whale_Treasury_25SOL_Anchor",
       "tokens_created": []
@@ -2193,7 +2557,7 @@
       "balance_sol": 12.0,
       "balance_usd": 1800.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513426,
+      "first_funded_at": 1790854350.5484028,
       "hop_distance_from_anchor": 0,
       "anchor_address": "HfDbuTGJQpq7PXQe5Xvgxwi97DdFekQWE3CCKcjAatuK",
       "tokens_created": []
@@ -2204,7 +2568,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510334,
+      "first_funded_at": 1790854350.547905,
       "hop_distance_from_anchor": 0,
       "anchor_address": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
       "tokens_created": []
@@ -2215,7 +2579,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510376,
+      "first_funded_at": 1790854350.5479107,
       "hop_distance_from_anchor": 0,
       "anchor_address": "B9Zbs2W9VK22AHnCWiK4PqBueDFzN17RNAFu5uFozLMJ",
       "tokens_created": []
@@ -2226,7 +2590,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510477,
+      "first_funded_at": 1790854350.5479205,
       "hop_distance_from_anchor": 0,
       "anchor_address": "HPjJ1AwVbvGy3hZxQrovkZLz7cryk6C3XHBZZv1DpNkN",
       "tokens_created": []
@@ -2237,7 +2601,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510517,
+      "first_funded_at": 1790854350.5479248,
       "hop_distance_from_anchor": 0,
       "anchor_address": "B2sBZdwhHEon7Wgm4Aj3NG593tJGJohpM6adforRjmnA",
       "tokens_created": []
@@ -2248,7 +2612,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451057,
+      "first_funded_at": 1790854350.5479298,
       "hop_distance_from_anchor": 0,
       "anchor_address": "CGMRykiaYyjTGNjfJrsfg2CKa5AvHjYVC4AgKXEWcWeA",
       "tokens_created": []
@@ -2259,7 +2623,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451061,
+      "first_funded_at": 1790854350.5479345,
       "hop_distance_from_anchor": 0,
       "anchor_address": "HfHQMpegCZDgLDtr2Cwr4ugcCPXRrxkMtFArLWbSz2tB",
       "tokens_created": []
@@ -2270,7 +2634,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451065,
+      "first_funded_at": 1790854350.547939,
       "hop_distance_from_anchor": 0,
       "anchor_address": "8uka6jqjvaJNgnfDzrnQfiKPmrkes4DDhwWuJVujdfWG",
       "tokens_created": []
@@ -2281,7 +2645,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.45107,
+      "first_funded_at": 1790854350.547943,
       "hop_distance_from_anchor": 0,
       "anchor_address": "4xZSsDzrE5t3S5fPa7XjkCWadTKcoqTPdgMknxx1iErG",
       "tokens_created": []
@@ -2292,7 +2656,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451074,
+      "first_funded_at": 1790854350.547948,
       "hop_distance_from_anchor": 0,
       "anchor_address": "FeeTf3TZKXPv5dAhawxf1VS3r52Auh3ATsGWp4i2fLv5",
       "tokens_created": []
@@ -2303,7 +2667,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510784,
+      "first_funded_at": 1790854350.5479538,
       "hop_distance_from_anchor": 0,
       "anchor_address": "PF6oZwTgRho6dEGyn7VoRTWJDAMqvuuBua1jzTpSgcR",
       "tokens_created": []
@@ -2314,7 +2678,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510825,
+      "first_funded_at": 1790854350.5479584,
       "hop_distance_from_anchor": 0,
       "anchor_address": "6HBDAwM5Tcz524BFkWXkZdd3Nc8e6vCrD6Apd4Cr3bf7",
       "tokens_created": []
@@ -2325,7 +2689,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510865,
+      "first_funded_at": 1790854350.547963,
       "hop_distance_from_anchor": 0,
       "anchor_address": "5GT9JUGD9bYEVChBLmiaoyBLeEMAzFVnCoVfXsh7NeaZ",
       "tokens_created": []
@@ -2336,7 +2700,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510906,
+      "first_funded_at": 1790854350.547967,
       "hop_distance_from_anchor": 0,
       "anchor_address": "G83hkQkuS4dx4te1LvjFcmLWNBHB2Bq43xELRGT2Rb7N",
       "tokens_created": []
@@ -2347,7 +2711,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510949,
+      "first_funded_at": 1790854350.5479715,
       "hop_distance_from_anchor": 0,
       "anchor_address": "TKpS9EPqU2vWjAHArtrdWgoQYkCFiXodHLs5jT7eiX6",
       "tokens_created": []
@@ -2358,7 +2722,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4510984,
+      "first_funded_at": 1790854350.5479777,
       "hop_distance_from_anchor": 0,
       "anchor_address": "85SLnzJAqNYGtcY3dqJQ1Y2LxXEfcNb3E6aTVcL2xGpg",
       "tokens_created": []
@@ -2369,7 +2733,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511023,
+      "first_funded_at": 1790854350.5479817,
       "hop_distance_from_anchor": 0,
       "anchor_address": "EUjbNTfqouts2MPeSScG8MoMK2Bqwmm7WJbUHNjMJ2dV",
       "tokens_created": []
@@ -2380,7 +2744,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511058,
+      "first_funded_at": 1790854350.5479865,
       "hop_distance_from_anchor": 0,
       "anchor_address": "HTKJZdX2wjH41q2MSq5VYNCtwER33nGM2xtcSUfP8FW3",
       "tokens_created": []
@@ -2391,7 +2755,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511094,
+      "first_funded_at": 1790854350.5479906,
       "hop_distance_from_anchor": 0,
       "anchor_address": "JqmwD8skeqVgBFLdEZiPyJpmrrW73Q9hUrNxPa2JdzK",
       "tokens_created": []
@@ -2402,7 +2766,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511132,
+      "first_funded_at": 1790854350.5479946,
       "hop_distance_from_anchor": 0,
       "anchor_address": "6vj4mbsEVy3Ac72QpJcDDPTo7tybDbKziGSSZqJZtM48",
       "tokens_created": []
@@ -2413,7 +2777,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511173,
+      "first_funded_at": 1790854350.547999,
       "hop_distance_from_anchor": 0,
       "anchor_address": "gVDXhoGbePACvSqN7CZBtQXFW9eyJwsgudPEwSydAkx",
       "tokens_created": []
@@ -2424,7 +2788,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511232,
+      "first_funded_at": 1790854350.5480058,
       "hop_distance_from_anchor": 0,
       "anchor_address": "JDQKDrc1TQgBRvdFh56tkta5sYcDj1SoP52Eiu64rSrT",
       "tokens_created": []
@@ -2435,7 +2799,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511275,
+      "first_funded_at": 1790854350.5480106,
       "hop_distance_from_anchor": 0,
       "anchor_address": "3CQnNpEiGBMhb8Y7zogR5Rf1HK3V5zpLZRZg4BNA4ZXw",
       "tokens_created": []
@@ -2446,7 +2810,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511313,
+      "first_funded_at": 1790854350.5480146,
       "hop_distance_from_anchor": 0,
       "anchor_address": "CKb6wvQ5PAaUeFjPjAgQZ2BMRrCsSSfBNanM5xjDXnDX",
       "tokens_created": []
@@ -2457,7 +2821,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451136,
+      "first_funded_at": 1790854350.5480187,
       "hop_distance_from_anchor": 0,
       "anchor_address": "71Vjzs1hqoCVpfsSgdY7u9DkAMWXibyEDPXc6yszcB5q",
       "tokens_created": []
@@ -2468,7 +2832,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511392,
+      "first_funded_at": 1790854350.5480237,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
       "tokens_created": []
@@ -2479,7 +2843,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511447,
+      "first_funded_at": 1790854350.548028,
       "hop_distance_from_anchor": 0,
       "anchor_address": "zQwVPCTDyUbu1r1XrD8HztxJbK6gCwpq44f5sp9b8n2",
       "tokens_created": []
@@ -2490,7 +2854,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511487,
+      "first_funded_at": 1790854350.5480323,
       "hop_distance_from_anchor": 0,
       "anchor_address": "7GgcGDb1khNy3hNEsmWf15RbdXjAQLpdYMz1VhK9nZf1",
       "tokens_created": []
@@ -2501,7 +2865,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511523,
+      "first_funded_at": 1790854350.5480368,
       "hop_distance_from_anchor": 0,
       "anchor_address": "HHWLj9axqYGExieDGWtgmsPv9EhwsdLNcWDy6xnWv9BL",
       "tokens_created": []
@@ -2512,7 +2876,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511564,
+      "first_funded_at": 1790854350.5480416,
       "hop_distance_from_anchor": 0,
       "anchor_address": "C1QoJzTDtKaJ65LBsUBYzVhSBdjXYcUn9pdSLBVp8oK1",
       "tokens_created": []
@@ -2523,7 +2887,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.45116,
+      "first_funded_at": 1790854350.5480466,
       "hop_distance_from_anchor": 0,
       "anchor_address": "AiwLKwapZhyWVFPVH6QfVKj6Uwkfx2DFW7Ax4BBYJ5ti",
       "tokens_created": []
@@ -2534,7 +2898,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451164,
+      "first_funded_at": 1790854350.5480509,
       "hop_distance_from_anchor": 0,
       "anchor_address": "DgfLZvWUkJ74ZCUy2VZR7wKj7cvhtrJVreSwecyaoo6K",
       "tokens_created": []
@@ -2545,7 +2909,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511716,
+      "first_funded_at": 1790854350.54806,
       "hop_distance_from_anchor": 0,
       "anchor_address": "6VEau4smEhKsy4YCNUJhnJHaukZk1UnW1nsBzjcgAtWS",
       "tokens_created": []
@@ -2556,7 +2920,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511752,
+      "first_funded_at": 1790854350.548064,
       "hop_distance_from_anchor": 0,
       "anchor_address": "ERRHtffCak8966GUgyYJvUpnqhAZKLRrtvxd7iTJqjMZ",
       "tokens_created": []
@@ -2567,7 +2931,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511783,
+      "first_funded_at": 1790854350.5480685,
       "hop_distance_from_anchor": 0,
       "anchor_address": "AEUwSu8LLLpvmsiAwynZcRrCDjk6GozJo5HvdnRvqjrj",
       "tokens_created": []
@@ -2578,7 +2942,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511821,
+      "first_funded_at": 1790854350.548073,
       "hop_distance_from_anchor": 0,
       "anchor_address": "8NJ7Ujpji8uMF2675mqaTSEm2DCbfJA7fiRKtiaqkaLN",
       "tokens_created": []
@@ -2589,7 +2953,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511855,
+      "first_funded_at": 1790854350.5480783,
       "hop_distance_from_anchor": 0,
       "anchor_address": "5gZMsr9CBXnyRpgk59qLWj7V5rwD1SZuZVJnSAPPdzah",
       "tokens_created": []
@@ -2600,7 +2964,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511893,
+      "first_funded_at": 1790854350.5480826,
       "hop_distance_from_anchor": 0,
       "anchor_address": "AW4a82ZK5Yjnto5tArtBdRzNHbXxeHsX7S1RrSC5gxsD",
       "tokens_created": []
@@ -2611,7 +2975,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511929,
+      "first_funded_at": 1790854350.5480878,
       "hop_distance_from_anchor": 0,
       "anchor_address": "D5VKfECMfLAmUBm6AJat8qBkQbNwKxEpgzkr3p3N1cfY",
       "tokens_created": []
@@ -2622,7 +2986,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4511964,
+      "first_funded_at": 1790854350.548094,
       "hop_distance_from_anchor": 0,
       "anchor_address": "56zaCTx9uz9wg3sHeGeHp5qQREhgVuXGuFBsAgc9Gd7K",
       "tokens_created": []
@@ -2633,7 +2997,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512,
+      "first_funded_at": 1790854350.5480986,
       "hop_distance_from_anchor": 0,
       "anchor_address": "YtVPdT9574E4GeLNG2B2kDyuD9gDbJ2v26a5BxfqvpS",
       "tokens_created": []
@@ -2644,7 +3008,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512064,
+      "first_funded_at": 1790854350.548107,
       "hop_distance_from_anchor": 0,
       "anchor_address": "iXLnxRKEA8vxaPSQWDw6nei7QCwaWoVvUKG7dezKjNi",
       "tokens_created": []
@@ -2655,7 +3019,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512098,
+      "first_funded_at": 1790854350.5481117,
       "hop_distance_from_anchor": 0,
       "anchor_address": "8XDqmm9WRd8UaWjdPwqPXZ5bHEqvbVJ2CKnZEMKHHgKm",
       "tokens_created": []
@@ -2666,7 +3030,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512167,
+      "first_funded_at": 1790854350.5481205,
       "hop_distance_from_anchor": 0,
       "anchor_address": "2MGWzHUmPLHuvPmf8j36Y4g3RPRFZMHCg6XnugtriJX7",
       "tokens_created": []
@@ -2677,7 +3041,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512203,
+      "first_funded_at": 1790854350.548126,
       "hop_distance_from_anchor": 0,
       "anchor_address": "2t5xPVJpCM8ZJfRRJLfoa1EoEudnqdisrJuxuZDvDPHw",
       "tokens_created": []
@@ -2688,7 +3052,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512236,
+      "first_funded_at": 1790854350.5481303,
       "hop_distance_from_anchor": 0,
       "anchor_address": "EDKEYD29y1fHtbw1b2rk6mGNWR38Eh9Cr9k51KxGGryy",
       "tokens_created": []
@@ -2699,7 +3063,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512284,
+      "first_funded_at": 1790854350.5481343,
       "hop_distance_from_anchor": 0,
       "anchor_address": "6mwHX42LqHkJpGwWm9DqE5GVHjqKBG88ZqMqt31sxjB8",
       "tokens_created": []
@@ -2710,7 +3074,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512322,
+      "first_funded_at": 1790854350.5481389,
       "hop_distance_from_anchor": 0,
       "anchor_address": "9QBNbzBYLyEnv31doA3rg6pEo9DqPX1wFyhQ7rfUuYeX",
       "tokens_created": []
@@ -2721,7 +3085,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512362,
+      "first_funded_at": 1790854350.5481434,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Dqv8whmAjdC4EtQ22AEgaYymfaD4mCPvyz5Uy3ghE67c",
       "tokens_created": []
@@ -2732,7 +3096,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512396,
+      "first_funded_at": 1790854350.5481484,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Dfv8M6RUAeDVefkRDEi6nY4pTpBTXTW22yUX9QQeAUJG",
       "tokens_created": []
@@ -2743,7 +3107,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512439,
+      "first_funded_at": 1790854350.5481527,
       "hop_distance_from_anchor": 0,
       "anchor_address": "9rd8v5B9QH927tFhm7U54BabD6NbDdWb3aeUCyVtAJw7",
       "tokens_created": []
@@ -2754,7 +3118,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512472,
+      "first_funded_at": 1790854350.5481586,
       "hop_distance_from_anchor": 0,
       "anchor_address": "DC99qH3jXiq5pPWQd6PjjJcCxTV593s58CLPxWGpEywt",
       "tokens_created": []
@@ -2765,7 +3129,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512508,
+      "first_funded_at": 1790854350.5481627,
       "hop_distance_from_anchor": 0,
       "anchor_address": "mjDug21ypjsdBrtEVA5yZDG33domCvvjHsQXYG1pSdf",
       "tokens_created": []
@@ -2776,7 +3140,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512541,
+      "first_funded_at": 1790854350.5481675,
       "hop_distance_from_anchor": 0,
       "anchor_address": "D9gQ6RhKEpnobPBUdWY5bPQt2p3zGk3iVz6ChpUi2ArA",
       "tokens_created": []
@@ -2787,7 +3151,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512572,
+      "first_funded_at": 1790854350.5481715,
       "hop_distance_from_anchor": 0,
       "anchor_address": "DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc",
       "tokens_created": []
@@ -2798,7 +3162,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512603,
+      "first_funded_at": 1790854350.5481756,
       "hop_distance_from_anchor": 0,
       "anchor_address": "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx",
       "tokens_created": []
@@ -2809,7 +3173,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451264,
+      "first_funded_at": 1790854350.5481799,
       "hop_distance_from_anchor": 0,
       "anchor_address": "5ZuV8eqkvzYFVEKbLvGBdexL2tFv7E5BCd2HZpjqbdg",
       "tokens_created": []
@@ -2820,7 +3184,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512675,
+      "first_funded_at": 1790854350.548184,
       "hop_distance_from_anchor": 0,
       "anchor_address": "7hmGyLvVgjiZf2uMRAMWwvATKfgswtxF1SUYWhaT3sE2",
       "tokens_created": []
@@ -2831,7 +3195,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512715,
+      "first_funded_at": 1790854350.548188,
       "hop_distance_from_anchor": 0,
       "anchor_address": "AMRsSeU5JpqwQWJGNLMpZzRCZSFEwYQYbMnms3dD4311",
       "tokens_created": []
@@ -2842,7 +3206,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451275,
+      "first_funded_at": 1790854350.548192,
       "hop_distance_from_anchor": 0,
       "anchor_address": "AUnN2Z1i2cPRFNa2V159aEWxrCsNyzsbPfkpXoYTNfse",
       "tokens_created": []
@@ -2853,7 +3217,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512784,
+      "first_funded_at": 1790854350.5481963,
       "hop_distance_from_anchor": 0,
       "anchor_address": "KRELRFedM22Tzr6GA5Nmvkn5aEk29E2RPXg9mcyMUJk",
       "tokens_created": []
@@ -2864,7 +3228,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512815,
+      "first_funded_at": 1790854350.5482004,
       "hop_distance_from_anchor": 0,
       "anchor_address": "DMT3DnnW4apdgYBZN9mfPhRL7nzFwHfC3bnmZMDK1JxQ",
       "tokens_created": []
@@ -2875,7 +3239,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451285,
+      "first_funded_at": 1790854350.5482047,
       "hop_distance_from_anchor": 0,
       "anchor_address": "2xtfisrsUgZsgneoF1hWQVeDLvtHEGnGh7LirABxE1H6",
       "tokens_created": []
@@ -2886,7 +3250,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451288,
+      "first_funded_at": 1790854350.54821,
       "hop_distance_from_anchor": 0,
       "anchor_address": "whamNNP9tHoxLg92yHvJPdYhghEoCg1qYTsh5a2oLbx",
       "tokens_created": []
@@ -2897,7 +3261,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512913,
+      "first_funded_at": 1790854350.548214,
       "hop_distance_from_anchor": 0,
       "anchor_address": "HXAYJj7g4Dn8bmcGDJmcH1rwS9tEbNjLWizJo2EeFx2y",
       "tokens_created": []
@@ -2908,7 +3272,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512944,
+      "first_funded_at": 1790854350.548218,
       "hop_distance_from_anchor": 0,
       "anchor_address": "BAhpxejd9dMud9FfKzwghgXSYiFhYCHJBuuGyjhZb74R",
       "tokens_created": []
@@ -2919,7 +3283,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4512982,
+      "first_funded_at": 1790854350.5482223,
       "hop_distance_from_anchor": 0,
       "anchor_address": "8YcbyX92UHTU23HZv3ccP9o13qibErQkKaUjoxqxd7SJ",
       "tokens_created": []
@@ -2930,7 +3294,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513016,
+      "first_funded_at": 1790854350.5482268,
       "hop_distance_from_anchor": 0,
       "anchor_address": "E4FPggw9yDp9PNJDuRoLYDr6a5HKCsAterw3fygLpZEA",
       "tokens_created": []
@@ -2941,7 +3305,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513052,
+      "first_funded_at": 1790854350.548231,
       "hop_distance_from_anchor": 0,
       "anchor_address": "8bjwutbs6w2tNyThtyNLeFnHYEQtFBAeChjBFXiPJ7cc",
       "tokens_created": []
@@ -2952,7 +3316,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513083,
+      "first_funded_at": 1790854350.5482352,
       "hop_distance_from_anchor": 0,
       "anchor_address": "EhAbm3M5XHJ41MC5PdGJC34pKfePUnfJytnLx5zeAQcy",
       "tokens_created": []
@@ -2963,7 +3327,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513133,
+      "first_funded_at": 1790854350.5482395,
       "hop_distance_from_anchor": 0,
       "anchor_address": "4ZbeUKGNZbLatj1nEmRaYjkQYCnNxj2a7yk9xreWWaDM",
       "tokens_created": []
@@ -2974,7 +3338,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451316,
+      "first_funded_at": 1790854350.5482433,
       "hop_distance_from_anchor": 0,
       "anchor_address": "CCyVrhv9446H4UqGz6LmMb4WP7Vsgjji5wSUonVRrRsa",
       "tokens_created": []
@@ -2985,7 +3349,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513192,
+      "first_funded_at": 1790854350.5482473,
       "hop_distance_from_anchor": 0,
       "anchor_address": "A6J9KzqvpjjE99Zy93uy3pccJZwHAit6DPJpmRPNNxGa",
       "tokens_created": []
@@ -2996,7 +3360,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513226,
+      "first_funded_at": 1790854350.5482514,
       "hop_distance_from_anchor": 0,
       "anchor_address": "9uVjb3SrDL3Yw3SKFNv3ijrBMUpnu5WXiEuq9NsPRbUw",
       "tokens_created": []
@@ -3007,7 +3371,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513257,
+      "first_funded_at": 1790854350.5482574,
       "hop_distance_from_anchor": 0,
       "anchor_address": "AQtxXcBPadEP2ejpgzk1fEZb18i5s9AYn32Xuda2mgyf",
       "tokens_created": []
@@ -3018,7 +3382,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.451329,
+      "first_funded_at": 1790854350.5482614,
       "hop_distance_from_anchor": 0,
       "anchor_address": "5KuVvdNviuznfM3Dyu72f9j9oKHu6Zps6qhJWBscZ5SQ",
       "tokens_created": []
@@ -3029,7 +3393,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513323,
+      "first_funded_at": 1790854350.5482657,
       "hop_distance_from_anchor": 0,
       "anchor_address": "RDjsvApuXbXhp5wgiSUcnFGodyx3nXDFTPG4mgQRFnn",
       "tokens_created": []
@@ -3040,7 +3404,7 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513357,
+      "first_funded_at": 1790854350.5482697,
       "hop_distance_from_anchor": 0,
       "anchor_address": "FK9zUhR7M189viomvPHq9NwwVbGrWn8Qres778U9AnwH",
       "tokens_created": []
@@ -3051,9 +3415,295 @@
       "balance_sol": 8.5,
       "balance_usd": 1275.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837556.4513392,
+      "first_funded_at": 1790854350.5482743,
       "hop_distance_from_anchor": 0,
       "anchor_address": "DwvNjghdCz8WqaxoVtTMJR3iDRmxsuy51aLU7EDC44WN",
+      "tokens_created": []
+    },
+    {
+      "address": "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+      "parent_syndicate_id": "SYND-0120",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548279,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+      "tokens_created": []
+    },
+    {
+      "address": "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+      "parent_syndicate_id": "SYND-0121",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548285,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+      "tokens_created": []
+    },
+    {
+      "address": "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+      "parent_syndicate_id": "SYND-0123",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5482903,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+      "tokens_created": []
+    },
+    {
+      "address": "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+      "parent_syndicate_id": "SYND-0124",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5482945,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+      "tokens_created": []
+    },
+    {
+      "address": "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+      "parent_syndicate_id": "SYND-0125",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483055,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+      "tokens_created": []
+    },
+    {
+      "address": "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+      "parent_syndicate_id": "SYND-0126",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483105,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+      "tokens_created": []
+    },
+    {
+      "address": "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+      "parent_syndicate_id": "SYND-0127",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483153,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+      "tokens_created": []
+    },
+    {
+      "address": "45NTDBhT8Ky7u9CbtCV9daBppJNFGjFhACJWiXB4udZo",
+      "parent_syndicate_id": "SYND-0128",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483196,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "45NTDBhT8Ky7u9CbtCV9daBppJNFGjFhACJWiXB4udZo",
+      "tokens_created": []
+    },
+    {
+      "address": "27nKnCT3DD5NLJw3xbq3KDL3thx6KTe6DmrRCbi2uszE",
+      "parent_syndicate_id": "SYND-0129",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483236,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "27nKnCT3DD5NLJw3xbq3KDL3thx6KTe6DmrRCbi2uszE",
+      "tokens_created": []
+    },
+    {
+      "address": "4HXb7ivgvjbHC3TBesmmD9LovH8tmTv9DZsq12GMvEpU",
+      "parent_syndicate_id": "SYND-0130",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483282,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "4HXb7ivgvjbHC3TBesmmD9LovH8tmTv9DZsq12GMvEpU",
+      "tokens_created": []
+    },
+    {
+      "address": "HAuD8e6A24dJdjDKuRR2CX6iDtGk9HXKxEeHM8CJ7GVY",
+      "parent_syndicate_id": "SYND-0131",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548334,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "HAuD8e6A24dJdjDKuRR2CX6iDtGk9HXKxEeHM8CJ7GVY",
+      "tokens_created": []
+    },
+    {
+      "address": "5FqUo9aBjsp7QeeyN6Vi2ZmF2fjS4H5EU7wnAQwPy17z",
+      "parent_syndicate_id": "SYND-0132",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483382,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "5FqUo9aBjsp7QeeyN6Vi2ZmF2fjS4H5EU7wnAQwPy17z",
+      "tokens_created": []
+    },
+    {
+      "address": "4TC62iMh6fKF31tXgPimvJxz3u9qHKytifwaJw5hzJA4",
+      "parent_syndicate_id": "SYND-0133",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483422,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "4TC62iMh6fKF31tXgPimvJxz3u9qHKytifwaJw5hzJA4",
+      "tokens_created": []
+    },
+    {
+      "address": "CsbE3DhBfNHzyWa7tNHGT1o9naE2Zv2rVcV4efXaamDx",
+      "parent_syndicate_id": "SYND-0134",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548347,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "CsbE3DhBfNHzyWa7tNHGT1o9naE2Zv2rVcV4efXaamDx",
+      "tokens_created": []
+    },
+    {
+      "address": "95ZCf3jKMHeFYvPXVZW3Ek6AEPDyjebosqnc7eNioVMo",
+      "parent_syndicate_id": "SYND-0135",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548351,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "95ZCf3jKMHeFYvPXVZW3Ek6AEPDyjebosqnc7eNioVMo",
+      "tokens_created": []
+    },
+    {
+      "address": "7m556r8Fycdfzu12AYozjFVSan6CHbdYxbTUugeHw8W5",
+      "parent_syndicate_id": "SYND-0136",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483549,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "7m556r8Fycdfzu12AYozjFVSan6CHbdYxbTUugeHw8W5",
+      "tokens_created": []
+    },
+    {
+      "address": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+      "parent_syndicate_id": "SYND-0137",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483584,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+      "tokens_created": []
+    },
+    {
+      "address": "8Za43Mm299xKE4JyQPXqNjx4QVVdpUSSm5EzMWNe2zE7",
+      "parent_syndicate_id": "SYND-0138",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548364,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "8Za43Mm299xKE4JyQPXqNjx4QVVdpUSSm5EzMWNe2zE7",
+      "tokens_created": []
+    },
+    {
+      "address": "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
+      "parent_syndicate_id": "SYND-0139",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483685,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
+      "tokens_created": []
+    },
+    {
+      "address": "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+      "parent_syndicate_id": "SYND-0140",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483725,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+      "tokens_created": []
+    },
+    {
+      "address": "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+      "parent_syndicate_id": "SYND-0141",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483766,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+      "tokens_created": []
+    },
+    {
+      "address": "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+      "parent_syndicate_id": "SYND-0143",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483804,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+      "tokens_created": []
+    },
+    {
+      "address": "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+      "parent_syndicate_id": "SYND-0144",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483854,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+      "tokens_created": []
+    },
+    {
+      "address": "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+      "parent_syndicate_id": "SYND-0145",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483894,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+      "tokens_created": []
+    },
+    {
+      "address": "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+      "parent_syndicate_id": "SYND-0146",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.548394,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+      "tokens_created": []
+    },
+    {
+      "address": "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+      "parent_syndicate_id": "SYND-0148",
+      "balance_sol": 8.5,
+      "balance_usd": 1275.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854350.5483983,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
       "tokens_created": []
     },
     {
@@ -3062,7 +3712,7 @@
       "balance_sol": 5.0,
       "balance_usd": 750.0,
       "funded_by": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-      "first_funded_at": 1790833960.4657884,
+      "first_funded_at": 1790850754.0716214,
       "hop_distance_from_anchor": 1,
       "anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
       "tokens_created": []
@@ -3073,7 +3723,7 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657695,
+      "first_funded_at": 1790854354.071602,
       "hop_distance_from_anchor": 0,
       "anchor_address": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
       "tokens_created": []
@@ -3084,7 +3734,7 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.46574,
+      "first_funded_at": 1790854354.0715382,
       "hop_distance_from_anchor": 0,
       "anchor_address": "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
       "tokens_created": []
@@ -3095,20 +3745,9 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657595,
+      "first_funded_at": 1790854354.0715654,
       "hop_distance_from_anchor": 0,
       "anchor_address": "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
-      "tokens_created": []
-    },
-    {
-      "address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
-      "parent_syndicate_id": "cluster_2Ecj4UJj",
-      "balance_sol": 1.5,
-      "balance_usd": 225.0,
-      "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657128,
-      "hop_distance_from_anchor": 0,
-      "anchor_address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
       "tokens_created": []
     },
     {
@@ -3117,7 +3756,7 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657357,
+      "first_funded_at": 1790854354.0714836,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
       "tokens_created": []
@@ -3128,31 +3767,20 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.465746,
+      "first_funded_at": 1790854354.0715218,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
       "tokens_created": []
     },
     {
-      "address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-      "parent_syndicate_id": "cluster_GpUkmLHW",
+      "address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+      "parent_syndicate_id": "cluster_2Ecj4UJj",
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657562,
+      "first_funded_at": 1790854354.071531,
       "hop_distance_from_anchor": 0,
-      "anchor_address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-      "tokens_created": []
-    },
-    {
-      "address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-      "parent_syndicate_id": "cluster_GpUkmLHW",
-      "balance_sol": 1.5,
-      "balance_usd": 225.0,
-      "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657636,
-      "hop_distance_from_anchor": 0,
-      "anchor_address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+      "anchor_address": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
       "tokens_created": []
     },
     {
@@ -3161,9 +3789,31 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657664,
+      "first_funded_at": 1790854354.0715518,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
+      "tokens_created": []
+    },
+    {
+      "address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+      "parent_syndicate_id": "cluster_GpUkmLHW",
+      "balance_sol": 1.5,
+      "balance_usd": 225.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854354.071559,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
+      "tokens_created": []
+    },
+    {
+      "address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+      "parent_syndicate_id": "cluster_GpUkmLHW",
+      "balance_sol": 1.5,
+      "balance_usd": 225.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854354.0715747,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
       "tokens_created": []
     },
     {
@@ -3172,20 +3822,9 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657736,
+      "first_funded_at": 1790854354.071583,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
-      "tokens_created": []
-    },
-    {
-      "address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-      "parent_syndicate_id": "cluster_4xjvmiKa",
-      "balance_sol": 1.5,
-      "balance_usd": 225.0,
-      "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657764,
-      "hop_distance_from_anchor": 0,
-      "anchor_address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
       "tokens_created": []
     },
     {
@@ -3194,9 +3833,20 @@
       "balance_sol": 1.5,
       "balance_usd": 225.0,
       "funded_by": "MEMBER",
-      "first_funded_at": 1790837560.4657793,
+      "first_funded_at": 1790854354.0715897,
       "hop_distance_from_anchor": 0,
       "anchor_address": "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
+      "tokens_created": []
+    },
+    {
+      "address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
+      "parent_syndicate_id": "cluster_4xjvmiKa",
+      "balance_sol": 1.5,
+      "balance_usd": 225.0,
+      "funded_by": "MEMBER",
+      "first_funded_at": 1790854354.0715957,
+      "hop_distance_from_anchor": 0,
+      "anchor_address": "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
       "tokens_created": []
     },
     {
@@ -3205,7 +3855,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "Snip1_4dNj3yuR8vX7yT9wQ2pM3kL4n5",
-      "first_funded_at": 1790835760.4657884,
+      "first_funded_at": 1790852554.0716214,
       "hop_distance_from_anchor": 2,
       "anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
       "tokens_created": []
@@ -3216,7 +3866,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
-      "first_funded_at": 1790835760.4658556,
+      "first_funded_at": 1790852554.071755,
       "hop_distance_from_anchor": 1,
       "anchor_address": "8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ2pM3kL4n5uR6vX7y",
       "tokens_created": []
@@ -3227,7 +3877,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
-      "first_funded_at": 1790836120.4658556,
+      "first_funded_at": 1790852914.071755,
       "hop_distance_from_anchor": 1,
       "anchor_address": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
       "tokens_created": []
@@ -3238,7 +3888,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "B9Zbs2W9VK22AHnCWiK4PqBueDFzN17RNAFu5uFozLMJ",
-      "first_funded_at": 1790836240.4658556,
+      "first_funded_at": 1790853034.071755,
       "hop_distance_from_anchor": 1,
       "anchor_address": "B9Zbs2W9VK22AHnCWiK4PqBueDFzN17RNAFu5uFozLMJ",
       "tokens_created": []
@@ -3249,7 +3899,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
-      "first_funded_at": 1790836360.4658556,
+      "first_funded_at": 1790853154.071755,
       "hop_distance_from_anchor": 1,
       "anchor_address": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
       "tokens_created": []
@@ -3260,7 +3910,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "HPjJ1AwVbvGy3hZxQrovkZLz7cryk6C3XHBZZv1DpNkN",
-      "first_funded_at": 1790836480.4658556,
+      "first_funded_at": 1790853274.071755,
       "hop_distance_from_anchor": 1,
       "anchor_address": "HPjJ1AwVbvGy3hZxQrovkZLz7cryk6C3XHBZZv1DpNkN",
       "tokens_created": []
@@ -3271,7 +3921,7 @@
       "balance_sol": 0.5,
       "balance_usd": 75.0,
       "funded_by": "B2sBZdwhHEon7Wgm4Aj3NG593tJGJohpM6adforRjmnA",
-      "first_funded_at": 1790836600.4658556,
+      "first_funded_at": 1790853394.071755,
       "hop_distance_from_anchor": 1,
       "anchor_address": "B2sBZdwhHEon7Wgm4Aj3NG593tJGJohpM6adforRjmnA",
       "tokens_created": []
@@ -3282,7 +3932,7 @@
       "balance_sol": 0.08,
       "balance_usd": 12.0,
       "funded_by": "Whale_Treasury_25SOL_Anchor",
-      "first_funded_at": 1790837260.4657884,
+      "first_funded_at": 1790854054.0716214,
       "hop_distance_from_anchor": 1,
       "anchor_address": "Whale_Treasury_25SOL_Anchor",
       "tokens_created": []
@@ -3296,7 +3946,7 @@
       "creator_wallet": "DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc",
       "parent_syndicate_id": "SYND-0095",
       "tx_signature": "sig_leverage_BM2k8mJU",
-      "timestamp": 1790837511.4513469,
+      "timestamp": 1790854305.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.05,
       "lineage_path": [
@@ -3318,7 +3968,7 @@
       "creator_wallet": "35EeJFfuRRU5hZHtB7g1DFjx2TokQf2ibaJeWSskw8nx",
       "parent_syndicate_id": "SYND-0096",
       "tx_signature": "sig_bitdog_B3jjDNkB",
-      "timestamp": 1790837331.4513469,
+      "timestamp": 1790854125.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.07,
       "lineage_path": [
@@ -3340,7 +3990,7 @@
       "creator_wallet": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
       "parent_syndicate_id": "SYND-0006",
       "tx_signature": "sig_zlong_4xjvmiKa",
-      "timestamp": 1790837151.4513469,
+      "timestamp": 1790853945.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.09,
       "lineage_path": [
@@ -3362,7 +4012,7 @@
       "creator_wallet": "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
       "parent_syndicate_id": "SYND-0047",
       "tx_signature": "sig_ezo_2Ecj4UJj",
-      "timestamp": 1790836971.4513469,
+      "timestamp": 1790853765.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.11,
       "lineage_path": [
@@ -3384,7 +4034,7 @@
       "creator_wallet": "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
       "parent_syndicate_id": "SYND-0066",
       "tx_signature": "sig_scribjean_GpUkmLHW",
-      "timestamp": 1790836791.4513469,
+      "timestamp": 1790853585.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.13,
       "lineage_path": [
@@ -3406,7 +4056,7 @@
       "creator_wallet": "AiwLKwapZhyWVFPVH6QfVKj6Uwkfx2DFW7Ax4BBYJ5ti",
       "parent_syndicate_id": "SYND-0044",
       "tx_signature": "sig_shibuh_9Biaaorv",
-      "timestamp": 1790836611.4513469,
+      "timestamp": 1790853405.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.15,
       "lineage_path": [
@@ -3428,7 +4078,7 @@
       "creator_wallet": "DgfLZvWUkJ74ZCUy2VZR7wKj7cvhtrJVreSwecyaoo6K",
       "parent_syndicate_id": "SYND-0045",
       "tx_signature": "sig_twin_3rGD4t98",
-      "timestamp": 1790836431.4513469,
+      "timestamp": 1790853225.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.17,
       "lineage_path": [
@@ -3450,7 +4100,7 @@
       "creator_wallet": "mjDug21ypjsdBrtEVA5yZDG33domCvvjHsQXYG1pSdf",
       "parent_syndicate_id": "SYND-0088",
       "tx_signature": "sig_jeangrino_7DtK5nPs",
-      "timestamp": 1790836251.4513469,
+      "timestamp": 1790853045.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.19,
       "lineage_path": [
@@ -3472,7 +4122,7 @@
       "creator_wallet": "YtVPdT9574E4GeLNG2B2kDyuD9gDbJ2v26a5BxfqvpS",
       "parent_syndicate_id": "SYND-0060",
       "tx_signature": "sig_tommy_C2yUFYGo",
-      "timestamp": 1790836071.4513469,
+      "timestamp": 1790852865.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.21,
       "lineage_path": [
@@ -3494,7 +4144,7 @@
       "creator_wallet": "9QBNbzBYLyEnv31doA3rg6pEo9DqPX1wFyhQ7rfUuYeX",
       "parent_syndicate_id": "SYND-0079",
       "tx_signature": "sig_fomo_YobdHfQp",
-      "timestamp": 1790835891.4513469,
+      "timestamp": 1790852685.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.23,
       "lineage_path": [
@@ -3510,224 +4160,224 @@
       "gmgn_url": "https://gmgn.ai/sol/token/YobdHfQpVakdh5UhBUo5w9Qn43RBmyN64bTzeQVpump"
     },
     {
-      "mint_address": "BkzU1zCy339CYjVpSfVq5NwhVhz3UEcCrALvHKme7yka",
-      "symbol": "Pelusa",
-      "name": "monkeywiftits",
-      "creator_wallet": "HfDbuTGJQpq7PXQe5Xvgxwi97DdFekQWE3CCKcjAatuK",
-      "parent_syndicate_id": "SYND-0120",
-      "tx_signature": "sig_pelusa_BkzU1zCy",
-      "timestamp": 1790835711.4513469,
+      "mint_address": "4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx",
+      "symbol": "jones",
+      "name": "jones",
+      "creator_wallet": "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+      "parent_syndicate_id": "SYND-0148",
+      "tx_signature": "sig_jones_4n4yd2be",
+      "timestamp": 1790852505.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.25,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_HfDbuTGJ",
-        "HfDbuTGJQpq7PXQe5Xvgxwi97DdFekQWE3CCKcjAatuK",
-        "BkzU1zCy339CYjVpSfVq5NwhVhz3UEcCrALvHKme7yka"
+        "Hop1_Funder_6MGHHEGL",
+        "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+        "4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx"
       ],
-      "bonding_curve_address": "9V18AGvS3gGxiMjMwYy6UcWGYmtcLDoZ6WqfstCJtkeU",
-      "dex_screener_url": "https://dexscreener.com/solana/9V18AGvS3gGxiMjMwYy6UcWGYmtcLDoZ6WqfstCJtkeU",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/BkzU1zCy339CYjVpSfVq5NwhVhz3UEcCrALvHKme7yka",
-      "pump_fun_url": "https://pump.fun/BkzU1zCy339CYjVpSfVq5NwhVhz3UEcCrALvHKme7yka",
-      "gmgn_url": "https://gmgn.ai/sol/token/BkzU1zCy339CYjVpSfVq5NwhVhz3UEcCrALvHKme7yka"
+      "bonding_curve_address": "JBCoU4GxE5mQfScR6XA8ECRLAUC8gXCPhN2M9kNzAn8z",
+      "dex_screener_url": "https://dexscreener.com/solana/JBCoU4GxE5mQfScR6XA8ECRLAUC8gXCPhN2M9kNzAn8z",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx",
+      "pump_fun_url": "https://pump.fun/4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx",
+      "gmgn_url": "https://gmgn.ai/sol/token/4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx"
     },
     {
-      "mint_address": "CYkwSfVgFPKNwNUG9rrikGQQ48HbB7LSF5yR3J6jpump",
-      "symbol": "runner",
-      "name": "this can run",
-      "creator_wallet": "DwvNjghdCz8WqaxoVtTMJR3iDRmxsuy51aLU7EDC44WN",
-      "parent_syndicate_id": "SYND-0119",
-      "tx_signature": "sig_runner_CYkwSfVg",
-      "timestamp": 1790835531.4513469,
+      "mint_address": "c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP",
+      "symbol": "OpenSI",
+      "name": "OpenSI",
+      "creator_wallet": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
+      "parent_syndicate_id": "SYND-0147",
+      "tx_signature": "sig_opensi_c4FaHq63",
+      "timestamp": 1790852325.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.27,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_DwvNjghd",
-        "DwvNjghdCz8WqaxoVtTMJR3iDRmxsuy51aLU7EDC44WN",
-        "CYkwSfVgFPKNwNUG9rrikGQQ48HbB7LSF5yR3J6jpump"
+        "Hop1_Funder_bwamJzzt",
+        "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
+        "c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP"
       ],
-      "bonding_curve_address": "HKBiqwYVouCgfiWpQ9Fu4v8u6Rwbt836XxtHbhtjGrUd",
-      "dex_screener_url": "https://dexscreener.com/solana/HKBiqwYVouCgfiWpQ9Fu4v8u6Rwbt836XxtHbhtjGrUd",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/CYkwSfVgFPKNwNUG9rrikGQQ48HbB7LSF5yR3J6jpump",
-      "pump_fun_url": "https://pump.fun/CYkwSfVgFPKNwNUG9rrikGQQ48HbB7LSF5yR3J6jpump",
-      "gmgn_url": "https://gmgn.ai/sol/token/CYkwSfVgFPKNwNUG9rrikGQQ48HbB7LSF5yR3J6jpump"
+      "bonding_curve_address": "HyMPfAJ3KTHsR1Wt249uYrFUTA3DUsdQHzSnMkwivBoi",
+      "dex_screener_url": "https://dexscreener.com/solana/HyMPfAJ3KTHsR1Wt249uYrFUTA3DUsdQHzSnMkwivBoi",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP",
+      "pump_fun_url": "https://pump.fun/c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP",
+      "gmgn_url": "https://gmgn.ai/sol/token/c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP"
     },
     {
-      "mint_address": "5yGwhoX8xUXkwiTF8sna9bvfQTSd1YYG6CLjzQWypump",
-      "symbol": "copyfomo",
-      "name": "copy fomo",
-      "creator_wallet": "FK9zUhR7M189viomvPHq9NwwVbGrWn8Qres778U9AnwH",
-      "parent_syndicate_id": "SYND-0118",
-      "tx_signature": "sig_copyfomo_5yGwhoX8",
-      "timestamp": 1790835351.4513469,
+      "mint_address": "GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip",
+      "symbol": "TIPSY",
+      "name": "Tipsy Launchpad",
+      "creator_wallet": "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+      "parent_syndicate_id": "SYND-0146",
+      "tx_signature": "sig_tipsy_GxdZqQtS",
+      "timestamp": 1790852145.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.29,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_FK9zUhR7",
-        "FK9zUhR7M189viomvPHq9NwwVbGrWn8Qres778U9AnwH",
-        "5yGwhoX8xUXkwiTF8sna9bvfQTSd1YYG6CLjzQWypump"
+        "Hop1_Funder_Hk6P9CRx",
+        "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+        "GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip"
       ],
-      "bonding_curve_address": "DgenXyJRwJhMUvvTS5kSZMi2q4n61LwvwN8HLTSxjuj3",
-      "dex_screener_url": "https://dexscreener.com/solana/DgenXyJRwJhMUvvTS5kSZMi2q4n61LwvwN8HLTSxjuj3",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/5yGwhoX8xUXkwiTF8sna9bvfQTSd1YYG6CLjzQWypump",
-      "pump_fun_url": "https://pump.fun/5yGwhoX8xUXkwiTF8sna9bvfQTSd1YYG6CLjzQWypump",
-      "gmgn_url": "https://gmgn.ai/sol/token/5yGwhoX8xUXkwiTF8sna9bvfQTSd1YYG6CLjzQWypump"
+      "bonding_curve_address": "EPwAQwvUTT5trnvrzEpvTuSwUqyCq9W9gbwvvzMJe68D",
+      "dex_screener_url": "https://dexscreener.com/solana/EPwAQwvUTT5trnvrzEpvTuSwUqyCq9W9gbwvvzMJe68D",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip",
+      "pump_fun_url": "https://pump.fun/GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip",
+      "gmgn_url": "https://gmgn.ai/sol/token/GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip"
     },
     {
-      "mint_address": "5mmu1g6HDSTtvsZW4YtHXmUWcdXCfTgzVYtcEDuAf2N3",
-      "symbol": "XSEED",
-      "name": "XSeed",
-      "creator_wallet": "RDjsvApuXbXhp5wgiSUcnFGodyx3nXDFTPG4mgQRFnn",
-      "parent_syndicate_id": "SYND-0117",
-      "tx_signature": "sig_xseed_5mmu1g6H",
-      "timestamp": 1790835171.4513469,
+      "mint_address": "EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx",
+      "symbol": "OpenSI",
+      "name": "OpenSI",
+      "creator_wallet": "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+      "parent_syndicate_id": "SYND-0145",
+      "tx_signature": "sig_opensi_EqZwBqyN",
+      "timestamp": 1790851965.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.31,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_RDjsvApu",
-        "RDjsvApuXbXhp5wgiSUcnFGodyx3nXDFTPG4mgQRFnn",
-        "5mmu1g6HDSTtvsZW4YtHXmUWcdXCfTgzVYtcEDuAf2N3"
+        "Hop1_Funder_AufH68UF",
+        "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+        "EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx"
       ],
-      "bonding_curve_address": "2qjCvgWf8b9VKAR1S48rZWWcqfuC3CcyzAJKnFL29kn5",
-      "dex_screener_url": "https://dexscreener.com/solana/2qjCvgWf8b9VKAR1S48rZWWcqfuC3CcyzAJKnFL29kn5",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/5mmu1g6HDSTtvsZW4YtHXmUWcdXCfTgzVYtcEDuAf2N3",
-      "pump_fun_url": "https://pump.fun/5mmu1g6HDSTtvsZW4YtHXmUWcdXCfTgzVYtcEDuAf2N3",
-      "gmgn_url": "https://gmgn.ai/sol/token/5mmu1g6HDSTtvsZW4YtHXmUWcdXCfTgzVYtcEDuAf2N3"
+      "bonding_curve_address": "C1DrkzfPTgwXzRW5tQTU3aAnoZ1CCMkmKYqD9mrxGpaA",
+      "dex_screener_url": "https://dexscreener.com/solana/C1DrkzfPTgwXzRW5tQTU3aAnoZ1CCMkmKYqD9mrxGpaA",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx",
+      "pump_fun_url": "https://pump.fun/EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx",
+      "gmgn_url": "https://gmgn.ai/sol/token/EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx"
     },
     {
-      "mint_address": "CWTf2T6KTH3dx87Bn5tbKbwnoB3QEFTwb27dnWnruzjX",
-      "symbol": "PI",
-      "name": "Private Inu",
-      "creator_wallet": "5KuVvdNviuznfM3Dyu72f9j9oKHu6Zps6qhJWBscZ5SQ",
-      "parent_syndicate_id": "SYND-0116",
-      "tx_signature": "sig_pi_CWTf2T6K",
-      "timestamp": 1790834991.4513469,
+      "mint_address": "8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump",
+      "symbol": "backpack",
+      "name": "Backpack Bear 89",
+      "creator_wallet": "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+      "parent_syndicate_id": "SYND-0144",
+      "tx_signature": "sig_backpack_8edcNEC4",
+      "timestamp": 1790851785.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.33,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_5KuVvdNv",
-        "5KuVvdNviuznfM3Dyu72f9j9oKHu6Zps6qhJWBscZ5SQ",
-        "CWTf2T6KTH3dx87Bn5tbKbwnoB3QEFTwb27dnWnruzjX"
+        "Hop1_Funder_6rYqUWcd",
+        "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+        "8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump"
       ],
-      "bonding_curve_address": "C6ECi9h662B7i4voRnCsgC9peSLiqPfzzKHBsJg9DWe6",
-      "dex_screener_url": "https://dexscreener.com/solana/C6ECi9h662B7i4voRnCsgC9peSLiqPfzzKHBsJg9DWe6",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/CWTf2T6KTH3dx87Bn5tbKbwnoB3QEFTwb27dnWnruzjX",
-      "pump_fun_url": "https://pump.fun/CWTf2T6KTH3dx87Bn5tbKbwnoB3QEFTwb27dnWnruzjX",
-      "gmgn_url": "https://gmgn.ai/sol/token/CWTf2T6KTH3dx87Bn5tbKbwnoB3QEFTwb27dnWnruzjX"
+      "bonding_curve_address": "2R944TdpgZVavMVqLYfnKxyqehYeUkqAWZYD6pC8YsWJ",
+      "dex_screener_url": "https://dexscreener.com/solana/2R944TdpgZVavMVqLYfnKxyqehYeUkqAWZYD6pC8YsWJ",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump",
+      "pump_fun_url": "https://pump.fun/8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump",
+      "gmgn_url": "https://gmgn.ai/sol/token/8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump"
     },
     {
-      "mint_address": "DNsBHDTtw69dKCoMmiuDFndocnRn9q7m2nJPTL4qpump",
-      "symbol": "SC",
-      "name": "Super Coin",
-      "creator_wallet": "AQtxXcBPadEP2ejpgzk1fEZb18i5s9AYn32Xuda2mgyf",
-      "parent_syndicate_id": "SYND-0115",
-      "tx_signature": "sig_sc_DNsBHDTt",
-      "timestamp": 1790834811.4513469,
+      "mint_address": "3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN",
+      "symbol": "BACKPACK",
+      "name": "Backpack",
+      "creator_wallet": "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+      "parent_syndicate_id": "SYND-0143",
+      "tx_signature": "sig_backpack_3hMvhPmE",
+      "timestamp": 1790851605.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.35,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_AQtxXcBP",
-        "AQtxXcBPadEP2ejpgzk1fEZb18i5s9AYn32Xuda2mgyf",
-        "DNsBHDTtw69dKCoMmiuDFndocnRn9q7m2nJPTL4qpump"
+        "Hop1_Funder_Bc11bRd8",
+        "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+        "3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN"
       ],
-      "bonding_curve_address": "3u1BUwQmw8WZhw7Fo28HEVvAif1ZBAaWZDRjAEkcEFgJ",
-      "dex_screener_url": "https://dexscreener.com/solana/3u1BUwQmw8WZhw7Fo28HEVvAif1ZBAaWZDRjAEkcEFgJ",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/DNsBHDTtw69dKCoMmiuDFndocnRn9q7m2nJPTL4qpump",
-      "pump_fun_url": "https://pump.fun/DNsBHDTtw69dKCoMmiuDFndocnRn9q7m2nJPTL4qpump",
-      "gmgn_url": "https://gmgn.ai/sol/token/DNsBHDTtw69dKCoMmiuDFndocnRn9q7m2nJPTL4qpump"
+      "bonding_curve_address": "FNYUfy1wgJt3eKYsP6foJUA5RLMirvtPW7f4wZWLioiM",
+      "dex_screener_url": "https://dexscreener.com/solana/FNYUfy1wgJt3eKYsP6foJUA5RLMirvtPW7f4wZWLioiM",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN",
+      "pump_fun_url": "https://pump.fun/3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN",
+      "gmgn_url": "https://gmgn.ai/sol/token/3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN"
     },
     {
-      "mint_address": "E7RPjc25KS22LFMgXKjwqZxK5WVwdGRKaUQRuVX6fWsY",
-      "symbol": "SNS",
-      "name": "SI Name Service",
-      "creator_wallet": "9uVjb3SrDL3Yw3SKFNv3ijrBMUpnu5WXiEuq9NsPRbUw",
-      "parent_syndicate_id": "SYND-0114",
-      "tx_signature": "sig_sns_E7RPjc25",
-      "timestamp": 1790834631.4513469,
+      "mint_address": "Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm",
+      "symbol": "Partyhat",
+      "name": "The Partyhat",
+      "creator_wallet": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+      "parent_syndicate_id": "SYND-0142",
+      "tx_signature": "sig_partyhat_Cj9Ch1Ji",
+      "timestamp": 1790851425.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.37,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_9uVjb3Sr",
-        "9uVjb3SrDL3Yw3SKFNv3ijrBMUpnu5WXiEuq9NsPRbUw",
-        "E7RPjc25KS22LFMgXKjwqZxK5WVwdGRKaUQRuVX6fWsY"
+        "Hop1_Funder_Aqje5DsN",
+        "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+        "Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm"
       ],
-      "bonding_curve_address": "4CrjyDMnVdEf5MfEJmrZPJ6MSusViBfqwjHHTEGwMNm9",
-      "dex_screener_url": "https://dexscreener.com/solana/4CrjyDMnVdEf5MfEJmrZPJ6MSusViBfqwjHHTEGwMNm9",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/E7RPjc25KS22LFMgXKjwqZxK5WVwdGRKaUQRuVX6fWsY",
-      "pump_fun_url": "https://pump.fun/E7RPjc25KS22LFMgXKjwqZxK5WVwdGRKaUQRuVX6fWsY",
-      "gmgn_url": "https://gmgn.ai/sol/token/E7RPjc25KS22LFMgXKjwqZxK5WVwdGRKaUQRuVX6fWsY"
+      "bonding_curve_address": "ErPX8GRnXTCNeYxwHT6Tah2mM2jiAKWrJSEDBBD9vFqE",
+      "dex_screener_url": "https://dexscreener.com/solana/ErPX8GRnXTCNeYxwHT6Tah2mM2jiAKWrJSEDBBD9vFqE",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm",
+      "pump_fun_url": "https://pump.fun/Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm",
+      "gmgn_url": "https://gmgn.ai/sol/token/Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm"
     },
     {
-      "mint_address": "DkQYd9q2p7VSruiKhj54wu4F9CbyqruCRKFewg3dpump",
-      "symbol": "AGI",
-      "name": "Autistic Goat Intelligence",
-      "creator_wallet": "A6J9KzqvpjjE99Zy93uy3pccJZwHAit6DPJpmRPNNxGa",
-      "parent_syndicate_id": "SYND-0113",
-      "tx_signature": "sig_agi_DkQYd9q2",
-      "timestamp": 1790834451.4513469,
+      "mint_address": "CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu",
+      "symbol": "RI",
+      "name": "Retro Inu",
+      "creator_wallet": "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+      "parent_syndicate_id": "SYND-0141",
+      "tx_signature": "sig_ri_CyS4wN9r",
+      "timestamp": 1790851245.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.39,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_A6J9Kzqv",
-        "A6J9KzqvpjjE99Zy93uy3pccJZwHAit6DPJpmRPNNxGa",
-        "DkQYd9q2p7VSruiKhj54wu4F9CbyqruCRKFewg3dpump"
+        "Hop1_Funder_6KqHAU1r",
+        "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+        "CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu"
       ],
-      "bonding_curve_address": "5Mp4Z17NNdanseQa2yqg2eEE5xVSognN3ffDgksWeCm1",
-      "dex_screener_url": "https://dexscreener.com/solana/5Mp4Z17NNdanseQa2yqg2eEE5xVSognN3ffDgksWeCm1",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/DkQYd9q2p7VSruiKhj54wu4F9CbyqruCRKFewg3dpump",
-      "pump_fun_url": "https://pump.fun/DkQYd9q2p7VSruiKhj54wu4F9CbyqruCRKFewg3dpump",
-      "gmgn_url": "https://gmgn.ai/sol/token/DkQYd9q2p7VSruiKhj54wu4F9CbyqruCRKFewg3dpump"
+      "bonding_curve_address": "yumZjWmoGKxuiS9K1QpkRoLKrXFGTtoGJY9TC8uQp2N",
+      "dex_screener_url": "https://dexscreener.com/solana/yumZjWmoGKxuiS9K1QpkRoLKrXFGTtoGJY9TC8uQp2N",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu",
+      "pump_fun_url": "https://pump.fun/CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu",
+      "gmgn_url": "https://gmgn.ai/sol/token/CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu"
     },
     {
-      "mint_address": "7MqX5D55R8kJgxZGM7U18iifjQf2Kb9caZxaMHvfpump",
-      "symbol": "EMPIRE",
-      "name": "Degen Empire",
-      "creator_wallet": "CCyVrhv9446H4UqGz6LmMb4WP7Vsgjji5wSUonVRrRsa",
-      "parent_syndicate_id": "SYND-0112",
-      "tx_signature": "sig_empire_7MqX5D55",
-      "timestamp": 1790834271.4513469,
+      "mint_address": "2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump",
+      "symbol": "Mosquito",
+      "name": "Mosquito",
+      "creator_wallet": "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+      "parent_syndicate_id": "SYND-0140",
+      "tx_signature": "sig_mosquito_2SVkGBPF",
+      "timestamp": 1790851065.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.41,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_CCyVrhv9",
-        "CCyVrhv9446H4UqGz6LmMb4WP7Vsgjji5wSUonVRrRsa",
-        "7MqX5D55R8kJgxZGM7U18iifjQf2Kb9caZxaMHvfpump"
+        "Hop1_Funder_86TR3Yth",
+        "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+        "2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump"
       ],
-      "bonding_curve_address": "HTCe3KNeu22CmXn4jiZucrxJvoAdyTX3x39UYoNGqzQy",
-      "dex_screener_url": "https://dexscreener.com/solana/HTCe3KNeu22CmXn4jiZucrxJvoAdyTX3x39UYoNGqzQy",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/7MqX5D55R8kJgxZGM7U18iifjQf2Kb9caZxaMHvfpump",
-      "pump_fun_url": "https://pump.fun/7MqX5D55R8kJgxZGM7U18iifjQf2Kb9caZxaMHvfpump",
-      "gmgn_url": "https://gmgn.ai/sol/token/7MqX5D55R8kJgxZGM7U18iifjQf2Kb9caZxaMHvfpump"
+      "bonding_curve_address": "3Mneri3xJb4d8tA3AvAz8CMaT3B67bQT8w4mRVRUbWKQ",
+      "dex_screener_url": "https://dexscreener.com/solana/3Mneri3xJb4d8tA3AvAz8CMaT3B67bQT8w4mRVRUbWKQ",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump",
+      "pump_fun_url": "https://pump.fun/2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump",
+      "gmgn_url": "https://gmgn.ai/sol/token/2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump"
     },
     {
-      "mint_address": "DaBi5ZdRJSgZPu3qKe36zFRhpsnFexgKbL6CWx4gpump",
-      "symbol": "SI",
-      "name": "Stonk Inu",
-      "creator_wallet": "4ZbeUKGNZbLatj1nEmRaYjkQYCnNxj2a7yk9xreWWaDM",
-      "parent_syndicate_id": "SYND-0111",
-      "tx_signature": "sig_si_DaBi5ZdR",
-      "timestamp": 1790834091.4513469,
+      "mint_address": "HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk",
+      "symbol": "84",
+      "name": "The 84 Survivors",
+      "creator_wallet": "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
+      "parent_syndicate_id": "SYND-0139",
+      "tx_signature": "sig_84_HDfeHGej",
+      "timestamp": 1790850885.5484076,
       "launch_type": "PUMP_FUN",
       "initial_sol_injected": 0.43,
       "lineage_path": [
         "FundTreasury_MasterAnchor11111111111111111111",
-        "Hop1_Funder_4ZbeUKGN",
-        "4ZbeUKGNZbLatj1nEmRaYjkQYCnNxj2a7yk9xreWWaDM",
-        "DaBi5ZdRJSgZPu3qKe36zFRhpsnFexgKbL6CWx4gpump"
+        "Hop1_Funder_WnBVqVTa",
+        "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
+        "HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk"
       ],
-      "bonding_curve_address": "CEvLLoU54KuP115xWWXqesvayxTXVX899TXTXEtqhqJY",
-      "dex_screener_url": "https://dexscreener.com/solana/CEvLLoU54KuP115xWWXqesvayxTXVX899TXTXEtqhqJY",
-      "photon_url": "https://photon-sol.tinyastro.io/en/lp/DaBi5ZdRJSgZPu3qKe36zFRhpsnFexgKbL6CWx4gpump",
-      "pump_fun_url": "https://pump.fun/DaBi5ZdRJSgZPu3qKe36zFRhpsnFexgKbL6CWx4gpump",
-      "gmgn_url": "https://gmgn.ai/sol/token/DaBi5ZdRJSgZPu3qKe36zFRhpsnFexgKbL6CWx4gpump"
+      "bonding_curve_address": "3zm1VtLe5MwRxvjBC1NVPodyZsnv2YEzKz54kYmUDvMo",
+      "dex_screener_url": "https://dexscreener.com/solana/3zm1VtLe5MwRxvjBC1NVPodyZsnv2YEzKz54kYmUDvMo",
+      "photon_url": "https://photon-sol.tinyastro.io/en/lp/HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk",
+      "pump_fun_url": "https://pump.fun/HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk",
+      "gmgn_url": "https://gmgn.ai/sol/token/HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk"
     }
   ],
   "backtest": {
@@ -3978,19 +4628,19 @@
     {
       "t_s": 13,
       "type": "SNIPE",
-      "target": "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+      "target": "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
       "desc": "Sniper 1 enters at T+13s"
     },
     {
       "t_s": 13,
       "type": "SNIPE",
-      "target": "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
+      "target": "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
       "desc": "Sniper 1 enters at T+13s"
     },
     {
       "t_s": 13,
       "type": "SNIPE",
-      "target": "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
+      "target": "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
       "desc": "Sniper 1 enters at T+13s"
     },
     {
@@ -4033,19 +4683,19 @@
       "t_s": 28,
       "type": "PEAK",
       "target": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump",
-      "desc": "Syndicate holds top supply, profit est $71,013"
+      "desc": "Syndicate holds top supply, profit est $91,607"
     },
     {
       "t_s": 28,
       "type": "PEAK",
       "target": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump",
-      "desc": "Syndicate holds top supply, profit est $45,508"
+      "desc": "Syndicate holds top supply, profit est $62,122"
     },
     {
       "t_s": 28,
       "type": "PEAK",
       "target": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump",
-      "desc": "Syndicate holds top supply, profit est $48,018"
+      "desc": "Syndicate holds top supply, profit est $65,971"
     },
     {
       "t_s": 28,
@@ -4090,17 +4740,17 @@
         "id": "SYND-0057",
         "alias": "Syndicate SYND-0057 (Flash)",
         "wallets": [
-          "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
           "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3",
-          "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7",
-          "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6"
+          "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6",
+          "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5",
+          "GT5au36AvFTxc4yfRHh1dMWkLtsxDRHz2VW5MmvcKjM7"
         ],
         "tokens": [
           "EZO"
         ],
         "funder": "Root_cluste",
         "mode": "flash",
-        "profit_usd": 71012.97899999992,
+        "profit_usd": 91607.08499999988,
         "confidence": 1.0,
         "is_jito_bundle": true,
         "jito_confidence": 0.85,
@@ -4113,17 +4763,17 @@
         "id": "SYND-0066",
         "alias": "Syndicate SYND-0066 (Flash)",
         "wallets": [
-          "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5",
-          "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+          "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3",
           "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6",
-          "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3"
+          "2foWU7z1634VvBruH8EMqiCnszrbJUq1T6yHMm3bHSfG",
+          "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5"
         ],
         "tokens": [
           "SCRIBJEAN"
         ],
         "funder": "Root_cluste",
         "mode": "flash",
-        "profit_usd": 45507.645000000004,
+        "profit_usd": 62121.645000000004,
         "confidence": 1.0,
         "is_jito_bundle": true,
         "jito_confidence": 0.85,
@@ -4136,17 +4786,17 @@
         "id": "SYND-0012",
         "alias": "Syndicate SYND-0012 (Flash)",
         "wallets": [
-          "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
           "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
+          "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
           "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-          "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5"
+          "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1"
         ],
         "tokens": [
           "ZLONG"
         ],
         "funder": "Root_cluste",
         "mode": "flash",
-        "profit_usd": 48017.519999999975,
+        "profit_usd": 65970.58499999995,
         "confidence": 1.0,
         "is_jito_bundle": true,
         "jito_confidence": 0.85,
@@ -4177,15 +4827,22 @@
       }
     },
     "wallets": {
-      "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5": {
+      "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3": {
         "role": "sniper",
         "syndicate": "SYND-0057",
         "funder": "Root_cluste",
         "token": "EZO",
         "token_address": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump"
       },
-      "Snip3_2Ecj4UkL5n6uR8vX7yT9wQ2pM3": {
+      "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6": {
         "role": "sniper",
+        "syndicate": "SYND-0057",
+        "funder": "Root_cluste",
+        "token": "EZO",
+        "token_address": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump"
+      },
+      "Snip2_2Ecj4UuR8vX7yT9wQ2pM3kL4n5": {
+        "role": "bundler",
         "syndicate": "SYND-0057",
         "funder": "Root_cluste",
         "token": "EZO",
@@ -4198,14 +4855,14 @@
         "token": "EZO",
         "token_address": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump"
       },
-      "Snip1_2Ecj4UvX7yT9wQ2pM3kL4n5uR6": {
-        "role": "bundler",
-        "syndicate": "SYND-0057",
+      "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3": {
+        "role": "sniper",
+        "syndicate": "SYND-0066",
         "funder": "Root_cluste",
-        "token": "EZO",
-        "token_address": "2Ecj4UJjegEcjCEPFMuXJprFUD8HMVphqTg2Qtm5pump"
+        "token": "SCRIBJEAN",
+        "token_address": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump"
       },
-      "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5": {
+      "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6": {
         "role": "sniper",
         "syndicate": "SYND-0066",
         "funder": "Root_cluste",
@@ -4219,28 +4876,21 @@
         "token": "SCRIBJEAN",
         "token_address": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump"
       },
-      "Snip1_GpUkmLvX7yT9wQ2pM3kL4n5uR6": {
+      "Snip2_GpUkmLuR8vX7yT9wQ2pM3kL4n5": {
         "role": "bundler",
         "syndicate": "SYND-0066",
         "funder": "Root_cluste",
         "token": "SCRIBJEAN",
         "token_address": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump"
       },
-      "Snip3_GpUkmLkL5n6uR8vX7yT9wQ2pM3": {
-        "role": "bundler",
-        "syndicate": "SYND-0066",
-        "funder": "Root_cluste",
-        "token": "SCRIBJEAN",
-        "token_address": "GpUkmLHWPZkBFYjNiwrhuqoFXaoxB6cF2WYKgFbPpump"
-      },
-      "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1": {
-        "role": "deployer",
+      "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6": {
+        "role": "sniper",
         "syndicate": "SYND-0012",
         "funder": "Root_cluste",
         "token": "ZLONG",
         "token_address": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump"
       },
-      "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6": {
+      "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5": {
         "role": "sniper",
         "syndicate": "SYND-0012",
         "funder": "Root_cluste",
@@ -4254,8 +4904,8 @@
         "token": "ZLONG",
         "token_address": "4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump"
       },
-      "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5": {
-        "role": "bundler",
+      "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1": {
+        "role": "deployer",
         "syndicate": "SYND-0012",
         "funder": "Root_cluste",
         "token": "ZLONG",
@@ -4269,10 +4919,10 @@
           "SYND-0012"
         ],
         "funded_wallets": [
-          "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1",
           "Snip1_4xjvmivX7yT9wQ2pM3kL4n5uR6",
+          "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5",
           "Snip3_4xjvmikL5n6uR8vX7yT9wQ2pM3",
-          "Snip2_4xjvmiuR8vX7yT9wQ2pM3kL4n5"
+          "69aiAKU3uJMxMLRkUEGFNt6nQ43PiVimE4ZbErJ7VSM1"
         ]
       }
     }

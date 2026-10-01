@@ -197,23 +197,43 @@ class SyndicateKeeper:
         price_info = data.get("price") or {}
         ath_token_info = dev.get("ath_token_info") or {}
 
-        symbol = data.get("symbol") or ath_token_info.get("symbol") or "TOKEN"
-        name = data.get("name") or ath_token_info.get("name") or symbol
-        total_supply = float(data.get("total_supply") or 1_000_000_000.0)
-        current_price = float(price_info.get("price") or data.get("price") or 0.0)
+        # Name and symbol: dev ath_token_info only applies if it's the SAME token
+        is_same_token = ath_token_info.get("ath_token") == address
+        symbol = data.get("symbol") or (ath_token_info.get("symbol") if is_same_token else None) or "TOKEN"
+        name = data.get("name") or (ath_token_info.get("name") if is_same_token else None) or symbol
 
-        # ATH Market Cap calculation: check dev ath_mc, ath_price, or high price
-        ath_mc_raw = ath_token_info.get("ath_mc")
-        if ath_mc_raw:
-            ath_mc = float(ath_mc_raw)
-        else:
-            ath_price = float(data.get("ath_price") or data.get("high_price") or current_price * 10.0)
-            ath_mc = ath_price * total_supply
+        raw_supply = data.get("total_supply") or data.get("circulating_supply") or data.get("max_supply")
+        try:
+            total_supply = float(raw_supply) if raw_supply else 1_000_000_000.0
+        except Exception:
+            total_supply = 1_000_000_000.0
+        if total_supply < 100_000:
+            total_supply = 1_000_000_000.0
+
+        current_price = float(price_info.get("price") or data.get("price") or 0.0)
 
         # Current market cap calculation
         current_mc = current_price * total_supply
         if current_mc <= 0 and data.get("liquidity"):
             current_mc = float(data.get("liquidity")) * 2.0
+
+        # ATH Market Cap calculation: check dev ath_mc ONLY if matching address, otherwise use ath_price / high_price
+        ath_mc = 0.0
+        if is_same_token and ath_token_info.get("ath_mc"):
+            try:
+                ath_mc = float(ath_token_info["ath_mc"])
+            except Exception:
+                pass
+
+        if ath_mc <= 0:
+            ath_price = float(data.get("ath_price") or data.get("high_price") or price_info.get("high_24h") or 0.0)
+            if ath_price > 0:
+                ath_mc = ath_price * total_supply
+            else:
+                ath_mc = current_mc
+
+        # Guarantee invariant: ATH Market Cap must be at least current market cap
+        ath_mc = max(ath_mc, current_mc)
 
         creator = dev.get("creator_address") or ""
         created_ts = (

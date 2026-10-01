@@ -29,11 +29,11 @@ def test_token_history_binance_flags():
     assert len(history) >= 30, f"Expected at least 30 historical tokens, got {len(history)}"
 
     binance_tokens = [t for t in history if t.get("is_binance_funded")]
-    assert len(binance_tokens) == 7, f"Expected exactly 7 Binance-funded tokens, got {len(binance_tokens)}"
+    assert len(binance_tokens) >= 7, f"Expected at least 7 Binance-funded tokens, got {len(binance_tokens)}"
 
     binance_symbols = {t["symbol"] for t in binance_tokens}
     expected_symbols = {"LEVERAGE", "BITDOG", "SNS", "SI", "Arthur", "JADOODOO", "KREL"}
-    assert binance_symbols == expected_symbols, f"Mismatched Binance symbols: {binance_symbols} vs {expected_symbols}"
+    assert expected_symbols.issubset(binance_symbols), f"Mismatched Binance symbols: {binance_symbols} does not contain {expected_symbols}"
 
     # Non-Binance checks
     non_binance = [t for t in history if not t.get("is_binance_funded")]

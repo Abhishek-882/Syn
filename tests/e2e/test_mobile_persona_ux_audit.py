@@ -108,34 +108,38 @@ def run_mobile_persona_ux_audit():
         assert page.is_visible("#mobile-nav-bar"), "Mobile nav bar must be visible on screen width <= 768px"
 
         # ---------------------------------------------------------------------
-        # PERSONA 1: "SYNDICATE HUNTER" (Mobile Speed & Spotlight Execution)
+        # PERSONA 1: "SYNDICATE HUNTER" (Mobile Speed & Clean Banner-Free Execution)
         # ---------------------------------------------------------------------
         print(">>> [PERSONA 1: SYNDICATE HUNTER] Starting Mobile Speed Sweep...")
         p1_actions = []
 
-        # Check mobile spotlight banner
-        assert page.is_visible("#spotlight-container"), "Spotlight banner must be visible"
-        spotlight_symbol = page.locator("#spotlight-symbol").inner_text().strip()
-        dex_url = page.locator("#spotlight-dex-btn").get_attribute("href") or ""
-        gmgn_url = page.locator("#spotlight-gmgn-btn").get_attribute("href") or ""
+        # Verify spotlight banner is completely removed
+        spotlight_count = page.locator("#spotlight-container").count()
+        assert spotlight_count == 0, "Spotlight banner (#spotlight-container) must be completely removed"
+        p1_actions.append("Verified spotlight banner completely removed, maximising viewport space")
 
-        assert "dexscreener.com" in dex_url, f"Invalid DexScreener URL: {dex_url}"
-        assert "gmgn.ai" in gmgn_url, f"Invalid GMGN URL: {gmgn_url}"
-        p1_actions.append(f"Spotlight verified on mobile: {spotlight_symbol} (DEX: {dex_url[:35]}... | GMGN: {gmgn_url[:35]}...)")
+        # Verify default Binance Dev Filter is active
+        binance_btn = page.locator("#filter-binance-btn")
+        assert binance_btn.is_visible(), "Binance filter button must be visible"
+        assert "active" in (binance_btn.get_attribute("class") or ""), "Binance filter must be active by default"
+        header_chip_text = page.locator("#header-binance-text").inner_text()
+        assert "BINANCE FILTER: ON" in header_chip_text, f"Header chip must show ON, got: {header_chip_text}"
+        p1_actions.append(f"Verified Binance Dev Filter active by default: {header_chip_text}")
 
-        # Step 111: Capture Mobile Header & Spotlight
+        # Step 111: Capture Mobile Header & Binance Filter
         save_screenshot(page, 111, "mobile_spotlight_and_header")
 
         # Verify Token Track Record Table on mobile
         assert page.is_visible("#history-table-body"), "History table must be rendered"
         rows = page.locator("#history-table-body tr")
         row_count = rows.count()
-        assert row_count >= 10, f"Expected at least 10 historical tokens, found {row_count}"
+        assert row_count >= 7, f"Expected at least 7 Binance-funded historical tokens, found {row_count}"
 
         first_row_text = rows.first.inner_text()
-        assert "#1" in first_row_text, "First row must have rank #1"
-        assert "$" in first_row_text, "Rank #1 row must contain market metrics"
-        p1_actions.append(f"Verified {row_count} historical tokens on mobile; Rank #1 row verified")
+        assert "#" in first_row_text, "First row must have rank pill"
+        assert "$" in first_row_text, "Rank row must contain market metrics"
+        assert "BINANCE" in first_row_text, "Default tokens must have Binance badge"
+        p1_actions.append(f"Verified {row_count} Binance-funded tokens on mobile; Rank row verified")
 
         # Step 112: Capture Mobile Token Track Record
         save_screenshot(page, 112, "mobile_token_track_record_table")
@@ -143,7 +147,7 @@ def run_mobile_persona_ux_audit():
         audit_results["personas"]["syndicate_hunter"] = {
             "load_time_ms": load_time_ms,
             "actions": p1_actions,
-            "spotlight_symbol": spotlight_symbol,
+            "binance_filter_default": True,
             "historical_tokens_count": row_count,
             "scorecard": {
                 "interaction_speed": 9.9,
@@ -167,13 +171,13 @@ def run_mobile_persona_ux_audit():
         assert page.is_visible("#col-watchlist"), "Watchlist column must be visible when tab is tapped"
         assert not page.is_visible("#col-tokens"), "Tokens column must be hidden when Watchlist is active on mobile"
 
-        # Search deployers on mobile
+        # Search deployers on mobile (using Binance-funded deployer ArkdCAP)
         search_input = page.locator("#deployer-search")
-        search_input.fill("69aiAKU3")
+        search_input.fill("ArkdCAP")
         page.wait_for_timeout(300)
         matched_deployers = page.locator("#deployers-list .card").count()
-        assert matched_deployers >= 1, "Expected matching cards for 69aiAKU3"
-        p2_actions.append(f"Mobile search filtered {matched_deployers} deployer cards for '69aiAKU3'")
+        assert matched_deployers >= 1, "Expected matching cards for ArkdCAP"
+        p2_actions.append(f"Mobile search filtered {matched_deployers} deployer cards for 'ArkdCAP'")
 
         # Tap deployer card to inspect
         page.locator("#deployers-list .card").first.tap()
@@ -285,17 +289,15 @@ def run_mobile_persona_ux_audit():
             except Exception as exc:
                 failures.append({"selector": sel, "error": str(exc)})
 
-        # 1. Global Header & Spotlight Controls
+        # 1. Global Header & Filter Controls
         test_selector("#notif-toggle-btn", do_tap=True)
         test_selector("button:has-text('TEST CHIME')", do_tap=False)
         test_selector("button:has-text('RESCAN')", do_tap=False)
-        test_selector("#spotlight-dex-btn", do_tap=False)
-        test_selector("#spotlight-gmgn-btn", do_tap=False)
-        test_selector("#spotlight-photon-btn", do_tap=False)
-        test_selector("#spotlight-pump-btn", do_tap=False)
+        test_selector("#header-binance-chip", do_tap=False)
 
         # 2. Column: Tokens
         test_selector("#mob-tab-tokens", do_tap=True)
+        test_selector("#filter-binance-btn", do_tap=False)
         test_selector("#tab-center-history", do_tap=True)
         test_selector("button:has-text('Sync Live Metrics')", do_tap=False)
         test_selector("#tab-center-feed", do_tap=True)
@@ -307,6 +309,7 @@ def run_mobile_persona_ux_audit():
 
         # 3. Column: Watchlist
         test_selector("#mob-tab-watchlist", do_tap=True)
+        test_selector("#filter-binance-dep-btn", do_tap=False)
         test_selector("#tab-ready", do_tap=True)
         test_selector("#tab-treasury", do_tap=True)
         test_selector("#tab-dust", do_tap=True)

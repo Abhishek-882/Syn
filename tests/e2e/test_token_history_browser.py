@@ -76,7 +76,7 @@ def test_token_history_browser_verification():
         page.wait_for_selector("#history-table-body tr", timeout=5000)
         rows = page.query_selector_all("#history-table-body tr")
         print(f"Found {len(rows)} historical token rows in table")
-        assert len(rows) >= 10, f"Expected at least 10 historical tokens, found {len(rows)}"
+        assert len(rows) >= 7, f"Expected at least 7 historical tokens, found {len(rows)}"
 
         # Verify Rank #1 exists and has rank #1
         first_row_text = rows[0].inner_text()

@@ -176,7 +176,7 @@ def test_token_lineage_flowchart():
 
             # Trigger token inspection on mobile and await lineage response
             with page.expect_response(lambda r: "/api/token-lineage" in r.url and r.status == 200, timeout=10000):
-                page.evaluate("inspectToken('BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump')")
+                page.evaluate("inspectToken('BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump', true)")
             page.wait_for_timeout(600)
 
             # Verify automatic switch to Lineage column

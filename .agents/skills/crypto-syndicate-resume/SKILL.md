@@ -319,6 +319,16 @@ tests/
             - tests/unit/test_binance_filter.py: 3/3 unit tests PASSING.
             - tests/e2e/test_binance_filter_e2e.py: 100% PASS verifying toggle ON (7 tokens), toggle OFF (37 tokens), badge presence, deployer sync, and mobile responsiveness.
             - Numbered Screenshots: Step 121 (121_binance_dev_filter_active.png) and Step 122 (122_binance_dev_filter_toggled_off.png).
+- [x] M26 — Spotlight Banner Removal, Default Binance Filter ON, GMGN ATH Precision & Mobile Layout Hardening:
+          - Spotlight Banner Removal: Completely excised the sticky `#spotlight-container` golden top banner and its CSS/animations from `web/syndicate_terminal.html`, neutralizing `highlightTokenLaunch()` and `dismissSpotlight()` into safe no-ops.
+          - Default Binance Filter ON: Initialized `state.filterBinanceOnly = true` on page load so operators immediately view only Binance-funded developer tokens and deployers, while retaining the toggle capability to view all tokens. Header chip `#header-binance-chip` displays gold active badge `🟡 BINANCE FILTER: ON (N)`.
+          - GMGN Token ATH & Price Accuracy: Resolved the critical ATH bug where GMGN's developer previous coin ATH was mistakenly inherited across subsequent tokens. Updated `src/crypto_syndicate/keeper.py` to only use `dev.ath_token_info` if `ath_token == token_address`, strictly computing token ATH from `ath_price * total_supply` or `high_price * total_supply` with invariant `ath_mc >= current_mc`. Recalculated all 60+ tokens in `results/live_dexscreener_syndicate_tokens.json`.
+          - Mobile Compatibility Overhaul: Mobile viewport ergonomics enforced across iPhone (390x844), Pixel (412x915), and compact viewports (360px) with zero horizontal bleed (`scrollWidth === clientWidth`), touch targets >= 42px adhering to Apple HIG/WCAG 2.2, smooth horizontal scrolling for chips and tables, and isolated manual column switching via `inspectToken(mint, autoSwitchMobile=false)`.
+          - Automated Verification:
+            - tests/e2e/test_binance_filter_e2e.py: 100% PASS.
+            - tests/e2e/test_mobile_persona_ux_audit.py: 100% PASS (20/20 button sweep, zero bleed).
+            - tests/e2e/test_token_history_browser.py & test_token_lineage_flowchart.py: 100% PASS.
+            - 323/323 unit tests PASSING (100% PASS, zero regressions).
 
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant

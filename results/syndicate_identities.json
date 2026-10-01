@@ -3480,9 +3480,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789956844.9807315,
-    "last_seen": 1790837559.9569428,
-    "operation_count": 28,
-    "total_profit_usd": 48017.519999999975,
+    "last_seen": 1790854351.5573535,
+    "operation_count": 41,
+    "total_profit_usd": 65970.58499999995,
     "known_funders": [],
     "chains": [
       "sol"
@@ -3492,6 +3492,19 @@
     ],
     "behavior_texts": [
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.10 bots:0.48 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.68 bots:0.81 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -8989,9 +9002,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789967757.119369,
-    "last_seen": 1790837560.4568427,
-    "operation_count": 32,
-    "total_profit_usd": 71012.97899999992,
+    "last_seen": 1790854352.556294,
+    "operation_count": 45,
+    "total_profit_usd": 91607.08499999988,
     "known_funders": [],
     "chains": [
       "sol"
@@ -9005,6 +9018,19 @@
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.09 bots:0.53 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.02 bots:0.47 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.02 bots:0.47 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.54 bots:0.72 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -9849,9 +9875,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789968593.9492497,
-    "last_seen": 1790837556.956775,
-    "operation_count": 23,
-    "total_profit_usd": 45507.645000000004,
+    "last_seen": 1790854354.0571828,
+    "operation_count": 36,
+    "total_profit_usd": 62121.645000000004,
     "known_funders": [],
     "chains": [
       "sol"
@@ -9861,6 +9887,19 @@
     ],
     "behavior_texts": [
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.10 bots:0.09 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:17s hold:9s bundler:0.61 bots:0.69 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -12514,9 +12553,9 @@
     "confidence_score": 1.0,
     "confidence": 1.0,
     "first_seen": 1789998350.2992013,
-    "last_seen": 1790837531.126991,
-    "operation_count": 18,
-    "total_profit_usd": 121500.0,
+    "last_seen": 1790854325.0551555,
+    "operation_count": 21,
+    "total_profit_usd": 141750.0,
     "known_funders": [],
     "chains": [
       "sol"
@@ -12525,6 +12564,9 @@
       "sol"
     ],
     "behavior_texts": [
+      "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
+      "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
       "chain:sol mode:flash buy_delay:16s hold:9s bundler:0.00 bots:0.00 wallets:4 dump_window:30s deployer_buys:True fresh:0.75 patterns:early_entry",
@@ -14299,12 +14341,7 @@
     ],
     "known_wallets": [
       "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "Ci3bTYsRnVLoXLQEt7dsDATJDmFu3EYuwpvnCsiW1Zzx",
-      "3bkJjGLrhpkPiXagcsFhMbWZN6Uw1ZKmxjaBgu6RJyHi",
-      "WehoQmtDb1BeF8tFo5drFNXXswuRfviKRFP232EnEnh",
-      "D3RkQwF25CmQvH3xhKHzqumu92hwcfbWKASP1V5akFG1",
-      "DNZyvSYktHbmLxnmYXJNb9tKo7w9SCVjAjDpxYzPrZyf"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "HdufztUXbEt4VczMTKQ9YZHnLDiJNBxLLPKAQvPdpump"
@@ -14314,6 +14351,15 @@
       "token_address": "HdufztUXbEt4VczMTKQ9YZHnLDiJNBxLLPKAQvPdpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 201397.55,
@@ -14323,16 +14369,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
-      "genesis_funder": "MEXC",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2954304,
+    "last_seen": 1790853891.2954304,
+    "operation_count": 1,
     "total_profit_usd": 201397.55,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0121": {
     "identity_id": "SYND-0121",
@@ -14344,12 +14411,7 @@
     ],
     "known_wallets": [
       "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "9pBqYUY7JZdiygcvhQHdfU7KP4He3AZX8v4gjpmmh1CJ",
-      "7Y6hznAhnS9QGhKKADeZ5FCnQFzKFfm8Z7fzufsjahTD",
-      "EU3L6S1d6PKFyK3sCE6gkKMZHiKUzLUnXEG3fgHDGbHw",
-      "BpTi3ujc35DMd2GUwEGA3A4BGToiSdF2UCLtP2TWeLQJ",
-      "27eNLqoju5xmpriV371anxnKjLfpDuot7m96tMrBZTiA"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "8gXWohUGeaJtPb9Y5UMizaKxZdMiuZYaTDrhGNfNbMKF"
@@ -14359,6 +14421,15 @@
       "token_address": "8gXWohUGeaJtPb9Y5UMizaKxZdMiuZYaTDrhGNfNbMKF",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 69380.27,
@@ -14368,16 +14439,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
-      "genesis_funder": "stonkfun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295441,
+    "last_seen": 1790853891.295441,
+    "operation_count": 1,
     "total_profit_usd": 69380.27,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0122": {
     "identity_id": "SYND-0122",
@@ -14389,12 +14481,7 @@
     ],
     "known_wallets": [
       "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "DG19ewgSKqGEQ4dZ48QiJocLYcDZLWi6xjVqAU8dy87i",
-      "7Ds4pmi4TCjEUU4WbmkeaPHfPY7HNNs38gGzwqF5N8Ls",
-      "3fzTBNhnx2XMrQLT4cVPiv1Kfn2a8QFkJWscH2K12y3U",
-      "GsaVpJbA7QK5xj5TU8PCqua1ii9rKBibv7KpEJ5GGtQE",
-      "CBPRfEhr6bCKxQbQz2zoUvKaJ96MnWyMnqp3c7WVUTHG"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "DJKQH76THGkCQGANL9DfSya35cgP3NdUmxu1T4UHpump"
@@ -14404,6 +14491,15 @@
       "token_address": "DJKQH76THGkCQGANL9DfSya35cgP3NdUmxu1T4UHpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 2842167.3,
@@ -14413,16 +14509,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
-      "genesis_funder": "HTX",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2954495,
+    "last_seen": 1790853891.2954495,
+    "operation_count": 1,
     "total_profit_usd": 2842167.3,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0123": {
     "identity_id": "SYND-0123",
@@ -14434,14 +14551,7 @@
     ],
     "known_wallets": [
       "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "9u9LpXLRbmz2qdmYKGJCHrpxeckZo42jV7doBSZFpump",
-      "CKJCEtQ45pbfb7EByrDaAgaqj7vfHGKWY8tyLZs6pump",
-      "7qGuufiQt2qqvWy2XdnCJWCzr4U1ugaruHyC1CTg2Wfb",
-      "5g6WXjF83F3FrYpkqPTVZgN2rFMXiAeYSrnqfd2nTXUn",
-      "4K9zUaA6qq1qEBiRXKSHFaHipA6VYD1SsHtPcvyGVQsF",
-      "4tfob5pN3zy3E2Nzt6y5pbZfkaVGkd53vtgQ5Wmc3VKJ",
-      "F9coHMbid1P1w9szp9TgLwMgoJLjMCNaCj3d1tiqqz49"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "zsBiT9Lr1dkUaQNjmGqXeotfdg2koNxe95jxJ3ipump"
@@ -14451,6 +14561,15 @@
       "token_address": "zsBiT9Lr1dkUaQNjmGqXeotfdg2koNxe95jxJ3ipump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 9,
       "estimated_profit_usd": 28739.82,
@@ -14460,16 +14579,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295458,
+    "last_seen": 1790853891.295458,
+    "operation_count": 1,
     "total_profit_usd": 28739.82,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0124": {
     "identity_id": "SYND-0124",
@@ -14481,12 +14621,7 @@
     ],
     "known_wallets": [
       "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "D8jxRrJyqFnxGCeKTk37hpFEF5s6QGG7QEknQQimpEDM",
-      "EYQjhmpQLLY8LJGE4bSprQWWy9Fib9VCihy71yA5eddT",
-      "28z3QoU2XWpNBiGmTXxpRE5MwSwQstvNps5LBmsH6oYg",
-      "C1CVkUU9NQxtaW1Xio9qVQywkyshF6NKyxRbbuET21Rz",
-      "HZVc4oeKdQ1bgUiEptsYQBGNeALaGdNCq9RumVEV7SDk"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "BT5AdtkbDChoEqCTKwfjprbbucFYsBjiz3g4humbpump"
@@ -14496,6 +14631,15 @@
       "token_address": "BT5AdtkbDChoEqCTKwfjprbbucFYsBjiz3g4humbpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 32318.06,
@@ -14505,16 +14649,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2954698,
+    "last_seen": 1790853891.2954698,
+    "operation_count": 1,
     "total_profit_usd": 32318.06,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0125": {
     "identity_id": "SYND-0125",
@@ -14526,12 +14691,7 @@
     ],
     "known_wallets": [
       "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "Ek1XiEXtDGj8s8iwSomheVhwH14pAcTrtxbGVCHTJejB",
-      "AXZ139kGXwoVH1EamnUEWTDPJ1NY2a9xo4eyvEutnk9h",
-      "6YckGCsuBodVTrjHZE73ngjRHUk8VNFU9W3U5swwD75h",
-      "BFRb1PEhjw59F5BUyitGcCJUPSu3zeVQK9fa64A6NoFT",
-      "BjyNoZNQ1fgNtcNxJPSCVe6ikmuvWcShpRRMXsA5Uocn"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "9WktionM1G1Pz6TY8BXn9qcMjpahxQTDbGMMJKAXKray"
@@ -14541,6 +14701,15 @@
       "token_address": "9WktionM1G1Pz6TY8BXn9qcMjpahxQTDbGMMJKAXKray",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 15694.71,
@@ -14550,16 +14719,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
-      "genesis_funder": "ray_launchpad",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295478,
+    "last_seen": 1790853891.295478,
+    "operation_count": 1,
     "total_profit_usd": 15694.71,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0126": {
     "identity_id": "SYND-0126",
@@ -14571,13 +14761,7 @@
     ],
     "known_wallets": [
       "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "HSJAVyXK5xW4sg1Y4PbMxGcN3ZUMZDddoAwn2h4Tpump",
-      "D8v5PGJAMfJeor8R44V4DfdYtokFzQBC3xp4NkYUY9Li",
-      "3nXvd9r6mMnnorpHAC7nSzPkWEizmSzoXsUP1Zy17eP4",
-      "66qhSZDZ5HALc8BpSa94qKgq2ifnC2tesY3jNGNbzEvM",
-      "BDk3Mah2SKYnMQjSVZfCrjc4zJcNW8z1zRznktS1szGW",
-      "86GwJyXAo5zTXYpogaK5X8uLK7D3uFDWDLpbtHfzboXt"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "4BBhqe8KuN6dZdkd86vtrnt1BnC19NhWG7YZyzsGqj6y"
@@ -14587,6 +14771,15 @@
       "token_address": "4BBhqe8KuN6dZdkd86vtrnt1BnC19NhWG7YZyzsGqj6y",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 8,
       "estimated_profit_usd": 540520.95,
@@ -14596,16 +14789,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295486,
+    "last_seen": 1790853891.295486,
+    "operation_count": 1,
     "total_profit_usd": 540520.95,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0127": {
     "identity_id": "SYND-0127",
@@ -14617,14 +14831,7 @@
     ],
     "known_wallets": [
       "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
-      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9",
-      "2ZH3ELb77Ms3LNbEJEosX74JCbUYtPMLkNnuHjdhVyMc",
-      "Do2dJdc41ncjeZtShHQFTKtQkjCjwxZ78MTXzxompump",
-      "BfEMXQvTHBEwoMZbXCSpMZK2nG6zvwihZX4JuEm8paM4",
-      "5hoFksXKadGi9xzYBb7vg9g76fxAhrCxgkUanLYsEpoZ",
-      "DiAYAPV66pDzuJwXYebwtmoDZgWK69yY9bVtd4KGoosd",
-      "J65rrHRmoBH6hEdoFiq977vKU6fhq1BSA1nKFYGB61rg",
-      "D45RyDTQoMi3Na3QZ3A4Mja7k6wBLLfBNiBpKbLcPUU7"
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
     ],
     "historical_tokens": [
       "DCHM2g9r771356RAnLvwFmSrpZNUuwnUZu6Hwqeypump"
@@ -14634,6 +14841,15 @@
       "token_address": "DCHM2g9r771356RAnLvwFmSrpZNUuwnUZu6Hwqeypump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 9,
       "estimated_profit_usd": 812827.9,
@@ -14643,16 +14859,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
-      "genesis_funder": "Binance",
-      "is_binance_funded": true,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2954938,
+    "last_seen": 1790853891.2954938,
+    "operation_count": 1,
     "total_profit_usd": 812827.9,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0128": {
     "identity_id": "SYND-0128",
@@ -14664,14 +14901,7 @@
     ],
     "known_wallets": [
       "45NTDBhT8Ky7u9CbtCV9daBppJNFGjFhACJWiXB4udZo",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "3fkyRQ62pr8kyotH9L3JTc2z7s4F4hXgCaAv1u2Jpump",
-      "CPhEvYHoQmthWvEA18y5tTUuEqpctKvBTHNDustepump",
-      "2Sown1hNBQvY4K6biGvkShyopzZZWEmrk8jLntMWehXf",
-      "DSRLVKHJjdPjB4tizYJApPDGKuwowsRcEcsCMvuhE7Jo",
-      "AQnLt7u71Z4cS825H95auDLfud26U9ZVmT2kdqn5nw8a",
-      "9jvyLTFVHMJQBxk6H9NZMLWVCxKUNg9M98kgQsNLUns1",
-      "Bf2yjCXB3ivZbJ3VQUpkZp4DF8s777Mw8yBQSns6rAt8"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "7m3bNDY3WgUo5eoFYNyPMzZPxdtManQ9wtY667rXpump"
@@ -14681,6 +14911,15 @@
       "token_address": "7m3bNDY3WgUo5eoFYNyPMzZPxdtManQ9wtY667rXpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 9,
       "estimated_profit_usd": 2551.14,
@@ -14690,16 +14929,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "45NTDBhT8Ky7u9CbtCV9daBppJNFGjFhACJWiXB4udZo",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955036,
+    "last_seen": 1790853891.2955036,
+    "operation_count": 1,
     "total_profit_usd": 2551.14,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0129": {
     "identity_id": "SYND-0129",
@@ -14711,12 +14971,7 @@
     ],
     "known_wallets": [
       "27nKnCT3DD5NLJw3xbq3KDL3thx6KTe6DmrRCbi2uszE",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "Ahwic7Lsc7YgVXo3C7AWNkB3J4CGNVWCHj5iYVEAbbkV",
-      "FzMMZU4DMiXW7UbbxL7RbDP1vd1Zdy8JQQ4cvCx8c6yX",
-      "9q5chDSC14CtbchK587R37pNzn2R7sxNbCjsdpjkwwpP",
-      "8UNeW13X43jepa5R3drmXWApaRVWefVm4imKAXQMfhKm",
-      "GUmkH8hejJQFSTF8Vg7yQTDCpvCureFBfhAb2ycHRpTo"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "4ewtv8cLUULfNj9wsRytsXkgERG5mx1MZ3LZGMTfVVmm"
@@ -14726,6 +14981,15 @@
       "token_address": "4ewtv8cLUULfNj9wsRytsXkgERG5mx1MZ3LZGMTfVVmm",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 1020569.7,
@@ -14735,16 +14999,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "27nKnCT3DD5NLJw3xbq3KDL3thx6KTe6DmrRCbi2uszE",
-      "genesis_funder": "stonkfun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295512,
+    "last_seen": 1790853891.295512,
+    "operation_count": 1,
     "total_profit_usd": 1020569.7,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0130": {
     "identity_id": "SYND-0130",
@@ -14756,12 +15041,7 @@
     ],
     "known_wallets": [
       "4HXb7ivgvjbHC3TBesmmD9LovH8tmTv9DZsq12GMvEpU",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "4DGSzJ6pXENcYd6fGBqBh5P7vtaaXBTTvoydbFMbu3bd",
-      "CSB6tm8Zy4NdFG2fUq6mL7P7pCmt7LiSifjTTBQvjHfh",
-      "CiruuSuzph7V3rotmiB8XJLgpusgaHRwMrktma1RWcpQ",
-      "5G6SG4TDEKg2a3Er1r6TERhFZjHKgWmf8dizRWQLGgvi",
-      "9BrhDHfDmDLixMKhKa2tp5oamkgUrQ1GK9VoGyXc3LEv"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "BWUpgvEFcioJxx1kPK1MijYXSPgGdvXo3ivz3DwMdoyp"
@@ -14771,6 +15051,15 @@
       "token_address": "BWUpgvEFcioJxx1kPK1MijYXSPgGdvXo3ivz3DwMdoyp",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 137898.76,
@@ -14780,16 +15069,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "4HXb7ivgvjbHC3TBesmmD9LovH8tmTv9DZsq12GMvEpU",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955203,
+    "last_seen": 1790853891.2955203,
+    "operation_count": 1,
     "total_profit_usd": 137898.76,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0131": {
     "identity_id": "SYND-0131",
@@ -14801,15 +15111,7 @@
     ],
     "known_wallets": [
       "HAuD8e6A24dJdjDKuRR2CX6iDtGk9HXKxEeHM8CJ7GVY",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "Ayxt5SyoAwWjaePxm1nVXKzwRPmirLEMVC24nU3Bd4oA",
-      "7ovDuc5giGvED4TeVfprzH7bUNY3NQpwnGmmyCuVpump",
-      "6LeQ7gwMPJhZVtTjTZcn4UbD6GCqwEZvJYcqDQ1npump",
-      "FBNDdgyMEfwqW7y47i8wbcTHNSfDpFkf7LxfvfNxeivx",
-      "ApTyGh6d6sPVeyEfN896Ch38h87J65WaBRdFhN7bYQYA",
-      "GvZU7j5doS5VrphZbEQtk9pH8MRmnVq6cbaUYEkRXzke",
-      "9HdZ4qYF3xSNAvdkvjr1TdN6jvXgSST3GUgFLT9AAXoJ",
-      "Cicw1BXaxXiRR1kGZft3qngTJGSBtMvC1EMFgTULT4CE"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "4NKVTgY1VftkPxjgzmm451VGeSvZ4GDX8bo6cuQCpump"
@@ -14819,6 +15121,15 @@
       "token_address": "4NKVTgY1VftkPxjgzmm451VGeSvZ4GDX8bo6cuQCpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 10,
       "estimated_profit_usd": 6140.57,
@@ -14828,16 +15139,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "HAuD8e6A24dJdjDKuRR2CX6iDtGk9HXKxEeHM8CJ7GVY",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295529,
+    "last_seen": 1790853891.295529,
+    "operation_count": 1,
     "total_profit_usd": 6140.57,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0132": {
     "identity_id": "SYND-0132",
@@ -14849,12 +15181,7 @@
     ],
     "known_wallets": [
       "5FqUo9aBjsp7QeeyN6Vi2ZmF2fjS4H5EU7wnAQwPy17z",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "D84WkMPceqp3oDQyaZgxP94MoiStAvEK5RizDYG7jUg6",
-      "3vGAQ1NigihsNzpK5Ww6CqckkXpwa4VEPKvumoQQq8Wz",
-      "6WaND9Q1HphPdL4BeRNaH8Xd16kN35T4iBWM3eRMfgq7",
-      "6C8hmoUpGnPMDnhyQipez2yS2vHnQrAkkt1CepgnXRui",
-      "4pzY44R4UYEojQUpS3WqjiyeHMQUQtk8SAGJ28XFAj6c"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "EnFuzwgHeZF5sGrVnmy5dpWrfxPmy61SjTwCbYBoKe6M"
@@ -14864,6 +15191,15 @@
       "token_address": "EnFuzwgHeZF5sGrVnmy5dpWrfxPmy61SjTwCbYBoKe6M",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 317091.71,
@@ -14873,16 +15209,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "5FqUo9aBjsp7QeeyN6Vi2ZmF2fjS4H5EU7wnAQwPy17z",
-      "genesis_funder": "stonkfun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955375,
+    "last_seen": 1790853891.2955375,
+    "operation_count": 1,
     "total_profit_usd": 317091.71,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0133": {
     "identity_id": "SYND-0133",
@@ -14894,12 +15251,7 @@
     ],
     "known_wallets": [
       "4TC62iMh6fKF31tXgPimvJxz3u9qHKytifwaJw5hzJA4",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "FyxCPCxqoDFgDvVRLMewPT1RzKYffkpeS9DAvDT4CYEV",
-      "D84WkMPceqp3oDQyaZgxP94MoiStAvEK5RizDYG7jUg6",
-      "3Vrz4fgjtuNdRZHFBQbKHZnAqeGg5F3xREzAYkoofEHC",
-      "5siodt8BuJRRkcwuuJta5QE9t4QF7fNLfmjRSogpaSuA",
-      "4qwaLLh4Vh5XGrjKbFCP1qTZvkkvYGta6KH2MDcEVZkD"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "Gxamo5cjoqz628c6ou1JMKk4WXAna6cGoDFKAqDWCuN2"
@@ -14909,6 +15261,15 @@
       "token_address": "Gxamo5cjoqz628c6ou1JMKk4WXAna6cGoDFKAqDWCuN2",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 36833.57,
@@ -14918,16 +15279,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "4TC62iMh6fKF31tXgPimvJxz3u9qHKytifwaJw5hzJA4",
-      "genesis_funder": "stonkfun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295545,
+    "last_seen": 1790853891.295545,
+    "operation_count": 1,
     "total_profit_usd": 36833.57,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0134": {
     "identity_id": "SYND-0134",
@@ -14939,12 +15321,7 @@
     ],
     "known_wallets": [
       "CsbE3DhBfNHzyWa7tNHGT1o9naE2Zv2rVcV4efXaamDx",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "BuWd8B83kvnsnmkUTyLq1yEYVLjNbZWkeVKjo3qwsaWR",
-      "3f46ZAmbCTBLmDazBHx1Pu3VMkJtRWugB7STWosWTtxU",
-      "AutpLnLqShBkDtoNHFmiLsNgimPRzkJzGFDnYGbXhm7J",
-      "24EhhQXt1X7UR1fQ4bBtiyJtBBGmeHXVjQg5NQ5j11yi",
-      "7PvbfgZzvnGBbfLeHZo8GaRnUTxV3ocbbrwhKMiR6VTV"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "6pX9txbsqfG73o91BHpJq1JxM1gZyn5XgtbXVfHMpump"
@@ -14954,6 +15331,15 @@
       "token_address": "6pX9txbsqfG73o91BHpJq1JxM1gZyn5XgtbXVfHMpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 9100.04,
@@ -14963,16 +15349,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "CsbE3DhBfNHzyWa7tNHGT1o9naE2Zv2rVcV4efXaamDx",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955527,
+    "last_seen": 1790853891.2955527,
+    "operation_count": 1,
     "total_profit_usd": 9100.04,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0135": {
     "identity_id": "SYND-0135",
@@ -14984,12 +15391,7 @@
     ],
     "known_wallets": [
       "95ZCf3jKMHeFYvPXVZW3Ek6AEPDyjebosqnc7eNioVMo",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "2msESezTa93H69fRSBanEkgCJhMxDhYLattJp97eeZmA",
-      "6EH6ghHwzTQrTE6NvLw8kQf5Sge8oKsF4NQMPWKMM3F6",
-      "91JgY3EggUHmEkKB9idmpjYYsMCFzRBqxbxppYFRKhu",
-      "GGgTfBuG8UoADiZzenDQkpaiScaksbCM1w4NV2bBqKJc",
-      "D5FnEdRhp9svN6JK7Bv3jhFkAaUxvbLoHMRKFsYKUaGC"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "Fb4PkjmEAzD5GFq2v27wiEZdbegCVqgeokd4L7P4QcQC"
@@ -14999,6 +15401,15 @@
       "token_address": "Fb4PkjmEAzD5GFq2v27wiEZdbegCVqgeokd4L7P4QcQC",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 2876992.65,
@@ -15008,16 +15419,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "95ZCf3jKMHeFYvPXVZW3Ek6AEPDyjebosqnc7eNioVMo",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955601,
+    "last_seen": 1790853891.2955601,
+    "operation_count": 1,
     "total_profit_usd": 2876992.65,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0136": {
     "identity_id": "SYND-0136",
@@ -15029,13 +15461,7 @@
     ],
     "known_wallets": [
       "7m556r8Fycdfzu12AYozjFVSan6CHbdYxbTUugeHw8W5",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "E2g4ZgerLghVK1twMxHUimdEoYNSFataRTJNY8Pxpump",
-      "2wuFSjVmGacZ3ADssXLucSJsW7Xj9iaxcu8wedWkAbsk",
-      "HYuXr7ptcNBKVJMAbpeNWiJ2ycVzv5BJFDihftKJYmhX",
-      "4BPUarAETj2kxiqNGag3LHjiECobQN1AUMDZ4Dmqiqbb",
-      "7jhC3WMEqB43FftLiVntiL8owub9yyvLfLm43L876aJJ",
-      "8Mg6TqNgVo8QigVF4vHMTM2A8S3oP3CfuE81eSocYTkt"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "CXYa3VABRooxkB4YxWdm5qHDZ1U3UtSr5YJpa6xzTcWZ"
@@ -15045,6 +15471,15 @@
       "token_address": "CXYa3VABRooxkB4YxWdm5qHDZ1U3UtSr5YJpa6xzTcWZ",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 8,
       "estimated_profit_usd": 5289.05,
@@ -15054,16 +15489,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "7m556r8Fycdfzu12AYozjFVSan6CHbdYxbTUugeHw8W5",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955675,
+    "last_seen": 1790853891.2955675,
+    "operation_count": 1,
     "total_profit_usd": 5289.05,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0137": {
     "identity_id": "SYND-0137",
@@ -15075,14 +15531,7 @@
     ],
     "known_wallets": [
       "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "HMejoq2hoM6xT3MSTZr6FksnJMQeLFy3rk8CCR1CesZc",
-      "HQy6ghEjnqvcKJRof1ohg5Qc4f5aCY7K5NZkKV9npump",
-      "HtctumV9ZfXtrsR6C32p1eHCNCnVAyJoiXB1F1ZTu5bd",
-      "6NESgbX8KzbuyX4nRjawCXThgaPRTQSH8q9GuCfZ8pYW",
-      "CTQKVRg4dauQnY5XvN488Aczx2VtsNnaR5VktLGbsDjT",
-      "98CNJvY8GTFRxXSJyH21FQvnQgwTdasCqZv25UYXfpuk",
-      "FmvHy9Ji6AB1tFYLQ8mMwaY34ymNYLs7eutQDxRYY39u"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "HFNSKQh7bHzEKzt5m6pe79FmGiZ14PJjJScBshts8Yd8"
@@ -15092,6 +15541,15 @@
       "token_address": "HFNSKQh7bHzEKzt5m6pe79FmGiZ14PJjJScBshts8Yd8",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 9,
       "estimated_profit_usd": 799347.19,
@@ -15101,16 +15559,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955759,
+    "last_seen": 1790853891.2955759,
+    "operation_count": 1,
     "total_profit_usd": 799347.19,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0138": {
     "identity_id": "SYND-0138",
@@ -15122,12 +15601,7 @@
     ],
     "known_wallets": [
       "8Za43Mm299xKE4JyQPXqNjx4QVVdpUSSm5EzMWNe2zE7",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "Ggp9V2c8obJCcwoqHh5UBj3NKJMPojbiZqTU3vGsbcjh",
-      "AGm2hsgTTJ1WYVigR9XYUXZyfi7MbWeQ34oSf3Cr96aA",
-      "33uEFZjdKSgqCFUw9xPTo1Pf3dSPfxu8rijySrs7LKJJ",
-      "EaU3jtoA6PUFCZbHZ1kTprDTDhg9MQBJ6Wmix11Z8fHw",
-      "3KfN5eWek1Aktdqv46sEwPNYfDGtSxbtWtNoMQ6TJ5x5"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "EDygYXVnJ71ZaDE15Maju9sFU5PYDXuwEVNpJDs1pump"
@@ -15137,6 +15611,15 @@
       "token_address": "EDygYXVnJ71ZaDE15Maju9sFU5PYDXuwEVNpJDs1pump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 1379.49,
@@ -15146,16 +15629,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "8Za43Mm299xKE4JyQPXqNjx4QVVdpUSSm5EzMWNe2zE7",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295584,
+    "last_seen": 1790853891.295584,
+    "operation_count": 1,
     "total_profit_usd": 1379.49,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0139": {
     "identity_id": "SYND-0139",
@@ -15167,12 +15671,7 @@
     ],
     "known_wallets": [
       "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "CJ4sziqcWj2ApEdRx1212XAANhDn58huurbMFn53XGY7",
-      "2RXgUhGtrBXZKTJCxCaegigHUXYzDpyUKHPNBpQcowP2",
-      "7Rf2TAKv2dNxDWnB5NdYhnvWEg5Rxj5KEQcJVZAfoz5N",
-      "A2NZWHP7YEwbfTfpRjT2A122nasZ1UpUfY4QEFsS1csy",
-      "3C1Ujcrh7YFxxRMy1cGc7MWGRMKpvAp3PqWY31dRN9jZ"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk"
@@ -15182,6 +15681,15 @@
       "token_address": "HDfeHGejrwFvTWMReFsBfH2ywcGLXD9gaNwRWodideYk",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 107389.94,
@@ -15191,16 +15699,37 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "WnBVqVTaiJk5hNbcwbHiffRVnMdf1aaxNU5JkSpvGub",
-      "genesis_funder": "Pump.fun",
-      "is_binance_funded": false,
-      "is_jito_bundle": true
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
     },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2955918,
+    "last_seen": 1790853891.2955918,
+    "operation_count": 1,
     "total_profit_usd": 107389.94,
+    "known_funders": [],
     "chains": [
       "sol"
     ],
-    "confidence_score": 0.94
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
   },
   "SYND-0140": {
     "identity_id": "SYND-0140",
@@ -15212,12 +15741,7 @@
     ],
     "known_wallets": [
       "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
-      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
-      "414V6EpVV34SPaFc5rMoRLCNS6AN5StLDhWa9bJSp7zp",
-      "4rAiHMNaSE7B7riJf8bR4aDNQr67g4oYtYFw7XB3dRFA",
-      "CAfte86JqRnL6vhVaemMTKRu1rqhNyTKKnP81rjYop5L",
-      "2x27rmrsi8SuNNu8TF2XzVrH9H28kNKkSheP7TVvRUe9",
-      "A4YeT8yTmAQu9C2sXfhTe4b9AJh8pMtAksvAkcpLeEry"
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
     ],
     "historical_tokens": [
       "2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump"
@@ -15227,6 +15751,15 @@
       "token_address": "2SVkGBPF3f7zfp7v7SiSf6PSnN6DEKbCDbSo7QNkpump",
       "chain": "sol",
       "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
       "suspicion_score": 92.5,
       "wallet_count": 7,
       "estimated_profit_usd": 16456.69,
@@ -15236,12 +15769,638 @@
         "pump_and_dump",
         "jito_bundle"
       ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
       "deployer_wallet": "86TR3YthGo4jAHVJtLDrnAu4k94KBma2A8apSceWpvZG",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956,
+    "last_seen": 1790853891.2956,
+    "operation_count": 1,
+    "total_profit_usd": 16456.69,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0141": {
+    "identity_id": "SYND-0141",
+    "syndicate_id": "SYND-0141",
+    "alias": "Syndicate SYND-0141 (RI)",
+    "primary_wallets": [
+      "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "historical_tokens": [
+      "CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_CyS4wN9r",
+      "token_address": "CyS4wN9rbD7GrequMH11PnHYFfKZK2QyWVLsr7izkinu",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 2120.74,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "6KqHAU1rg5wEZE1aTj6BiQY113wx6X7hUiXP1scePPCr",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956078,
+    "last_seen": 1790853891.2956078,
+    "operation_count": 1,
+    "total_profit_usd": 2120.74,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0142": {
+    "identity_id": "SYND-0142",
+    "syndicate_id": "SYND-0142",
+    "alias": "Syndicate SYND-0142 (Partyhat)",
+    "primary_wallets": [
+      "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "historical_tokens": [
+      "Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_Cj9Ch1Ji",
+      "token_address": "Cj9Ch1JiHcSjrsk1sDcFNgQzb6sonhbJj4hunYAHqYfm",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 799347.19,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "Aqje5DsN4u2PHmQxGF9PKfpsDGwQRCBhWeLKHCFhSMXk",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956152,
+    "last_seen": 1790853891.2956152,
+    "operation_count": 1,
+    "total_profit_usd": 799347.19,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0143": {
+    "identity_id": "SYND-0143",
+    "syndicate_id": "SYND-0143",
+    "alias": "Syndicate SYND-0143 (BACKPACK)",
+    "primary_wallets": [
+      "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "historical_tokens": [
+      "3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_3hMvhPmE",
+      "token_address": "3hMvhPmEnid683SC3rKS8HdW3e4onuEPSckeKUqx38vN",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 76782.16,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "Bc11bRd8N1rTdLaPZo8myfg4FT7MjecQ7QQqbPevoK4p",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956228,
+    "last_seen": 1790853891.2956228,
+    "operation_count": 1,
+    "total_profit_usd": 76782.16,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0144": {
+    "identity_id": "SYND-0144",
+    "syndicate_id": "SYND-0144",
+    "alias": "Syndicate SYND-0144 (backpack)",
+    "primary_wallets": [
+      "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "historical_tokens": [
+      "8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_8edcNEC4",
+      "token_address": "8edcNEC4r3m6BcrNLWZYMhQ9DQqdr5cuTKhyCjvPpump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 7661.25,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "6rYqUWcdXqTfGFztgqo2ZQxPf1mZX8XEPZrupy5rGwCD",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956307,
+    "last_seen": 1790853891.2956307,
+    "operation_count": 1,
+    "total_profit_usd": 7661.25,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0145": {
+    "identity_id": "SYND-0145",
+    "syndicate_id": "SYND-0145",
+    "alias": "Syndicate SYND-0145 (OpenSI)",
+    "primary_wallets": [
+      "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "historical_tokens": [
+      "EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_EqZwBqyN",
+      "token_address": "EqZwBqyN483N1yJocyfNEVSWTDvp93UnywAEjNgJUKCx",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 790808.34,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "AufH68UFBGSVVRL9D7u5W6NySCrukL4fWfSRTxDcJC6u",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956383,
+    "last_seen": 1790853891.2956383,
+    "operation_count": 1,
+    "total_profit_usd": 790808.34,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0146": {
+    "identity_id": "SYND-0146",
+    "syndicate_id": "SYND-0146",
+    "alias": "Syndicate SYND-0146 (TIPSY)",
+    "primary_wallets": [
+      "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
+    ],
+    "known_wallets": [
+      "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
+    ],
+    "historical_tokens": [
+      "GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_GxdZqQtS",
+      "token_address": "GxdZqQtSDChqoVDeJ2YNV1uBc6iF4PXhyk21p34Qatip",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 3152.92,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "Hk6P9CRxnR8opeio1SpwuzBrWekp4eJyLy1SyXwTE7ow",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.2956457,
+    "last_seen": 1790853891.2956457,
+    "operation_count": 1,
+    "total_profit_usd": 3152.92,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0147": {
+    "identity_id": "SYND-0147",
+    "syndicate_id": "SYND-0147",
+    "alias": "Syndicate SYND-0147 (OpenSI)",
+    "primary_wallets": [
+      "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "historical_tokens": [
+      "c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_c4FaHq63",
+      "token_address": "c4FaHq63LUpbWWtxXXjTTMNk2e1WX2Zfo9PeMHvPayP",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 161063158443215.88,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "bwamJzztZsepfkteWRChggmXuiiCQvpLqPietdNfSXa",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790853891.295653,
+    "last_seen": 1790853891.295653,
+    "operation_count": 1,
+    "total_profit_usd": 161063158443215.88,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0148": {
+    "identity_id": "SYND-0148",
+    "syndicate_id": "SYND-0148",
+    "alias": "Syndicate SYND-0148 (jones)",
+    "primary_wallets": [
+      "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
+    ],
+    "known_wallets": [
+      "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
+    ],
+    "historical_tokens": [
+      "4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_4n4yd2be",
+      "token_address": "4n4yd2be8YTy4UKJ2hYmBQKaT5jmo1NsTWosLNkSxxxx",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "avg_buy_delay_s": 0.0,
+      "buy_delay_s": 0.0,
+      "avg_hold_duration_s": 0.0,
+      "hold_time_s": 0.0,
+      "dump_speed_s": 600.0,
+      "dump_window_s": 600.0,
+      "bundler_rate": 0.0,
+      "bot_rate": 0.0,
+      "bot_degen_rate": 0.0,
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 2844.25,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "patterns": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "is_deployer_buying": false,
+      "fresh_wallet_ratio": 0.0,
+      "funder_wallet": null,
+      "deployer_wallet": "6MGHHEGLQUZRCNiraYFafYhFu3No32VUYC3eZ7gX3qVw",
+      "is_jito_bundle": true,
+      "jito_confidence": 0.0,
+      "jito_signals": [],
+      "metadata": {}
+    },
+    "confidence_score": 0.94,
+    "confidence": 0.94,
+    "first_seen": 1790854252.5851007,
+    "last_seen": 1790854252.5851007,
+    "operation_count": 1,
+    "total_profit_usd": 2844.25,
+    "known_funders": [],
+    "chains": [
+      "sol"
+    ],
+    "known_chains": [
+      "sol"
+    ],
+    "behavior_texts": [],
+    "metadata": {},
+    "notes": ""
+  },
+  "SYND-0149": {
+    "identity_id": "SYND-0149",
+    "syndicate_id": "SYND-0149",
+    "alias": "Syndicate SYND-0149 (CHRISTA)",
+    "primary_wallets": [
+      "ARB8KYfnnUwhEa8HFwWkdJrkas1vQeHUYRaW3gCr1wKx",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "ARB8KYfnnUwhEa8HFwWkdJrkas1vQeHUYRaW3gCr1wKx",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "8CsGV1uHxxeaXP1QvwkUboHyDrh51nDkoX8CrVvC3mWL",
+      "EwwMf6x6UCNAgtMvc67TeNmdWvQTPf4DnU7SoQhBnGtV",
+      "7tQtmWHWgHXKw5sYVuruN1wuNxEp2f4PKYCSZSzNQfAL",
+      "8aMmegZJZQvZ1TFoS3jvAGrPhmRnieU384eeQrqQxFqx",
+      "7wpxVBBq29bVbUAKSUPdjvD7cke6sUSKiATYDPzGfkd4"
+    ],
+    "historical_tokens": [
+      "E5A2cdJxPm75FMeUeTSdCwwYFgJ486A6n5MpPM8tpump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_E5A2cdJx",
+      "token_address": "E5A2cdJxPm75FMeUeTSdCwwYFgJ486A6n5MpPM8tpump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 65519.33,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "ARB8KYfnnUwhEa8HFwWkdJrkas1vQeHUYRaW3gCr1wKx",
       "genesis_funder": "Pump.fun",
       "is_binance_funded": false,
       "is_jito_bundle": true
     },
-    "total_profit_usd": 16456.69,
+    "total_profit_usd": 65519.33,
     "chains": [
       "sol"
     ],

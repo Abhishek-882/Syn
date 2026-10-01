@@ -210,7 +210,12 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             
             existing_deps = {d.get("address"): d for d in data.get("deployers", []) if d.get("address")}
             for d in loader.get_deployers():
-                if d.get("address") not in existing_deps:
+                addr = d.get("address")
+                if addr in existing_deps:
+                    for k in ("is_binance_funded", "fund_from", "funded_by", "tokens_created"):
+                        if k in d:
+                            existing_deps[addr][k] = d[k]
+                else:
                     data["deployers"].append(d)
 
             existing_launches = {l.get("mint_address"): l for l in data.get("launches", []) if l.get("mint_address")}

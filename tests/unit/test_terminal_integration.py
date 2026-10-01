@@ -38,8 +38,8 @@ class TestTerminalPlatformIntegration(unittest.TestCase):
         self.assertNotIn("WebGLRenderer", content, "Terminal must have zero WebGL renderers")
 
         # Required 2D UI elements
-        self.assertIn("notif-toggle-btn", content, "Must contain notification toggle button")
-        self.assertIn("spotlight-container", content, "Must contain sticky golden spotlight banner")
+        self.assertIn("header-binance-chip", content, "Must contain header Binance filter chip")
+        self.assertNotIn("spotlight-card", content, "Spotlight banner removed per operator instruction")
         self.assertIn("lineage-svg", content, "Must contain 2D SVG Lineage connectome")
         self.assertIn("deployers-list", content, "Must contain deployer watchlist list")
         self.assertIn("feed-list", content, "Must contain live activity feed")

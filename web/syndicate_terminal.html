@@ -185,135 +185,7 @@
       border-color: #475569;
     }
 
-    /* SPOTLIGHT BANNER (STICKY GOLDEN CARD ON LAUNCH) */
-    #spotlight-container {
-      display: none;
-      background: linear-gradient(180deg, rgba(245, 158, 11, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%);
-      border-bottom: 2px solid var(--gold);
-      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
-      padding: 12px 20px;
-      position: sticky;
-      top: 45px;
-      z-index: 99;
-      animation: bannerSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes bannerSlideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .spotlight-card {
-      max-width: 1440px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .spotlight-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .spotlight-icon {
-      font-size: 26px;
-      animation: shake 1.5s infinite;
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: rotate(0deg); }
-      15% { transform: rotate(-8deg); }
-      30% { transform: rotate(8deg); }
-      45% { transform: rotate(-4deg); }
-      60% { transform: rotate(4deg); }
-      75% { transform: rotate(0deg); }
-    }
-
-    .spotlight-info h3 {
-      font-family: var(--font-mono);
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .token-symbol {
-      color: var(--gold);
-      background: rgba(245, 158, 11, 0.2);
-      padding: 1px 6px;
-      border-radius: 4px;
-      font-weight: 800;
-    }
-
-    .spotlight-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .spotlight-meta span strong {
-      color: #fff;
-    }
-
-    .spotlight-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-link {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid var(--border);
-      color: #fff;
-      background: var(--surface-elevated);
-      transition: all 0.15s ease;
-    }
-
-    .btn-link:hover {
-      background: var(--surface-hover);
-      border-color: var(--text-muted);
-    }
-
-    .btn-link.btn-gold {
-      background: rgba(245, 158, 11, 0.2);
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-    .btn-link.btn-gold:hover {
-      background: var(--gold);
-      color: #000;
-    }
-
-    .btn-dismiss {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 18px;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-    .btn-dismiss:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-    }
+    /* SPOTLIGHT BANNER REMOVED (Per operator instruction) */
 
     /* MOBILE NAVIGATION BAR */
     .mobile-nav-bar {
@@ -386,87 +258,88 @@
     }
 
     @media (max-width: 768px) {
-      body {
+      html, body {
         overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
       }
 
       /* Sticky Mobile Column Switcher */
       .mobile-nav-bar {
         display: flex;
+        padding: 6px 8px;
+        gap: 6px;
+        position: sticky;
+        top: 0;
+        z-index: 80;
+      }
+
+      .mobile-nav-btn {
+        flex: 1;
+        min-height: 42px;
+        font-size: 12px;
+        padding: 8px 4px;
       }
 
       header {
-        padding: 8px 12px;
-        flex-wrap: wrap;
+        padding: 8px 10px;
+        display: flex;
+        flex-direction: column;
         gap: 8px;
         position: relative;
+        height: auto;
       }
 
       .header-left {
-        gap: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
       }
 
       .brand-title {
         font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
       }
 
       .status-chips {
-        gap: 4px;
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+        width: 100%;
+      }
+
+      .status-chips::-webkit-scrollbar {
+        display: none;
       }
 
       .chip {
+        flex-shrink: 0;
         font-size: 10px;
-        padding: 2px 6px;
+        padding: 4px 8px;
+        min-height: 28px;
       }
 
       .header-right {
-        gap: 6px;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .btn {
-        padding: 6px 10px;
-        min-height: 38px;
-        font-size: 11px;
-      }
-
-      /* Spotlight Banner Responsive */
-      .spotlight-card {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        padding: 10px;
-      }
-
-      .spotlight-left {
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .spotlight-info h3 {
-        font-size: 13px;
-        flex-wrap: wrap;
-      }
-
-      .spotlight-meta {
-        flex-wrap: wrap;
-        gap: 4px 8px;
-        font-size: 11px;
-      }
-
-      .spotlight-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
         gap: 6px;
         width: 100%;
+        justify-content: space-between;
       }
 
-      .btn-link {
+      .header-right .btn {
+        flex: 1;
         justify-content: center;
-        min-height: 38px;
+        min-height: 42px;
         font-size: 11px;
+        padding: 6px 4px;
+        white-space: nowrap;
       }
 
       /* Workspace Single-Column Switcher */
@@ -476,15 +349,19 @@
         height: auto;
         min-height: calc(100vh - 110px);
         overflow: visible;
+        width: 100%;
+        max-width: 100vw;
       }
 
       .col {
         display: none !important;
         width: 100%;
+        max-width: 100vw;
         border-right: none;
         border-bottom: 1px solid var(--border);
         height: auto;
         min-height: 520px;
+        box-sizing: border-box;
       }
 
       .col.col-right {
@@ -496,67 +373,145 @@
         display: flex !important;
       }
 
-      /* Table responsive touch scroll */
-      .history-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+      .tab-strip {
+        display: flex;
+        width: 100%;
       }
 
-      .history-table {
-        min-width: 680px;
+      .tab-strip .tab-btn {
+        flex: 1;
+        text-align: center;
+        min-height: 42px;
+        padding: 8px 4px;
+        font-size: 11px;
+      }
+
+      .search-box {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px 10px;
+        box-sizing: border-box;
+      }
+
+      .search-box .search-input {
+        width: 100%;
+        min-height: 42px;
+        font-size: 12px;
+        box-sizing: border-box;
+      }
+
+      .search-box .filter-toggle-btn {
+        width: 100%;
+        min-height: 42px;
+        font-size: 12px;
+        padding: 6px 12px;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      .center-view-tabs {
+        display: flex;
+        width: 100%;
+      }
+
+      .center-view-tabs .tab-btn {
+        flex: 1;
+        text-align: center;
+        min-height: 42px;
+        padding: 8px 6px;
+        font-size: 11px;
       }
 
       .history-controls {
         flex-direction: column;
         align-items: stretch;
         gap: 8px;
+        padding: 8px 10px;
+        box-sizing: border-box;
+      }
+
+      .history-controls > div {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        width: 100%;
       }
 
       .history-controls .search-input {
         max-width: 100% !important;
-        min-height: 40px;
+        width: 100%;
+        min-height: 42px;
         font-size: 12px;
+        box-sizing: border-box;
       }
 
-      .center-view-tabs .tab-btn {
-        flex: 1;
-        text-align: center;
-        min-height: 38px;
-        padding: 6px 8px;
+      .history-controls .filter-toggle-btn {
+        width: 100%;
+        min-height: 42px;
+        justify-content: center;
+        font-size: 12px;
+        padding: 8px 12px;
+        box-sizing: border-box;
+      }
+
+      .history-controls .btn-secondary {
+        width: 100%;
+        min-height: 42px;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      /* Table responsive touch scroll */
+      .history-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+
+      .history-table {
+        min-width: 680px;
+        width: 100%;
+      }
+
+      .history-table th, .history-table td {
+        padding: 8px 6px;
         font-size: 11px;
       }
 
-      .search-input {
-        min-height: 40px;
-        font-size: 12px;
-      }
-
-      .tab-strip .tab-btn {
-        flex: 1;
-        text-align: center;
-        min-height: 38px;
-        padding: 6px 8px;
-      }
-
       .lineage-canvas-wrap {
-        min-height: 260px;
+        min-height: 280px;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       #lineage-svg {
         max-width: 100%;
         height: auto;
+        display: block;
+      }
+
+      .info-pane {
+        padding: 10px;
+        box-sizing: border-box;
       }
     }
 
     @media (max-width: 480px) {
-      .brand-title span:last-child {
+      .brand-title .brand-badge {
         display: none;
       }
-      .chip span:last-child {
-        display: none;
+      .brand-title {
+        font-size: 12px;
       }
-      .spotlight-actions {
-        grid-template-columns: 1fr 1fr;
+      .header-right .btn span {
+        font-size: 10px;
+      }
+      .mobile-nav-btn {
+        font-size: 11px;
+        padding: 6px 2px;
       }
     }
 
@@ -1210,8 +1165,8 @@
         <div class="chip" id="keeper-turbo-chip" style="border-color: rgba(245, 158, 11, 0.4); color: var(--gold); background: rgba(245, 158, 11, 0.08);">
           <span id="keeper-turbo-text">⚡ SCANNER: BATCH 1/5</span>
         </div>
-        <div class="chip" id="header-binance-chip" onclick="toggleBinanceFilter()" style="cursor:pointer; border-color: rgba(245, 158, 11, 0.5); color: var(--gold); background: rgba(245, 158, 11, 0.08); font-weight:600;" title="Click to toggle Binance Dev Filter ON/OFF">
-          <span id="header-binance-text">🟡 BINANCE FILTER: OFF</span>
+        <div class="chip" id="header-binance-chip" onclick="toggleBinanceFilter()" style="cursor:pointer; border-color: var(--gold); color: var(--gold); background: rgba(245, 158, 11, 0.25); box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); font-weight:600;" title="Click to toggle Binance Dev Filter ON/OFF">
+          <span id="header-binance-text">🟡 BINANCE FILTER: ON</span>
         </div>
         <div class="chip">5-HOP INGRESS</div>
         <div class="chip">ANCHOR: ≥20 SOL</div>
@@ -1232,36 +1187,6 @@
       </button>
     </div>
   </header>
-
-  <!-- STICKY GOLDEN TOP BANNER (MEME TOKEN LAUNCH SPOTLIGHT) -->
-  <div id="spotlight-container">
-    <div class="spotlight-card">
-      <div class="spotlight-left">
-        <div class="spotlight-icon">🚨</div>
-        <div class="spotlight-info">
-          <h3>
-            <span>NEW SYNDICATE MEME TOKEN CREATED:</span>
-            <span class="token-symbol" id="spotlight-symbol">$ZLONG</span>
-            <span id="spotlight-name" style="font-weight:400; color:var(--text-muted);">(ZLONG Meme Token)</span>
-          </h3>
-          <div class="spotlight-meta">
-            <span>Creator: <strong id="spotlight-creator" class="wallet-addr">69aiAKU3uJMx...</strong></span>
-            <span>Syndicate: <strong id="spotlight-syndicate" style="color:var(--gold);">SYND-0006</strong></span>
-            <span>Program: <strong id="spotlight-program" style="color:var(--cyan);">Pump.fun Bonding Curve</strong></span>
-            <span>Liquidity: <strong id="spotlight-sol">0.05 SOL</strong></span>
-            <span id="spotlight-age" style="color:var(--text-dim);">T+0s ago</span>
-          </div>
-        </div>
-      </div>
-      <div class="spotlight-actions">
-        <a href="https://dexscreener.com/solana/2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih" target="_blank" id="spotlight-dex-btn" class="btn-link btn-gold">📈 DexScreener</a>
-        <a href="https://gmgn.ai/sol/token/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" id="spotlight-gmgn-btn" class="btn-link" style="border-color:#a855f7; color:#c084fc;">🪐 GMGN</a>
-        <a href="https://photon-sol.tinyastro.io/en/lp/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" id="spotlight-photon-btn" class="btn-link">⚡ Photon</a>
-        <a href="https://pump.fun/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" id="spotlight-pump-btn" class="btn-link">💊 Pump.fun</a>
-        <button class="btn-dismiss" onclick="dismissSpotlight()">✕</button>
-      </div>
-    </div>
-  </div>
 
   <!-- MOBILE COLUMN SWITCHER BAR (Visible only on screens <= 768px) -->
   <div class="mobile-nav-bar" id="mobile-nav-bar">
@@ -1298,13 +1223,13 @@
         <input type="text" id="deployer-search" class="search-input" style="flex:1;" placeholder="Filter by address or syndicate..." oninput="renderDeployers()">
         <button
           type="button"
-          class="filter-toggle-btn"
+          class="filter-toggle-btn active"
           id="filter-binance-dep-btn"
           onclick="toggleBinanceFilter()"
           title="Filter deployers funded by Binance wallet"
           style="padding: 4px 8px; font-size:10px;"
         >
-          <span class="toggle-dot" id="binance-dep-toggle-dot">○</span>
+          <span class="toggle-dot" id="binance-dep-toggle-dot">●</span>
           <span>🟡 BINANCE</span>
         </button>
       </div>
@@ -1342,12 +1267,12 @@
             />
             <button
               type="button"
-              class="filter-toggle-btn"
+              class="filter-toggle-btn active"
               id="filter-binance-btn"
               onclick="toggleBinanceFilter()"
               title="Filter tokens where deployer was funded by Binance wallet"
             >
-              <span class="toggle-dot" id="binance-toggle-dot">○</span>
+              <span class="toggle-dot" id="binance-toggle-dot">●</span>
               <span>🟡 BINANCE DEV ONLY</span>
             </button>
             <span style="font-size:10px; color:var(--text-muted); font-family:var(--font-mono);">
@@ -1495,7 +1420,7 @@
       tokenHistory: [],
       activeLaunch: null,
       activeTokenLineage: null,
-      filterBinanceOnly: false,
+      filterBinanceOnly: true,
       eventSource: null,
     };
 
@@ -1531,7 +1456,9 @@
         if (depDot) depDot.textContent = state.filterBinanceOnly ? '●' : '○';
       }
       if (headerText) {
-        headerText.textContent = state.filterBinanceOnly ? `🟡 BINANCE FILTER: ON (${binanceCount})` : '🟡 BINANCE FILTER: OFF';
+        headerText.textContent = state.filterBinanceOnly
+          ? (binanceCount > 0 ? `🟡 BINANCE FILTER: ON (${binanceCount})` : '🟡 BINANCE FILTER: ON')
+          : '🟡 BINANCE FILTER: OFF';
       }
       if (headerChip) {
         headerChip.style.background = state.filterBinanceOnly ? 'rgba(245, 158, 11, 0.25)' : 'rgba(245, 158, 11, 0.08)';
@@ -1666,33 +1593,13 @@
       }, 4000);
     }
 
-    // --- SPOTLIGHT BANNER LOGIC ---
+    // --- SPOTLIGHT BANNER LOGIC (BANNER REMOVED PER OPERATOR INSTRUCTION) ---
     function highlightTokenLaunch(launch) {
       state.activeLaunch = launch;
-      const banner = document.getElementById('spotlight-container');
-      document.getElementById('spotlight-symbol').textContent = `$${launch.symbol}`;
-      document.getElementById('spotlight-name').textContent = launch.name ? `(${launch.name})` : '';
-      document.getElementById('spotlight-creator').textContent = launch.creator_wallet ? (launch.creator_wallet.slice(0, 12) + '...') : 'Deployer';
-      document.getElementById('spotlight-syndicate').textContent = launch.parent_syndicate_id || 'SYN-SYNDICATE';
-      document.getElementById('spotlight-program').textContent = launch.launch_type === 'RAYDIUM' ? 'Raydium Liquidity Pool' : 'Pump.fun Bonding Curve';
-      document.getElementById('spotlight-sol').textContent = `${launch.initial_sol_injected || 0.05} SOL`;
-
-      // Set URLs
-      const dexBtn = document.getElementById('spotlight-dex-btn');
-      const gmgnBtn = document.getElementById('spotlight-gmgn-btn');
-      const photonBtn = document.getElementById('spotlight-photon-btn');
-      const pumpBtn = document.getElementById('spotlight-pump-btn');
-
-      dexBtn.href = launch.dex_screener_url || `https://dexscreener.com/solana/${launch.mint_address}`;
-      if (gmgnBtn) gmgnBtn.href = launch.gmgn_url || `https://gmgn.ai/sol/token/${launch.mint_address}`;
-      photonBtn.href = launch.photon_url || `https://photon-sol.tinyastro.io/en/lp/${launch.mint_address}`;
-      pumpBtn.href = launch.pump_fun_url || `https://pump.fun/${launch.mint_address}`;
-
-      banner.style.display = 'block';
     }
 
     function dismissSpotlight() {
-      document.getElementById('spotlight-container').style.display = 'none';
+      // Banner removed per operator instruction
     }
 
     // --- RENDER DEPLOYER WATCHLIST ---
@@ -1832,7 +1739,7 @@
         row.id = `token-row-${t.mint}`;
         row.onclick = (e) => {
           if (e.target.closest('a') || e.target.classList.contains('copy-pill')) return;
-          inspectToken(t.mint);
+          inspectToken(t.mint, true);
         };
         const rankPillClass = t.rank === 1 ? 'rank-pill rank-1' : (t.rank <= 3 ? 'rank-pill rank-top' : 'rank-pill');
         const shortMint = t.mint ? `${t.mint.slice(0, 6)}...${t.mint.slice(-4)}` : 'Unknown';
@@ -2033,7 +1940,7 @@
     }
 
     // --- DYNAMIC 5-STAGE TOKEN LINEAGE FLOWCHART ENGINE (ANTI-VIBE DESIGN) ---
-    async function inspectToken(mint) {
+    async function inspectToken(mint, autoSwitchMobile = false) {
       if (!mint) return;
 
       // Highlight row in table
@@ -2051,11 +1958,11 @@
           updateNodeInspectorWithLineage(data);
           updateModalLineageContent(data);
 
-          // If on mobile (<= 768px), auto-switch to LINEAGE column
-          if (window.innerWidth <= 768) {
+          // If explicitly requested on mobile (user tap), switch to LINEAGE column
+          if (autoSwitchMobile && window.innerWidth <= 768) {
             switchMobileColumn('LINEAGE');
             showToast(`🌲 Loaded $${data.symbol} Syndicate Flowchart`);
-          } else {
+          } else if (autoSwitchMobile) {
             showToast(`⚡ Chained Link Loaded: $${data.symbol} (${data.syndicate_id})`);
           }
         }
@@ -2434,6 +2341,7 @@
         renderDeployers();
         renderTokenHistory();
         renderFeed();
+        updateBinanceFilterUI();
 
         if (state.activeTokenLineage) {
           renderTokenLineageSVG(state.activeTokenLineage);
@@ -2541,6 +2449,7 @@
 
     // --- INITIALIZATION ---
     window.addEventListener('DOMContentLoaded', () => {
+      updateBinanceFilterUI();
       updateNotifButtonUI();
       renderLineageSVG();
       fetchSnapshot();
