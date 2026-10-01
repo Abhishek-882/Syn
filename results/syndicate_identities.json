@@ -14288,5 +14288,370 @@
     "behavior_texts": [],
     "metadata": {},
     "notes": ""
+  },
+  "SYND-0120": {
+    "identity_id": "SYND-0120",
+    "syndicate_id": "SYND-0120",
+    "alias": "Syndicate SYND-0120 (SI)",
+    "primary_wallets": [
+      "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "Ci3bTYsRnVLoXLQEt7dsDATJDmFu3EYuwpvnCsiW1Zzx",
+      "3bkJjGLrhpkPiXagcsFhMbWZN6Uw1ZKmxjaBgu6RJyHi",
+      "WehoQmtDb1BeF8tFo5drFNXXswuRfviKRFP232EnEnh",
+      "D3RkQwF25CmQvH3xhKHzqumu92hwcfbWKASP1V5akFG1",
+      "DNZyvSYktHbmLxnmYXJNb9tKo7w9SCVjAjDpxYzPrZyf"
+    ],
+    "historical_tokens": [
+      "HdufztUXbEt4VczMTKQ9YZHnLDiJNBxLLPKAQvPdpump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_HdufztUX",
+      "token_address": "HdufztUXbEt4VczMTKQ9YZHnLDiJNBxLLPKAQvPdpump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 201397.55,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "HF2EGxkKXRhdR93ZN5fY925PpecZDwRfKwhag6mvFMLW",
+      "genesis_funder": "MEXC",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 201397.55,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0121": {
+    "identity_id": "SYND-0121",
+    "syndicate_id": "SYND-0121",
+    "alias": "Syndicate SYND-0121 (QCAT)",
+    "primary_wallets": [
+      "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "9pBqYUY7JZdiygcvhQHdfU7KP4He3AZX8v4gjpmmh1CJ",
+      "7Y6hznAhnS9QGhKKADeZ5FCnQFzKFfm8Z7fzufsjahTD",
+      "EU3L6S1d6PKFyK3sCE6gkKMZHiKUzLUnXEG3fgHDGbHw",
+      "BpTi3ujc35DMd2GUwEGA3A4BGToiSdF2UCLtP2TWeLQJ",
+      "27eNLqoju5xmpriV371anxnKjLfpDuot7m96tMrBZTiA"
+    ],
+    "historical_tokens": [
+      "8gXWohUGeaJtPb9Y5UMizaKxZdMiuZYaTDrhGNfNbMKF"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_8gXWohUG",
+      "token_address": "8gXWohUGeaJtPb9Y5UMizaKxZdMiuZYaTDrhGNfNbMKF",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 69380.27,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "C9FeRk5rDcMtniPn1URWrToD75LgiAfKVo3cT6qgj9tw",
+      "genesis_funder": "stonkfun",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 69380.27,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0122": {
+    "identity_id": "SYND-0122",
+    "syndicate_id": "SYND-0122",
+    "alias": "Syndicate SYND-0122 (dogg)",
+    "primary_wallets": [
+      "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "DG19ewgSKqGEQ4dZ48QiJocLYcDZLWi6xjVqAU8dy87i",
+      "7Ds4pmi4TCjEUU4WbmkeaPHfPY7HNNs38gGzwqF5N8Ls",
+      "3fzTBNhnx2XMrQLT4cVPiv1Kfn2a8QFkJWscH2K12y3U",
+      "GsaVpJbA7QK5xj5TU8PCqua1ii9rKBibv7KpEJ5GGtQE",
+      "CBPRfEhr6bCKxQbQz2zoUvKaJ96MnWyMnqp3c7WVUTHG"
+    ],
+    "historical_tokens": [
+      "DJKQH76THGkCQGANL9DfSya35cgP3NdUmxu1T4UHpump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_DJKQH76T",
+      "token_address": "DJKQH76THGkCQGANL9DfSya35cgP3NdUmxu1T4UHpump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 2842167.3,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "Fzz2amRoCCpEvxtwdurs8qLVLSdrd3dcraJVpNjE4rp4",
+      "genesis_funder": "HTX",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 2842167.3,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0123": {
+    "identity_id": "SYND-0123",
+    "syndicate_id": "SYND-0123",
+    "alias": "Syndicate SYND-0123 (CATHOLIC)",
+    "primary_wallets": [
+      "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "9u9LpXLRbmz2qdmYKGJCHrpxeckZo42jV7doBSZFpump",
+      "CKJCEtQ45pbfb7EByrDaAgaqj7vfHGKWY8tyLZs6pump",
+      "7qGuufiQt2qqvWy2XdnCJWCzr4U1ugaruHyC1CTg2Wfb",
+      "5g6WXjF83F3FrYpkqPTVZgN2rFMXiAeYSrnqfd2nTXUn",
+      "4K9zUaA6qq1qEBiRXKSHFaHipA6VYD1SsHtPcvyGVQsF",
+      "4tfob5pN3zy3E2Nzt6y5pbZfkaVGkd53vtgQ5Wmc3VKJ",
+      "F9coHMbid1P1w9szp9TgLwMgoJLjMCNaCj3d1tiqqz49"
+    ],
+    "historical_tokens": [
+      "zsBiT9Lr1dkUaQNjmGqXeotfdg2koNxe95jxJ3ipump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_zsBiT9Lr",
+      "token_address": "zsBiT9Lr1dkUaQNjmGqXeotfdg2koNxe95jxJ3ipump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 9,
+      "estimated_profit_usd": 28739.82,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "EgYa22bNrcQGRJny4rGJz8eJe5CSFKtXEqB9qPQQGN9p",
+      "genesis_funder": "Pump.fun",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 28739.82,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0124": {
+    "identity_id": "SYND-0124",
+    "syndicate_id": "SYND-0124",
+    "alias": "Syndicate SYND-0124 (C@T)",
+    "primary_wallets": [
+      "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "D8jxRrJyqFnxGCeKTk37hpFEF5s6QGG7QEknQQimpEDM",
+      "EYQjhmpQLLY8LJGE4bSprQWWy9Fib9VCihy71yA5eddT",
+      "28z3QoU2XWpNBiGmTXxpRE5MwSwQstvNps5LBmsH6oYg",
+      "C1CVkUU9NQxtaW1Xio9qVQywkyshF6NKyxRbbuET21Rz",
+      "HZVc4oeKdQ1bgUiEptsYQBGNeALaGdNCq9RumVEV7SDk"
+    ],
+    "historical_tokens": [
+      "BT5AdtkbDChoEqCTKwfjprbbucFYsBjiz3g4humbpump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_BT5Adtkb",
+      "token_address": "BT5AdtkbDChoEqCTKwfjprbbucFYsBjiz3g4humbpump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 32318.06,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "9ZPbnYUdLvuDYueJacrdX5dmzsa1DD4tYeFwYQa4UXmA",
+      "genesis_funder": "Pump.fun",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 32318.06,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0125": {
+    "identity_id": "SYND-0125",
+    "syndicate_id": "SYND-0125",
+    "alias": "Syndicate SYND-0125 (WHEN)",
+    "primary_wallets": [
+      "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "Ek1XiEXtDGj8s8iwSomheVhwH14pAcTrtxbGVCHTJejB",
+      "AXZ139kGXwoVH1EamnUEWTDPJ1NY2a9xo4eyvEutnk9h",
+      "6YckGCsuBodVTrjHZE73ngjRHUk8VNFU9W3U5swwD75h",
+      "BFRb1PEhjw59F5BUyitGcCJUPSu3zeVQK9fa64A6NoFT",
+      "BjyNoZNQ1fgNtcNxJPSCVe6ikmuvWcShpRRMXsA5Uocn"
+    ],
+    "historical_tokens": [
+      "9WktionM1G1Pz6TY8BXn9qcMjpahxQTDbGMMJKAXKray"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_9WktionM",
+      "token_address": "9WktionM1G1Pz6TY8BXn9qcMjpahxQTDbGMMJKAXKray",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 7,
+      "estimated_profit_usd": 15694.71,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "8hTjMjrvNhTsdWjp978AWW3pByTmqd4JTH2huuAMDb1c",
+      "genesis_funder": "ray_launchpad",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 15694.71,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0126": {
+    "identity_id": "SYND-0126",
+    "syndicate_id": "SYND-0126",
+    "alias": "Syndicate SYND-0126 (84)",
+    "primary_wallets": [
+      "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ"
+    ],
+    "known_wallets": [
+      "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+      "WhaleTreasury_Anchor8p7Z2M9tq4F1kL5n6uR8vX7yT9wQ",
+      "HSJAVyXK5xW4sg1Y4PbMxGcN3ZUMZDddoAwn2h4Tpump",
+      "D8v5PGJAMfJeor8R44V4DfdYtokFzQBC3xp4NkYUY9Li",
+      "3nXvd9r6mMnnorpHAC7nSzPkWEizmSzoXsUP1Zy17eP4",
+      "66qhSZDZ5HALc8BpSa94qKgq2ifnC2tesY3jNGNbzEvM",
+      "BDk3Mah2SKYnMQjSVZfCrjc4zJcNW8z1zRznktS1szGW",
+      "86GwJyXAo5zTXYpogaK5X8uLK7D3uFDWDLpbtHfzboXt"
+    ],
+    "historical_tokens": [
+      "4BBhqe8KuN6dZdkd86vtrnt1BnC19NhWG7YZyzsGqj6y"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_4BBhqe8K",
+      "token_address": "4BBhqe8KuN6dZdkd86vtrnt1BnC19NhWG7YZyzsGqj6y",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 8,
+      "estimated_profit_usd": 540520.95,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "7ZAv8MpN4ZucotcpSbj3xmLBwryx4UYJWkygmNUYx5qm",
+      "genesis_funder": "Pump.fun",
+      "is_binance_funded": false,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 540520.95,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
+  },
+  "SYND-0127": {
+    "identity_id": "SYND-0127",
+    "syndicate_id": "SYND-0127",
+    "alias": "Syndicate SYND-0127 (ELON)",
+    "primary_wallets": [
+      "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
+    ],
+    "known_wallets": [
+      "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+      "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9",
+      "2ZH3ELb77Ms3LNbEJEosX74JCbUYtPMLkNnuHjdhVyMc",
+      "Do2dJdc41ncjeZtShHQFTKtQkjCjwxZ78MTXzxompump",
+      "BfEMXQvTHBEwoMZbXCSpMZK2nG6zvwihZX4JuEm8paM4",
+      "5hoFksXKadGi9xzYBb7vg9g76fxAhrCxgkUanLYsEpoZ",
+      "DiAYAPV66pDzuJwXYebwtmoDZgWK69yY9bVtd4KGoosd",
+      "J65rrHRmoBH6hEdoFiq977vKU6fhq1BSA1nKFYGB61rg",
+      "D45RyDTQoMi3Na3QZ3A4Mja7k6wBLLfBNiBpKbLcPUU7"
+    ],
+    "historical_tokens": [
+      "DCHM2g9r771356RAnLvwFmSrpZNUuwnUZu6Hwqeypump"
+    ],
+    "behavior_profile": {
+      "cluster_id": "cluster_DCHM2g9r",
+      "token_address": "DCHM2g9r771356RAnLvwFmSrpZNUuwnUZu6Hwqeypump",
+      "chain": "sol",
+      "mode": "pump_and_dump",
+      "suspicion_score": 92.5,
+      "wallet_count": 9,
+      "estimated_profit_usd": 812827.9,
+      "patterns_flagged": [
+        "early_entry",
+        "cex_funding",
+        "pump_and_dump",
+        "jito_bundle"
+      ],
+      "deployer_wallet": "ArkdCAPErAo6KdVDTFA32YKnqaD7jfXsESFoyxQzDgnu",
+      "genesis_funder": "Binance",
+      "is_binance_funded": true,
+      "is_jito_bundle": true
+    },
+    "total_profit_usd": 812827.9,
+    "chains": [
+      "sol"
+    ],
+    "confidence_score": 0.94
   }
 }
