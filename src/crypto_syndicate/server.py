@@ -19,7 +19,7 @@ import sys
 import threading
 import time
 from typing import Any, Dict, List, Optional
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs
 
 # Ensure src directory is in sys.path so crypto_syndicate package can be imported
 SRC_DIR = Path(__file__).resolve().parent.parent
@@ -114,6 +114,8 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             self.handle_api_keeper_run()
         elif parsed.path == "/api/keeper/status":
             self.handle_api_keeper_status()
+        elif parsed.path == "/api/token-lineage":
+            self.handle_api_token_lineage(parsed)
         elif parsed.path == "/" or parsed.path == "/terminal":
             self.path = "/web/syndicate_terminal.html"
             super().do_GET()
@@ -204,7 +206,7 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
-            loader.reload()
+            loader.reload_if_needed()
             
             existing_deps = {d.get("address"): d for d in data.get("deployers", []) if d.get("address")}
             for d in loader.get_deployers():
@@ -230,7 +232,6 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
-            loader.reload()
             data["token_history"] = loader.get_syndicate_token_history()
         except Exception as e:
             logger.debug("Failed adding token_history to syndicates snapshot: %s", e)
@@ -249,7 +250,7 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
-            loader.reload()
+            loader.reload_if_needed()
             tokens = loader.get_syndicate_token_history()
         except Exception as e:
             logger.error("Error retrieving token history: %s", e)
@@ -292,6 +293,30 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             from crypto_syndicate.keeper import get_syndicate_keeper
             keeper = get_syndicate_keeper()
             res = keeper.get_keeper_status()
+        except Exception as e:
+            res = {"status": "error", "error": str(e)}
+
+        resp = json.dumps(res, indent=2).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(resp)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(resp)
+
+    def handle_api_token_lineage(self, parsed):
+        """Return 5-stage on-chain chained-link proof graph for a specific token mint or symbol."""
+        query_params = parse_qs(parsed.query)
+        mint = query_params.get("mint", [None])[0] or query_params.get("token", [None])[0] or query_params.get("symbol", [None])[0]
+        try:
+            from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
+            loader = get_ground_truth_loader()
+            loader.reload_if_needed()
+            lineage = loader.get_token_lineage(mint)
+            if not lineage:
+                res = {"status": "not_found", "message": f"Token lineage for '{mint}' not found"}
+            else:
+                res = lineage
         except Exception as e:
             res = {"status": "error", "error": str(e)}
 

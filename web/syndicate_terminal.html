@@ -1030,6 +1030,167 @@
       from { transform: translateX(100%); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
+
+    /* BINANCE-FUNDED DEV FILTER TOGGLE & BADGES */
+    .filter-toggle-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      user-select: none;
+      white-space: nowrap;
+      min-height: 32px;
+    }
+    .filter-toggle-btn:hover {
+      background: var(--surface-hover);
+      color: #fff;
+      border-color: #475569;
+    }
+    .filter-toggle-btn.active {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: var(--gold);
+      color: var(--gold);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+    }
+    .toggle-dot {
+      font-size: 10px;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+    .filter-toggle-btn.active .toggle-dot {
+      transform: scale(1.2);
+    }
+    .funder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      letter-spacing: 0.2px;
+      width: fit-content;
+    }
+    .funder-badge.funder-binance {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.4);
+      color: var(--gold);
+    }
+
+    /* TOKEN ROW CLICK & HOVER SELECTION */
+    .history-row {
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .history-row:hover {
+      background: rgba(245, 158, 11, 0.08) !important;
+    }
+    .history-row.selected-token-row {
+      background: rgba(245, 158, 11, 0.14) !important;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* FULLSCREEN LINEAGE MODAL (ANTI-VIBE DESIGN) */
+    #lineage-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 14, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    #lineage-modal-card {
+      background: #0b0f19;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      width: 100%;
+      max-width: 980px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: modalSpring 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSpring {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1.0); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 14px 20px;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      flex: 1;
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    @media (max-width: 768px) {
+      .modal-body {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+      }
+    }
+
+    .modal-canvas-wrap {
+      background: #080c14;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #1e293b;
+      position: relative;
+    }
+
+    .modal-plaque {
+      padding: 20px;
+      background: #0b0f19;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-family: var(--font-mono);
+    }
   </style>
 </head>
 <body>
@@ -1130,8 +1291,19 @@
         <button class="tab-btn" id="tab-dust" onclick="switchDeployerTab('DUST')">Dust (<$5)</button>
       </div>
 
-      <div class="search-box">
-        <input type="text" id="deployer-search" class="search-input" placeholder="Filter by address or syndicate..." oninput="renderDeployers()">
+      <div class="search-box" style="display:flex; gap:6px; align-items:center;">
+        <input type="text" id="deployer-search" class="search-input" style="flex:1;" placeholder="Filter by address or syndicate..." oninput="renderDeployers()">
+        <button
+          type="button"
+          class="filter-toggle-btn"
+          id="filter-binance-dep-btn"
+          onclick="toggleBinanceFilter()"
+          title="Filter deployers funded by Binance wallet"
+          style="padding: 4px 8px; font-size:10px;"
+        >
+          <span class="toggle-dot" id="binance-dep-toggle-dot">○</span>
+          <span>🟡 BINANCE</span>
+        </button>
       </div>
 
       <div class="col-content" id="deployers-list">
@@ -1156,15 +1328,25 @@
       <!-- VIEW 1: TOKEN HISTORY & TRACK RECORD (ACTIVE) -->
       <div id="view-history-wrap" class="history-wrap">
         <div class="history-controls">
-          <div style="display:flex; align-items:center; gap:8px; flex:1;">
+          <div style="display:flex; align-items:center; gap:8px; flex:1; flex-wrap:wrap;">
             <input
               type="text"
               id="history-search"
               class="search-input"
-              style="max-width: 320px; font-size:11px;"
+              style="max-width: 260px; font-size:11px;"
               placeholder="🔍 Search token symbol, syndicate ID, or deployer..."
               oninput="renderTokenHistory()"
             />
+            <button
+              type="button"
+              class="filter-toggle-btn"
+              id="filter-binance-btn"
+              onclick="toggleBinanceFilter()"
+              title="Filter tokens where deployer was funded by Binance wallet"
+            >
+              <span class="toggle-dot" id="binance-toggle-dot">○</span>
+              <span>🟡 BINANCE DEV ONLY</span>
+            </button>
             <span style="font-size:10px; color:var(--text-muted); font-family:var(--font-mono);">
               Chronologically Ranked (Recent First)
             </span>
@@ -1221,8 +1403,12 @@
       </div>
 
       <div class="col-content">
+        <button class="btn btn-secondary" id="expand-lineage-btn" onclick="openLineageModal()" style="width:100%; margin-bottom:8px; display:flex; align-items:center; justify-content:center; gap:6px;">
+          <span>🔍 EXPAND FULLSCREEN FLOWCHART</span>
+        </button>
+
         <div class="lineage-canvas-wrap">
-          <svg id="lineage-svg" viewBox="0 0 320 360"></svg>
+          <svg id="lineage-svg" viewBox="0 0 320 370"></svg>
         </div>
 
         <div class="info-pane">
@@ -1262,6 +1448,31 @@
 
   </div>
 
+  <!-- FULLSCREEN LINEAGE MODAL (ANTI-VIBE DESIGN & 3D TELEMETRY) -->
+  <div id="lineage-modal-overlay" onclick="closeLineageModal(event)">
+    <div id="lineage-modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚡ SYNDICATE ON-CHAIN PROOF CHAIN</span>
+          <span class="badge" id="modal-synd-badge" style="background:rgba(245, 158, 11, 0.15); color:var(--gold); border-color:var(--gold-border);">SYND-0095</span>
+          <span id="modal-token-symbol" style="color:#fff; font-weight:700;">$LEVERAGE</span>
+        </div>
+        <button class="btn btn-secondary" onclick="closeLineageModal()">✕ CLOSE (ESC)</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-canvas-wrap">
+          <svg id="modal-lineage-svg" viewBox="0 0 320 370" style="width:100%; max-height:440px;"></svg>
+          <div style="font-size:10px; color:var(--text-dim); margin-top:8px;">
+            <span>💡 Click any node to copy address &amp; filter watchlist</span>
+          </div>
+        </div>
+        <div class="modal-plaque" id="modal-plaque-content">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toast-container"></div>
 
@@ -1280,8 +1491,39 @@
       currentMobileColumn: 'TOKENS',
       tokenHistory: [],
       activeLaunch: null,
+      activeTokenLineage: null,
+      filterBinanceOnly: false,
       eventSource: null,
     };
+
+    // --- BINANCE-FUNDED DEV WALLET FILTER (ON/OFF) ---
+    function toggleBinanceFilter() {
+      state.filterBinanceOnly = !state.filterBinanceOnly;
+      updateBinanceFilterUI();
+      renderTokenHistory();
+      renderDeployers();
+      if (state.filterBinanceOnly) {
+        showToast("🟡 Binance Dev Filter: ON (7 tokens)");
+      } else {
+        showToast("⚪ Binance Dev Filter: OFF (All tokens)");
+      }
+    }
+
+    function updateBinanceFilterUI() {
+      const btn = document.getElementById('filter-binance-btn');
+      const dot = document.getElementById('binance-toggle-dot');
+      const depBtn = document.getElementById('filter-binance-dep-btn');
+      const depDot = document.getElementById('binance-dep-toggle-dot');
+
+      if (btn) {
+        btn.classList.toggle('active', state.filterBinanceOnly);
+        if (dot) dot.textContent = state.filterBinanceOnly ? '●' : '○';
+      }
+      if (depBtn) {
+        depBtn.classList.toggle('active', state.filterBinanceOnly);
+        if (depDot) depDot.textContent = state.filterBinanceOnly ? '●' : '○';
+      }
+    }
 
     // --- MOBILE COLUMN NAVIGATION (<= 768px) ---
     function switchMobileColumn(col) {
@@ -1463,6 +1705,11 @@
         list = list.filter(d => d.balance_usd < 5.0);
       }
 
+      // Filter by Binance dev funding
+      if (state.filterBinanceOnly) {
+        list = list.filter(d => d.is_binance_funded || (d.fund_from && d.fund_from.toLowerCase().includes('binance')) || (d.funded_by && d.funded_by.toLowerCase().includes('binance')));
+      }
+
       // Filter by search
       if (search) {
         list = list.filter(d =>
@@ -1471,7 +1718,7 @@
         );
       }
 
-      document.getElementById('deployers-counter').textContent = `${list.length}`;
+      document.getElementById('deployers-counter').textContent = state.filterBinanceOnly ? `${list.length} (Binance)` : `${list.length}`;
 
       if (list.length === 0) {
         container.innerHTML = `<div style="padding:16px; text-align:center; color:var(--text-dim); font-size:12px;">No wallets in this filter.</div>`;
@@ -1491,6 +1738,7 @@
         const shortAddr = d.address ? `${d.address.slice(0, 8)}...${d.address.slice(-6)}` : 'Unknown';
         const balSol = typeof d.balance_sol === 'number' ? d.balance_sol.toFixed(3) : '0.000';
         const balUsd = typeof d.balance_usd === 'number' ? d.balance_usd.toFixed(2) : '0.00';
+        const isBinanceFunder = d.is_binance_funded || (d.funded_by && d.funded_by.toLowerCase().includes('binance'));
 
         card.innerHTML = `
           <div class="deployer-card-header">
@@ -1501,7 +1749,7 @@
             <div class="meta-item"><span>Balance:</span><span class="meta-val">${balSol} SOL ($${balUsd})</span></div>
             <div class="meta-item"><span>Hop:</span><span class="meta-val">Hop ${d.hop_distance_from_anchor || 1}</span></div>
             <div class="meta-item"><span>Syndicate:</span><span class="meta-val" style="color:var(--gold);">${d.parent_syndicate_id || 'SYN-01'}</span></div>
-            <div class="meta-item"><span>Funded By:</span><span class="meta-val">${(d.funded_by || 'ROOT').slice(0, 6)}...</span></div>
+            <div class="meta-item"><span>Funded By:</span><span class="meta-val" style="${isBinanceFunder ? 'color:var(--gold); font-weight:700;' : ''}">${isBinanceFunder ? '🟡 Binance' : ((d.funded_by || 'ROOT').slice(0, 8) + '...')}</span></div>
           </div>
         `;
         container.appendChild(card);
@@ -1538,19 +1786,23 @@
       tbody.innerHTML = '';
 
       let list = state.tokenHistory || [];
+      if (state.filterBinanceOnly) {
+        list = list.filter(t => t.is_binance_funded || (t.fund_from && t.fund_from.toLowerCase().includes('binance')));
+      }
       if (search) {
         list = list.filter(t =>
           (t.symbol && t.symbol.toLowerCase().includes(search)) ||
           (t.name && t.name.toLowerCase().includes(search)) ||
           (t.syndicate_id && t.syndicate_id.toLowerCase().includes(search)) ||
           (t.deployer_address && t.deployer_address.toLowerCase().includes(search)) ||
+          (t.fund_from && t.fund_from.toLowerCase().includes(search)) ||
           (t.mint && t.mint.toLowerCase().includes(search))
         );
       }
 
       const counter = document.getElementById('center-counter');
       if (counter && state.currentCenterView === 'HISTORY') {
-        counter.textContent = `${list.length} tokens`;
+        counter.textContent = state.filterBinanceOnly ? `${list.length} tokens (Binance Devs)` : `${list.length} tokens`;
       }
 
       if (list.length === 0) {
@@ -1560,11 +1812,17 @@
 
       list.forEach((t) => {
         const row = document.createElement('tr');
-        row.className = 'history-row';
-
-        const rankPillClass = t.rank === 1 ? 'rank-pill rank-1' : 'rank-pill';
+        const isSelected = state.activeTokenLineage && state.activeTokenLineage.token === t.mint;
+        row.className = isSelected ? 'history-row selected-token-row' : 'history-row';
+        row.id = `token-row-${t.mint}`;
+        row.onclick = (e) => {
+          if (e.target.closest('a') || e.target.classList.contains('copy-pill')) return;
+          inspectToken(t.mint);
+        };
+        const rankPillClass = t.rank === 1 ? 'rank-pill rank-1' : (t.rank <= 3 ? 'rank-pill rank-top' : 'rank-pill');
         const shortMint = t.mint ? `${t.mint.slice(0, 6)}...${t.mint.slice(-4)}` : 'Unknown';
         const shortDep = t.deployer_address ? `${t.deployer_address.slice(0, 6)}...${t.deployer_address.slice(-4)}` : 'Unknown';
+        const isBinanceFunder = t.is_binance_funded || (t.fund_from && t.fund_from.toLowerCase().includes('binance'));
 
         row.innerHTML = `
           <td>
@@ -1587,9 +1845,14 @@
             </span>
           </td>
           <td>
-            <span class="copy-pill" onclick="copyText('${t.deployer_address}')" title="Click to copy deployer address">
-              ${shortDep} 📋
-            </span>
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <span class="copy-pill" onclick="copyText('${t.deployer_address}')" title="Click to copy deployer address">
+                ${shortDep} 📋
+              </span>
+              ${isBinanceFunder
+                ? '<span class="funder-badge funder-binance" title="Deployer funded by Binance CEX Treasury">🟡 BINANCE</span>'
+                : (t.fund_from && t.fund_from !== 'Direct' ? `<span class="funder-badge">${t.fund_from}</span>` : '')}
+            </div>
           </td>
           <td>
             <div style="display:flex; flex-direction:column; gap:1px;">
@@ -1754,63 +2017,128 @@
       });
     }
 
-    // --- RENDER 2D SVG LINEAGE DAG ---
+    // --- DYNAMIC 5-STAGE TOKEN LINEAGE FLOWCHART ENGINE (ANTI-VIBE DESIGN) ---
+    async function inspectToken(mint) {
+      if (!mint) return;
+
+      // Highlight row in table
+      document.querySelectorAll('.history-row').forEach(r => r.classList.remove('selected-token-row'));
+      const activeRow = document.getElementById(`token-row-${mint}`) || Array.from(document.querySelectorAll('.history-row')).find(r => r.innerHTML.includes(mint.slice(0, 6)));
+      if (activeRow) activeRow.classList.add('selected-token-row');
+
+      try {
+        const res = await fetch(`/api/token-lineage?mint=${mint}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (data.status === 'ok') {
+          state.activeTokenLineage = data;
+          renderTokenLineageSVG(data, 'lineage-svg');
+          updateNodeInspectorWithLineage(data);
+          updateModalLineageContent(data);
+
+          // If on mobile (<= 768px), auto-switch to LINEAGE column
+          if (window.innerWidth <= 768) {
+            switchMobileColumn('LINEAGE');
+            showToast(`🌲 Loaded $${data.symbol} Syndicate Flowchart`);
+          } else {
+            showToast(`⚡ Chained Link Loaded: $${data.symbol} (${data.syndicate_id})`);
+          }
+        }
+      } catch (err) {
+        console.warn("Failed fetching token lineage:", err);
+      }
+    }
+
     function renderLineageSVG() {
-      const svg = document.getElementById('lineage-svg');
+      if (state.activeTokenLineage) {
+        renderTokenLineageSVG(state.activeTokenLineage);
+      } else if (state.tokenHistory && state.tokenHistory.length > 0) {
+        inspectToken(state.tokenHistory[0].mint);
+      } else {
+        renderTokenLineageSVG(null);
+      }
+    }
+
+    function renderTokenLineageSVG(lineageData, svgId = 'lineage-svg') {
+      const svg = document.getElementById(svgId);
+      if (!svg) return;
       svg.innerHTML = '';
 
-      const nodes = [
-        { id: 'ROOT', label: 'Treasury Root', sol: '150 SOL', x: 160, y: 35, type: 'treasury' },
-        { id: 'M1', label: 'Member 1', sol: '5.0 SOL', x: 160, y: 95, type: 'member' },
-        { id: 'C2', label: 'Child Deployer', sol: '0.5 SOL', x: 160, y: 155, type: 'deployer' },
-        { id: 'ANCHOR', label: '⚡ Whale Anchor', sol: '25.0 SOL', x: 160, y: 220, type: 'treasury' },
-        { id: 'SUB1', label: '69aiAKU3 (Ready)', sol: '0.08 SOL', x: 100, y: 285, type: 'deployer' },
-        { id: 'TOKEN', label: '🚀 $ZLONG Mint', sol: 'Pump.fun', x: 100, y: 340, type: 'token' },
-        { id: 'DUST', label: 'Dust Monitor', sol: '0.01 SOL', x: 230, y: 285, type: 'dust' },
-      ];
+      if (!lineageData || !lineageData.nodes) {
+        // Fallback default structure
+        lineageData = {
+          nodes: [
+            { id: 'STAGE_1_FUNDER', stage: 1, type: 'treasury', label: 'Binance Treasury', sol_value: '50.0 SOL', address: 'Binance_HotWallet_8p7Z2M', role: 'Genesis CEX Funder' },
+            { id: 'STAGE_2_HOP', stage: 2, type: 'hop', label: 'Hop Anchor (DFZ497...)', sol_value: '1.495 SOL', address: 'Anchor_DFZ497_hop1', role: 'Transfer Hop 1' },
+            { id: 'STAGE_3_DEPLOYER', stage: 3, type: 'deployer', label: 'Deployer (DFZ497...)', sol_value: '0.08 SOL', address: 'DFZ497f4YTS4RXjPeKPuECHXSmoVnvoFMpmErnZK61cc', role: 'Syndicate Deployer (SYND-0095)' },
+            { id: 'STAGE_4_MINT', stage: 4, type: 'token', label: '$LEVERAGE Mint', sol_value: '$1.45M ATH', address: 'BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump', role: 'Token Mint (Pump.fun)' },
+            { id: 'STAGE_5_BUNDLER_1', stage: 5, type: 'bundler', label: 'Jito Bundler #1', sol_value: '+12.4 SOL', address: 'Bundle1_BM2k8m_Jito', role: 'Co-Slot Jito Bundler (<400ms)' },
+            { id: 'STAGE_5_BUNDLER_2', stage: 5, type: 'bundler', label: 'Jito Bundler #2', sol_value: '+8.9 SOL', address: 'Bundle2_BM2k8m_Jito', role: 'Co-Slot Jito Bundler (<400ms)' },
+            { id: 'STAGE_5_SNIPER', stage: 5, type: 'sniper', label: 'Early Sniper', sol_value: '+5.2 SOL', address: 'Sniper_BM2k8m_early', role: 'Early Sniper (<30s)' },
+          ],
+          edges: [
+            { from: 'STAGE_1_FUNDER', to: 'STAGE_2_HOP', label: '50.0 SOL' },
+            { from: 'STAGE_2_HOP', to: 'STAGE_3_DEPLOYER', label: '1.495 SOL' },
+            { from: 'STAGE_3_DEPLOYER', to: 'STAGE_4_MINT', label: 'Deploys' },
+            { from: 'STAGE_4_MINT', to: 'STAGE_5_BUNDLER_1', label: '<400ms' },
+            { from: 'STAGE_4_MINT', to: 'STAGE_5_BUNDLER_2', label: '<400ms' },
+            { from: 'STAGE_4_MINT', to: 'STAGE_5_SNIPER', label: '<30s' },
+          ]
+        };
+      }
 
-      const edges = [
-        { from: 'ROOT', to: 'M1', label: '5.0 SOL' },
-        { from: 'M1', to: 'C2', label: '0.5 SOL' },
-        { from: 'C2', to: 'ANCHOR', label: '25.0 SOL (Resets Hop 0)' },
-        { from: 'ANCHOR', to: 'SUB1', label: '0.08 SOL ($12)' },
-        { from: 'SUB1', to: 'TOKEN', label: 'Creates Mint' },
-        { from: 'M1', to: 'DUST', label: '0.01 SOL (<$5)' },
+      // Compute geometric coordinates for 5 stages (viewBox 0 0 320 370)
+      const nodePos = {
+        'STAGE_1_FUNDER': { x: 160, y: 35, w: 140, h: 32 },
+        'STAGE_2_HOP': { x: 160, y: 98, w: 140, h: 30 },
+        'STAGE_3_DEPLOYER': { x: 160, y: 168, w: 140, h: 32 },
+        'STAGE_4_MINT': { x: 160, y: 242, w: 140, h: 34 },
+        'STAGE_5_BUNDLER_1': { x: 60, y: 324, w: 94, h: 30 },
+        'STAGE_5_BUNDLER_2': { x: 160, y: 324, w: 94, h: 30 },
+        'STAGE_5_SNIPER': { x: 260, y: 324, w: 94, h: 30 },
+      };
+
+      const edges = lineageData.edges || [
+        { from: 'STAGE_1_FUNDER', to: 'STAGE_2_HOP', label: '50 SOL' },
+        { from: 'STAGE_2_HOP', to: 'STAGE_3_DEPLOYER', label: '1.49 SOL' },
+        { from: 'STAGE_3_DEPLOYER', to: 'STAGE_4_MINT', label: 'Deploys' },
+        { from: 'STAGE_4_MINT', to: 'STAGE_5_BUNDLER_1', label: '<400ms' },
+        { from: 'STAGE_4_MINT', to: 'STAGE_5_BUNDLER_2', label: '<400ms' },
+        { from: 'STAGE_4_MINT', to: 'STAGE_5_SNIPER', label: '<30s' },
       ];
 
       // Draw Edges
       edges.forEach(e => {
-        const fromNode = nodes.find(n => n.id === e.from);
-        const toNode = nodes.find(n => n.id === e.to);
-        if (!fromNode || !toNode) return;
+        const fromP = nodePos[e.from];
+        const toP = nodePos[e.to];
+        if (!fromP || !toP) return;
 
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', fromNode.x);
-        line.setAttribute('y1', fromNode.y);
-        line.setAttribute('x2', toNode.x);
-        line.setAttribute('y2', toNode.y);
+        line.setAttribute('x1', fromP.x);
+        line.setAttribute('y1', fromP.y + fromP.h / 2);
+        line.setAttribute('x2', toP.x);
+        line.setAttribute('y2', toP.y - toP.h / 2);
         line.setAttribute('stroke', '#334155');
-        line.setAttribute('stroke-width', '2');
-        if (e.from === 'C2' && e.to === 'ANCHOR') {
+        line.setAttribute('stroke-width', '1.5');
+        if (e.from === 'STAGE_2_HOP' || e.from === 'STAGE_4_MINT') {
           line.setAttribute('stroke', '#f59e0b');
-          line.setAttribute('stroke-dasharray', '4,3');
+          line.setAttribute('stroke-dasharray', '3,3');
         }
         svg.appendChild(line);
       });
 
       // Draw Nodes
-      nodes.forEach(n => {
+      lineageData.nodes.forEach(n => {
+        const pos = nodePos[n.id] || { x: 160, y: 200, w: 110, h: 30 };
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         g.style.cursor = 'pointer';
-        g.onclick = () => inspectNode(n);
+        g.onclick = () => onNodeClicked(n);
 
         const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        const w = 110;
-        const h = 32;
-        rect.setAttribute('x', n.x - w / 2);
-        rect.setAttribute('y', n.y - h / 2);
-        rect.setAttribute('width', w);
-        rect.setAttribute('height', h);
+        rect.setAttribute('x', pos.x - pos.w / 2);
+        rect.setAttribute('y', pos.y - pos.h / 2);
+        rect.setAttribute('width', pos.w);
+        rect.setAttribute('height', pos.h);
         rect.setAttribute('rx', '4');
 
         if (n.type === 'treasury') {
@@ -1818,13 +2146,21 @@
           rect.setAttribute('stroke', '#f59e0b');
           rect.setAttribute('stroke-width', '1.5');
         } else if (n.type === 'deployer') {
-          rect.setAttribute('fill', '#0f172a');
+          rect.setAttribute('fill', '#064e3b');
           rect.setAttribute('stroke', '#10b981');
           rect.setAttribute('stroke-width', '1.5');
         } else if (n.type === 'token') {
           rect.setAttribute('fill', '#312e81');
           rect.setAttribute('stroke', '#818cf8');
-          rect.setAttribute('stroke-width', '1.5');
+          rect.setAttribute('stroke-width', '2');
+        } else if (n.type === 'bundler') {
+          rect.setAttribute('fill', '#164e63');
+          rect.setAttribute('stroke', '#06b6d4');
+          rect.setAttribute('stroke-width', '1.2');
+        } else if (n.type === 'sniper') {
+          rect.setAttribute('fill', '#4c0519');
+          rect.setAttribute('stroke', '#f43f5e');
+          rect.setAttribute('stroke-width', '1.2');
         } else {
           rect.setAttribute('fill', '#0f172a');
           rect.setAttribute('stroke', '#475569');
@@ -1832,23 +2168,23 @@
         }
 
         const text1 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text1.setAttribute('x', n.x);
-        text1.setAttribute('y', n.y - 3);
+        text1.setAttribute('x', pos.x);
+        text1.setAttribute('y', pos.y - 3);
         text1.setAttribute('text-anchor', 'middle');
         text1.setAttribute('fill', '#fff');
-        text1.setAttribute('font-size', '10px');
+        text1.setAttribute('font-size', pos.w < 100 ? '8.5px' : '9.5px');
         text1.setAttribute('font-family', 'ui-monospace, monospace');
-        text1.setAttribute('font-weight', '600');
+        text1.setAttribute('font-weight', '700');
         text1.textContent = n.label;
 
         const text2 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text2.setAttribute('x', n.x);
-        text2.setAttribute('y', n.y + 10);
+        text2.setAttribute('x', pos.x);
+        text2.setAttribute('y', pos.y + 9);
         text2.setAttribute('text-anchor', 'middle');
-        text2.setAttribute('fill', n.type === 'treasury' ? '#f59e0b' : (n.type === 'deployer' ? '#10b981' : '#94a3b8'));
-        text2.setAttribute('font-size', '9px');
+        text2.setAttribute('fill', n.type === 'treasury' ? '#f59e0b' : (n.type === 'deployer' ? '#10b981' : (n.type === 'token' ? '#a5b4fc' : '#94a3b8')));
+        text2.setAttribute('font-size', '8px');
         text2.setAttribute('font-family', 'ui-monospace, monospace');
-        text2.textContent = n.sol;
+        text2.textContent = n.sol_value || n.sol || '';
 
         g.appendChild(rect);
         g.appendChild(text1);
@@ -1857,24 +2193,172 @@
       });
     }
 
+    function onNodeClicked(node) {
+      if (!node) return;
+      const addr = node.address || '';
+      if (addr && addr.length > 20 && !addr.startsWith('CEX_')) {
+        copyText(addr);
+
+        // Instant filter deployer watchlist
+        const searchInput = document.getElementById('deployer-search');
+        if (searchInput) {
+          searchInput.value = addr.slice(0, 10);
+          renderDeployers();
+        }
+        showToast(`📋 Copied ${node.stage_name || 'Node'}: ${addr.slice(0, 10)}... (Watchlist Filtered)`);
+      } else if (addr) {
+        copyText(addr);
+      }
+      inspectNode(node);
+    }
+
+    function updateNodeInspectorWithLineage(lineage) {
+      const pane = document.getElementById('inspector-content');
+      if (!pane) return;
+
+      const mintNode = lineage.nodes.find(n => n.type === 'token') || {};
+      pane.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="badge" style="background:rgba(245, 158, 11, 0.15); color:var(--gold); border-color:var(--gold-border); font-weight:700;">
+              VERIFIED SYNDICATE MEMBER
+            </span>
+            <span style="font-size:10px; color:var(--green); font-weight:600;">Suspicion: ${lineage.suspicion_score}/100</span>
+          </div>
+          <div><strong>Token:</strong> <span style="color:var(--gold);">$${lineage.symbol}</span> (${lineage.name})</div>
+          <div><strong>Cluster:</strong> <span style="color:var(--gold); font-weight:700;">${lineage.syndicate_id}</span></div>
+          <div><strong>Deployer:</strong> <span class="wallet-addr" onclick="filterWatchlistToDeployer('${lineage.deployer_address}')" title="Click to filter watchlist">${lineage.deployer_address.slice(0, 10)}... 🎯</span></div>
+          <div style="font-size:10px; color:var(--text-dim); line-height:1.4; margin-top:2px;">${lineage.proof_summary}</div>
+          <div style="margin-top:6px; display:flex; gap:6px; flex-wrap:wrap;">
+            <a href="${mintNode.dex_url || '#'}" target="_blank" class="copy-pill" style="color:var(--gold);">📈 DexScreener</a>
+            <a href="${mintNode.gmgn_url || '#'}" target="_blank" class="copy-pill" style="color:#c084fc;">🪐 GMGN</a>
+            <a href="${mintNode.pump_url || '#'}" target="_blank" class="copy-pill" style="color:#38bdf8;">💊 Pump.fun</a>
+          </div>
+          <button class="btn btn-secondary" onclick="openLineageModal()" style="margin-top:8px; width:100%; display:flex; align-items:center; justify-content:center; gap:6px;">
+            <span>🔍 OPEN FULLSCREEN PROOF GRAPH</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function updateModalLineageContent(lineage) {
+      const badge = document.getElementById('modal-synd-badge');
+      const symbolSpan = document.getElementById('modal-token-symbol');
+      const plaque = document.getElementById('modal-plaque-content');
+      if (badge) badge.textContent = lineage.syndicate_id;
+      if (symbolSpan) symbolSpan.textContent = `$${lineage.symbol}`;
+
+      if (plaque) {
+        const mintNode = lineage.nodes.find(n => n.type === 'token') || {};
+        plaque.innerHTML = `
+          <div style="border-bottom:1px solid #1e293b; padding-bottom:10px;">
+            <div style="font-size:10px; color:var(--text-dim); text-transform:uppercase;">Syndicate Cluster Entity</div>
+            <div style="font-size:18px; color:var(--gold); font-weight:700;">${lineage.syndicate_id}</div>
+            <div style="font-size:11px; color:var(--text-muted);">${lineage.name} ($${lineage.symbol})</div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="background:#0f172a; padding:8px 10px; border-radius:4px; border:1px solid #1e293b;">
+              <div style="font-size:9px; color:var(--text-dim);">PEAK ATH MCAP</div>
+              <div style="font-size:13px; color:#fff; font-weight:700;">$${Number(lineage.ath_market_cap_usd || 0).toLocaleString()}</div>
+            </div>
+            <div style="background:#0f172a; padding:8px 10px; border-radius:4px; border:1px solid #1e293b;">
+              <div style="font-size:9px; color:var(--text-dim);">SUSPICION RATING</div>
+              <div style="font-size:13px; color:var(--red); font-weight:700;">${lineage.suspicion_score} / 100</div>
+            </div>
+          </div>
+
+          <div style="background:#0f172a; padding:10px; border-radius:4px; border:1px solid #1e293b;">
+            <div style="font-size:10px; color:var(--text-dim); margin-bottom:4px;">GENESIS FUNDER PROVENANCE</div>
+            <div style="font-size:11px; color:#fff;">${lineage.nodes[0].label}</div>
+            <div style="font-size:10px; color:var(--text-muted); word-break:break-all;">${lineage.nodes[0].address}</div>
+          </div>
+
+          <div style="background:#0f172a; padding:10px; border-radius:4px; border:1px solid #1e293b;">
+            <div style="font-size:10px; color:var(--text-dim); margin-bottom:4px;">SYNDICATE DEPLOYER WALLET</div>
+            <div style="font-size:11px; color:var(--green); word-break:break-all;">${lineage.deployer_address}</div>
+            <div style="margin-top:6px; display:flex; gap:6px;">
+              <button class="btn btn-secondary" style="font-size:10px; padding:3px 8px;" onclick="copyText('${lineage.deployer_address}')">📋 Copy</button>
+              <button class="btn btn-secondary" style="font-size:10px; padding:3px 8px;" onclick="filterWatchlistToDeployer('${lineage.deployer_address}')">🎯 Filter Watchlist</button>
+            </div>
+          </div>
+
+          <div style="background:#0f172a; padding:10px; border-radius:4px; border:1px solid #1e293b;">
+            <div style="font-size:10px; color:var(--text-dim); margin-bottom:4px;">COORDINATED ATTACK VECTORS</div>
+            <div style="font-size:10px; color:var(--cyan); line-height:1.5;">
+              • Jito Co-Slot Bundles (&lt;400ms execution delta)<br>
+              • Genesis CEX multi-hop liquidity injection<br>
+              • Coordinated early snipers (&lt;30s entry)
+            </div>
+          </div>
+
+          <div style="display:flex; gap:6px; margin-top:8px;">
+            <a href="${mintNode.dex_url || '#'}" target="_blank" class="btn btn-secondary" style="flex:1; text-align:center; text-decoration:none;">📈 DEX</a>
+            <a href="${mintNode.gmgn_url || '#'}" target="_blank" class="btn btn-secondary" style="flex:1; text-align:center; text-decoration:none; color:#c084fc;">🪐 GMGN</a>
+            <a href="${mintNode.pump_url || '#'}" target="_blank" class="btn btn-secondary" style="flex:1; text-align:center; text-decoration:none; color:#38bdf8;">💊 Pump</a>
+          </div>
+        `;
+      }
+    }
+
+    function openLineageModal() {
+      const modal = document.getElementById('lineage-modal-overlay');
+      if (!modal) return;
+      modal.style.display = 'flex';
+      const lineage = state.activeTokenLineage || (state.tokenHistory && state.tokenHistory.length > 0 ? inspectToken(state.tokenHistory[0].mint) : null);
+      if (state.activeTokenLineage) {
+        renderTokenLineageSVG(state.activeTokenLineage, 'modal-lineage-svg');
+        updateModalLineageContent(state.activeTokenLineage);
+      }
+    }
+
+    function closeLineageModal(e) {
+      if (e && e.target && e.target.id !== 'lineage-modal-overlay' && !e.target.closest('button')) return;
+      const modal = document.getElementById('lineage-modal-overlay');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function filterWatchlistToDeployer(addr) {
+      if (!addr) return;
+      const searchBox = document.getElementById('deployer-search');
+      if (searchBox) {
+        searchBox.value = addr.slice(0, 10);
+        renderDeployers();
+        closeLineageModal();
+        if (window.innerWidth <= 768) {
+          switchMobileColumn('WATCHLIST');
+        }
+        showToast(`🎯 Watchlist Filtered to: ${addr.slice(0, 10)}...`);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('lineage-modal-overlay');
+        if (modal && modal.style.display === 'flex') modal.style.display = 'none';
+      }
+    });
+
     function inspectNode(n) {
       const pane = document.getElementById('inspector-content');
       let extraHtml = '';
       if (n.type === 'token') {
         extraHtml = `
           <div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
-            <a href="https://dexscreener.com/solana/2u7hgtjgy2nzsglu92pcqunhxxryfpm4dtq9tvtkmpih" target="_blank" class="copy-pill" style="color:var(--gold);">📈 DexScreener</a>
-            <a href="https://gmgn.ai/sol/token/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" class="copy-pill" style="color:#c084fc;">🪐 GMGN</a>
-            <a href="https://pump.fun/4xjvmiKa5vzkQtaNrTV17v8PFU5mP69Hf1Kq5A9wpump" target="_blank" class="copy-pill">💊 Pump.fun</a>
+            <a href="${n.dex_url || '#'}" target="_blank" class="copy-pill" style="color:var(--gold);">📈 DexScreener</a>
+            <a href="${n.gmgn_url || '#'}" target="_blank" class="copy-pill" style="color:#c084fc;">🪐 GMGN</a>
+            <a href="${n.pump_url || '#'}" target="_blank" class="copy-pill" style="color:#38bdf8;">💊 Pump.fun</a>
           </div>
         `;
       }
       pane.innerHTML = `
         <div style="display:flex; flex-direction:column; gap:4px;">
+          <div><strong>Stage ${n.stage || ''}:</strong> <span style="color:var(--gold);">${n.stage_name || n.type.toUpperCase()}</span></div>
           <div><strong>Node:</strong> ${n.label}</div>
-          <div><strong>Type:</strong> <span style="color:var(--gold);">${n.type.toUpperCase()}</span></div>
-          <div><strong>Balance / Value:</strong> ${n.sol}</div>
-          <div><strong>Lineage Role:</strong> ${n.type === 'treasury' ? 'Dynamic Treasury Anchor (≥20 SOL)' : (n.type === 'deployer' ? 'Active Deployer Gate (≥$5.00)' : (n.type === 'token' ? 'Meme Token Mint (Pump.fun / Raydium)' : 'Monitored Participant'))}</div>
+          <div style="word-break:break-all;"><strong>Address:</strong> <span class="wallet-addr">${n.address || 'N/A'}</span></div>
+          <div><strong>Balance / Value:</strong> ${n.sol_value || n.sol || 'N/A'}</div>
+          <div><strong>Lineage Role:</strong> ${n.role || 'Syndicate Participant'}</div>
+          <div style="font-size:10px; color:var(--text-dim); line-height:1.3; margin-top:2px;">${n.proof || 'Verified on-chain lineage node.'}</div>
           ${extraHtml}
         </div>
       `;
@@ -1935,7 +2419,12 @@
         renderDeployers();
         renderTokenHistory();
         renderFeed();
-        renderLineageSVG();
+
+        if (state.activeTokenLineage) {
+          renderTokenLineageSVG(state.activeTokenLineage);
+        } else if (state.tokenHistory && state.tokenHistory.length > 0) {
+          inspectToken(state.tokenHistory[0].mint);
+        }
 
         // Highlight latest launch if available
         if (state.launches && state.launches.length > 0) {

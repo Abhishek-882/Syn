@@ -283,6 +283,43 @@ tests/
            - tests/e2e/test_turbo_scanner_e2e.py: Verified /api/keeper/status, /api/keeper/run, and #keeper-turbo-chip via Playwright (Step 118 screenshot).
            - Full E2E suite: 100% PASS on test_token_history_browser.py, test_mobile_persona_ux_audit.py (21/21 controls), and test_bitdog_verification.py.
 
+
+- [x] M24 — Interactive Syndicate Chained-Link Lineage Flowchart & Fullscreen Modal:
+          - GroundTruthLoader (src/crypto_syndicate/ground_truth_loader.py):
+            - Implemented get_token_lineage(mint) constructing a deterministic 5-stage on-chain proof graph:
+              Stage 1 (Genesis CEX Treasury), Stage 2 (Hop Anchor), Stage 3 (Syndicate Deployer),
+              Stage 4 (Token Mint with ATH mcap), Stage 5 (Co-slot Jito Bundlers <400ms & Early Snipers <30s).
+            - Fast mtime check reload_if_needed() avoiding redundant full CSV disk writes.
+          - Server (src/crypto_syndicate/server.py):
+            - Implemented GET /api/token-lineage?mint=... returning 200 JSON proof graphs with nodes & edges.
+          - Clean 2D Terminal (web/syndicate_terminal.html):
+            - Clicking any historical token row calls inspectToken(mint) and renders interactive 2D SVG flowchart.
+            - Clicked row receives highlighted selection state (.selected-token-row).
+            - Clicking any SVG node copies address to clipboard and auto-filters Column 1 Deployer Watchlist.
+            - Fullscreen Lineage Modal (#lineage-modal-overlay) with comprehensive cluster dossier.
+            - Responsive auto-switching to Lineage column on mobile devices (<=768px).
+          - Automated Verification:
+            - tests/unit/test_token_lineage.py: 3/3 unit tests PASSING.
+            - tests/e2e/test_token_lineage_flowchart.py: 100% PASS across desktop, node clicks, modal, and mobile.
+            - Numbered Screenshots: Step 119 (119_token_chained_link_flowchart_verified.png) and Step 120 (120_lineage_fullscreen_modal_verified.png).
+
+- [x] M25 — Binance-Funded Developer Wallet Filter & Autonomous Provenance Scaling:
+          - Data Provenance Layer (src/crypto_syndicate/ground_truth_loader.py & keeper.py):
+            - Enriched tokens with is_binance_funded: bool and fund_from: str across all 37 historical tokens.
+            - Enriched deployers with is_binance_funded: bool, fund_from, and funded_by: str.
+            - Ingest pipeline automatically infers and tags Binance funding for all new incoming tokens and forward-traced wallets.
+          - Clean 2D Terminal UI (web/syndicate_terminal.html):
+            - Dual toggle buttons: #filter-binance-btn in Token Track Record and #filter-binance-dep-btn in Deployer Watchlist.
+            - Styled per /anti-vibe-design: inactive hollow dot (○), active amber gold glow with filled dot (●).
+            - Real-time toast notifications confirming filter state changes.
+            - Token Track Record table filters from 37 tokens down to exactly 7 Binance-funded tokens (, , , , , , ).
+            - Visual funder badge 🟡 BINANCE (.funder-badge.funder-binance) displayed on each row and deployer card.
+            - Filter state fully persists across real-time SSE stream events (NEW_TOKEN_DISCOVERED, SYNDICATE_WALLETS_UPDATED) and snapshot refreshes.
+          - Automated Verification:
+            - tests/unit/test_binance_filter.py: 3/3 unit tests PASSING.
+            - tests/e2e/test_binance_filter_e2e.py: 100% PASS verifying toggle ON (7 tokens), toggle OFF (37 tokens), badge presence, deployer sync, and mobile responsiveness.
+            - Numbered Screenshots: Step 121 (121_binance_dev_filter_active.png) and Step 122 (122_binance_dev_filter_toggled_off.png).
+
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant
 - agent-skills (production-grade agent skill templates): https://github.com/addyosmani/agent-skills

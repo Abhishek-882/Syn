@@ -306,6 +306,21 @@ class SyndicateKeeper:
             if not token_info.get("wallets_count"):
                 token_info["wallets_count"] = 8
 
+            # Ensure fund_from and is_binance_funded are populated for newly discovered tokens
+            fund_from = token_info.get("fund_from") or ""
+            if not fund_from:
+                deployers = token_info.get("deployers") or []
+                dep = deployers[0] if deployers else ""
+                from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
+                loader = get_ground_truth_loader()
+                known_dep = loader.deployers_by_address.get(dep)
+                if known_dep and known_dep.get("is_binance_funded"):
+                    fund_from = "Binance"
+                else:
+                    fund_from = "Binance" if "binance" in dep.lower() else (token_info.get("launchpad_platform") or "Direct")
+            token_info["fund_from"] = fund_from
+            token_info["is_binance_funded"] = "binance" in fund_from.lower()
+
             if existing_idx is not None:
                 # Merge fields preserving historical peak ATH
                 prev_ath = float(live_tokens[existing_idx].get("ath_market_cap_usd") or 0.0)
@@ -514,6 +529,8 @@ class SyndicateKeeper:
                     "estimated_profit_usd": round(token_info.get("ath_market_cap_usd", 100000.0) * 0.15, 2),
                     "patterns_flagged": ["early_entry", "cex_funding", "pump_and_dump", "jito_bundle"],
                     "deployer_wallet": deployer,
+                    "genesis_funder": token_info.get("fund_from", "Binance"),
+                    "is_binance_funded": "binance" in (token_info.get("fund_from") or "").lower(),
                     "is_jito_bundle": True,
                 },
                 "total_profit_usd": round(token_info.get("ath_market_cap_usd", 100000.0) * 0.15, 2),
@@ -529,7 +546,11 @@ class SyndicateKeeper:
                     synd_entry["known_wallets"].append(w_addr)
             if deployer and deployer not in synd_entry.setdefault("primary_wallets", []):
                 synd_entry["primary_wallets"].append(deployer)
-            synd_entry["behavior_profile"]["wallet_count"] = len(synd_entry["known_wallets"])
+            bp = synd_entry.setdefault("behavior_profile", {})
+            if "genesis_funder" not in bp:
+                bp["genesis_funder"] = token_info.get("fund_from", "Binance")
+                bp["is_binance_funded"] = "binance" in (token_info.get("fund_from") or "").lower()
+            bp["wallet_count"] = len(synd_entry["known_wallets"])
 
         with open(self.identities_file, "w", encoding="utf-8") as f:
             json.dump(identities, f, indent=2)
@@ -925,6 +946,7 @@ class SyndicateKeeper:
             "batch_index": self._batch_index,
             "time_drift_seconds": self.time_sync.drift_seconds,
             "new_tokens_count": total_deltas,
+            "refreshed_tokens_count": total_deltas,
             "deployer_deltas": len(deployer_deltas),
             "solscan_deltas": len(solscan_deltas),
             "expansion": expansion_result,
