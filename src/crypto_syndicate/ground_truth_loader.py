@@ -354,8 +354,8 @@ class GroundTruthLoader:
 
         return transfers
 
-    def get_syndicate_token_history(self) -> List[Dict[str, Any]]:
-        """Return all historical syndicate tokens with ATH and Current Mcap, ranked recent first."""
+    def get_syndicate_token_history(self, max_age_days: Optional[float] = None) -> List[Dict[str, Any]]:
+        """Return historical syndicate tokens with ATH and Current Mcap, optionally filtered to past max_age_days."""
         self.reload_if_needed()
         history = []
         now = time.time()
@@ -367,11 +367,14 @@ class GroundTruthLoader:
 
             created_ms = t.get("created_at_ms") or (now * 1000)
             launch_ts = created_ms / 1000.0 if created_ms > 1e11 else float(created_ms)
+            age_s = max(0.0, now - launch_ts)
+
+            if max_age_days is not None and age_s > (max_age_days * 86400.0):
+                continue
 
             # Date formatting
             date_tuple = time.gmtime(launch_ts)
             created_date_str = time.strftime("%Y-%m-%d %H:%M UTC", date_tuple)
-            age_s = max(0.0, now - launch_ts)
             rel_time = format_relative_time(age_s)
 
             ath_mc = float(t.get("ath_market_cap_usd") or 0.0)

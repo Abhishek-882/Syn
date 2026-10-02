@@ -357,6 +357,23 @@ tests/
             - Numbered screenshots captured: Step 118 (118_dual_page_page1_binance_default.png), Step 119 (119_dual_page_page2_non_binance.png), Step 120 (120_dual_page_mobile_responsive.png), Step 121 (121_hunter_page1_binance_sweep.png), Step 122 (122_auditor_page2_non_binance_sweep.png), Step 123 (123_analyst_mobile_page_switch.png).
           - Test Suite & Regression Checks:
             - Full pytest suite: 15/15 unit and E2E tests PASSING (100%).
+- [x] M29 — Past 7 Days Token Recency Filter Across Terminal and API Endpoints:
+          - Data Layer Invariant (src/crypto_syndicate/ground_truth_loader.py):
+            - Implemented max_age_days: Optional[float] = None in get_syndicate_token_history().
+            - Filters out any token where age_s > max_age_days * 86400.0, while maintaining backward compatibility when None.
+          - Backend REST Endpoints (src/crypto_syndicate/server.py):
+            - /api/syndicates passes max_age_days=7.0 to build token_history for the default snapshot.
+            - /api/token-history supports ?days= query param (default "7", or "all", "0", custom float).
+          - Clean 2D Terminal UI (web/syndicate_terminal.html):
+            - Added isTokenPast7Days() helper and filtered getPageTokens() to strictly tokens <= 7 days old.
+            - Updated page button badges: ${binanceTokens.length} TOKENS (7D) and ${nonBinanceTokens.length} TOKENS (7D).
+            - Updated toolbar subtitle to ⚡ Past 7 Days (Recent First) with gold emphasis.
+            - Dynamic center counter: ${list.length} tokens (Past 7 Days — Page N: ...).
+            - Excludes legacy tokens (e.g. $BITDOG 16.6d, $FLINT 67d, $JEANGRINO >7d) while preserving recent launches ($BAGWORK, $PUZZLE, $LEVERAGE).
+          - Automated Verification:
+            - tests/unit/test_past_7_days_filter.py: 2/2 tests PASSING.
+            - tests/e2e/test_dual_page_terminal.py: Verified $BITDOG, $FLINT, $JEANGRINO exclusion on both pages (100% PASS).
+            - Full unit regression suite: 14/14 tests PASSING.
 
 ## Useful References
 - Qdrant (vector DB, 34.6K stars): https://github.com/qdrant/qdrant

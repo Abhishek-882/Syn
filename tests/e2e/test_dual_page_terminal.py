@@ -125,6 +125,10 @@ def test_dual_page_ecosystem_terminal():
             badges = page.locator(".history-row .funder-badge.funder-binance")
             assert badges.count() == page1_count, f"Expected all {page1_count} Binance badges on Page 1, got {badges.count()}"
 
+            # Verify no tokens older than 7 days are displayed on Page 1
+            rendered_text_p1 = page.locator("#history-table-body").inner_text()
+            assert "BITDOG" not in rendered_text_p1, "BITDOG (16d old) must not be displayed on Page 1 (past 7 days only)"
+
             # Deployers counter on Page 1
             dep_counter = page.locator("#deployers-counter").inner_text()
             assert "Binance" in dep_counter, f"Expected Binance deployer count, got: {dep_counter}"
@@ -159,6 +163,11 @@ def test_dual_page_ecosystem_terminal():
             # Verify zero rows on Page 2 have the Binance badge
             badges_p2 = page.locator(".history-row .funder-badge.funder-binance")
             assert badges_p2.count() == 0, f"Expected 0 Binance badges on Page 2, got {badges_p2.count()}"
+
+            # Verify no tokens older than 7 days are displayed on Page 2
+            rendered_text_p2 = page.locator("#history-table-body").inner_text()
+            assert "JEANGRINO" not in rendered_text_p2, "JEANGRINO (>7d old) must not be displayed on Page 2 (past 7 days only)"
+            assert "FLINT" not in rendered_text_p2, "FLINT (>67d old) must not be displayed on Page 2 (past 7 days only)"
 
             # Deployers counter on Page 2
             dep_counter_p2 = page.locator("#deployers-counter").inner_text()

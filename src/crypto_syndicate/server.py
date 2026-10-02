@@ -233,11 +233,11 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
             and l.get("symbol") != "BELUGA"
         ]
 
-        # Include rich historical token track record ranked by recency
+        # Include rich historical token track record ranked by recency (filtered to past 7 days)
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
-            data["token_history"] = loader.get_syndicate_token_history()
+            data["token_history"] = loader.get_syndicate_token_history(max_age_days=7.0)
             stats = data.setdefault("stats", {})
             b_tokens = [t for t in data["token_history"] if t.get("is_binance_funded")]
             stats["binance_tokens_count"] = len(b_tokens)
@@ -258,16 +258,21 @@ class SyndicateTerminalHandler(SimpleHTTPRequestHandler):
         self.wfile.write(resp_bytes)
 
     def handle_api_token_history(self):
-        """Return historical tokens ranked chronologically by release date (most recent first)."""
+        """Return historical tokens ranked chronologically by release date (most recent first, past 7 days by default)."""
         try:
             from crypto_syndicate.ground_truth_loader import get_ground_truth_loader
             loader = get_ground_truth_loader()
             loader.reload_if_needed()
-            tokens = loader.get_syndicate_token_history()
 
             import urllib.parse
             query = urllib.parse.urlparse(self.path).query
             params = urllib.parse.parse_qs(query)
+
+            # Days filter: default to past 7 days unless days=all or custom days specified
+            days_param = params.get("days", ["7"])[0].lower()
+            max_days = None if days_param in ("all", "0", "none") else float(days_param)
+            tokens = loader.get_syndicate_token_history(max_age_days=max_days)
+
             page_filter = params.get("page", ["all"])[0].lower()
             if page_filter in ("binance", "page1", "1"):
                 tokens = [t for t in tokens if t.get("is_binance_funded") or "binance" in str(t.get("fund_from", "")).lower()]

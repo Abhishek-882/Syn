@@ -1494,8 +1494,8 @@
               placeholder="🔍 Search token symbol, syndicate ID, or deployer..."
               oninput="renderTokenHistory()"
             />
-            <span style="font-size:10px; color:var(--text-muted); font-family:var(--font-mono);">
-              Chronologically Ranked (Recent First)
+            <span style="font-size:10px; color:var(--gold); font-family:var(--font-mono); font-weight:600;">
+              ⚡ Past 7 Days (Recent First)
             </span>
           </div>
           <button class="btn btn-secondary" style="font-size:11px; padding:3px 10px;" onclick="triggerKeeperSync()">
@@ -1644,7 +1644,15 @@
       eventSource: null,
     };
 
-    // --- ECOSYSTEM PARTITIONING HELPERS ---
+    // --- 7-DAY RECENCY & ECOSYSTEM PARTITIONING HELPERS ---
+    const SEVEN_DAYS_SECONDS = 7 * 86400; // 604,800 seconds
+
+    function isTokenPast7Days(t) {
+      if (!t.launch_timestamp) return true;
+      const nowSec = Date.now() / 1000;
+      return (nowSec - t.launch_timestamp) <= SEVEN_DAYS_SECONDS;
+    }
+
     function isBinanceToken(t) {
       return !!(t.is_binance_funded || (t.fund_from && t.fund_from.toLowerCase().includes('binance')));
     }
@@ -1654,7 +1662,7 @@
     }
 
     function getPageTokens() {
-      const all = state.tokenHistory || [];
+      const all = (state.tokenHistory || []).filter(t => isTokenPast7Days(t));
       if (state.currentPage === 'BINANCE') {
         return all.filter(t => isBinanceToken(t));
       } else {
@@ -1698,9 +1706,9 @@
       }
 
       if (page === 'BINANCE') {
-        showToast(`🟡 Page 1 Active: Binance CEX Treasury Syndicate (${pageToks.length} tokens)`);
+        showToast(`🟡 Page 1 Active: Binance CEX Treasury Syndicate (${pageToks.length} tokens in 7D)`);
       } else {
-        showToast(`🌐 Page 2 Active: Non-Binance Syndicate Ecosystem (${pageToks.length} tokens)`);
+        showToast(`🌐 Page 2 Active: Non-Binance Syndicate Ecosystem (${pageToks.length} tokens in 7D)`);
       }
     }
 
@@ -1712,12 +1720,12 @@
       const badgeBinance = document.getElementById('badge-page-binance');
       const badgeNonBinance = document.getElementById('badge-page-non-binance');
 
-      const allTokens = state.tokenHistory || [];
+      const allTokens = (state.tokenHistory || []).filter(t => isTokenPast7Days(t));
       const binanceTokens = allTokens.filter(t => isBinanceToken(t));
       const nonBinanceTokens = allTokens.filter(t => !isBinanceToken(t));
 
-      if (badgeBinance) badgeBinance.textContent = `${binanceTokens.length || 12} TOKENS`;
-      if (badgeNonBinance) badgeNonBinance.textContent = `${nonBinanceTokens.length || 69} TOKENS`;
+      if (badgeBinance) badgeBinance.textContent = `${binanceTokens.length} TOKENS (7D)`;
+      if (badgeNonBinance) badgeNonBinance.textContent = `${nonBinanceTokens.length} TOKENS (7D)`;
 
       const isBinance = state.currentPage === 'BINANCE';
       if (btnBinance) btnBinance.classList.toggle('active', isBinance);
@@ -1747,7 +1755,7 @@
       pageToks.forEach(t => {
         if (t.ath_market_cap_usd && t.ath_market_cap_usd > maxAth) maxAth = t.ath_market_cap_usd;
       });
-      const maxAthStr = maxAth > 0 ? formatUSD(maxAth) : (isBinance ? '$1.36M' : '$1.86M');
+      const maxAthStr = maxAth > 0 ? formatUSD(maxAth) : (isBinance ? '$1.36M' : '$870.7K');
 
       if (tag) {
         tag.className = isBinance ? 'context-tag tag-binance' : 'context-tag tag-non-binance';
@@ -1760,8 +1768,8 @@
       }
       if (subtext) {
         subtext.textContent = isBinance
-          ? 'Verified deployers genesis-funded by Binance CEX Treasury Hot Wallet (8p7Z2M) with coordinated co-slot Jito bundles.'
-          : 'Deployers and tokens funded via non-Binance avenues (FixedFloat, KuCoin, MEXC, private treasuries & stealth multi-sig).';
+          ? 'Verified deployers genesis-funded by Binance CEX Treasury Hot Wallet (8p7Z2M) — Active past 7 days tokens.'
+          : 'Deployers and tokens funded via non-Binance avenues (FixedFloat, KuCoin, MEXC, private treasuries) — Active past 7 days tokens.';
       }
       if (kpiTokens) kpiTokens.textContent = pageToks.length;
       if (kpiDeployers) kpiDeployers.textContent = pageDeps.length;
@@ -1805,8 +1813,8 @@
       }
       if (headerText) {
         headerText.textContent = isBinance
-          ? `🟡 PAGE 1: BINANCE (${pageToks.length})`
-          : `🌐 PAGE 2: NON-BINANCE (${pageToks.length})`;
+          ? `🟡 PAGE 1: BINANCE (${pageToks.length} in 7D)`
+          : `🌐 PAGE 2: NON-BINANCE (${pageToks.length} in 7D)`;
       }
       if (headerChip) {
         headerChip.style.background = isBinance ? 'rgba(245, 158, 11, 0.25)' : 'rgba(6, 182, 212, 0.2)';
@@ -2104,8 +2112,8 @@
       const counter = document.getElementById('center-counter');
       if (counter && state.currentCenterView === 'HISTORY') {
         counter.textContent = state.currentPage === 'BINANCE'
-          ? `${list.length} tokens (Page 1: Binance)`
-          : `${list.length} tokens (Page 2: Non-Binance)`;
+          ? `${list.length} tokens (Past 7 Days — Page 1: Binance)`
+          : `${list.length} tokens (Past 7 Days — Page 2: Non-Binance)`;
       }
 
       if (list.length === 0) {
@@ -2706,16 +2714,17 @@
         state.timeline = data.timeline || [];
         state.stats = data.stats || {};
 
+        const past7dTokens = (state.tokenHistory || []).filter(t => isTokenPast7Days(t));
         // Update stats table
         document.getElementById('stat-anchors').textContent = state.deployers.filter(d => d.balance_sol >= 20.0).length;
         document.getElementById('stat-deployers').textContent = state.deployers.filter(d => d.balance_usd >= 5.0).length;
-        document.getElementById('stat-tokens').textContent = state.tokenHistory.length || state.launches.length;
+        document.getElementById('stat-tokens').textContent = past7dTokens.length || state.launches.length;
         document.getElementById('stat-transfers').textContent = (state.timeline || []).length;
         document.getElementById('stat-pnl').textContent = `$${(state.stats.estimated_profit_usd || 18450.0).toLocaleString()}`;
 
         // Update mobile nav badges
         const mobTokCount = document.getElementById('mob-tokens-count');
-        if (mobTokCount) mobTokCount.textContent = state.tokenHistory.length || state.launches.length || 12;
+        if (mobTokCount) mobTokCount.textContent = past7dTokens.length || state.launches.length || 12;
         const mobDepCount = document.getElementById('mob-deployers-count');
         if (mobDepCount) mobDepCount.textContent = state.deployers.length || 75;
 
@@ -2868,8 +2877,8 @@
               if (counter && state.currentCenterView === 'HISTORY') {
                 const list = getPageTokens();
                 counter.textContent = state.currentPage === 'BINANCE'
-                  ? `${list.length} tokens (Page 1: Binance)`
-                  : `${list.length} tokens (Page 2: Non-Binance)`;
+                  ? `${list.length} tokens (Past 7 Days — Page 1: Binance)`
+                  : `${list.length} tokens (Past 7 Days — Page 2: Non-Binance)`;
               }
             }
           } catch (err) {
